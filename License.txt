@@ -1,22 +1,21 @@
-Ce projet est distribué sous licence
-Creative Commons Attribution - Pas d'Utilisation Commerciale - Partage
-dans les Mêmes Conditions 4.0 International (CC BY-NC-SA 4.0).
+This project is distributed under the
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.
 
-Vous êtes autorisé à :
+You are free to:
 
-- partager le projet ;
-- modifier et adapter le projet ;
-- utiliser le projet à des fins non commerciales.
+- share the project;
+- modify and adapt the project;
+- use the project for non-commercial purposes.
 
-En contrepartie :
+Under the following conditions:
 
-- vous devez créditer l'auteur original ;
-- vous ne pouvez pas utiliser ce projet à des fins commerciales ;
-- toute version modifiée doit être distribuée sous la même licence.
+- you must give appropriate credit to the original author;
+- you may not use this project for commercial purposes;
+- any modified version must be distributed under the same license.
 
-Pour toute utilisation commerciale ou toute utilisation non couverte
-par cette licence, veuillez contacter l'auteur.
+For any commercial use or any use not covered
+by this license, please contact the author.
 
 
-Auteur : Antoine Merceron avec l’aide de Hugo Descoubes
-Année : 2026
+Author : Antoine Merceron with the help of Hugo Descoubes
+2026
