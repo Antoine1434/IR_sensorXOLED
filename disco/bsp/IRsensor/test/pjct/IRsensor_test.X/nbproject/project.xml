@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>com.microchip.mplab.nbide.embedded.makeproject</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/make-project/1">
+            <name>IRsensor_test</name>
+            <creation-uuid>692f77a2-40cf-4d9c-ac57-2096b3fd353f</creation-uuid>
+            <make-project-type>0</make-project-type>
+            <c-extensions>c</c-extensions>
+            <cpp-extensions/>
+            <header-extensions/>
+            <asminc-extensions/>
+            <sourceEncoding>ISO-8859-1</sourceEncoding>
+            <make-dep-projects/>
+            <sourceRootList>
+                <sourceRootElem>../..</sourceRootElem>
+                <sourceRootElem>../../../src</sourceRootElem>
+                <sourceRootElem>../../../../gpio/src</sourceRootElem>
+                <sourceRootElem>../../../../timer0/src</sourceRootElem>
+                <sourceRootElem>../../../../uart1_correction/src</sourceRootElem>
+                <sourceRootElem>../../../../uart2_correction/src</sourceRootElem>
+                <sourceRootElem>../../../../timer1/src</sourceRootElem>
+                <sourceRootElem>../../../../rn52_correction/src</sourceRootElem>
+            </sourceRootList>
+            <confList>
+                <confElem>
+                    <name>default</name>
+                    <type>2</type>
+                </confElem>
+            </confList>
+            <formatting>
+                <project-formatting-style>false</project-formatting-style>
+            </formatting>
+        </data>
+    </configuration>
+</project>

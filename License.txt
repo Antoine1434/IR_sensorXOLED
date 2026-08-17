@@ -1,0 +1,22 @@
+Ce projet est distribué sous licence
+Creative Commons Attribution - Pas d'Utilisation Commerciale - Partage
+dans les Mêmes Conditions 4.0 International (CC BY-NC-SA 4.0).
+
+Vous êtes autorisé à :
+
+- partager le projet ;
+- modifier et adapter le projet ;
+- utiliser le projet à des fins non commerciales.
+
+En contrepartie :
+
+- vous devez créditer l'auteur original ;
+- vous ne pouvez pas utiliser ce projet à des fins commerciales ;
+- toute version modifiée doit être distribuée sous la même licence.
+
+Pour toute utilisation commerciale ou toute utilisation non couverte
+par cette licence, veuillez contacter l'auteur.
+
+
+Auteur : Antoine Merceron avec l’aide de Hugo Descoubes
+Année : 2026

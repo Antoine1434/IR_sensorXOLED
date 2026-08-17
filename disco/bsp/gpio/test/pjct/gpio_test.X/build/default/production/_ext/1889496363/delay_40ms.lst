@@ -1,0 +1,59 @@
+
+
+Microchip Technology PIC18 Macro Assembler V1.45 build -152302408 
+                                                                                                           Mon Mar 23 14:55:02 2026
+
+
+     1                           	processor	18F27K40
+     2                           	opt	pw 132
+     3                           	psect	bss_delay,global,class=BANK0,space=1,delta=1
+     4                           	psect	text,global,reloc=2,class=CODE,delta=1
+     5                           
+     6                           ; file common/delay/src/delay_40ms.h
+     7                           ; brief 40ms software delay
+     8                           ; warning 40ms duration only for 64MHz cpu clock
+     9                           ; author
+    10  0000                     
+    11                           ; linker memory static allocation directives for data
+    12                           
+    13                           	psect	bss_delay
+    14  000060                     	ds	1
+    15  000061                     	ds	1
+    16  000062                     delay_cnt3:
+    17  000062                     	ds	1
+    18  000063                     bsr_tmp:
+    19  000063                     	ds	1
+    20                           
+    21                           ; linker memory static allocation directives for code
+    22                           
+    23                           	psect	text
+    24  01FFC2                     _delay_40ms:
+    25                           	opt stack 0
+    26                           
+    27                           ;DECFSZ count,1,1
+    28                           ;GOTO _delay_10us
+    29                           ;RETURN
+    30                           ;save BSR context
+    31  01FFC2  CFE0 FFE8          	movff	bsr,wreg
+    32  01FFC6  0100               	movlb	0	; aller en banque 0
+    33  01FFC8  CFE8 F063          	movff	wreg,bsr_tmp
+    34  01FFCC  0E35               	movlw	53	;constante sur 8bits mit dans W qui fait 8 bits
+    35  01FFCE  6F62               	movwf	delay_cnt3,b
+    36  01FFD0                     delay_40ms_L1:
+    37  01FFD0  2F62               	decfsz	delay_cnt3,f,b	;dure 1 cycle, dure 2 cycles si test est bon, ( Instruction sur 16 bits sauf 
+      +                          GOTO,CALL,MOVFF sur 32bits) , garde le résultat dans delat_cnt1
+    38  01FFD2  D7FE               	goto	delay_40ms_L1	;2 cycles
+    39                           
+    40                           ;restore BSR context
+    41  01FFD4  C063  FFE0         	movff	bsr_tmp,bsr
+    42  01FFD8  0012               	return	
+    43                           wreg	equ	0xFE8
+    44                           bsr	equ	0xFE0
+
+
+Microchip Technology PIC18 Macro Assembler V1.45 build -152302408 
+Symbol Table                                                                                               Mon Mar 23 14:55:02 2026
+
+                            BSR 000FE0                             WREG 000FE8                          bsr_tmp 0063  
+                    _delay_40ms FFC2                    delay_40ms_L1 FFD0                       delay_cnt1 0060  
+                     delay_cnt2 0061                       delay_cnt3 0062  

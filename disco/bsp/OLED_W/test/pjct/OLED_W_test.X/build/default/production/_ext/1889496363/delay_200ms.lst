@@ -1,0 +1,118 @@
+
+
+Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
+                                                                                                           Tue Jul 07 09:55:27 2026
+
+
+     1                           	processor	18F27K40
+     2                           	pagewidth 132
+     3                           	opt	flic
+     4                           	psect	bss_delay,global,class=BANK0,space=1,delta=1
+     5                           	psect	text,global,reloc=2,class=CODE,delta=1
+     6                           
+     7                           ; file common/delay/src/delay_200ms.h
+     8                           ; brief 200ms software delay
+     9                           ; warning 200ms duration only for 64MHz cpu clock
+    10                           ; author hugo
+    11  0000                     
+    12                           ; linker memory static allocation directives for data
+    13                           
+    14                           	psect	bss_delay
+    15  0000'                    delay_cnt1:
+    16  0000'                    	ds	1
+    17  0001'                    delay_cnt2:
+    18  0001'                    	ds	1
+    19  0002'                    delay_cnt3:
+    20  0002'                    	ds	1
+    21  0003'                    bsr_tmp:
+    22  0003'                    	ds	1
+    23                           
+    24                           ; linker memory static allocation directives for code
+    25                           
+    26                           	psect	text
+    27  0000'                    _delay_200ms:
+    28                           	callstack 0
+    29                           
+    30                           ; save BSR context
+    31  0000' CFE0 FFE8          	movff	bsr,wreg
+    32  0004' 0100               	movlb	0
+    33  0006' CFE8 F003'         	movff	wreg,bsr_tmp
+    34                           
+    35                           ; delay calculation :
+    36                           ; Fcpu = 64MHz, Tcpu = 15.625ns
+    37                           ; Fcy = Fcpu/4 = 16MHz, Tcy = 62.5ns
+    38                           ;
+    39                           ; first internal loop :
+    40                           ; Tloop1 = (1 + 2) * delay_cnt * Tcy + 2 * Tcy
+    41                           ; Tloop1 ~ 3 * delay_cnt * Tcy
+    42                           ;
+    43                           ; second internal loop :
+    44                           ; Tloop2 = (Tloop1 + 5 * Tcy) * delay_cnt2 + (Tloop1 + 4 * Tcy)
+    45                           ; Tloop2 ~ Tloop1 * delay_cnt2
+    46                           ;
+    47                           ; external loop :
+    48                           ; Tloop3 = (Tloop2 + 7 * Tcy) * delay_cnt3 + (Tloop1 + 6 * Tcy)
+    49                           ; Tloop3 ~ Tloop2 * delay_cnt3
+    50  000A' 0EC8               	movlw	200
+    51  000C' 6F02'              	movwf	delay_cnt3,b
+    52  000E'                    delay_200ms_L1:
+    53  000E' 0E64               	movlw	100
+    54  0010' 6F01'              	movwf	delay_cnt2,b
+    55  0012'                    delay_200ms_L2:
+    56  0012' 0E35               	movlw	53
+    57  0014' 6F00'              	movwf	delay_cnt1,b
+    58  0016' 2F00'              	decfsz	delay_cnt1,f,b
+    59  0018' D7FE               	bra	($+-2)
+    60  001A' 2F01'              	decfsz	delay_cnt2,f,b
+    61  001C' D7FA               	goto	delay_200ms_L2
+    62  001E' 2F02'              	decfsz	delay_cnt3,f,b
+    63  0020' D7F6               	goto	delay_200ms_L1
+    64                           
+    65                           ; restore BSR context
+    66  0022' C003' FFE0         	movff	bsr_tmp,bsr
+    67  0026' 0012               	return	
+    68                           tosu	equ	0xFFF
+    69                           tosh	equ	0xFFE
+    70                           tosl	equ	0xFFD
+    71                           stkptr	equ	0xFFC
+    72                           pclatu	equ	0xFFB
+    73                           pclath	equ	0xFFA
+    74                           pcl	equ	0xFF9
+    75                           tblptru	equ	0xFF8
+    76                           tblptrh	equ	0xFF7
+    77                           tblptrl	equ	0xFF6
+    78                           tablat	equ	0xFF5
+    79                           prodh	equ	0xFF4
+    80                           prodl	equ	0xFF3
+    81                           indf0	equ	0xFEF
+    82                           postinc0	equ	0xFEE
+    83                           postdec0	equ	0xFED
+    84                           preinc0	equ	0xFEC
+    85                           plusw0	equ	0xFEB
+    86                           fsr0h	equ	0xFEA
+    87                           fsr0l	equ	0xFE9
+    88                           wreg	equ	0xFE8
+    89                           indf1	equ	0xFE7
+    90                           postinc1	equ	0xFE6
+    91                           postdec1	equ	0xFE5
+    92                           preinc1	equ	0xFE4
+    93                           plusw1	equ	0xFE3
+    94                           fsr1h	equ	0xFE2
+    95                           fsr1l	equ	0xFE1
+    96                           bsr	equ	0xFE0
+    97                           indf2	equ	0xFDF
+    98                           postinc2	equ	0xFDE
+    99                           postdec2	equ	0xFDD
+   100                           preinc2	equ	0xFDC
+   101                           plusw2	equ	0xFDB
+   102                           fsr2h	equ	0xFDA
+   103                           fsr2l	equ	0xFD9
+   104                           status	equ	0xFD8
+
+
+Microchip Technology PIC18 Macro Assembler V2.20 build 20200408173844 
+Symbol Table                                                                                               Tue Jul 07 09:55:27 2026
+
+                            BSR 000FE0                             WREG 000FE8                          bsr_tmp 000003  
+                 delay_200ms_L1 00000E                   delay_200ms_L2 000012                     _delay_200ms 000000  
+                     delay_cnt1 000000                       delay_cnt2 000001                       delay_cnt3 000002  

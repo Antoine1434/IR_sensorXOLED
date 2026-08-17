@@ -1,0 +1,2136 @@
+
+
+Microchip Technology PIC18 LITE Macro Assembler V1.45 build -152302408 
+                                                                                               Mon Jun 15 09:27:19 2026
+
+Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160504
+     1                           	processor	18F27K40
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	lm
+     5                           	psect	smallconst,global,reloc=2,class=SMALLCONST,delta=1,noexec
+     6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     7                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     8                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+     9                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+    10                           	psect	text0,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text3,global,reloc=2,class=CODE,delta=1,group=1
+    14                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text6,global,reloc=2,class=CODE,delta=1
+    17                           	psect	intcodelo,global,reloc=2,class=CODE,delta=1
+    18                           	psect	text8,global,reloc=2,class=CODE,delta=1
+    19                           	psect	intcode,global,reloc=2,class=CODE,delta=1
+    20                           	psect	intcode_body,global,reloc=2,class=CODE,delta=1
+    21                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    22                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    23                           	psect	temp,global,ovrld,common,class=COMRAM,space=1,delta=1
+    24  0000                     
+    25                           ; Version 1.45
+    26                           ; Generated 16/11/2017 GMT
+    27                           ; 
+    28                           ; Copyright © 2017, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    29                           ; All rights reserved.
+    30                           ; 
+    31                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    32                           ; 
+    33                           ; Redistribution and use in source and binary forms, with or without modification, are
+    34                           ; permitted provided that the following conditions are met:
+    35                           ; 
+    36                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    37                           ;        conditions and the following disclaimer.
+    38                           ; 
+    39                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    40                           ;        of conditions and the following disclaimer in the documentation and/or other
+    41                           ;        materials provided with the distribution.
+    42                           ; 
+    43                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    44                           ;        software without specific prior written permission.
+    45                           ; 
+    46                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    47                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    48                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    49                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    50                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    51                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    52                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    53                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    54                           ; 
+    55                           ; 
+    56                           ; Code-generator required, PIC18F27K40 Definitions
+    57                           ; 
+    58                           ; SFR Addresses
+    59  0000                     _SP2BRG	set	3739
+    60  0000                     _IPR3bits	set	3773
+    61  0000                     _PIE3bits	set	3781
+    62  0000                     _RCSTA2bits	set	3741
+    63  0000                     _SP2BRGH	set	3740
+    64  0000                     _BAUDCON2bits	set	3743
+    65  0000                     _RX2PPS	set	3725
+    66  0000                     _RC1PPS	set	3832
+    67  0000                     _TX2REG	set	3738
+    68  0000                     _TXSTA2bits	set	3742
+    69  0000                     _RC2REG	set	3737
+    70  0000                     _PIR3bits	set	3789
+    71  0000                     _ANSELCbits	set	3873
+    72  0000                     _INTCONbits	set	4082
+    73                           
+    74                           	psect	smallconst
+    75  000F00                     __psmallconst:
+    76                           	opt stack 0
+    77  000F00  00                 	db	0
+    78  000F01                     STR_1:
+    79  000F01  0D                 	db	13
+    80  000F02  0A                 	db	10
+    81  000F03  48                 	db	72	;'H'
+    82  000F04  65                 	db	101	;'e'
+    83  000F05  6C                 	db	108	;'l'
+    84  000F06  6C                 	db	108	;'l'
+    85  000F07  6F                 	db	111	;'o'
+    86  000F08  20                 	db	32
+    87  000F09  57                 	db	87	;'W'
+    88  000F0A  6F                 	db	111	;'o'
+    89  000F0B  72                 	db	114	;'r'
+    90  000F0C  6C                 	db	108	;'l'
+    91  000F0D  64                 	db	100	;'d'
+    92  000F0E  20                 	db	32
+    93  000F0F  42                 	db	66	;'B'
+    94  000F10  72                 	db	114	;'r'
+    95  000F11  6F                 	db	111	;'o'
+    96  000F12  27                 	db	39
+    97  000F13  73                 	db	115	;'s'
+    98  000F14  0A                 	db	10
+    99  000F15  0D                 	db	13
+   100  000F16  00                 	db	0
+   101  000F17                     STR_2:
+   102  000F17  0D                 	db	13
+   103  000F18  0A                 	db	10
+   104  000F19  00                 	db	0
+   105                           
+   106                           ; #config settings
+   107  000F1A  00                 	db	0	; dummy byte at the end
+   108  0000                     
+   109                           	psect	cinit
+   110  0012C6                     __pcinit:
+   111                           	opt stack 0
+   112  0012C6                     start_initialization:
+   113                           	opt stack 0
+   114  0012C6                     __initialization:
+   115                           	opt stack 0
+   116                           
+   117                           ; Clear objects allocated to COMRAM (24 bytes)
+   118  0012C6  EE00  F029         	lfsr	0,__pbssCOMRAM
+   119  0012CA  0E18               	movlw	24
+   120  0012CC                     clear_0:
+   121  0012CC  6AEE               	clrf	postinc0,c
+   122  0012CE  06E8               	decf	wreg,f,c
+   123  0012D0  E1FD               	bnz	clear_0
+   124  0012D2                     end_of_initialization:
+   125                           	opt stack 0
+   126  0012D2                     __end_of__initialization:
+   127                           	opt stack 0
+   128  0012D2  9041               	bcf	int$flags,0,c	;clear compiler interrupt flag (level 1)
+   129  0012D4  9241               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
+   130  0012D6  0E00               	movlw	low (__Lmediumconst shr (0+16))
+   131  0012D8  6EF8               	movwf	tblptru,c
+   132  0012DA  0100               	movlb	0
+   133  0012DC  EFB5  F008         	goto	_main	;jump to C main() function
+   134                           tblptru	equ	0xFF8
+   135                           postinc0	equ	0xFEE
+   136                           wreg	equ	0xFE8
+   137                           
+   138                           	psect	bssCOMRAM
+   139  000029                     __pbssCOMRAM:
+   140                           	opt stack 0
+   141  000029                     _uart2_rx:
+   142                           	opt stack 0
+   143  000029                     	ds	23
+   144  000040                     uart2_gets@i:
+   145                           	opt stack 0
+   146  000040                     	ds	1
+   147                           tblptru	equ	0xFF8
+   148                           postinc0	equ	0xFEE
+   149                           wreg	equ	0xFE8
+   150                           
+   151                           	psect	cstackBANK0
+   152  000060                     __pcstackBANK0:
+   153                           	opt stack 0
+   154  000060                     ?___lldiv:
+   155                           	opt stack 0
+   156  000060                     uart2_putc@payload:
+   157                           	opt stack 0
+   158  000060                     ___lldiv@dividend:
+   159                           	opt stack 0
+   160                           
+   161                           ; 4 bytes @ 0x0
+   162  000060                     	ds	1
+   163  000061                     uart2_getc@payload:
+   164                           	opt stack 0
+   165  000061                     uart2_puts@str:
+   166                           	opt stack 0
+   167                           
+   168                           ; 2 bytes @ 0x1
+   169  000061                     	ds	2
+   170  000063                     uart2_getc@echo:
+   171                           	opt stack 0
+   172                           
+   173                           ; 1 bytes @ 0x3
+   174  000063                     	ds	1
+   175  000064                     uart2_getc@tmp:
+   176                           	opt stack 0
+   177  000064                     ___lldiv@divisor:
+   178                           	opt stack 0
+   179                           
+   180                           ; 4 bytes @ 0x4
+   181  000064                     	ds	1
+   182  000065                     uart2_gets@str_buf:
+   183                           	opt stack 0
+   184                           
+   185                           ; 2 bytes @ 0x5
+   186  000065                     	ds	2
+   187  000067                     uart2_gets@buf_limit:
+   188                           	opt stack 0
+   189                           
+   190                           ; 1 bytes @ 0x7
+   191  000067                     	ds	1
+   192  000068                     uart2_gets@echo:
+   193                           	opt stack 0
+   194  000068                     ___lldiv@quotient:
+   195                           	opt stack 0
+   196                           
+   197                           ; 4 bytes @ 0x8
+   198  000068                     	ds	1
+   199  000069                     ??_uart2_gets:
+   200                           
+   201                           ; 1 bytes @ 0x9
+   202  000069                     	ds	3
+   203  00006C                     ___lldiv@counter:
+   204                           	opt stack 0
+   205                           
+   206                           ; 1 bytes @ 0xC
+   207  00006C                     	ds	1
+   208  00006D                     uart2_gets@tmp:
+   209                           	opt stack 0
+   210  00006D                     uart2_init@bdrate:
+   211                           	opt stack 0
+   212                           
+   213                           ; 4 bytes @ 0xD
+   214  00006D                     	ds	4
+   215  000071                     ??_uart2_init:
+   216                           
+   217                           ; 1 bytes @ 0x11
+   218  000071                     	ds	4
+   219  000075                     uart2_init@flush:
+   220                           	opt stack 0
+   221                           
+   222                           ; 1 bytes @ 0x15
+   223  000075                     	ds	1
+   224  000076                     uart2_init@bdrate_calcul:
+   225                           	opt stack 0
+   226                           
+   227                           ; 4 bytes @ 0x16
+   228  000076                     	ds	4
+   229  00007A                     main@str_tmp:
+   230                           	opt stack 0
+   231                           
+   232                           ; 77 bytes @ 0x1A
+   233  00007A                     	ds	77
+   234                           tblptru	equ	0xFF8
+   235                           postinc0	equ	0xFEE
+   236                           wreg	equ	0xFE8
+   237                           
+   238                           	psect	cstackCOMRAM
+   239  000001                     __pcstackCOMRAM:
+   240                           	opt stack 0
+   241  000001                     ??_isr_high:
+   242  000001                     
+   243                           ; 1 bytes @ 0x0
+   244  000001                     	ds	18
+   245  000013                     uart2_isr_process@lost:
+   246                           	opt stack 0
+   247                           
+   248                           ; 1 bytes @ 0x12
+   249  000013                     	ds	1
+   250  000014                     ??_isr_low:
+   251                           
+   252                           ; 1 bytes @ 0x13
+   253  000014                     	ds	21
+   254                           tblptru	equ	0xFF8
+   255                           postinc0	equ	0xFEE
+   256                           wreg	equ	0xFE8
+   257                           
+   258 ;;
+   259 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   260 ;;
+   261 ;; *************** function _main *****************
+   262 ;; Defined at:
+   263 ;;		line 21 in file "../../main.c"
+   264 ;; Parameters:    Size  Location     Type
+   265 ;;		None
+   266 ;; Auto vars:     Size  Location     Type
+   267 ;;  str_tmp        77   26[BANK0 ] unsigned char [77]
+   268 ;;  tmp             1    0        unsigned char 
+   269 ;; Return value:  Size  Location     Type
+   270 ;;                  1    wreg      void 
+   271 ;; Registers used:
+   272 ;;		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+   273 ;; Tracked objects:
+   274 ;;		On entry : 0/0
+   275 ;;		On exit  : 0/0
+   276 ;;		Unchanged: 0/0
+   277 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+   278 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   279 ;;      Locals:         0      77       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   280 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   281 ;;      Totals:         0      77       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   282 ;;Total ram usage:       77 bytes
+   283 ;; Hardware stack levels required when called:    6
+   284 ;; This function calls:
+   285 ;;		_uart2_gets
+   286 ;;		_uart2_init
+   287 ;;		_uart2_puts
+   288 ;; This function is called by:
+   289 ;;		Startup code after reset
+   290 ;; This function uses a non-reentrant model
+   291 ;;
+   292                           
+   293                           	psect	text0
+   294  00116A                     __ptext0:
+   295                           	opt stack 0
+   296  00116A                     _main:
+   297                           	opt stack 25
+   298                           
+   299                           ;main.c: 23: uInt8_t tmp, str_tmp[77];
+   300                           ;main.c: 26: uart2_init(9600);
+   301                           
+   302                           ;incstack = 0
+   303  00116A  0E80               	movlw	128
+   304  00116C  0100               	movlb	0	; () banked
+   305  00116E  6F6D               	movwf	uart2_init@bdrate& (0+255),b
+   306  001170  0E25               	movlw	37
+   307  001172  6F6E               	movwf	(uart2_init@bdrate+1)& (0+255),b
+   308  001174  0E00               	movlw	0
+   309  001176  6F6F               	movwf	(uart2_init@bdrate+2)& (0+255),b
+   310  001178  0E00               	movlw	0
+   311  00117A  6F70               	movwf	(uart2_init@bdrate+3)& (0+255),b
+   312  00117C  EC8E  F007         	call	_uart2_init	;wreg free
+   313                           
+   314                           ;main.c: 27: INTCONbits.IPEN = 1; INTCONbits.GIEH = 1; INTCONbits.GIEL = 1;
+   315  001180  8AF2               	bsf	intcon,5,c	;volatile
+   316  001182  8EF2               	bsf	intcon,7,c	;volatile
+   317  001184  8CF2               	bsf	intcon,6,c	;volatile
+   318                           
+   319                           ;main.c: 30: uart2_puts("\r\nHello World Bro's\n\r");
+   320  001186  0E01               	movlw	low STR_1
+   321  001188  0100               	movlb	0	; () banked
+   322  00118A  6F61               	movwf	uart2_puts@str& (0+255),b
+   323  00118C  0E0F               	movlw	high STR_1
+   324  00118E  6F62               	movwf	(uart2_puts@str+1)& (0+255),b
+   325  001190  EC14  F009         	call	_uart2_puts	;wreg free
+   326  001194                     
+   327                           ;main.c: 40: if (uart2_gets(str_tmp, 77, 0)) {
+   328  001194  0E7A               	movlw	low main@str_tmp
+   329  001196  0100               	movlb	0	; () banked
+   330  001198  6F65               	movwf	uart2_gets@str_buf& (0+255),b
+   331  00119A  0E00               	movlw	high main@str_tmp
+   332  00119C  6F66               	movwf	(uart2_gets@str_buf+1)& (0+255),b
+   333  00119E  0E4D               	movlw	77
+   334  0011A0  6F67               	movwf	uart2_gets@buf_limit& (0+255),b
+   335  0011A2  0E00               	movlw	0
+   336  0011A4  6F68               	movwf	uart2_gets@echo& (0+255),b
+   337  0011A6  EC2C  F008         	call	_uart2_gets	;wreg free
+   338  0011AA  0900               	iorlw	0
+   339  0011AC  B4D8               	btfsc	status,2,c
+   340  0011AE  D7F2               	goto	l114
+   341                           
+   342                           ;main.c: 41: uart2_puts(str_tmp);
+   343  0011B0  0E7A               	movlw	low main@str_tmp
+   344  0011B2  0100               	movlb	0	; () banked
+   345  0011B4  6F61               	movwf	uart2_puts@str& (0+255),b
+   346  0011B6  0E00               	movlw	high main@str_tmp
+   347  0011B8  6F62               	movwf	(uart2_puts@str+1)& (0+255),b
+   348  0011BA  EC14  F009         	call	_uart2_puts	;wreg free
+   349                           
+   350                           ;main.c: 42: uart2_puts("\r\n");
+   351  0011BE  0E17               	movlw	low STR_2
+   352  0011C0  0100               	movlb	0	; () banked
+   353  0011C2  6F61               	movwf	uart2_puts@str& (0+255),b
+   354  0011C4  0E0F               	movlw	high STR_2
+   355  0011C6  6F62               	movwf	(uart2_puts@str+1)& (0+255),b
+   356  0011C8  EC14  F009         	call	_uart2_puts	;wreg free
+   357  0011CC  D7E3               	goto	l114
+   358  0011CE                     __end_of_main:
+   359                           	opt stack 0
+   360                           tblptru	equ	0xFF8
+   361                           intcon	equ	0xFF2
+   362                           postinc0	equ	0xFEE
+   363                           wreg	equ	0xFE8
+   364                           status	equ	0xFD8
+   365                           
+   366 ;; *************** function _uart2_puts *****************
+   367 ;; Defined at:
+   368 ;;		line 9 in file "../../../src/uart2_puts.c"
+   369 ;; Parameters:    Size  Location     Type
+   370 ;;  str             2    1[BANK0 ] PTR const unsigned char 
+   371 ;;		 -> STR_2(3), main@str_tmp(77), STR_1(22), 
+   372 ;; Auto vars:     Size  Location     Type
+   373 ;;		None
+   374 ;; Return value:  Size  Location     Type
+   375 ;;                  1    wreg      void 
+   376 ;; Registers used:
+   377 ;;		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+   378 ;; Tracked objects:
+   379 ;;		On entry : 0/0
+   380 ;;		On exit  : 0/0
+   381 ;;		Unchanged: 0/0
+   382 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+   383 ;;      Params:         0       2       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   384 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   385 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   386 ;;      Totals:         0       2       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   387 ;;Total ram usage:        2 bytes
+   388 ;; Hardware stack levels used:    1
+   389 ;; Hardware stack levels required when called:    4
+   390 ;; This function calls:
+   391 ;;		_uart2_putc
+   392 ;; This function is called by:
+   393 ;;		_main
+   394 ;; This function uses a non-reentrant model
+   395 ;;
+   396                           
+   397                           	psect	text1
+   398  001228                     __ptext1:
+   399                           	opt stack 0
+   400  001228                     _uart2_puts:
+   401                           	opt stack 26
+   402                           
+   403                           ;uart2_puts.c: 11: while (*str != '\0')
+   404                           
+   405                           ;incstack = 0
+   406  001228  D016               	goto	l86
+   407  00122A                     
+   408                           ;uart2_puts.c: 12: uart2_putc(*str++);
+   409  00122A  C061  FFF6         	movff	uart2_puts@str,tblptrl
+   410  00122E  C062  FFF7         	movff	uart2_puts@str+1,tblptrh
+   411  001232  0E00               	movlw	low (__smallconst shr (0+16))
+   412  001234  6EF8               	movwf	tblptru,c
+   413  001236  0E0E               	movlw	(high __ramtop+-1)
+   414  001238  64F7               	cpfsgt	tblptrh,c
+   415  00123A  D003               	bra	u507
+   416  00123C  0008               	tblrd		*
+   417  00123E  50F5               	movf	tablat,w,c
+   418  001240  D005               	bra	u500
+   419  001242                     u507:
+   420  001242  CFF6 FFD9          	movff	tblptrl,fsr2l
+   421  001246  CFF7 FFDA          	movff	tblptrh,fsr2h
+   422  00124A  50DF               	movf	indf2,w,c
+   423  00124C                     u500:
+   424  00124C  EC70  F009         	call	_uart2_putc
+   425  001250  0100               	movlb	0	; () banked
+   426  001252  4B61               	infsnz	uart2_puts@str& (0+255),f,b
+   427  001254  2B62               	incf	(uart2_puts@str+1)& (0+255),f,b
+   428  001256                     l86:
+   429                           
+   430                           ; BSR set to: 0
+   431  001256  C061  FFF6         	movff	uart2_puts@str,tblptrl
+   432  00125A  C062  FFF7         	movff	uart2_puts@str+1,tblptrh
+   433  00125E  0E00               	movlw	low (__smallconst shr (0+16))
+   434  001260  6EF8               	movwf	tblptru,c
+   435  001262  0E0E               	movlw	(high __ramtop+-1)
+   436  001264  64F7               	cpfsgt	tblptrh,c
+   437  001266  D003               	bra	u517
+   438  001268  0008               	tblrd		*
+   439  00126A  50F5               	movf	tablat,w,c
+   440  00126C  D005               	bra	u510
+   441  00126E                     u517:
+   442  00126E  CFF6 FFD9          	movff	tblptrl,fsr2l
+   443  001272  CFF7 FFDA          	movff	tblptrh,fsr2h
+   444  001276  50DF               	movf	indf2,w,c
+   445  001278                     u510:
+   446  001278  0900               	iorlw	0
+   447  00127A  B4D8               	btfsc	status,2,c
+   448  00127C  0012               	return	
+   449  00127E  D7D5               	goto	l87
+   450  001280                     __end_of_uart2_puts:
+   451                           	opt stack 0
+   452                           tblptru	equ	0xFF8
+   453                           tblptrh	equ	0xFF7
+   454                           tblptrl	equ	0xFF6
+   455                           tablat	equ	0xFF5
+   456                           intcon	equ	0xFF2
+   457                           postinc0	equ	0xFEE
+   458                           wreg	equ	0xFE8
+   459                           indf2	equ	0xFDF
+   460                           fsr2h	equ	0xFDA
+   461                           fsr2l	equ	0xFD9
+   462                           status	equ	0xFD8
+   463                           
+   464 ;; *************** function _uart2_init *****************
+   465 ;; Defined at:
+   466 ;;		line 12 in file "../../../src/uart2_init.c"
+   467 ;; Parameters:    Size  Location     Type
+   468 ;;  bdrate          4   13[BANK0 ] unsigned long 
+   469 ;; Auto vars:     Size  Location     Type
+   470 ;;  bdrate_calcu    4   22[BANK0 ] unsigned long 
+   471 ;;  flush           1   21[BANK0 ] unsigned char 
+   472 ;; Return value:  Size  Location     Type
+   473 ;;                  1    wreg      void 
+   474 ;; Registers used:
+   475 ;;		wreg, status,2, status,0, cstack
+   476 ;; Tracked objects:
+   477 ;;		On entry : 0/0
+   478 ;;		On exit  : 0/0
+   479 ;;		Unchanged: 0/0
+   480 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+   481 ;;      Params:         0       4       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   482 ;;      Locals:         0       5       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   483 ;;      Temps:          0       4       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   484 ;;      Totals:         0      13       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   485 ;;Total ram usage:       13 bytes
+   486 ;; Hardware stack levels used:    1
+   487 ;; Hardware stack levels required when called:    4
+   488 ;; This function calls:
+   489 ;;		___lldiv
+   490 ;; This function is called by:
+   491 ;;		_main
+   492 ;; This function uses a non-reentrant model
+   493 ;;
+   494                           
+   495                           	psect	text2
+   496  000F1C                     __ptext2:
+   497                           	opt stack 0
+   498  000F1C                     _uart2_init:
+   499                           	opt stack 26
+   500                           
+   501                           ;uart2_init.c: 14: uInt32_t bdrate_calcul;
+   502                           ;uart2_init.c: 15: uInt8_t flush;
+   503                           ;uart2_init.c: 21: RC1PPS = 0x0B;
+   504                           
+   505                           ;incstack = 0
+   506  000F1C  0E0B               	movlw	11
+   507  000F1E  010E               	movlb	14	; () banked
+   508  000F20  6FF8               	movwf	248,b	;volatile
+   509                           
+   510                           ;uart2_init.c: 22: RX2PPS = 0x10;
+   511  000F22  0E10               	movlw	16
+   512  000F24  6F8D               	movwf	141,b	;volatile
+   513                           
+   514                           ; BSR set to: 14
+   515                           ;uart2_init.c: 23: ANSELCbits.ANSELC0 = 0;
+   516  000F26  010F               	movlb	15	; () banked
+   517  000F28  9121               	bcf	33,0,b	;volatile
+   518                           
+   519                           ; BSR set to: 15
+   520                           ;uart2_init.c: 26: BAUDCON2bits.BRG16=1;
+   521  000F2A  010E               	movlb	14	; () banked
+   522  000F2C  879F               	bsf	159,3,b	;volatile
+   523                           
+   524                           ; BSR set to: 14
+   525                           ;uart2_init.c: 27: TXSTA2bits.BRGH = 1;
+   526  000F2E  859E               	bsf	158,2,b	;volatile
+   527                           
+   528                           ; BSR set to: 14
+   529                           ;uart2_init.c: 28: bdrate_calcul = (uInt32_t) (64000000 / ((uInt32_t) 4 * bdrate)) - 1 ;
+   530  000F30  0E00               	movlw	0
+   531  000F32  0100               	movlb	0	; () banked
+   532  000F34  6F60               	movwf	___lldiv@dividend& (0+255),b
+   533  000F36  0E90               	movlw	144
+   534  000F38  6F61               	movwf	(___lldiv@dividend+1)& (0+255),b
+   535  000F3A  0ED0               	movlw	208
+   536  000F3C  6F62               	movwf	(___lldiv@dividend+2)& (0+255),b
+   537  000F3E  0E03               	movlw	3
+   538  000F40  6F63               	movwf	(___lldiv@dividend+3)& (0+255),b
+   539  000F42  C06D  F071         	movff	uart2_init@bdrate,??_uart2_init
+   540  000F46  C06E  F072         	movff	uart2_init@bdrate+1,??_uart2_init+1
+   541  000F4A  C06F  F073         	movff	uart2_init@bdrate+2,??_uart2_init+2
+   542  000F4E  C070  F074         	movff	uart2_init@bdrate+3,??_uart2_init+3
+   543  000F52  0E02               	movlw	2
+   544  000F54                     u495:
+   545  000F54  90D8               	bcf	status,0,c
+   546  000F56  3771               	rlcf	??_uart2_init& (0+255),f,b
+   547  000F58  3772               	rlcf	(??_uart2_init+1)& (0+255),f,b
+   548  000F5A  3773               	rlcf	(??_uart2_init+2)& (0+255),f,b
+   549  000F5C  3774               	rlcf	(??_uart2_init+3)& (0+255),f,b
+   550  000F5E  2EE8               	decfsz	wreg,f,c
+   551  000F60  D7F9               	goto	u495
+   552  000F62  C071  F064         	movff	??_uart2_init,___lldiv@divisor
+   553  000F66  C072  F065         	movff	??_uart2_init+1,___lldiv@divisor+1
+   554  000F6A  C073  F066         	movff	??_uart2_init+2,___lldiv@divisor+2
+   555  000F6E  C074  F067         	movff	??_uart2_init+3,___lldiv@divisor+3
+   556  000F72  EC73  F008         	call	___lldiv	;wreg free
+   557  000F76  0EFF               	movlw	255
+   558  000F78  0100               	movlb	0	; () banked
+   559  000F7A  2560               	addwf	?___lldiv& (0+255),w,b
+   560  000F7C  6F76               	movwf	uart2_init@bdrate_calcul& (0+255),b
+   561  000F7E  0EFF               	movlw	255
+   562  000F80  2161               	addwfc	(?___lldiv+1)& (0+255),w,b
+   563  000F82  6F77               	movwf	(uart2_init@bdrate_calcul+1)& (0+255),b
+   564  000F84  0EFF               	movlw	255
+   565  000F86  2162               	addwfc	(?___lldiv+2)& (0+255),w,b
+   566  000F88  6F78               	movwf	(uart2_init@bdrate_calcul+2)& (0+255),b
+   567  000F8A  0EFF               	movlw	255
+   568  000F8C  2163               	addwfc	(?___lldiv+3)& (0+255),w,b
+   569  000F8E  6F79               	movwf	(uart2_init@bdrate_calcul+3)& (0+255),b
+   570                           
+   571                           ; BSR set to: 0
+   572                           ;uart2_init.c: 29: SP2BRG = (uInt8_t) bdrate_calcul;
+   573  000F90  C076  FE9B         	movff	uart2_init@bdrate_calcul,3739	;volatile
+   574  000F94  010E               	movlb	14	; () banked
+   575  000F96  6B9C               	clrf	156,b	;volatile
+   576                           
+   577                           ; BSR set to: 14
+   578                           ;uart2_init.c: 30: SP2BRGH = (uInt8_t) (bdrate_calcul >> 8);
+   579  000F98  C077  FE9C         	movff	uart2_init@bdrate_calcul+1,3740	;volatile
+   580                           
+   581                           ; BSR set to: 14
+   582                           ;uart2_init.c: 33: TXSTA2bits.SYNC = 0;
+   583  000F9C  999E               	bcf	158,4,b	;volatile
+   584                           
+   585                           ; BSR set to: 14
+   586                           ;uart2_init.c: 34: TXSTA2bits.TX9 = 0;
+   587  000F9E  9D9E               	bcf	158,6,b	;volatile
+   588                           
+   589                           ; BSR set to: 14
+   590                           ;uart2_init.c: 35: TXSTA2bits.TXEN = 1;
+   591  000FA0  8B9E               	bsf	158,5,b	;volatile
+   592                           
+   593                           ; BSR set to: 14
+   594                           ;uart2_init.c: 37: RCSTA2bits.RX9 = 0;
+   595  000FA2  9D9D               	bcf	157,6,b	;volatile
+   596                           
+   597                           ; BSR set to: 14
+   598                           ;uart2_init.c: 38: RCSTA2bits.CREN = 1;
+   599  000FA4  899D               	bsf	157,4,b	;volatile
+   600                           
+   601                           ; BSR set to: 14
+   602                           ;uart2_init.c: 39: RCSTA2bits.SPEN = 1;
+   603  000FA6  8F9D               	bsf	157,7,b	;volatile
+   604                           
+   605                           ; BSR set to: 14
+   606                           ;uart2_init.c: 42: PIE3bits.TX2IE = 0;
+   607  000FA8  9DC5               	bcf	197,6,b	;volatile
+   608                           
+   609                           ; BSR set to: 14
+   610                           ;uart2_init.c: 43: flush = RC2REG;
+   611  000FAA  CE99 F075          	movff	3737,uart2_init@flush	;volatile
+   612                           
+   613                           ; BSR set to: 14
+   614                           ;uart2_init.c: 44: flush = RC2REG;
+   615  000FAE  CE99 F075          	movff	3737,uart2_init@flush	;volatile
+   616                           
+   617                           ; BSR set to: 14
+   618                           ;uart2_init.c: 45: PIE3bits.RC2IE = 1;
+   619  000FB2  8FC5               	bsf	197,7,b	;volatile
+   620                           
+   621                           ; BSR set to: 14
+   622                           ;uart2_init.c: 46: IPR3bits.RC2IP = 0;
+   623  000FB4  9FBD               	bcf	189,7,b	;volatile
+   624                           
+   625                           ; BSR set to: 14
+   626                           ;uart2_init.c: 53: uart2_rx.nb_elt = 0;
+   627  000FB6  0E00               	movlw	0
+   628  000FB8  6E3F               	movwf	_uart2_rx+22,c
+   629                           
+   630                           ; BSR set to: 14
+   631                           ;uart2_init.c: 54: uart2_rx.idx_write = 0;
+   632  000FBA  0E00               	movlw	0
+   633  000FBC  6E3E               	movwf	_uart2_rx+21,c
+   634                           
+   635                           ; BSR set to: 14
+   636                           ;uart2_init.c: 55: uart2_rx.idx_read = 0;
+   637  000FBE  0E00               	movlw	0
+   638  000FC0  6E3D               	movwf	_uart2_rx+20,c
+   639                           
+   640                           ; BSR set to: 14
+   641  000FC2  0012               	return		;funcret
+   642  000FC4                     __end_of_uart2_init:
+   643                           	opt stack 0
+   644                           tblptru	equ	0xFF8
+   645                           tblptrh	equ	0xFF7
+   646                           tblptrl	equ	0xFF6
+   647                           tablat	equ	0xFF5
+   648                           intcon	equ	0xFF2
+   649                           postinc0	equ	0xFEE
+   650                           wreg	equ	0xFE8
+   651                           indf2	equ	0xFDF
+   652                           fsr2h	equ	0xFDA
+   653                           fsr2l	equ	0xFD9
+   654                           status	equ	0xFD8
+   655                           
+   656 ;; *************** function ___lldiv *****************
+   657 ;; Defined at:
+   658 ;;		line 8 in file "/opt/microchip/xc8/v1.45/sources/common/lldiv.c"
+   659 ;; Parameters:    Size  Location     Type
+   660 ;;  dividend        4    0[BANK0 ] unsigned long 
+   661 ;;  divisor         4    4[BANK0 ] unsigned long 
+   662 ;; Auto vars:     Size  Location     Type
+   663 ;;  quotient        4    8[BANK0 ] unsigned long 
+   664 ;;  counter         1   12[BANK0 ] unsigned char 
+   665 ;; Return value:  Size  Location     Type
+   666 ;;                  4    0[BANK0 ] unsigned long 
+   667 ;; Registers used:
+   668 ;;		wreg, status,2, status,0
+   669 ;; Tracked objects:
+   670 ;;		On entry : 0/0
+   671 ;;		On exit  : 0/0
+   672 ;;		Unchanged: 0/0
+   673 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+   674 ;;      Params:         0       8       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   675 ;;      Locals:         0       5       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   676 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   677 ;;      Totals:         0      13       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   678 ;;Total ram usage:       13 bytes
+   679 ;; Hardware stack levels used:    1
+   680 ;; Hardware stack levels required when called:    3
+   681 ;; This function calls:
+   682 ;;		Nothing
+   683 ;; This function is called by:
+   684 ;;		_uart2_init
+   685 ;; This function uses a non-reentrant model
+   686 ;;
+   687                           
+   688                           	psect	text3
+   689  0010E6                     __ptext3:
+   690                           	opt stack 0
+   691  0010E6                     ___lldiv:
+   692                           	opt stack 26
+   693                           
+   694                           ; BSR set to: 14
+   695                           ;incstack = 0
+   696  0010E6  0E00               	movlw	0
+   697  0010E8  0100               	movlb	0	; () banked
+   698  0010EA  6F68               	movwf	___lldiv@quotient& (0+255),b
+   699  0010EC  0E00               	movlw	0
+   700  0010EE  6F69               	movwf	(___lldiv@quotient+1)& (0+255),b
+   701  0010F0  0E00               	movlw	0
+   702  0010F2  6F6A               	movwf	(___lldiv@quotient+2)& (0+255),b
+   703  0010F4  0E00               	movlw	0
+   704  0010F6  6F6B               	movwf	(___lldiv@quotient+3)& (0+255),b
+   705                           
+   706                           ; BSR set to: 0
+   707  0010F8  5164               	movf	___lldiv@divisor& (0+255),w,b
+   708  0010FA  1165               	iorwf	(___lldiv@divisor+1)& (0+255),w,b
+   709  0010FC  1166               	iorwf	(___lldiv@divisor+2)& (0+255),w,b
+   710  0010FE  1167               	iorwf	(___lldiv@divisor+3)& (0+255),w,b
+   711  001100  B4D8               	btfsc	status,2,c
+   712  001102  D02A               	goto	l474
+   713                           
+   714                           ; BSR set to: 0
+   715  001104  0E01               	movlw	1
+   716  001106  6F6C               	movwf	___lldiv@counter& (0+255),b
+   717  001108  D006               	goto	l469
+   718  00110A                     
+   719                           ; BSR set to: 0
+   720                           
+   721                           ; BSR set to: 0
+   722  00110A  90D8               	bcf	status,0,c
+   723  00110C  3764               	rlcf	___lldiv@divisor& (0+255),f,b
+   724  00110E  3765               	rlcf	(___lldiv@divisor+1)& (0+255),f,b
+   725  001110  3766               	rlcf	(___lldiv@divisor+2)& (0+255),f,b
+   726  001112  3767               	rlcf	(___lldiv@divisor+3)& (0+255),f,b
+   727  001114  2B6C               	incf	___lldiv@counter& (0+255),f,b
+   728  001116                     l469:
+   729                           
+   730                           ; BSR set to: 0
+   731                           
+   732                           ; BSR set to: 0
+   733  001116  AF67               	btfss	(___lldiv@divisor+3)& (0+255),7,b
+   734  001118  D7F8               	goto	l470
+   735  00111A                     u440:
+   736                           
+   737                           ; BSR set to: 0
+   738                           
+   739                           ; BSR set to: 0
+   740                           
+   741                           ; BSR set to: 0
+   742  00111A  90D8               	bcf	status,0,c
+   743  00111C  3768               	rlcf	___lldiv@quotient& (0+255),f,b
+   744  00111E  3769               	rlcf	(___lldiv@quotient+1)& (0+255),f,b
+   745  001120  376A               	rlcf	(___lldiv@quotient+2)& (0+255),f,b
+   746  001122  376B               	rlcf	(___lldiv@quotient+3)& (0+255),f,b
+   747                           
+   748                           ; BSR set to: 0
+   749  001124  5164               	movf	___lldiv@divisor& (0+255),w,b
+   750  001126  5D60               	subwf	___lldiv@dividend& (0+255),w,b
+   751  001128  5165               	movf	(___lldiv@divisor+1)& (0+255),w,b
+   752  00112A  5961               	subwfb	(___lldiv@dividend+1)& (0+255),w,b
+   753  00112C  5166               	movf	(___lldiv@divisor+2)& (0+255),w,b
+   754  00112E  5962               	subwfb	(___lldiv@dividend+2)& (0+255),w,b
+   755  001130  5167               	movf	(___lldiv@divisor+3)& (0+255),w,b
+   756  001132  5963               	subwfb	(___lldiv@dividend+3)& (0+255),w,b
+   757  001134  A0D8               	btfss	status,0,c
+   758  001136  D009               	goto	l473
+   759                           
+   760                           ; BSR set to: 0
+   761  001138  5164               	movf	___lldiv@divisor& (0+255),w,b
+   762  00113A  5F60               	subwf	___lldiv@dividend& (0+255),f,b
+   763  00113C  5165               	movf	(___lldiv@divisor+1)& (0+255),w,b
+   764  00113E  5B61               	subwfb	(___lldiv@dividend+1)& (0+255),f,b
+   765  001140  5166               	movf	(___lldiv@divisor+2)& (0+255),w,b
+   766  001142  5B62               	subwfb	(___lldiv@dividend+2)& (0+255),f,b
+   767  001144  5167               	movf	(___lldiv@divisor+3)& (0+255),w,b
+   768  001146  5B63               	subwfb	(___lldiv@dividend+3)& (0+255),f,b
+   769                           
+   770                           ; BSR set to: 0
+   771  001148  8168               	bsf	___lldiv@quotient& (0+255),0,b
+   772  00114A                     l473:
+   773                           
+   774                           ; BSR set to: 0
+   775                           
+   776                           ; BSR set to: 0
+   777  00114A  90D8               	bcf	status,0,c
+   778  00114C  3367               	rrcf	(___lldiv@divisor+3)& (0+255),f,b
+   779  00114E  3366               	rrcf	(___lldiv@divisor+2)& (0+255),f,b
+   780  001150  3365               	rrcf	(___lldiv@divisor+1)& (0+255),f,b
+   781  001152  3364               	rrcf	___lldiv@divisor& (0+255),f,b
+   782                           
+   783                           ; BSR set to: 0
+   784  001154  2F6C               	decfsz	___lldiv@counter& (0+255),f,b
+   785  001156  D7E1               	goto	u440
+   786  001158                     l474:
+   787                           
+   788                           ; BSR set to: 0
+   789                           
+   790                           ; BSR set to: 0
+   791  001158  C068  F060         	movff	___lldiv@quotient,?___lldiv
+   792  00115C  C069  F061         	movff	___lldiv@quotient+1,?___lldiv+1
+   793  001160  C06A  F062         	movff	___lldiv@quotient+2,?___lldiv+2
+   794  001164  C06B  F063         	movff	___lldiv@quotient+3,?___lldiv+3
+   795                           
+   796                           ; BSR set to: 0
+   797  001168  0012               	return		;funcret
+   798  00116A                     __end_of___lldiv:
+   799                           	opt stack 0
+   800                           tblptru	equ	0xFF8
+   801                           tblptrh	equ	0xFF7
+   802                           tblptrl	equ	0xFF6
+   803                           tablat	equ	0xFF5
+   804                           intcon	equ	0xFF2
+   805                           postinc0	equ	0xFEE
+   806                           wreg	equ	0xFE8
+   807                           indf2	equ	0xFDF
+   808                           fsr2h	equ	0xFDA
+   809                           fsr2l	equ	0xFD9
+   810                           status	equ	0xFD8
+   811                           
+   812 ;; *************** function _uart2_gets *****************
+   813 ;; Defined at:
+   814 ;;		line 9 in file "../../../src/uart2_gets.c"
+   815 ;; Parameters:    Size  Location     Type
+   816 ;;  str_buf         2    5[BANK0 ] PTR unsigned char 
+   817 ;;		 -> main@str_tmp(77), 
+   818 ;;  buf_limit       1    7[BANK0 ] unsigned char 
+   819 ;;  echo            1    8[BANK0 ] unsigned char 
+   820 ;; Auto vars:     Size  Location     Type
+   821 ;;  tmp             1   13[BANK0 ] unsigned char 
+   822 ;; Return value:  Size  Location     Type
+   823 ;;                  1    wreg      unsigned char 
+   824 ;; Registers used:
+   825 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+   826 ;; Tracked objects:
+   827 ;;		On entry : 0/0
+   828 ;;		On exit  : 0/0
+   829 ;;		Unchanged: 0/0
+   830 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+   831 ;;      Params:         0       4       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   832 ;;      Locals:         0       1       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   833 ;;      Temps:          0       4       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   834 ;;      Totals:         0       9       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   835 ;;Total ram usage:        9 bytes
+   836 ;; Hardware stack levels used:    1
+   837 ;; Hardware stack levels required when called:    5
+   838 ;; This function calls:
+   839 ;;		_uart2_getc
+   840 ;; This function is called by:
+   841 ;;		_main
+   842 ;; This function uses a non-reentrant model
+   843 ;;
+   844                           
+   845                           	psect	text4
+   846  001058                     __ptext4:
+   847                           	opt stack 0
+   848  001058                     _uart2_gets:
+   849                           	opt stack 25
+   850                           
+   851                           ;uart2_gets.c: 15: if (!uart2_getc(&tmp, echo))
+   852                           
+   853                           ; BSR set to: 0
+   854                           ;incstack = 0
+   855                           ;uart2_gets.c: 11: static uInt8_t i = 0;
+   856                           ;uart2_gets.c: 12: uInt8_t tmp;
+   857                           ;uart2_gets.c: 14: do {
+   858  001058  0E6D               	movlw	low uart2_gets@tmp
+   859  00105A  0100               	movlb	0	; () banked
+   860  00105C  6F61               	movwf	uart2_getc@payload& (0+255),b
+   861  00105E  0E00               	movlw	high uart2_gets@tmp
+   862  001060  6F62               	movwf	(uart2_getc@payload+1)& (0+255),b
+   863  001062  C068  F063         	movff	uart2_gets@echo,uart2_getc@echo
+   864  001066  ECE7  F008         	call	_uart2_getc	;wreg free
+   865  00106A  0900               	iorlw	0
+   866  00106C  B4D8               	btfsc	status,2,c
+   867  00106E  D039               	goto	l40
+   868                           
+   869                           ;uart2_gets.c: 18: if (i >= buf_limit) {
+   870                           
+   871                           ;uart2_gets.c: 16: goto fail_nopayload;
+   872  001070  0100               	movlb	0	; () banked
+   873  001072  5167               	movf	uart2_gets@buf_limit& (0+255),w,b
+   874  001074  5C40               	subwf	uart2_gets@i,w,c
+   875  001076  A0D8               	btfss	status,0,c
+   876  001078  D016               	goto	l41
+   877                           
+   878                           ; BSR set to: 0
+   879                           ;uart2_gets.c: 19: str_buf[i-1] = '\0';
+   880  00107A  0EFF               	movlw	255
+   881  00107C  6F69               	movwf	??_uart2_gets& (0+255),b
+   882  00107E  0EFF               	movlw	255
+   883  001080  6F6A               	movwf	(??_uart2_gets+1)& (0+255),b
+   884  001082  5040               	movf	uart2_gets@i,w,c
+   885  001084  6F6B               	movwf	(??_uart2_gets+2)& (0+255),b
+   886  001086  6B6C               	clrf	(??_uart2_gets+3)& (0+255),b
+   887  001088  5169               	movf	??_uart2_gets& (0+255),w,b
+   888  00108A  276B               	addwf	(??_uart2_gets+2)& (0+255),f,b
+   889  00108C  516A               	movf	(??_uart2_gets+1)& (0+255),w,b
+   890  00108E  236C               	addwfc	(??_uart2_gets+3)& (0+255),f,b
+   891  001090  516B               	movf	(??_uart2_gets+2)& (0+255),w,b
+   892  001092  2565               	addwf	uart2_gets@str_buf& (0+255),w,b
+   893  001094  6ED9               	movwf	fsr2l,c
+   894  001096  516C               	movf	(??_uart2_gets+3)& (0+255),w,b
+   895  001098  2166               	addwfc	(uart2_gets@str_buf+1)& (0+255),w,b
+   896  00109A  6EDA               	movwf	fsr2h,c
+   897  00109C  0E00               	movlw	0
+   898  00109E  6EDF               	movwf	indf2,c
+   899                           
+   900                           ; BSR set to: 0
+   901                           ;uart2_gets.c: 20: i = 0;
+   902  0010A0  0E00               	movlw	0
+   903  0010A2  6E40               	movwf	uart2_gets@i,c
+   904                           
+   905                           ;uart2_gets.c: 21: goto fail_limitbuffer;
+   906  0010A4  D01E               	goto	l40
+   907  0010A6                     l41:
+   908                           
+   909                           ; BSR set to: 0
+   910                           ;uart2_gets.c: 22: }
+   911                           ;uart2_gets.c: 24: str_buf[i++] = tmp;
+   912                           
+   913                           ; BSR set to: 0
+   914  0010A6  5040               	movf	uart2_gets@i,w,c
+   915  0010A8  0D01               	mullw	1
+   916  0010AA  50F3               	movf	prodl,w,c
+   917  0010AC  2565               	addwf	uart2_gets@str_buf& (0+255),w,b
+   918  0010AE  6ED9               	movwf	fsr2l,c
+   919  0010B0  50F4               	movf	prodh,w,c
+   920  0010B2  2166               	addwfc	(uart2_gets@str_buf+1)& (0+255),w,b
+   921  0010B4  6EDA               	movwf	fsr2h,c
+   922  0010B6  C06D  FFDF         	movff	uart2_gets@tmp,indf2
+   923                           
+   924                           ; BSR set to: 0
+   925  0010BA  2A40               	incf	uart2_gets@i,f,c
+   926                           
+   927                           ; BSR set to: 0
+   928                           ;uart2_gets.c: 25: } while (tmp != '\r');
+   929  0010BC  0E0D               	movlw	13
+   930  0010BE  196D               	xorwf	uart2_gets@tmp& (0+255),w,b
+   931  0010C0  A4D8               	btfss	status,2,c
+   932  0010C2  D7CA               	goto	_uart2_gets
+   933                           
+   934                           ; BSR set to: 0
+   935                           ;uart2_gets.c: 27: str_buf[--i] = '\0';
+   936                           
+   937                           ; BSR set to: 0
+   938  0010C4  0640               	decf	uart2_gets@i,f,c
+   939  0010C6  5040               	movf	uart2_gets@i,w,c
+   940  0010C8  0D01               	mullw	1
+   941  0010CA  50F3               	movf	prodl,w,c
+   942  0010CC  2565               	addwf	uart2_gets@str_buf& (0+255),w,b
+   943  0010CE  6ED9               	movwf	fsr2l,c
+   944  0010D0  50F4               	movf	prodh,w,c
+   945  0010D2  2166               	addwfc	(uart2_gets@str_buf+1)& (0+255),w,b
+   946  0010D4  6EDA               	movwf	fsr2h,c
+   947  0010D6  0E00               	movlw	0
+   948  0010D8  6EDF               	movwf	indf2,c
+   949                           
+   950                           ; BSR set to: 0
+   951                           ;uart2_gets.c: 28: i = 0;
+   952  0010DA  0E00               	movlw	0
+   953  0010DC  6E40               	movwf	uart2_gets@i,c
+   954                           
+   955                           ; BSR set to: 0
+   956                           ;uart2_gets.c: 29: return 1;
+   957  0010DE  0E01               	movlw	1
+   958                           
+   959                           ; BSR set to: 0
+   960  0010E0  0012               	return	
+   961  0010E2                     l40:
+   962                           
+   963                           ;uart2_gets.c: 32: return 0;
+   964                           
+   965                           ; BSR set to: 0
+   966                           
+   967                           ;uart2_gets.c: 31: fail_limitbuffer:
+   968                           
+   969                           ; BSR set to: 0
+   970  0010E2  0E00               	movlw	0
+   971  0010E4  0012               	return	
+   972  0010E6                     __end_of_uart2_gets:
+   973                           	opt stack 0
+   974                           tblptru	equ	0xFF8
+   975                           tblptrh	equ	0xFF7
+   976                           tblptrl	equ	0xFF6
+   977                           tablat	equ	0xFF5
+   978                           prodh	equ	0xFF4
+   979                           prodl	equ	0xFF3
+   980                           intcon	equ	0xFF2
+   981                           postinc0	equ	0xFEE
+   982                           wreg	equ	0xFE8
+   983                           indf2	equ	0xFDF
+   984                           fsr2h	equ	0xFDA
+   985                           fsr2l	equ	0xFD9
+   986                           status	equ	0xFD8
+   987                           
+   988 ;; *************** function _uart2_getc *****************
+   989 ;; Defined at:
+   990 ;;		line 52 in file "../../../src/uart2_getc.c"
+   991 ;; Parameters:    Size  Location     Type
+   992 ;;  payload         2    1[BANK0 ] PTR unsigned char 
+   993 ;;		 -> uart2_gets@tmp(1), 
+   994 ;;  echo            1    3[BANK0 ] unsigned char 
+   995 ;; Auto vars:     Size  Location     Type
+   996 ;;  tmp             1    4[BANK0 ] unsigned char 
+   997 ;; Return value:  Size  Location     Type
+   998 ;;                  1    wreg      unsigned char 
+   999 ;; Registers used:
+  1000 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+  1001 ;; Tracked objects:
+  1002 ;;		On entry : 0/0
+  1003 ;;		On exit  : 0/0
+  1004 ;;		Unchanged: 0/0
+  1005 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+  1006 ;;      Params:         0       3       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1007 ;;      Locals:         0       1       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1008 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1009 ;;      Totals:         0       4       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1010 ;;Total ram usage:        4 bytes
+  1011 ;; Hardware stack levels used:    1
+  1012 ;; Hardware stack levels required when called:    4
+  1013 ;; This function calls:
+  1014 ;;		_uart2_putc
+  1015 ;; This function is called by:
+  1016 ;;		_uart2_gets
+  1017 ;; This function uses a non-reentrant model
+  1018 ;;
+  1019                           
+  1020                           	psect	text5
+  1021  0011CE                     __ptext5:
+  1022                           	opt stack 0
+  1023  0011CE                     _uart2_getc:
+  1024                           	opt stack 25
+  1025                           
+  1026                           ;uart2_getc.c: 54: uInt8_t tmp;
+  1027                           ;uart2_getc.c: 57: if (uart2_rx.nb_elt) {
+  1028                           
+  1029                           ;incstack = 0
+  1030  0011CE  503F               	movf	_uart2_rx+22,w,c
+  1031  0011D0  B4D8               	btfsc	status,2,c
+  1032  0011D2  D028               	goto	l26
+  1033                           
+  1034                           ;uart2_getc.c: 58: tmp = uart2_rx.buffer[uart2_rx.idx_read];
+  1035  0011D4  503D               	movf	_uart2_rx+20,w,c
+  1036  0011D6  0D01               	mullw	1
+  1037  0011D8  0E29               	movlw	low _uart2_rx
+  1038  0011DA  24F3               	addwf	prodl,w,c
+  1039  0011DC  6ED9               	movwf	fsr2l,c
+  1040  0011DE  0E00               	movlw	high _uart2_rx
+  1041  0011E0  20F4               	addwfc	prodh,w,c
+  1042  0011E2  6EDA               	movwf	fsr2h,c
+  1043  0011E4  50DF               	movf	indf2,w,c
+  1044  0011E6  0100               	movlb	0	; () banked
+  1045  0011E8  6F64               	movwf	uart2_getc@tmp& (0+255),b
+  1046                           
+  1047                           ; BSR set to: 0
+  1048                           ;uart2_getc.c: 59: uart2_rx.nb_elt--;
+  1049  0011EA  063F               	decf	_uart2_rx+22,f,c
+  1050                           
+  1051                           ; BSR set to: 0
+  1052                           ;uart2_getc.c: 60: uart2_rx.idx_read++;
+  1053  0011EC  2A3D               	incf	_uart2_rx+20,f,c
+  1054                           
+  1055                           ; BSR set to: 0
+  1056                           ;uart2_getc.c: 62: if (uart2_rx.idx_read >= 20)
+  1057  0011EE  0E13               	movlw	19
+  1058  0011F0  643D               	cpfsgt	_uart2_rx+20,c
+  1059  0011F2  D002               	goto	l27
+  1060                           
+  1061                           ; BSR set to: 0
+  1062                           ;uart2_getc.c: 63: uart2_rx.idx_read = 0;
+  1063  0011F4  0E00               	movlw	0
+  1064  0011F6  6E3D               	movwf	_uart2_rx+20,c
+  1065  0011F8                     l27:
+  1066                           
+  1067                           ; BSR set to: 0
+  1068                           ;uart2_getc.c: 68: if (uart2_rx.nb_elt == (20 >> 1)) {
+  1069                           
+  1070                           ; BSR set to: 0
+  1071  0011F8  0E0A               	movlw	10
+  1072  0011FA  183F               	xorwf	_uart2_rx+22,w,c
+  1073  0011FC  A4D8               	btfss	status,2,c
+  1074  0011FE  D003               	goto	l28
+  1075                           
+  1076                           ; BSR set to: 0
+  1077                           ;uart2_getc.c: 69: uart2_putc(0x11);
+  1078  001200  0E11               	movlw	17
+  1079  001202  EC70  F009         	call	_uart2_putc
+  1080  001206                     l28:
+  1081                           
+  1082                           ;uart2_getc.c: 70: }
+  1083                           ;uart2_getc.c: 72: if (echo)
+  1084  001206  0100               	movlb	0	; () banked
+  1085  001208  5163               	movf	uart2_getc@echo& (0+255),w,b
+  1086  00120A  B4D8               	btfsc	status,2,c
+  1087  00120C  D003               	goto	l29
+  1088                           
+  1089                           ; BSR set to: 0
+  1090                           ;uart2_getc.c: 73: uart2_putc(tmp);
+  1091  00120E  5164               	movf	uart2_getc@tmp& (0+255),w,b
+  1092  001210  EC70  F009         	call	_uart2_putc
+  1093  001214                     l29:
+  1094                           
+  1095                           ;uart2_getc.c: 75: *payload = tmp;
+  1096  001214  C061  FFD9         	movff	uart2_getc@payload,fsr2l
+  1097  001218  C062  FFDA         	movff	uart2_getc@payload+1,fsr2h
+  1098  00121C  C064  FFDF         	movff	uart2_getc@tmp,indf2
+  1099                           
+  1100                           ;uart2_getc.c: 76: return 1;
+  1101  001220  0E01               	movlw	1
+  1102                           
+  1103                           ;uart2_getc.c: 77: } else {
+  1104  001222  0012               	return	
+  1105  001224                     l26:
+  1106                           
+  1107                           ;uart2_getc.c: 78: return 0;
+  1108  001224  0E00               	movlw	0
+  1109  001226  0012               	return	
+  1110  001228                     __end_of_uart2_getc:
+  1111                           	opt stack 0
+  1112                           tblptru	equ	0xFF8
+  1113                           tblptrh	equ	0xFF7
+  1114                           tblptrl	equ	0xFF6
+  1115                           tablat	equ	0xFF5
+  1116                           prodh	equ	0xFF4
+  1117                           prodl	equ	0xFF3
+  1118                           intcon	equ	0xFF2
+  1119                           postinc0	equ	0xFEE
+  1120                           wreg	equ	0xFE8
+  1121                           indf2	equ	0xFDF
+  1122                           fsr2h	equ	0xFDA
+  1123                           fsr2l	equ	0xFD9
+  1124                           status	equ	0xFD8
+  1125                           
+  1126 ;; *************** function _uart2_putc *****************
+  1127 ;; Defined at:
+  1128 ;;		line 9 in file "../../../src/uart2_putc.c"
+  1129 ;; Parameters:    Size  Location     Type
+  1130 ;;  payload         1    wreg     unsigned char 
+  1131 ;; Auto vars:     Size  Location     Type
+  1132 ;;  payload         1    0[BANK0 ] unsigned char 
+  1133 ;; Return value:  Size  Location     Type
+  1134 ;;                  1    wreg      void 
+  1135 ;; Registers used:
+  1136 ;;		wreg
+  1137 ;; Tracked objects:
+  1138 ;;		On entry : 0/0
+  1139 ;;		On exit  : 0/0
+  1140 ;;		Unchanged: 0/0
+  1141 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+  1142 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1143 ;;      Locals:         0       1       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1144 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1145 ;;      Totals:         0       1       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1146 ;;Total ram usage:        1 bytes
+  1147 ;; Hardware stack levels used:    1
+  1148 ;; Hardware stack levels required when called:    3
+  1149 ;; This function calls:
+  1150 ;;		Nothing
+  1151 ;; This function is called by:
+  1152 ;;		_uart2_getc
+  1153 ;;		_uart2_puts
+  1154 ;; This function uses a non-reentrant model
+  1155 ;;
+  1156                           
+  1157                           	psect	text6
+  1158  0012E0                     __ptext6:
+  1159                           	opt stack 0
+  1160  0012E0                     _uart2_putc:
+  1161                           	opt stack 26
+  1162                           
+  1163                           ;incstack = 0
+  1164                           ;uart2_putc@payload stored from wreg
+  1165  0012E0  0100               	movlb	0	; () banked
+  1166  0012E2  6F60               	movwf	uart2_putc@payload& (0+255),b
+  1167  0012E4                     
+  1168                           ;uart2_putc.c: 11: while(!TXSTA2bits.TRMT);
+  1169  0012E4  010E               	movlb	14	; () banked
+  1170  0012E6  A39E               	btfss	158,1,b	;volatile
+  1171  0012E8  D7FD               	goto	l1062
+  1172                           
+  1173                           ; BSR set to: 14
+  1174                           ;uart2_putc.c: 12: TX2REG = payload;
+  1175                           
+  1176                           ; BSR set to: 14
+  1177  0012EA  C060  FE9A         	movff	uart2_putc@payload,3738	;volatile
+  1178                           
+  1179                           ; BSR set to: 14
+  1180  0012EE  0012               	return		;funcret
+  1181  0012F0                     __end_of_uart2_putc:
+  1182                           	opt stack 0
+  1183                           tblptru	equ	0xFF8
+  1184                           tblptrh	equ	0xFF7
+  1185                           tblptrl	equ	0xFF6
+  1186                           tablat	equ	0xFF5
+  1187                           prodh	equ	0xFF4
+  1188                           prodl	equ	0xFF3
+  1189                           intcon	equ	0xFF2
+  1190                           postinc0	equ	0xFEE
+  1191                           wreg	equ	0xFE8
+  1192                           indf2	equ	0xFDF
+  1193                           fsr2h	equ	0xFDA
+  1194                           fsr2l	equ	0xFD9
+  1195                           status	equ	0xFD8
+  1196                           
+  1197 ;; *************** function _isr_low *****************
+  1198 ;; Defined at:
+  1199 ;;		line 16 in file "../../main.c"
+  1200 ;; Parameters:    Size  Location     Type
+  1201 ;;		None
+  1202 ;; Auto vars:     Size  Location     Type
+  1203 ;;		None
+  1204 ;; Return value:  Size  Location     Type
+  1205 ;;                  1    wreg      void 
+  1206 ;; Registers used:
+  1207 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+  1208 ;; Tracked objects:
+  1209 ;;		On entry : 0/0
+  1210 ;;		On exit  : 0/0
+  1211 ;;		Unchanged: 0/0
+  1212 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+  1213 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1214 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1215 ;;      Temps:         21       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1216 ;;      Totals:        21       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1217 ;;Total ram usage:       21 bytes
+  1218 ;; Hardware stack levels used:    1
+  1219 ;; Hardware stack levels required when called:    2
+  1220 ;; This function calls:
+  1221 ;;		_uart2_isr_process
+  1222 ;; This function is called by:
+  1223 ;;		Interrupt level 1
+  1224 ;; This function uses a non-reentrant model
+  1225 ;;
+  1226                           
+  1227                           	psect	intcodelo
+  1228  000018                     __pintcodelo:
+  1229                           	opt stack 0
+  1230  000018                     _isr_low:
+  1231                           	opt stack 25
+  1232                           
+  1233                           ; BSR set to: 14
+  1234                           ;incstack = 0
+  1235  000018  8041               	bsf	btemp,0,c	;set compiler interrupt flag (level 1)
+  1236  00001A  CFD8 F014          	movff	status,??_isr_low
+  1237  00001E  CFE8 F015          	movff	wreg,??_isr_low+1
+  1238  000022  CFE0 F016          	movff	bsr,??_isr_low+2
+  1239  000026  CFFA F017          	movff	pclath,??_isr_low+3
+  1240  00002A  CFFB F018          	movff	pclatu,??_isr_low+4
+  1241  00002E  CFE9 F019          	movff	fsr0l,??_isr_low+5
+  1242  000032  CFEA F01A          	movff	fsr0h,??_isr_low+6
+  1243  000036  CFE1 F01B          	movff	fsr1l,??_isr_low+7
+  1244  00003A  CFE2 F01C          	movff	fsr1h,??_isr_low+8
+  1245  00003E  CFD9 F01D          	movff	fsr2l,??_isr_low+9
+  1246  000042  CFDA F01E          	movff	fsr2h,??_isr_low+10
+  1247  000046  CFF3 F01F          	movff	prodl,??_isr_low+11
+  1248  00004A  CFF4 F020          	movff	prodh,??_isr_low+12
+  1249  00004E  CFF6 F021          	movff	tblptrl,??_isr_low+13
+  1250  000052  CFF7 F022          	movff	tblptrh,??_isr_low+14
+  1251  000056  CFF8 F023          	movff	tblptru,??_isr_low+15
+  1252  00005A  CFF5 F024          	movff	tablat,??_isr_low+16
+  1253  00005E  C041  F025         	movff	btemp,??_isr_low+17
+  1254  000062  C042  F026         	movff	btemp+1,??_isr_low+18
+  1255  000066  C043  F027         	movff	btemp+2,??_isr_low+19
+  1256  00006A  C044  F028         	movff	btemp+3,??_isr_low+20
+  1257                           
+  1258                           ;main.c: 18: uart2_isr_process ();
+  1259  00006E  EC40  F009         	call	_uart2_isr_process	;wreg free
+  1260  000072  C028  F044         	movff	??_isr_low+20,btemp+3
+  1261  000076  C027  F043         	movff	??_isr_low+19,btemp+2
+  1262  00007A  C026  F042         	movff	??_isr_low+18,btemp+1
+  1263  00007E  C025  F041         	movff	??_isr_low+17,btemp
+  1264  000082  C024  FFF5         	movff	??_isr_low+16,tablat
+  1265  000086  C023  FFF8         	movff	??_isr_low+15,tblptru
+  1266  00008A  C022  FFF7         	movff	??_isr_low+14,tblptrh
+  1267  00008E  C021  FFF6         	movff	??_isr_low+13,tblptrl
+  1268  000092  C020  FFF4         	movff	??_isr_low+12,prodh
+  1269  000096  C01F  FFF3         	movff	??_isr_low+11,prodl
+  1270  00009A  C01E  FFDA         	movff	??_isr_low+10,fsr2h
+  1271  00009E  C01D  FFD9         	movff	??_isr_low+9,fsr2l
+  1272  0000A2  C01C  FFE2         	movff	??_isr_low+8,fsr1h
+  1273  0000A6  C01B  FFE1         	movff	??_isr_low+7,fsr1l
+  1274  0000AA  C01A  FFEA         	movff	??_isr_low+6,fsr0h
+  1275  0000AE  C019  FFE9         	movff	??_isr_low+5,fsr0l
+  1276  0000B2  C018  FFFB         	movff	??_isr_low+4,pclatu
+  1277  0000B6  C017  FFFA         	movff	??_isr_low+3,pclath
+  1278  0000BA  C016  FFE0         	movff	??_isr_low+2,bsr
+  1279  0000BE  C015  FFE8         	movff	??_isr_low+1,wreg
+  1280  0000C2  C014  FFD8         	movff	??_isr_low,status
+  1281  0000C6  9041               	bcf	btemp,0,c	;clear compiler interrupt flag (level 1)
+  1282  0000C8  0010               	retfie	
+  1283  0000CA                     __end_of_isr_low:
+  1284                           	opt stack 0
+  1285                           pclatu	equ	0xFFB
+  1286                           pclath	equ	0xFFA
+  1287                           tblptru	equ	0xFF8
+  1288                           tblptrh	equ	0xFF7
+  1289                           tblptrl	equ	0xFF6
+  1290                           tablat	equ	0xFF5
+  1291                           prodh	equ	0xFF4
+  1292                           prodl	equ	0xFF3
+  1293                           intcon	equ	0xFF2
+  1294                           postinc0	equ	0xFEE
+  1295                           fsr0h	equ	0xFEA
+  1296                           fsr0l	equ	0xFE9
+  1297                           wreg	equ	0xFE8
+  1298                           fsr1h	equ	0xFE2
+  1299                           fsr1l	equ	0xFE1
+  1300                           bsr	equ	0xFE0
+  1301                           indf2	equ	0xFDF
+  1302                           fsr2h	equ	0xFDA
+  1303                           fsr2l	equ	0xFD9
+  1304                           status	equ	0xFD8
+  1305                           
+  1306 ;; *************** function _uart2_isr_process *****************
+  1307 ;; Defined at:
+  1308 ;;		line 19 in file "../../../src/uart2_getc.c"
+  1309 ;; Parameters:    Size  Location     Type
+  1310 ;;		None
+  1311 ;; Auto vars:     Size  Location     Type
+  1312 ;;  lost            1   18[COMRAM] unsigned char 
+  1313 ;; Return value:  Size  Location     Type
+  1314 ;;                  1    wreg      void 
+  1315 ;; Registers used:
+  1316 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh
+  1317 ;; Tracked objects:
+  1318 ;;		On entry : 0/0
+  1319 ;;		On exit  : 0/0
+  1320 ;;		Unchanged: 0/0
+  1321 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+  1322 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1323 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1324 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1325 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1326 ;;Total ram usage:        1 bytes
+  1327 ;; Hardware stack levels used:    1
+  1328 ;; Hardware stack levels required when called:    1
+  1329 ;; This function calls:
+  1330 ;;		Nothing
+  1331 ;; This function is called by:
+  1332 ;;		_isr_low
+  1333 ;; This function uses a non-reentrant model
+  1334 ;;
+  1335                           
+  1336                           	psect	text8
+  1337  001280                     __ptext8:
+  1338                           	opt stack 0
+  1339  001280                     _uart2_isr_process:
+  1340                           	opt stack 25
+  1341                           
+  1342                           ;uart2_getc.c: 21: uInt8_t lost;
+  1343                           ;uart2_getc.c: 23: if(PIR3bits.RC2IF) {
+  1344                           
+  1345                           ;incstack = 0
+  1346  001280  010E               	movlb	14	; () banked
+  1347  001282  AFCD               	btfss	205,7,b	;volatile
+  1348  001284  0012               	return	
+  1349                           
+  1350                           ; BSR set to: 14
+  1351                           ;uart2_getc.c: 29: if ( uart2_rx.nb_elt < 20 ) {
+  1352  001286  0E14               	movlw	20
+  1353  001288  603F               	cpfslt	_uart2_rx+22,c
+  1354  00128A  D01A               	goto	i1l16
+  1355                           
+  1356                           ; BSR set to: 14
+  1357                           ;uart2_getc.c: 30: uart2_rx.buffer[uart2_rx.idx_write] = RC2REG;
+  1358  00128C  503E               	movf	_uart2_rx+21,w,c
+  1359  00128E  0D01               	mullw	1
+  1360  001290  0E29               	movlw	low _uart2_rx
+  1361  001292  24F3               	addwf	prodl,w,c
+  1362  001294  6ED9               	movwf	fsr2l,c
+  1363  001296  0E00               	movlw	high _uart2_rx
+  1364  001298  20F4               	addwfc	prodh,w,c
+  1365  00129A  6EDA               	movwf	fsr2h,c
+  1366  00129C  CE99 FFDF          	movff	3737,indf2	;volatile
+  1367                           
+  1368                           ; BSR set to: 14
+  1369                           ;uart2_getc.c: 31: uart2_rx.nb_elt++;
+  1370  0012A0  2A3F               	incf	_uart2_rx+22,f,c
+  1371                           
+  1372                           ; BSR set to: 14
+  1373                           ;uart2_getc.c: 32: uart2_rx.idx_write++;
+  1374  0012A2  2A3E               	incf	_uart2_rx+21,f,c
+  1375                           
+  1376                           ; BSR set to: 14
+  1377                           ;uart2_getc.c: 34: if ( uart2_rx.idx_write >= 20 )
+  1378  0012A4  0E13               	movlw	19
+  1379  0012A6  643E               	cpfsgt	_uart2_rx+21,c
+  1380  0012A8  D002               	goto	i1l17
+  1381                           
+  1382                           ; BSR set to: 14
+  1383                           ;uart2_getc.c: 35: uart2_rx.idx_write = 0;
+  1384  0012AA  0E00               	movlw	0
+  1385  0012AC  6E3E               	movwf	_uart2_rx+21,c
+  1386  0012AE                     i1l17:
+  1387                           
+  1388                           ; BSR set to: 14
+  1389                           ;uart2_getc.c: 41: if ( uart2_rx.nb_elt == (20 - 4) ) {
+  1390                           
+  1391                           ; BSR set to: 14
+  1392  0012AE  0E10               	movlw	16
+  1393  0012B0  183F               	xorwf	_uart2_rx+22,w,c
+  1394  0012B2  A4D8               	btfss	status,2,c
+  1395  0012B4  0012               	return	
+  1396  0012B6                     i1u12_20:
+  1397                           
+  1398                           ; BSR set to: 14
+  1399                           
+  1400                           ; BSR set to: 14
+  1401                           
+  1402                           ; BSR set to: 14
+  1403                           ;uart2_getc.c: 42: while(!TXSTA2bits.TRMT);
+  1404  0012B6  A39E               	btfss	158,1,b	;volatile
+  1405  0012B8  D7FE               	goto	i1u12_20
+  1406                           
+  1407                           ; BSR set to: 14
+  1408                           ;uart2_getc.c: 43: TX2REG = 0x13;
+  1409                           
+  1410                           ; BSR set to: 14
+  1411  0012BA  0E13               	movlw	19
+  1412  0012BC  6F9A               	movwf	154,b	;volatile
+  1413                           
+  1414                           ; BSR set to: 14
+  1415                           ;uart2_getc.c: 44: }
+  1416                           ;uart2_getc.c: 45: } else {
+  1417  0012BE  0012               	return	
+  1418  0012C0                     i1l16:
+  1419                           
+  1420                           ; BSR set to: 14
+  1421                           ;uart2_getc.c: 47: lost = RC2REG;
+  1422  0012C0  CE99 F013          	movff	3737,uart2_isr_process@lost	;volatile
+  1423                           
+  1424                           ; BSR set to: 14
+  1425  0012C4  0012               	return	
+  1426  0012C6                     __end_of_uart2_isr_process:
+  1427                           	opt stack 0
+  1428                           pclatu	equ	0xFFB
+  1429                           pclath	equ	0xFFA
+  1430                           tblptru	equ	0xFF8
+  1431                           tblptrh	equ	0xFF7
+  1432                           tblptrl	equ	0xFF6
+  1433                           tablat	equ	0xFF5
+  1434                           prodh	equ	0xFF4
+  1435                           prodl	equ	0xFF3
+  1436                           intcon	equ	0xFF2
+  1437                           postinc0	equ	0xFEE
+  1438                           fsr0h	equ	0xFEA
+  1439                           fsr0l	equ	0xFE9
+  1440                           wreg	equ	0xFE8
+  1441                           fsr1h	equ	0xFE2
+  1442                           fsr1l	equ	0xFE1
+  1443                           bsr	equ	0xFE0
+  1444                           indf2	equ	0xFDF
+  1445                           fsr2h	equ	0xFDA
+  1446                           fsr2l	equ	0xFD9
+  1447                           status	equ	0xFD8
+  1448                           
+  1449 ;; *************** function _isr_high *****************
+  1450 ;; Defined at:
+  1451 ;;		line 10 in file "../../main.c"
+  1452 ;; Parameters:    Size  Location     Type
+  1453 ;;		None
+  1454 ;; Auto vars:     Size  Location     Type
+  1455 ;;		None
+  1456 ;; Return value:  Size  Location     Type
+  1457 ;;                  1    wreg      void 
+  1458 ;; Registers used:
+  1459 ;;		None
+  1460 ;; Tracked objects:
+  1461 ;;		On entry : 0/0
+  1462 ;;		On exit  : 0/0
+  1463 ;;		Unchanged: 0/0
+  1464 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+  1465 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1466 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1467 ;;      Temps:         18       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1468 ;;      Totals:        18       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1469 ;;Total ram usage:       18 bytes
+  1470 ;; Hardware stack levels used:    1
+  1471 ;; This function calls:
+  1472 ;;		Nothing
+  1473 ;; This function is called by:
+  1474 ;;		Interrupt level 2
+  1475 ;; This function uses a non-reentrant model
+  1476 ;;
+  1477                           
+  1478                           	psect	intcode
+  1479  000008                     __pintcode:
+  1480                           	opt stack 0
+  1481  000008                     _isr_high:
+  1482                           	opt stack 25
+  1483                           
+  1484                           ; BSR set to: 14
+  1485                           ;incstack = 0
+  1486  000008  8241               	bsf	btemp,1,c	;set compiler interrupt flag (level 2)
+  1487  00000A  EFE2  F007         	goto	int_func
+  1488                           pclatu	equ	0xFFB
+  1489                           pclath	equ	0xFFA
+  1490                           tblptru	equ	0xFF8
+  1491                           tblptrh	equ	0xFF7
+  1492                           tblptrl	equ	0xFF6
+  1493                           tablat	equ	0xFF5
+  1494                           prodh	equ	0xFF4
+  1495                           prodl	equ	0xFF3
+  1496                           intcon	equ	0xFF2
+  1497                           postinc0	equ	0xFEE
+  1498                           fsr0h	equ	0xFEA
+  1499                           fsr0l	equ	0xFE9
+  1500                           wreg	equ	0xFE8
+  1501                           fsr1h	equ	0xFE2
+  1502                           fsr1l	equ	0xFE1
+  1503                           bsr	equ	0xFE0
+  1504                           indf2	equ	0xFDF
+  1505                           fsr2h	equ	0xFDA
+  1506                           fsr2l	equ	0xFD9
+  1507                           status	equ	0xFD8
+  1508                           
+  1509                           	psect	intcode_body
+  1510  000FC4                     __pintcode_body:
+  1511                           	opt stack 25
+  1512  000FC4                     int_func:
+  1513                           	opt stack 25
+  1514  000FC4  CFFA F001          	movff	pclath,??_isr_high
+  1515  000FC8  CFFB F002          	movff	pclatu,??_isr_high+1
+  1516  000FCC  CFE9 F003          	movff	fsr0l,??_isr_high+2
+  1517  000FD0  CFEA F004          	movff	fsr0h,??_isr_high+3
+  1518  000FD4  CFE1 F005          	movff	fsr1l,??_isr_high+4
+  1519  000FD8  CFE2 F006          	movff	fsr1h,??_isr_high+5
+  1520  000FDC  CFD9 F007          	movff	fsr2l,??_isr_high+6
+  1521  000FE0  CFDA F008          	movff	fsr2h,??_isr_high+7
+  1522  000FE4  CFF3 F009          	movff	prodl,??_isr_high+8
+  1523  000FE8  CFF4 F00A          	movff	prodh,??_isr_high+9
+  1524  000FEC  CFF6 F00B          	movff	tblptrl,??_isr_high+10
+  1525  000FF0  CFF7 F00C          	movff	tblptrh,??_isr_high+11
+  1526  000FF4  CFF8 F00D          	movff	tblptru,??_isr_high+12
+  1527  000FF8  CFF5 F00E          	movff	tablat,??_isr_high+13
+  1528  000FFC  C041  F00F         	movff	btemp,??_isr_high+14
+  1529  001000  C042  F010         	movff	btemp+1,??_isr_high+15
+  1530  001004  C043  F011         	movff	btemp+2,??_isr_high+16
+  1531  001008  C044  F012         	movff	btemp+3,??_isr_high+17
+  1532  00100C  C012  F044         	movff	??_isr_high+17,btemp+3
+  1533  001010  C011  F043         	movff	??_isr_high+16,btemp+2
+  1534  001014  C010  F042         	movff	??_isr_high+15,btemp+1
+  1535  001018  C00F  F041         	movff	??_isr_high+14,btemp
+  1536  00101C  C00E  FFF5         	movff	??_isr_high+13,tablat
+  1537  001020  C00D  FFF8         	movff	??_isr_high+12,tblptru
+  1538  001024  C00C  FFF7         	movff	??_isr_high+11,tblptrh
+  1539  001028  C00B  FFF6         	movff	??_isr_high+10,tblptrl
+  1540  00102C  C00A  FFF4         	movff	??_isr_high+9,prodh
+  1541  001030  C009  FFF3         	movff	??_isr_high+8,prodl
+  1542  001034  C008  FFDA         	movff	??_isr_high+7,fsr2h
+  1543  001038  C007  FFD9         	movff	??_isr_high+6,fsr2l
+  1544  00103C  C006  FFE2         	movff	??_isr_high+5,fsr1h
+  1545  001040  C005  FFE1         	movff	??_isr_high+4,fsr1l
+  1546  001044  C004  FFEA         	movff	??_isr_high+3,fsr0h
+  1547  001048  C003  FFE9         	movff	??_isr_high+2,fsr0l
+  1548  00104C  C002  FFFB         	movff	??_isr_high+1,pclatu
+  1549  001050  C001  FFFA         	movff	??_isr_high,pclath
+  1550  001054  9241               	bcf	btemp,1,c	;clear compiler interrupt flag (level 2)
+  1551  001056  0011               	retfie		f
+  1552  001058                     __end_of_isr_high:
+  1553                           	opt stack 0
+  1554                           pclatu	equ	0xFFB
+  1555                           pclath	equ	0xFFA
+  1556                           tblptru	equ	0xFF8
+  1557                           tblptrh	equ	0xFF7
+  1558                           tblptrl	equ	0xFF6
+  1559                           tablat	equ	0xFF5
+  1560                           prodh	equ	0xFF4
+  1561                           prodl	equ	0xFF3
+  1562                           intcon	equ	0xFF2
+  1563                           postinc0	equ	0xFEE
+  1564                           fsr0h	equ	0xFEA
+  1565                           fsr0l	equ	0xFE9
+  1566                           wreg	equ	0xFE8
+  1567                           fsr1h	equ	0xFE2
+  1568                           fsr1l	equ	0xFE1
+  1569                           bsr	equ	0xFE0
+  1570                           indf2	equ	0xFDF
+  1571                           fsr2h	equ	0xFDA
+  1572                           fsr2l	equ	0xFD9
+  1573                           status	equ	0xFD8
+  1574                           pclatu	equ	0xFFB
+  1575                           pclath	equ	0xFFA
+  1576                           tblptru	equ	0xFF8
+  1577                           tblptrh	equ	0xFF7
+  1578                           tblptrl	equ	0xFF6
+  1579                           tablat	equ	0xFF5
+  1580                           prodh	equ	0xFF4
+  1581                           prodl	equ	0xFF3
+  1582                           intcon	equ	0xFF2
+  1583                           postinc0	equ	0xFEE
+  1584                           fsr0h	equ	0xFEA
+  1585                           fsr0l	equ	0xFE9
+  1586                           wreg	equ	0xFE8
+  1587                           fsr1h	equ	0xFE2
+  1588                           fsr1l	equ	0xFE1
+  1589                           bsr	equ	0xFE0
+  1590                           indf2	equ	0xFDF
+  1591                           fsr2h	equ	0xFDA
+  1592                           fsr2l	equ	0xFD9
+  1593                           status	equ	0xFD8
+  1594                           
+  1595                           	psect	rparam
+  1596  0000                     pclatu	equ	0xFFB
+  1597                           pclath	equ	0xFFA
+  1598                           tblptru	equ	0xFF8
+  1599                           tblptrh	equ	0xFF7
+  1600                           tblptrl	equ	0xFF6
+  1601                           tablat	equ	0xFF5
+  1602                           prodh	equ	0xFF4
+  1603                           prodl	equ	0xFF3
+  1604                           intcon	equ	0xFF2
+  1605                           postinc0	equ	0xFEE
+  1606                           fsr0h	equ	0xFEA
+  1607                           fsr0l	equ	0xFE9
+  1608                           wreg	equ	0xFE8
+  1609                           fsr1h	equ	0xFE2
+  1610                           fsr1l	equ	0xFE1
+  1611                           bsr	equ	0xFE0
+  1612                           indf2	equ	0xFDF
+  1613                           fsr2h	equ	0xFDA
+  1614                           fsr2l	equ	0xFD9
+  1615                           status	equ	0xFD8
+  1616                           
+  1617                           	psect	temp
+  1618  000041                     btemp:
+  1619                           	opt stack 0
+  1620  000041                     	ds	1
+  1621  0000                     int$flags	set	btemp
+  1622  0000                     wtemp6	set	btemp+1
+  1623                           pclatu	equ	0xFFB
+  1624                           pclath	equ	0xFFA
+  1625                           tblptru	equ	0xFF8
+  1626                           tblptrh	equ	0xFF7
+  1627                           tblptrl	equ	0xFF6
+  1628                           tablat	equ	0xFF5
+  1629                           prodh	equ	0xFF4
+  1630                           prodl	equ	0xFF3
+  1631                           intcon	equ	0xFF2
+  1632                           postinc0	equ	0xFEE
+  1633                           fsr0h	equ	0xFEA
+  1634                           fsr0l	equ	0xFE9
+  1635                           wreg	equ	0xFE8
+  1636                           fsr1h	equ	0xFE2
+  1637                           fsr1l	equ	0xFE1
+  1638                           bsr	equ	0xFE0
+  1639                           indf2	equ	0xFDF
+  1640                           fsr2h	equ	0xFDA
+  1641                           fsr2l	equ	0xFD9
+  1642                           status	equ	0xFD8
+
+
+Data Sizes:
+    Strings     25
+    Constant    0
+    Data        0
+    BSS         24
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           94     40      64
+    BANK0           160    103     103
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+    BANK6           256      0       0
+    BANK7           256      0       0
+    BANK8           256      0       0
+    BANK9           256      0       0
+    BANK10          256      0       0
+    BANK11          256      0       0
+    BANK12          256      0       0
+    BANK13          256      0       0
+    BANK14          136      0       0
+
+Pointer List with Targets:
+
+    uart2_puts@str	PTR const unsigned char  size(2) Largest target is 77
+		 -> STR_2(CODE[3]), main@str_tmp(BANK0[77]), STR_1(CODE[22]), 
+
+    uart2_gets@str_buf	PTR unsigned char  size(2) Largest target is 77
+		 -> main@str_tmp(BANK0[77]), 
+
+    uart2_getc@payload	PTR unsigned char  size(2) Largest target is 1
+		 -> uart2_gets@tmp(BANK0[1]), 
+
+
+Critical Paths under _main in COMRAM
+
+    None.
+
+Critical Paths under _isr_low in COMRAM
+
+    _isr_low->_uart2_isr_process
+
+Critical Paths under _isr_high in COMRAM
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    _main->_uart2_init
+    _uart2_puts->_uart2_putc
+    _uart2_init->___lldiv
+    _uart2_gets->_uart2_getc
+    _uart2_getc->_uart2_putc
+
+Critical Paths under _isr_low in BANK0
+
+    None.
+
+Critical Paths under _isr_high in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _isr_low in BANK1
+
+    None.
+
+Critical Paths under _isr_high in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _isr_low in BANK2
+
+    None.
+
+Critical Paths under _isr_high in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _isr_low in BANK3
+
+    None.
+
+Critical Paths under _isr_high in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _isr_low in BANK4
+
+    None.
+
+Critical Paths under _isr_high in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _isr_low in BANK5
+
+    None.
+
+Critical Paths under _isr_high in BANK5
+
+    None.
+
+Critical Paths under _main in BANK6
+
+    None.
+
+Critical Paths under _isr_low in BANK6
+
+    None.
+
+Critical Paths under _isr_high in BANK6
+
+    None.
+
+Critical Paths under _main in BANK7
+
+    None.
+
+Critical Paths under _isr_low in BANK7
+
+    None.
+
+Critical Paths under _isr_high in BANK7
+
+    None.
+
+Critical Paths under _main in BANK8
+
+    None.
+
+Critical Paths under _isr_low in BANK8
+
+    None.
+
+Critical Paths under _isr_high in BANK8
+
+    None.
+
+Critical Paths under _main in BANK9
+
+    None.
+
+Critical Paths under _isr_low in BANK9
+
+    None.
+
+Critical Paths under _isr_high in BANK9
+
+    None.
+
+Critical Paths under _main in BANK10
+
+    None.
+
+Critical Paths under _isr_low in BANK10
+
+    None.
+
+Critical Paths under _isr_high in BANK10
+
+    None.
+
+Critical Paths under _main in BANK11
+
+    None.
+
+Critical Paths under _isr_low in BANK11
+
+    None.
+
+Critical Paths under _isr_high in BANK11
+
+    None.
+
+Critical Paths under _main in BANK12
+
+    None.
+
+Critical Paths under _isr_low in BANK12
+
+    None.
+
+Critical Paths under _isr_high in BANK12
+
+    None.
+
+Critical Paths under _main in BANK13
+
+    None.
+
+Critical Paths under _isr_low in BANK13
+
+    None.
+
+Critical Paths under _isr_high in BANK13
+
+    None.
+
+Critical Paths under _main in BANK14
+
+    None.
+
+Critical Paths under _isr_low in BANK14
+
+    None.
+
+Critical Paths under _isr_high in BANK14
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                78    78      0    1927
+                                             26 BANK0     77    77      0
+                         _uart2_gets
+                         _uart2_init
+                         _uart2_puts
+ ---------------------------------------------------------------------------------
+ (1) _uart2_puts                                           2     0      2     366
+                                              1 BANK0      2     0      2
+                         _uart2_putc
+ ---------------------------------------------------------------------------------
+ (1) _uart2_init                                          13     9      4     613
+                                             13 BANK0     13     9      4
+                            ___lldiv
+ ---------------------------------------------------------------------------------
+ (2) ___lldiv                                             13     5      8     421
+                                              0 BANK0     13     5      8
+ ---------------------------------------------------------------------------------
+ (1) _uart2_gets                                           9     5      4     862
+                                              5 BANK0      9     5      4
+                         _uart2_getc
+ ---------------------------------------------------------------------------------
+ (2) _uart2_getc                                           4     1      3     338
+                                              1 BANK0      4     1      3
+                         _uart2_putc
+ ---------------------------------------------------------------------------------
+ (2) _uart2_putc                                           1     1      0      31
+                                              0 BANK0      1     1      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (4) _isr_low                                             21    21      0       0
+                                             19 COMRAM    21    21      0
+                  _uart2_isr_process
+ ---------------------------------------------------------------------------------
+ (5) _uart2_isr_process                                    1     1      0       0
+                                             18 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 5
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (6) _isr_high                                            18    18      0       0
+                                              0 COMRAM    18    18      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 6
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _uart2_gets
+     _uart2_getc
+       _uart2_putc
+   _uart2_init
+     ___lldiv
+   _uart2_puts
+     _uart2_putc
+
+ _isr_low (ROOT)
+   _uart2_isr_process
+
+ _isr_high (ROOT)
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             E87      0       0      35        0.0%
+EEDATA             400      0       0       0        0.0%
+BITBANK13          100      0       0      31        0.0%
+BANK13             100      0       0      32        0.0%
+BITBANK12          100      0       0      29        0.0%
+BANK12             100      0       0      30        0.0%
+BITBANK11          100      0       0      27        0.0%
+BANK11             100      0       0      28        0.0%
+BITBANK10          100      0       0      25        0.0%
+BANK10             100      0       0      26        0.0%
+BITBANK9           100      0       0      23        0.0%
+BANK9              100      0       0      24        0.0%
+BITBANK8           100      0       0      21        0.0%
+BANK8              100      0       0      22        0.0%
+BITBANK7           100      0       0      19        0.0%
+BANK7              100      0       0      20        0.0%
+BITBANK6           100      0       0      17        0.0%
+BANK6              100      0       0      18        0.0%
+BITBANK5           100      0       0      15        0.0%
+BANK5              100      0       0      16        0.0%
+BITBANK4           100      0       0      13        0.0%
+BANK4              100      0       0      14        0.0%
+BITBANK3           100      0       0      11        0.0%
+BANK3              100      0       0      12        0.0%
+BITBANK2           100      0       0       9        0.0%
+BANK2              100      0       0      10        0.0%
+BITBANK1           100      0       0       7        0.0%
+BANK1              100      0       0       8        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0     67      67       5       64.4%
+BITBANK14           88      0       0      33        0.0%
+BANK14              88      0       0      34        0.0%
+BITCOMRAM           5E      0       0       0        0.0%
+COMRAM              5E     28      40       1       68.1%
+BITSFR_2             0      0       0     200        0.0%
+SFR_2                0      0       0     200        0.0%
+BITSFR_1             0      0       0     200        0.0%
+SFR_1                0      0       0     200        0.0%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+STACK                0      0       0       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0      A7       6        0.0%
+DATA                 0      0      A7       3        0.0%
+CODE                 0      0       0       0        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V1.45 build -152302408 
+Symbol Table                                                                                   Mon Jun 15 09:27:19 2026
+
+         uart2_gets@str_buf 0065                 __CFG_CP$OFF 000000                          l40 10E2  
+                        l41 10A6                          l26 1224                          l27 11F8  
+                        l28 1206                          l29 1214                          l86 1256  
+                        l87 122A                          bsr 000FE0         ??_uart2_isr_process 0013  
+               __CFG_LVP$ON 000000                         l114 1194                         l470 110A  
+                       l473 114A                         l474 1158                         l469 1116  
+                       u500 124C                         u510 1278                         u440 111A  
+              __CFG_CPD$OFF 000000                         u507 1242                         u517 126E  
+                       u495 0F54                         prod 000FF3                         wreg 000FE8  
+           uart2_init@flush 0075                  _TXSTA2bits 000E9E                __CFG_ZCD$OFF 000000  
+                      l1062 12E4                        STR_1 0F01                        STR_2 0F17  
+                      i1l16 12C0                        i1l17 12AE               __CFG_FCMEN$ON 000000  
+ __end_of_uart2_isr_process 12C6                        _main 116A                        fsr0h 000FEA  
+                      fsr1h 000FE2                        fsr2h 000FDA                        fsr0l 000FE9  
+                      indf2 000FDF                        fsr1l 000FE1                        fsr2l 000FD9  
+                      btemp 0041            uart2_init@bdrate 006D                        prodh 000FF4  
+                      prodl 000FF3                        start 00CA                 main@str_tmp 007A  
+             __CFG_CSWEN$ON 000000                ___param_bank 000000               __CFG_SCANE$ON 000000  
+              _BAUDCON2bits 000E9F                       ?_main 0001             __end_of___lldiv 116A  
+            __CFG_DEBUG$OFF 000000               __CFG_WRT0$OFF 000000               __CFG_WRT1$OFF 000000  
+             __CFG_WRT2$OFF 000000               __CFG_WRT3$OFF 000000               __CFG_WRT4$OFF 000000  
+             __CFG_WRT5$OFF 000000               __CFG_WRT6$OFF 000000               __CFG_WRT7$OFF 000000  
+            __CFG_EBTR0$OFF 000000              __CFG_EBTR1$OFF 000000              __CFG_EBTR2$OFF 000000  
+            __CFG_EBTR3$OFF 000000              __CFG_EBTR4$OFF 000000              __CFG_EBTR5$OFF 000000  
+            __CFG_EBTR6$OFF 000000              __CFG_EBTR7$OFF 000000               __CFG_WRTB$OFF 000000  
+             __CFG_WRTC$OFF 000000               __CFG_WRTD$OFF 000000              __CFG_EBTRB$OFF 000000  
+        __CFG_MCLRE$EXTMCLR 000000             __end_of_isr_low 00CA                       pclath 000FFA  
+                     tablat 000FF5                       status 000FD8                       wtemp6 0042  
+           __initialization 12C6                __end_of_main 11CE                      ??_main 007A  
+             __activetblptr 000002                      _RC2REG 000E99                      _RC1PPS 000EF8  
+                    _SP2BRG 000E9B  __size_of_uart2_isr_process 0046                      _RX2PPS 000E8D  
+                    _TX2REG 000E9A     uart2_init@bdrate_calcul 0076              __CFG_PWRTE$OFF 000000  
+            __CFG_XINST$OFF 000000              __CFG_STVREN$ON 000000                   ??___lldiv 0068  
+                    clear_0 12CC            __end_of_isr_high 1058                   ??_isr_low 0014  
+              __mediumconst 0000                      tblptrh 000FF7                      tblptrl 000FF6  
+                    tblptru 000FF8                  __accesstop 0060     __end_of__initialization 12D2  
+             ___rparam_used 000001              __pcstackCOMRAM 0001                     _SP2BRGH 000E9C  
+                   i1u12_20 12B6                 uart2_gets@i 0040                   ?_isr_high 0001  
+                   __Hparam 0000                     __Lparam 0000  __CFG_RSTOSC$HFINTOSC_64MHZ 000000  
+                   ___lldiv 10E6                __psmallconst 0F00                     __pcinit 12C6  
+                   __ramtop 0F00                     __ptext0 116A                     __ptext1 1228  
+                   __ptext2 0F1C                     __ptext3 10E6                     __ptext4 1058  
+                   __ptext5 11CE                     __ptext6 12E0                     __ptext8 1280  
+                   _isr_low 0018              __pintcode_body 0FC4        end_of_initialization 12D2  
+                _uart2_getc 11CE                  _uart2_gets 1058                  _uart2_init 0F1C  
+             __Lmediumconst 0000                     int_func 0FC4                  _uart2_putc 12E0  
+                _uart2_puts 1228                  ??_isr_high 0001             ___lldiv@divisor 0064  
+           ___lldiv@counter 006C                     postinc0 000FEE       __CFG_WDTCPS$WDTCPS_12 000000  
+      __CFG_WDTCCS$HFINTOSC 000000               uart2_getc@tmp 0064               uart2_gets@tmp 006D  
+         uart2_putc@payload 0060            __CFG_FEXTOSC$OFF 000000               uart2_puts@str 0061  
+       start_initialization 12C6                 ?_uart2_getc 0061                 ?_uart2_gets 0065  
+               ?_uart2_init 006D                 ?_uart2_putc 0001                 ?_uart2_puts 0061  
+          __CFG_LPBOREN$OFF 000000                 __pbssCOMRAM 0029               __pcstackBANK0 0060  
+         __size_of_isr_high 1050                   __pintcode 0008                    ?___lldiv 0060  
+          __CFG_PPS1WAY$OFF 000000                 __pintcodelo 0018         __size_of_uart2_getc 005A  
+       __size_of_uart2_gets 008E         __size_of_uart2_init 00A8                 __smallconst 0F00  
+       __size_of_uart2_putc 0010         __size_of_uart2_puts 0058                    ?_isr_low 0001  
+          __CFG_WDTE$SWDTEN 000000                    _IPR3bits 000EBD                    _PIE3bits 000EC5  
+       __CFG_BORV$VBOR_2P45 000000                    _PIR3bits 000ECD                    __Hrparam 0000  
+                  __Lrparam 0000          __CFG_BOREN$SBORDIS 000000            __size_of___lldiv 0084  
+                _ANSELCbits 000F21            __size_of_isr_low 00B2                ??_uart2_getc 0064  
+              ??_uart2_gets 0069                ??_uart2_init 0071                ??_uart2_putc 0060  
+              ??_uart2_puts 0063               __size_of_main 0064                    _isr_high 0008  
+      __CFG_WDTCWS$WDTCWS_7 000000                    _uart2_rx 0029                    int$flags 0041  
+     uart2_isr_process@lost 0013          __end_of_uart2_getc 1228          __end_of_uart2_gets 10E6  
+        __end_of_uart2_init 0FC4                  _INTCONbits 000FF2          __end_of_uart2_putc 12F0  
+        __end_of_uart2_puts 1280                    intlevel1 0000                    intlevel2 0000  
+          ___lldiv@dividend 0060           __CFG_CLKOUTEN$OFF 000000                  _RCSTA2bits 000E9D  
+         uart2_getc@payload 0061         uart2_gets@buf_limit 0067            ___lldiv@quotient 0068  
+            uart2_getc@echo 0063           _uart2_isr_process 1280              uart2_gets@echo 0068  
+        ?_uart2_isr_process 0001  

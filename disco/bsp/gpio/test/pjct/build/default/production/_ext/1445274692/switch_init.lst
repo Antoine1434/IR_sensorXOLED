@@ -1,0 +1,36 @@
+
+
+Microchip Technology PIC18 Macro Assembler V1.45 build -152302408 
+                                                                                                           Thu Feb 11 19:43:12 2021
+
+
+     1                           	processor	18F27K40
+     2                           	opt	pw 132
+     3                           	psect	text,global,reloc=2,class=CODE,delta=1
+     4                           
+     5                           ; file gpio/src/switch_init.asm
+     6                           ; brief switch initialization
+     7                           ; author hugo
+     8  0000                     
+     9                           ; linker memory static allocation directives
+    10                           
+    11                           	psect	text
+    12  01FF26                     _switch1_init:
+    13                           	opt stack 0
+    14  01FF26  010F               	banksel	3865
+    15  01FF28  9919               	bcf	3865,4,b
+    16  01FF2A  8889               	bsf	3977,4,c
+    17  01FF2C  0012               	return	
+    18  01FF2E                     _switch2_init:
+    19                           	opt stack 0
+    20  01FF2E  010F               	banksel	3873
+    21  01FF30  9B21               	bcf	3873,5,b
+    22  01FF32  8A8A               	bsf	3978,5,c
+    23  01FF34  0012               	return	
+
+
+Microchip Technology PIC18 Macro Assembler V1.45 build -152302408 
+Symbol Table                                                                                               Thu Feb 11 19:43:12 2021
+
+                          TRISB 000F89                            TRISC 000F8A                           ANSELB 000F19  
+                         ANSELC 000F21                    _switch1_init FF26                    _switch2_init FF2E  

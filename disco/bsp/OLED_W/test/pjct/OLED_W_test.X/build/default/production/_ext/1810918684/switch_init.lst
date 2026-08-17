@@ -1,0 +1,74 @@
+
+
+Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
+                                                                                                           Tue Jul 07 09:55:27 2026
+
+
+     1                           	processor	18F27K40
+     2                           	pagewidth 132
+     3                           	opt	flic
+     4                           	psect	text,global,reloc=2,class=CODE,delta=1
+     5                           
+     6                           ; file gpio/src/switch_init.asm
+     7                           ; brief switch initialization
+     8                           ; author
+     9  0000                     
+    10                           ; linker memory static allocation directives
+    11                           
+    12                           	psect	text
+    13  0000'                    _switch1_init:
+    14                           	callstack 0
+    15  0000' 010F               	movlb	15	;
+    16  0002' 9919               	bcf	3865,4,b	;
+    17  0004' 8889               	bsf	3977,4,c	;
+    18  0006' 0012               	return	
+    19  0008'                    _switch2_init:
+    20                           	callstack 0
+    21  0008' 010F               	movlb	15	;
+    22  000A' 9B21               	bcf	3873,5,b	;
+    23  000C' 8A8A               	bsf	3978,5,c	;
+    24  000E' 0012               	return	
+    25                           tosu	equ	0xFFF
+    26                           tosh	equ	0xFFE
+    27                           tosl	equ	0xFFD
+    28                           stkptr	equ	0xFFC
+    29                           pclatu	equ	0xFFB
+    30                           pclath	equ	0xFFA
+    31                           pcl	equ	0xFF9
+    32                           tblptru	equ	0xFF8
+    33                           tblptrh	equ	0xFF7
+    34                           tblptrl	equ	0xFF6
+    35                           tablat	equ	0xFF5
+    36                           prodh	equ	0xFF4
+    37                           prodl	equ	0xFF3
+    38                           indf0	equ	0xFEF
+    39                           postinc0	equ	0xFEE
+    40                           postdec0	equ	0xFED
+    41                           preinc0	equ	0xFEC
+    42                           plusw0	equ	0xFEB
+    43                           fsr0h	equ	0xFEA
+    44                           fsr0l	equ	0xFE9
+    45                           wreg	equ	0xFE8
+    46                           indf1	equ	0xFE7
+    47                           postinc1	equ	0xFE6
+    48                           postdec1	equ	0xFE5
+    49                           preinc1	equ	0xFE4
+    50                           plusw1	equ	0xFE3
+    51                           fsr1h	equ	0xFE2
+    52                           fsr1l	equ	0xFE1
+    53                           bsr	equ	0xFE0
+    54                           indf2	equ	0xFDF
+    55                           postinc2	equ	0xFDE
+    56                           postdec2	equ	0xFDD
+    57                           preinc2	equ	0xFDC
+    58                           plusw2	equ	0xFDB
+    59                           fsr2h	equ	0xFDA
+    60                           fsr2l	equ	0xFD9
+    61                           status	equ	0xFD8
+
+
+Microchip Technology PIC18 Macro Assembler V2.20 build 20200408173844 
+Symbol Table                                                                                               Tue Jul 07 09:55:27 2026
+
+                          TRISB 000F89                            TRISC 000F8A                           ANSELB 000F19  
+                         ANSELC 000F21                    _switch1_init 000000                    _switch2_init 000008  

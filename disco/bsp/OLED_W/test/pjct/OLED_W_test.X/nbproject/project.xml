@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>com.microchip.mplab.nbide.embedded.makeproject</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/make-project/1">
+            <name>OLED_W_test</name>
+            <creation-uuid>92ed2bcb-4aaf-45e3-8f59-16651f0449eb</creation-uuid>
+            <make-project-type>0</make-project-type>
+            <c-extensions>c</c-extensions>
+            <cpp-extensions/>
+            <header-extensions/>
+            <asminc-extensions/>
+            <sourceEncoding>ISO-8859-1</sourceEncoding>
+            <make-dep-projects/>
+            <sourceRootList>
+                <sourceRootElem>../..</sourceRootElem>
+                <sourceRootElem>../../../../timer0/src</sourceRootElem>
+                <sourceRootElem>../../../../timer1/src</sourceRootElem>
+                <sourceRootElem>../../../../gpio/src</sourceRootElem>
+                <sourceRootElem>../../../../uart1/src</sourceRootElem>
+                <sourceRootElem>../../../../uart2_correction/src</sourceRootElem>
+                <sourceRootElem>../../../../uart1_correction/src</sourceRootElem>
+                <sourceRootElem>../../../../rn52_correction/src</sourceRootElem>
+                <sourceRootElem>../../../../SPI/src</sourceRootElem>
+                <sourceRootElem>../../../src</sourceRootElem>
+                <sourceRootElem>../../../../common</sourceRootElem>
+                <sourceRootElem>../../../../../../../../u8g2-master/csrc</sourceRootElem>
+                <sourceRootElem>../../../../lib_u8g2/csrc</sourceRootElem>
+                <sourceRootElem>../../../../u8g2-master/csrc</sourceRootElem>
+                <sourceRootElem>../../../../u8g2/csrc</sourceRootElem>
+            </sourceRootList>
+            <confList>
+                <confElem>
+                    <name>default</name>
+                    <type>2</type>
+                </confElem>
+            </confList>
+            <formatting>
+                <project-formatting-style>false</project-formatting-style>
+            </formatting>
+        </data>
+    </configuration>
+</project>

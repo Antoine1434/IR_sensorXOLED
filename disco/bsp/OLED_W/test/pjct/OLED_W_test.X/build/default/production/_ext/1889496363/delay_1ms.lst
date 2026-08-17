@@ -1,0 +1,94 @@
+
+
+Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
+                                                                                                           Tue Jul 07 09:55:27 2026
+
+
+     1                           	processor	18F27K40
+     2                           	pagewidth 132
+     3                           	opt	flic
+     4                           	psect	bss_delay,global,class=BANK0,space=1,delta=1
+     5                           	psect	text,global,reloc=2,class=CODE,delta=1
+     6                           
+     7                           ; file common/delay/src/delay_1ms.h
+     8                           ; brief 1ms software delay
+     9                           ; warning 1ms duration only for 64MHz cpu clock
+    10                           ; author
+    11  0000                     
+    12                           ; linker memory static allocation directives for data
+    13                           
+    14                           	psect	bss_delay
+    15  0000'                    	ds	1
+    16  0001'                    delay_cnt2:
+    17  0001'                    	ds	1
+    18  0002'                    bsr_tmp:
+    19  0002'                    	ds	1
+    20                           
+    21                           ; linker memory static allocation directives for code
+    22                           
+    23                           	psect	text
+    24  0000'                    _delay_1ms:
+    25                           	callstack 0
+    26                           
+    27                           ;DECFSZ count,1,1
+    28                           ;GOTO _delay_10us
+    29                           ;RETURN
+    30                           ;save BSR context
+    31  0000' CFE0 FFE8          	movff	bsr,wreg
+    32  0004' 0100               	movlb	0	; aller en banque 0
+    33  0006' CFE8 F002'         	movff	wreg,bsr_tmp
+    34  000A' 0E7C               	movlw	5500	;constante sur 8bits mit dans W qui fait 8 bits
+    35  000C' 6F01'              	movwf	delay_cnt2,b
+    36  000E'                    delay_1ms_L1:
+    37  000E' 2F01'              	decfsz	delay_cnt2,f,b	;dure 1 cycle, dure 2 cycles si test est bon, ( Instruction sur 16 bits sauf 
+      +                          GOTO,CALL,MOVFF sur 32bits) , garde le résultat dans delat_cnt1
+    38  0010' D7FE               	goto	delay_1ms_L1	;2 cycles
+    39                           
+    40                           ;restore BSR context
+    41  0012' C002' FFE0         	movff	bsr_tmp,bsr
+    42  0016' 0012               	return	
+    43                           tosu	equ	0xFFF
+    44                           tosh	equ	0xFFE
+    45                           tosl	equ	0xFFD
+    46                           stkptr	equ	0xFFC
+    47                           pclatu	equ	0xFFB
+    48                           pclath	equ	0xFFA
+    49                           pcl	equ	0xFF9
+    50                           tblptru	equ	0xFF8
+    51                           tblptrh	equ	0xFF7
+    52                           tblptrl	equ	0xFF6
+    53                           tablat	equ	0xFF5
+    54                           prodh	equ	0xFF4
+    55                           prodl	equ	0xFF3
+    56                           indf0	equ	0xFEF
+    57                           postinc0	equ	0xFEE
+    58                           postdec0	equ	0xFED
+    59                           preinc0	equ	0xFEC
+    60                           plusw0	equ	0xFEB
+    61                           fsr0h	equ	0xFEA
+    62                           fsr0l	equ	0xFE9
+    63                           wreg	equ	0xFE8
+    64                           indf1	equ	0xFE7
+    65                           postinc1	equ	0xFE6
+    66                           postdec1	equ	0xFE5
+    67                           preinc1	equ	0xFE4
+    68                           plusw1	equ	0xFE3
+    69                           fsr1h	equ	0xFE2
+    70                           fsr1l	equ	0xFE1
+    71                           bsr	equ	0xFE0
+    72                           indf2	equ	0xFDF
+    73                           postinc2	equ	0xFDE
+    74                           postdec2	equ	0xFDD
+    75                           preinc2	equ	0xFDC
+    76                           plusw2	equ	0xFDB
+    77                           fsr2h	equ	0xFDA
+    78                           fsr2l	equ	0xFD9
+    79                           status	equ	0xFD8
+
+
+Microchip Technology PIC18 Macro Assembler V2.20 build 20200408173844 
+Symbol Table                                                                                               Tue Jul 07 09:55:27 2026
+
+                            BSR 000FE0                             WREG 000FE8                          bsr_tmp 000002  
+                     _delay_1ms 000000                       delay_cnt1 000000                       delay_cnt2 000001  
+                   delay_1ms_L1 00000E  

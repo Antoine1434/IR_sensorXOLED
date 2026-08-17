@@ -1,0 +1,3198 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"237 ../../../../u8g2/csrc/u8x8.h
+[s S2 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ul 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 ]
+[n S2 u8x8_display_info_struct chip_enable_level chip_disable_level post_chip_enable_wait_ns pre_chip_disable_wait_ns reset_pulse_width_ms post_reset_wait_ms sda_setup_time_ns sck_pulse_width_ns sck_clock_hz spi_mode i2c_bus_clock_100kHz data_setup_time_ns write_pulse_width_ns tile_width tile_height default_x_offset flipmode_x_offset pixel_width pixel_height ]
+[v F49 `(ui ~T0 @X0 0 tf2`*S1`uc ]
+[v F43 `(uc ~T0 @X0 0 tf4`*S1`uc`uc`*v ]
+"342
+[s S1 `*CS2 1 `*F49 1 `*F43 1 `*F43 1 `*F43 1 `*F43 1 `ul 1 `*Cuc 1 `ui 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S1 u8x8_struct display_info next_cb display_cb cad_cb byte_cb gpio_and_delay_cb bus_clock font encoding x_offset is_font_inverse_mode i2c_address i2c_started utf8_state gpio_result debounce_default_pin_state debounce_last_pin_state debounce_state debounce_result_msg ]
+"13 C:\Program Files\Microchip\xc8\v2.20\pic\include\c90\stdarg.h
+[v ___va_arg `(*v ~T0 @X0 0 ev`*v ]
+[p i ___va_arg ]
+"10
+[v ___va_start `(*v ~T0 @X0 0 ef ]
+[p i ___va_start ]
+"786 ../../../../u8g2/csrc/u8x8.h
+[v _u8x8_gpio_call `(v ~T0 @X0 0 ef3`*S1`uc`uc ]
+"691
+[v _u8x8_byte_SendByte `(uc ~T0 @X0 0 ef2`*S1`uc ]
+"690
+[v _u8x8_byte_SetDC `(uc ~T0 @X0 0 ef2`*S1`uc ]
+"693
+[v _u8x8_byte_StartTransfer `(uc ~T0 @X0 0 ef1`*S1 ]
+"694
+[v _u8x8_byte_EndTransfer `(uc ~T0 @X0 0 ef1`*S1 ]
+"692
+[v _u8x8_byte_SendBytes `(uc ~T0 @X0 0 ef3`*S1`uc`*uc ]
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef __int24 int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 52: typedef unsigned char uint8_t;
+[; ;stdint.h: 58: typedef unsigned int uint16_t;
+[; ;stdint.h: 65: typedef __uint24 uint24_t;
+[; ;stdint.h: 72: typedef unsigned long int uint32_t;
+[; ;stdint.h: 88: typedef signed char int_least8_t;
+[; ;stdint.h: 96: typedef signed int int_least16_t;
+[; ;stdint.h: 109: typedef __int24 int_least24_t;
+[; ;stdint.h: 118: typedef signed long int int_least32_t;
+[; ;stdint.h: 136: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 143: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 154: typedef __uint24 uint_least24_t;
+[; ;stdint.h: 162: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 181: typedef signed char int_fast8_t;
+[; ;stdint.h: 188: typedef signed int int_fast16_t;
+[; ;stdint.h: 200: typedef __int24 int_fast24_t;
+[; ;stdint.h: 208: typedef signed long int int_fast32_t;
+[; ;stdint.h: 224: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 230: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 240: typedef __uint24 uint_fast24_t;
+[; ;stdint.h: 247: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 268: typedef int32_t intmax_t;
+[; ;stdint.h: 282: typedef uint32_t uintmax_t;
+[; ;stdint.h: 289: typedef int16_t intptr_t;
+[; ;stdint.h: 294: typedef uint16_t uintptr_t;
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stddef.h: 6: typedef int ptrdiff_t;
+[; ;u8x8.h: 211: typedef struct u8x8_struct u8x8_t;
+[; ;u8x8.h: 212: typedef struct u8x8_display_info_struct u8x8_display_info_t;
+[; ;u8x8.h: 213: typedef struct u8x8_tile_struct u8x8_tile_t;
+[; ;u8x8.h: 215: typedef uint8_t (*u8x8_msg_cb)(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 216: typedef uint16_t (*u8x8_char_cb)(u8x8_t *u8x8, uint8_t b);
+[; ;u8x8.h: 228: struct u8x8_tile_struct
+[; ;u8x8.h: 229: {
+[; ;u8x8.h: 230: uint8_t *tile_ptr;
+[; ;u8x8.h: 231: uint8_t cnt;
+[; ;u8x8.h: 232: uint8_t x_pos;
+[; ;u8x8.h: 233: uint8_t y_pos;
+[; ;u8x8.h: 234: };
+[; ;u8x8.h: 237: struct u8x8_display_info_struct
+[; ;u8x8.h: 238: {
+[; ;u8x8.h: 241: uint8_t chip_enable_level;
+[; ;u8x8.h: 242: uint8_t chip_disable_level;
+[; ;u8x8.h: 244: uint8_t post_chip_enable_wait_ns;
+[; ;u8x8.h: 245: uint8_t pre_chip_disable_wait_ns;
+[; ;u8x8.h: 246: uint8_t reset_pulse_width_ms;
+[; ;u8x8.h: 247: uint8_t post_reset_wait_ms;
+[; ;u8x8.h: 254: uint8_t sda_setup_time_ns;
+[; ;u8x8.h: 258: uint8_t sck_pulse_width_ns;
+[; ;u8x8.h: 261: uint32_t sck_clock_hz;
+[; ;u8x8.h: 271: uint8_t spi_mode;
+[; ;u8x8.h: 274: uint8_t i2c_bus_clock_100kHz;
+[; ;u8x8.h: 280: uint8_t data_setup_time_ns;
+[; ;u8x8.h: 282: uint8_t write_pulse_width_ns;
+[; ;u8x8.h: 285: uint8_t tile_width;
+[; ;u8x8.h: 286: uint8_t tile_height;
+[; ;u8x8.h: 288: uint8_t default_x_offset;
+[; ;u8x8.h: 289: uint8_t flipmode_x_offset;
+[; ;u8x8.h: 297: uint16_t pixel_width;
+[; ;u8x8.h: 298: uint16_t pixel_height;
+[; ;u8x8.h: 299: };
+[; ;u8x8.h: 342: struct u8x8_struct
+[; ;u8x8.h: 343: {
+[; ;u8x8.h: 344: const u8x8_display_info_t *display_info;
+[; ;u8x8.h: 345: u8x8_char_cb next_cb;
+[; ;u8x8.h: 346: u8x8_msg_cb display_cb;
+[; ;u8x8.h: 347: u8x8_msg_cb cad_cb;
+[; ;u8x8.h: 348: u8x8_msg_cb byte_cb;
+[; ;u8x8.h: 349: u8x8_msg_cb gpio_and_delay_cb;
+[; ;u8x8.h: 350: uint32_t bus_clock;
+[; ;u8x8.h: 351: const uint8_t *font;
+[; ;u8x8.h: 352: uint16_t encoding;
+[; ;u8x8.h: 353: uint8_t x_offset;
+[; ;u8x8.h: 354: uint8_t is_font_inverse_mode;
+[; ;u8x8.h: 355: uint8_t i2c_address;
+[; ;u8x8.h: 358: uint8_t i2c_started;
+[; ;u8x8.h: 360: uint8_t utf8_state;
+[; ;u8x8.h: 361: uint8_t gpio_result;
+[; ;u8x8.h: 362: uint8_t debounce_default_pin_state;
+[; ;u8x8.h: 363: uint8_t debounce_last_pin_state;
+[; ;u8x8.h: 364: uint8_t debounce_state;
+[; ;u8x8.h: 365: uint8_t debounce_result_msg;
+[; ;u8x8.h: 372: };
+[; ;u8x8.h: 407: typedef struct u8log_struct u8log_t;
+[; ;u8x8.h: 411: typedef void (*u8log_cb)(u8log_t * u8log);
+[; ;u8x8.h: 413: struct u8log_struct
+[; ;u8x8.h: 414: {
+[; ;u8x8.h: 416: void *aux_data;
+[; ;u8x8.h: 417: uint8_t width, height;
+[; ;u8x8.h: 418: u8log_cb cb;
+[; ;u8x8.h: 419: uint8_t *screen_buffer;
+[; ;u8x8.h: 420: uint8_t is_redraw_line_for_each_char;
+[; ;u8x8.h: 421: int8_t line_height_offset;
+[; ;u8x8.h: 425: uint8_t cursor_x, cursor_y;
+[; ;u8x8.h: 426: uint8_t redraw_line;
+[; ;u8x8.h: 427: uint8_t is_redraw_line;
+[; ;u8x8.h: 428: uint8_t is_redraw_all;
+[; ;u8x8.h: 429: uint8_t is_redraw_all_required_for_next_nl;
+[; ;u8x8.h: 430: };
+[; ;u8x8.h: 436: void u8x8_d_helper_display_setup_memory(u8x8_t *u8x8, const u8x8_display_info_t *display_info);
+[; ;u8x8.h: 437: void u8x8_d_helper_display_init(u8x8_t *u8g2);
+[; ;u8x8.h: 539: uint8_t u8x8_dummy_cb(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 547: void u8x8_SetupDefaults(u8x8_t *u8x8);
+[; ;u8x8.h: 549: void u8x8_Setup(u8x8_t *u8x8, u8x8_msg_cb display_cb, u8x8_msg_cb cad_cb, u8x8_msg_cb byte_cb, u8x8_msg_cb gpio_and_delay_cb);
+[; ;u8x8.h: 553: uint8_t u8x8_DrawTile(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t cnt, uint8_t *tile_ptr);
+[; ;u8x8.h: 561: void u8x8_SetupMemory(u8x8_t *u8x8);
+[; ;u8x8.h: 569: void u8x8_InitInterface(u8x8_t *u8x8);
+[; ;u8x8.h: 577: void u8x8_InitDisplay(u8x8_t *u8x8);
+[; ;u8x8.h: 579: void u8x8_SetPowerSave(u8x8_t *u8x8, uint8_t is_enable);
+[; ;u8x8.h: 580: void u8x8_SetFlipMode(u8x8_t *u8x8, uint8_t mode);
+[; ;u8x8.h: 581: void u8x8_SetContrast(u8x8_t *u8x8, uint8_t value);
+[; ;u8x8.h: 582: void u8x8_ClearDisplayWithTile(u8x8_t *u8x8, const uint8_t *buf) ;
+[; ;u8x8.h: 583: void u8x8_ClearDisplay(u8x8_t *u8x8);
+[; ;u8x8.h: 584: void u8x8_FillDisplay(u8x8_t *u8x8);
+[; ;u8x8.h: 585: void u8x8_RefreshDisplay(u8x8_t *u8x8);
+[; ;u8x8.h: 586: void u8x8_ClearLine(u8x8_t *u8x8, uint8_t line);
+[; ;u8x8.h: 621: uint8_t u8x8_cad_SendCmd(u8x8_t *u8x8, uint8_t cmd) ;
+[; ;u8x8.h: 622: uint8_t u8x8_cad_SendArg(u8x8_t *u8x8, uint8_t arg) ;
+[; ;u8x8.h: 623: uint8_t u8x8_cad_SendMultipleArg(u8x8_t *u8x8, uint8_t cnt, uint8_t arg) ;
+[; ;u8x8.h: 624: uint8_t u8x8_cad_SendData(u8x8_t *u8x8, uint8_t cnt, uint8_t *data) ;
+[; ;u8x8.h: 625: uint8_t u8x8_cad_StartTransfer(u8x8_t *u8x8) ;
+[; ;u8x8.h: 626: uint8_t u8x8_cad_EndTransfer(u8x8_t *u8x8) ;
+[; ;u8x8.h: 627: void u8x8_cad_vsendf(u8x8_t * u8x8, const char *fmt, va_list va);
+[; ;u8x8.h: 628: void u8x8_SendF(u8x8_t * u8x8, const char *fmt, ...);
+[; ;u8x8.h: 658: void u8x8_cad_SendSequence(u8x8_t *u8x8, uint8_t const *data);
+[; ;u8x8.h: 659: uint8_t u8x8_cad_empty(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 660: uint8_t u8x8_cad_110(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 661: uint8_t u8x8_gu800_cad_110(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 662: uint8_t u8x8_cad_001(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 663: uint8_t u8x8_cad_011(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 664: uint8_t u8x8_cad_100(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 665: uint8_t u8x8_cad_st7920_spi(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 666: uint8_t u8x8_cad_ssd13xx_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 667: uint8_t u8x8_cad_011_ssd13xx_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 668: uint8_t u8x8_cad_ssd13xx_fast_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 669: uint8_t u8x8_cad_st75256_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 670: uint8_t u8x8_cad_ld7032_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 671: uint8_t u8x8_cad_uc16xx_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 672: uint8_t u8x8_cad_uc1638_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 690: uint8_t u8x8_byte_SetDC(u8x8_t *u8x8, uint8_t dc) ;
+[; ;u8x8.h: 691: uint8_t u8x8_byte_SendByte(u8x8_t *u8x8, uint8_t byte) ;
+[; ;u8x8.h: 692: uint8_t u8x8_byte_SendBytes(u8x8_t *u8x8, uint8_t cnt, uint8_t *data) ;
+[; ;u8x8.h: 693: uint8_t u8x8_byte_StartTransfer(u8x8_t *u8x8);
+[; ;u8x8.h: 694: uint8_t u8x8_byte_EndTransfer(u8x8_t *u8x8);
+[; ;u8x8.h: 696: uint8_t u8x8_byte_empty(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 697: uint8_t u8x8_byte_4wire_sw_spi(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 698: uint8_t u8x8_byte_8bit_6800mode(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 699: uint8_t u8x8_byte_8bit_8080mode(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 700: uint8_t u8x8_byte_3wire_sw_spi(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 702: void u8x8_byte_set_ks0108_cs(u8x8_t *u8x8, uint8_t arg) ;
+[; ;u8x8.h: 703: uint8_t u8x8_byte_ks0108(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 704: uint8_t u8x8_byte_ssd13xx_sw_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 705: uint8_t u8x8_byte_sw_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 706: uint8_t u8x8_byte_sed1520(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 786: void u8x8_gpio_call(u8x8_t *u8x8, uint8_t msg, uint8_t arg) ;
+[; ;u8x8.h: 795: uint8_t u8x8_GetMenuEvent(u8x8_t *u8x8);
+[; ;u8x8.h: 799: void u8x8_SetupStdio(u8x8_t *u8x8);
+[; ;u8x8.h: 803: void u8x8_Setup_SDL_128x64(u8x8_t *u8x8);
+[; ;u8x8.h: 804: void u8x8_Setup_SDL_240x160(u8x8_t *u8x8);
+[; ;u8x8.h: 805: void u8x8_Setup_SDL_256x128(u8x8_t *u8x8);
+[; ;u8x8.h: 806: int u8g_sdl_get_key(void);
+[; ;u8x8.h: 810: void u8x8_Setup_TGA_DESC(u8x8_t *u8x8);
+[; ;u8x8.h: 811: void u8x8_Setup_TGA_LCD(u8x8_t *u8x8);
+[; ;u8x8.h: 812: void tga_save(const char *name);
+[; ;u8x8.h: 816: uint8_t u8x8_GetBitmapPixel(u8x8_t *u8x8, uint16_t x, uint16_t y);
+[; ;u8x8.h: 817: void u8x8_SaveBitmapTGA(u8x8_t *u8x8, const char *filename);
+[; ;u8x8.h: 818: void u8x8_SetupBitmap(u8x8_t *u8x8, uint16_t pixel_width, uint16_t pixel_height);
+[; ;u8x8.h: 819: uint8_t u8x8_ConnectBitmapToU8x8(u8x8_t *u8x8);
+[; ;u8x8.h: 823: void u8x8_SetupLinuxFb(u8x8_t *u8x8, int fbfd);
+[; ;u8x8.h: 824: void u8x8_LinuxFbSetActiveColor(uint32_t color);
+[; ;u8x8.h: 828: void u8x8_Setup_Utf8(u8x8_t *u8x8);
+[; ;u8x8.h: 829: void utf8_show(void);
+[; ;u8x8.h: 835: uint8_t u8x8_d_null_cb(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 838: uint8_t u8x8_d_uc1701_ea_dogs102(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 839: uint8_t u8x8_d_uc1701_mini12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 840: uint8_t u8x8_d_ssd1305_128x32_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 841: uint8_t u8x8_d_ssd1305_128x32_adafruit(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 843: uint8_t u8x8_d_ssd1305_128x64_adafruit(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 844: uint8_t u8x8_d_ssd1305_128x64_raystar(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 845: uint8_t u8x8_d_ssd1306_128x64_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 846: uint8_t u8x8_d_ssd1306_128x64_vcomh0(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 847: uint8_t u8x8_d_ssd1306_128x64_alt0(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 848: uint8_t u8x8_d_ssd1309_128x64_noname0(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 850: uint8_t u8x8_d_ssd1309_128x128_noname0(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 852: uint8_t u8x8_d_ssd1309_128x64_noname2(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 854: uint8_t u8x8_d_ssd1312_128x64_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 855: uint8_t u8x8_d_ssd1312_128x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 856: uint8_t u8x8_d_ssd1312_120x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 857: uint8_t u8x8_d_ssd1312_120x28(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 859: uint8_t u8x8_d_ssd1306_2040x16(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 860: uint8_t u8x8_d_ssd1306_128x32_univision(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 861: uint8_t u8x8_d_ssd1306_128x32_winstar(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 862: uint8_t u8x8_d_ssd1306_102x64_ea_oleds102(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 863: uint8_t u8x8_d_ssd1306_64x48_er(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 864: uint8_t u8x8_d_ssd1306_48x64_winstar(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 865: uint8_t u8x8_d_ssd1306_64x32_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 866: uint8_t u8x8_d_ssd1306_64x32_1f(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 867: uint8_t u8x8_d_ssd1306_96x16_er(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 868: uint8_t u8x8_d_ssd1306_96x40(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 869: uint8_t u8x8_d_ssd1306_96x39(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 870: uint8_t u8x8_d_ssd1306_72x40_er(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 871: uint8_t u8x8_d_sh1106_128x64_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 872: uint8_t u8x8_d_sh1106_128x64_vcomh0(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 873: uint8_t u8x8_d_sh1106_128x64_winstar(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 874: uint8_t u8x8_d_sh1106_128x32_visionox(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 875: uint8_t u8x8_d_sh1106_72x40_wise(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 876: uint8_t u8x8_d_sh1106_64x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 877: uint8_t u8x8_d_sh1107_64x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 878: uint8_t u8x8_d_sh1107_seeed_96x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 879: uint8_t u8x8_d_sh1107_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 880: uint8_t u8x8_d_sh1107_128x80(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 881: uint8_t u8x8_d_sh1107_pimoroni_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 882: uint8_t u8x8_d_sh1107_seeed_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 883: uint8_t u8x8_d_sh1107_hjr_oel1m0201_96x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 884: uint8_t u8x8_d_sh1107_tk078f288_80x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 885: uint8_t u8x8_d_sh1108_128x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 886: uint8_t u8x8_d_sh1108_160x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 887: uint8_t u8x8_d_ch1120_128x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 888: uint8_t u8x8_d_sh1122_256x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 889: uint8_t u8x8_d_st7920_128x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 890: uint8_t u8x8_d_st7920_144x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 891: uint8_t u8x8_d_st7920_160x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 892: uint8_t u8x8_d_st7920_192x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 893: uint8_t u8x8_d_st7920_256x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 894: uint8_t u8x8_d_st7920_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 895: uint8_t u8x8_d_ls013b7dh03_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 896: uint8_t u8x8_d_ls027b7dh01_400x240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 897: uint8_t u8x8_d_ls027b7dh01_m0_400x240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 898: uint8_t u8x8_d_ls013b7dh05_144x168(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 899: uint8_t u8x8_d_ls011b7dh03_160x68(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 900: uint8_t u8x8_d_st7511_avd_320x240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 901: uint8_t u8x8_d_st7511_640x320(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 902: uint8_t u8x8_d_st7528_nhd_c160100(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 903: uint8_t u8x8_d_st7528_erc16064(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 904: uint8_t u8x8_d_st7539_192x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 905: uint8_t u8x8_d_st7565_ea_dogm128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 906: uint8_t u8x8_d_st7565_lm6063(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 907: uint8_t u8x8_d_st7565_64128n(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 908: uint8_t u8x8_d_st7565_ea_dogm132(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 909: uint8_t u8x8_d_st7565_zolen_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 910: uint8_t u8x8_d_st7565_nhd_c12832(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 911: uint8_t u8x8_d_st7565_nhd_c12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 912: uint8_t u8x8_d_st7565_jlx12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 913: uint8_t u8x8_d_st7565_lm6059(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 914: uint8_t u8x8_d_st7565_ks0713(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 915: uint8_t u8x8_d_st7565_lx12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 916: uint8_t u8x8_d_st7565_erc12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 917: uint8_t u8x8_d_st7565_erc12864_alt(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 918: uint8_t u8x8_d_st7567_pi_132x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 919: uint8_t u8x8_d_st7567_jlx12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 920: uint8_t u8x8_d_st7567_122x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 921: uint8_t u8x8_d_st7567_enh_dg128064(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 922: uint8_t u8x8_d_st7567_enh_dg128064i(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 923: uint8_t u8x8_d_st7567_64x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 924: uint8_t u8x8_d_st7567_hem6432(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 925: uint8_t u8x8_d_st7567_os12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 926: uint8_t u8x8_d_st7567_erc13232(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 927: uint8_t u8x8_d_st7567_erc12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 928: uint8_t u8x8_d_st7567_lw12832(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 929: uint8_t u8x8_d_st7567_yxd12832(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 930: uint8_t u8x8_d_st7567_96x65(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 931: uint8_t u8x8_d_st7571_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 932: uint8_t u8x8_d_st7571_128x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 933: uint8_t u8x8_d_st7571_g12896(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 934: uint8_t u8x8_d_st7302_122x250(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 935: uint8_t u8x8_d_st7305_122x250(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 936: uint8_t u8x8_d_st7305_200x200(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 937: uint8_t u8x8_d_st7305_168x384(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 938: uint8_t u8x8_d_st7305_300x400(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 939: uint8_t u8x8_d_st7586s_s028hn118a(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 940: uint8_t u8x8_d_st7586s_jlx384160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 941: uint8_t u8x8_d_st7586s_erc240160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 942: uint8_t u8x8_d_st7586s_ymc240160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 943: uint8_t u8x8_d_st7586s_jlx320160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 944: uint8_t u8x8_d_st7586s_md240128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 945: uint8_t u8x8_d_st7586s_pe24064(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 946: uint8_t u8x8_d_st7588_jlx12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 947: uint8_t u8x8_d_st75160_jm16096(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 948: uint8_t u8x8_d_st75161_jlx160160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 949: uint8_t u8x8_d_st75256_jlx256128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 950: uint8_t u8x8_d_st75256_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 951: uint8_t u8x8_d_st75256_wo256x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 952: uint8_t u8x8_d_st75256_jlx256160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 953: uint8_t u8x8_d_st75256_jlx256160m(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 954: uint8_t u8x8_d_st75256_jlx256160_alt(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 955: uint8_t u8x8_d_st75256_jlx240160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 956: uint8_t u8x8_d_st75256_jlx25664(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 957: uint8_t u8x8_d_st75256_jlx172104(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 958: uint8_t u8x8_d_st75256_jlx19296(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 959: uint8_t u8x8_d_st75256_jlx16080(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 960: uint8_t u8x8_d_st75320_jlx320240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 961: uint8_t u8x8_d_nt7534_tg12864r(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 962: uint8_t u8x8_d_ld7032_60x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 963: uint8_t u8x8_d_ld7032_60x32_alt(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 964: uint8_t u8x8_d_ld7032_128x36(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 965: uint8_t u8x8_d_t6963_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 966: uint8_t u8x8_d_t6963_240x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 967: uint8_t u8x8_d_t6963_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 968: uint8_t u8x8_d_t6963_128x64_alt(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 969: uint8_t u8x8_d_t6963_160x80(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 970: uint8_t u8x8_d_t6963_256x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 971: uint8_t u8x8_d_t6963_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 972: uint8_t u8x8_d_t6963_128x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 973: uint8_t u8x8_d_ssd1316_128x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 974: uint8_t u8x8_d_ssd1316_96x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 975: uint8_t u8x8_d_ssd1317_96x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 976: uint8_t u8x8_d_ssd1318_128x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 977: uint8_t u8x8_d_ssd1318_128x96_xcp(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 978: uint8_t u8x8_d_ssd1320_160x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 979: uint8_t u8x8_d_ssd1320_160x132(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 980: uint8_t u8x8_d_ssd1320_160x80(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 981: uint8_t u8x8_d_ssd1320_128x72(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 982: uint8_t u8x8_d_ssd1322_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 983: uint8_t u8x8_d_ssd1322_topwin_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 984: uint8_t u8x8_d_ssd1322_nhd_256x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 985: uint8_t u8x8_d_ssd1322_zjy_256x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 986: uint8_t u8x8_d_ssd1322_nhd_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 987: uint8_t u8x8_d_ssd1362z_256x64_oel1m0033we(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 988: uint8_t u8x8_d_ssd1362_256x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 989: uint8_t u8x8_d_ssd1362_206x36(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 990: uint8_t u8x8_d_ssd1363_256x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 991: uint8_t u8x8_d_a2printer_384x240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 992: uint8_t u8x8_d_sed1330_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 993: uint8_t u8x8_d_sed1330_240x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 994: uint8_t u8x8_d_sed1330_256x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 995: uint8_t u8x8_d_sed1330_320x200(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 996: uint8_t u8x8_d_sed1330_320x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 997: uint8_t u8x8_d_ra8835_nhd_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 998: uint8_t u8x8_d_ra8835_320x240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 999: uint8_t u8x8_d_ra8835_320x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1000: uint8_t u8x8_d_ssd1325_nhd_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1001: uint8_t u8x8_d_ssd0323_os128064(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1002: uint8_t u8x8_d_ssd1327_ws_96x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1003: uint8_t u8x8_d_ssd1327_seeed_96x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1004: uint8_t u8x8_d_ssd1327_ea_w128128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1005: uint8_t u8x8_d_ssd1327_midas_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1006: uint8_t u8x8_d_ssd1327_zjy_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1007: uint8_t u8x8_d_ssd1327_ws_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1008: uint8_t u8x8_d_ssd1327_visionox_128x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1009: uint8_t u8x8_d_ssd1326_er_256x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1010: uint8_t u8x8_d_ssd1329_128x96_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1011: uint8_t u8x8_d_ssd1329_96x96_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1012: uint8_t u8x8_d_uc1601_128x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1013: uint8_t u8x8_d_uc1601_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1014: uint8_t u8x8_d_uc1604_jlx12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1015: uint8_t u8x8_d_uc1604_jlx19264(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1016: uint8_t u8x8_d_uc1608_erc24064(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1017: uint8_t u8x8_d_uc1608_dem240064(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1018: uint8_t u8x8_d_uc1608_erc240120(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1019: uint8_t u8x8_d_uc1608_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1020: uint8_t u8x8_d_uc1609_slg19264(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1021: uint8_t u8x8_d_uc1610_ea_dogxl160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1022: uint8_t u8x8_d_uc1611_ea_dogm240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1023: uint8_t u8x8_d_uc1611_ea_dogxl240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1024: uint8_t u8x8_d_uc1611_ew50850(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1025: uint8_t u8x8_d_uc1611_cg160160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1026: uint8_t u8x8_d_uc1617_jlx128128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1027: uint8_t u8x8_d_uc1611_ids4073(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1028: uint8_t u8x8_d_uc1628_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1029: uint8_t u8x8_d_uc1628_256x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1030: uint8_t u8x8_d_uc1628_256x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1031: uint8_t u8x8_d_uc1638_160x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1032: uint8_t u8x8_d_uc1638_192x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1033: uint8_t u8x8_d_uc1638_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1034: uint8_t u8x8_d_uc1698_160x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1035: uint8_t u8x8_d_uc1698_240x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1036: uint8_t u8x8_d_ks0108_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1037: uint8_t u8x8_d_ks0108_erm19264(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1038: uint8_t u8x8_d_t7932_150x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1039: uint8_t u8x8_d_hd44102_100x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1040: uint8_t u8x8_d_sbn1661_122x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1041: uint8_t u8x8_d_sed1520_122x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1042: uint8_t u8x8_d_sbn1661_80x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1043: uint8_t u8x8_d_pcd8544_84x48(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1044: uint8_t u8x8_d_pcf8812_96x65(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1045: uint8_t u8x8_d_pcf8812_101x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1046: uint8_t u8x8_d_hx1230_96x68(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1047: uint8_t u8x8_d_ssd1606_172x72(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1048: uint8_t u8x8_d_ssd1607_200x200(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1049: uint8_t u8x8_d_ssd1607_v2_200x200(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1050: uint8_t u8x8_d_ssd1607_gd_200x200(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1051: uint8_t u8x8_d_ssd1607_ws_200x200(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1052: uint8_t u8x8_d_il3820_296x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1053: uint8_t u8x8_d_il3820_v2_296x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1054: uint8_t u8x8_d_lc7981_160x80(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1055: uint8_t u8x8_d_lc7981_160x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1056: uint8_t u8x8_d_lc7981_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1057: uint8_t u8x8_d_lc7981_240x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1058: uint8_t u8x8_d_lc7981_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1059: uint8_t u8x8_d_ist3020_erc19264(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1060: uint8_t u8x8_d_ist3088_320x240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1061: uint8_t u8x8_d_ist7920_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1062: uint8_t u8x8_d_max7219_64x8(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1063: uint8_t u8x8_d_max7219_32x8(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1064: uint8_t u8x8_d_max7219_16x16(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1065: uint8_t u8x8_d_max7219_8x8(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1066: uint8_t u8x8_d_s1d15e06_160100(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1067: uint8_t u8x8_d_s1d15300_lm6023(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1068: uint8_t u8x8_d_s1d15300_97x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1069: uint8_t u8x8_d_s1d15300_100x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1070: uint8_t u8x8_d_s1d15300_100x32i(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1071: uint8_t u8x8_d_s1d15721_240x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1072: uint8_t u8x8_d_gu800_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1073: uint8_t u8x8_d_gu800_160x16(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1074: uint8_t u8x8_d_gp1287ai_256x50(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1075: uint8_t u8x8_d_gp1247ai_253x63(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1076: uint8_t u8x8_d_gp1294ai_256x48(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1077: uint8_t u8x8_d_ssd1315_128x64_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1083: uint16_t u8x8_upscale_byte(uint8_t x) ;
+[; ;u8x8.h: 1085: void u8x8_get_glyph_data(u8x8_t *u8x8, uint8_t encoding, uint8_t *buf, uint8_t tile_offset) ;
+[; ;u8x8.h: 1087: void u8x8_utf8_init(u8x8_t *u8x8);
+[; ;u8x8.h: 1088: uint16_t u8x8_ascii_next(u8x8_t *u8x8, uint8_t b);
+[; ;u8x8.h: 1089: uint16_t u8x8_utf8_next(u8x8_t *u8x8, uint8_t b);
+[; ;u8x8.h: 1094: void u8x8_SetFont(u8x8_t *u8x8, const uint8_t *font_8x8);
+[; ;u8x8.h: 1095: void u8x8_DrawGlyph(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t encoding);
+[; ;u8x8.h: 1096: void u8x8_Draw2x2Glyph(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t encoding);
+[; ;u8x8.h: 1097: void u8x8_Draw1x2Glyph(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t encoding);
+[; ;u8x8.h: 1098: uint8_t u8x8_DrawString(u8x8_t *u8x8, uint8_t x, uint8_t y, const char *s);
+[; ;u8x8.h: 1099: uint8_t u8x8_DrawUTF8(u8x8_t *u8x8, uint8_t x, uint8_t y, const char *s);
+[; ;u8x8.h: 1100: uint8_t u8x8_Draw2x2String(u8x8_t *u8x8, uint8_t x, uint8_t y, const char *s);
+[; ;u8x8.h: 1101: uint8_t u8x8_Draw2x2UTF8(u8x8_t *u8x8, uint8_t x, uint8_t y, const char *s);
+[; ;u8x8.h: 1102: uint8_t u8x8_Draw1x2String(u8x8_t *u8x8, uint8_t x, uint8_t y, const char *s);
+[; ;u8x8.h: 1103: uint8_t u8x8_Draw1x2UTF8(u8x8_t *u8x8, uint8_t x, uint8_t y, const char *s);
+[; ;u8x8.h: 1104: uint8_t u8x8_GetUTF8Len(u8x8_t *u8x8, const char *s);
+[; ;u8x8.h: 1109: const char *u8x8_u8toa(uint8_t v, uint8_t d);
+[; ;u8x8.h: 1110: const char *u8x8_s8toa(int8_t v, uint8_t d);
+[; ;u8x8.h: 1111: const char *u8x8_u8tox(uint8_t v, uint8_t d);
+[; ;u8x8.h: 1112: const char *u8x8_u16toa(uint16_t v, uint8_t d);
+[; ;u8x8.h: 1113: const char *u8x8_utoa(uint16_t v);
+[; ;u8x8.h: 1119: uint8_t u8x8_GetStringLineCnt(const char *str);
+[; ;u8x8.h: 1120: const char *u8x8_GetStringLineStart(uint8_t line_idx, const char *str );
+[; ;u8x8.h: 1121: void u8x8_CopyStringLine(char *dest, uint8_t line_idx, const char *str);
+[; ;u8x8.h: 1123: uint8_t u8x8_DrawUTF8Line(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t w, const char *s);
+[; ;u8x8.h: 1125: uint8_t u8x8_DrawUTF8Lines(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t w, const char *s);
+[; ;u8x8.h: 1130: struct _u8sl_struct
+[; ;u8x8.h: 1131: {
+[; ;u8x8.h: 1132: uint8_t visible;
+[; ;u8x8.h: 1133: uint8_t total;
+[; ;u8x8.h: 1134: uint8_t first_pos;
+[; ;u8x8.h: 1135: uint8_t current_pos;
+[; ;u8x8.h: 1137: uint8_t x;
+[; ;u8x8.h: 1138: uint8_t y;
+[; ;u8x8.h: 1139: };
+[; ;u8x8.h: 1140: typedef struct _u8sl_struct u8sl_t;
+[; ;u8x8.h: 1142: typedef void (*u8x8_sl_cb)(u8x8_t *u8x8, u8sl_t *u8sl, uint8_t idx, const void *aux);
+[; ;u8x8.h: 1144: void u8sl_Next(u8sl_t *u8sl);
+[; ;u8x8.h: 1145: void u8sl_Prev(u8sl_t *u8sl);
+[; ;u8x8.h: 1147: uint8_t u8x8_UserInterfaceSelectionList(u8x8_t *u8x8, const char *title, uint8_t start_pos, const char *sl);
+[; ;u8x8.h: 1152: uint8_t u8x8_UserInterfaceMessage(u8x8_t *u8x8, const char *title1, const char *title2, const char *title3, const char *buttons);
+[; ;u8x8.h: 1158: uint8_t u8x8_capture_get_pixel_1(uint16_t x, uint16_t y, uint8_t *dest_ptr, uint8_t tile_width);
+[; ;u8x8.h: 1162: uint8_t u8x8_capture_get_pixel_2(uint16_t x, uint16_t y, uint8_t *dest_ptr, uint8_t tile_width);
+[; ;u8x8.h: 1166: void u8x8_capture_write_pbm_pre(uint8_t tile_width, uint8_t tile_height, void (*out)(const char *s));
+[; ;u8x8.h: 1167: void u8x8_capture_write_pbm_buffer(uint8_t *buffer, uint8_t tile_width, uint8_t tile_height, uint8_t (*get_pixel)(uint16_t x, uint16_t y, uint8_t *dest_ptr, uint8_t tile_width), void (*out)(const char *s));
+[; ;u8x8.h: 1169: void u8x8_capture_write_xbm_pre(uint8_t tile_width, uint8_t tile_height, void (*out)(const char *s));
+[; ;u8x8.h: 1170: void u8x8_capture_write_xbm_buffer(uint8_t *buffer, uint8_t tile_width, uint8_t tile_height, uint8_t (*get_pixel)(uint16_t x, uint16_t y, uint8_t *dest_ptr, uint8_t tile_width), void (*out)(const char *s));
+[; ;u8x8.h: 1178: uint8_t u8x8_UserInterfaceInputValue(u8x8_t *u8x8, const char *title, const char *pre, uint8_t *value, uint8_t lo, uint8_t hi, uint8_t digits, const char *post);
+[; ;u8x8.h: 1182: void u8log_Init(u8log_t *u8log, uint8_t width, uint8_t height, uint8_t *buf);
+[; ;u8x8.h: 1183: void u8log_SetCallback(u8log_t *u8log, u8log_cb cb, void *aux_data);
+[; ;u8x8.h: 1184: void u8log_SetRedrawMode(u8log_t *u8log, uint8_t is_redraw_line_for_each_char);
+[; ;u8x8.h: 1185: void u8log_SetLineHeightOffset(u8log_t *u8log, int8_t line_height_offset);
+[; ;u8x8.h: 1186: void u8log_WriteString(u8log_t *u8log, const char *s) ;
+[; ;u8x8.h: 1187: void u8log_WriteChar(u8log_t *u8log, uint8_t c) ;
+[; ;u8x8.h: 1188: void u8log_WriteHex8(u8log_t *u8log, uint8_t b) ;
+[; ;u8x8.h: 1189: void u8log_WriteHex16(u8log_t *u8log, uint16_t v);
+[; ;u8x8.h: 1190: void u8log_WriteHex32(u8log_t *u8log, uint32_t v);
+[; ;u8x8.h: 1191: void u8log_WriteDec8(u8log_t *u8log, uint8_t v, uint8_t d);
+[; ;u8x8.h: 1192: void u8log_WriteDec16(u8log_t *u8log, uint16_t v, uint8_t d);
+[; ;u8x8.h: 1196: void u8x8_DrawLog(u8x8_t *u8x8, uint8_t x, uint8_t y, u8log_t *u8log);
+[; ;u8x8.h: 1197: void u8log_u8x8_cb(u8log_t * u8log);
+[; ;u8x8.h: 1202: extern const uint8_t u8x8_font_amstrad_cpc_extended_f[] ;
+[; ;u8x8.h: 1203: extern const uint8_t u8x8_font_amstrad_cpc_extended_r[] ;
+[; ;u8x8.h: 1204: extern const uint8_t u8x8_font_amstrad_cpc_extended_n[] ;
+[; ;u8x8.h: 1205: extern const uint8_t u8x8_font_amstrad_cpc_extended_u[] ;
+[; ;u8x8.h: 1206: extern const uint8_t u8x8_font_5x7_f[] ;
+[; ;u8x8.h: 1207: extern const uint8_t u8x8_font_5x7_r[] ;
+[; ;u8x8.h: 1208: extern const uint8_t u8x8_font_5x7_n[] ;
+[; ;u8x8.h: 1209: extern const uint8_t u8x8_font_5x8_f[] ;
+[; ;u8x8.h: 1210: extern const uint8_t u8x8_font_5x8_r[] ;
+[; ;u8x8.h: 1211: extern const uint8_t u8x8_font_5x8_n[] ;
+[; ;u8x8.h: 1212: extern const uint8_t u8x8_font_8x13_1x2_f[] ;
+[; ;u8x8.h: 1213: extern const uint8_t u8x8_font_8x13_1x2_r[] ;
+[; ;u8x8.h: 1214: extern const uint8_t u8x8_font_8x13_1x2_n[] ;
+[; ;u8x8.h: 1215: extern const uint8_t u8x8_font_8x13B_1x2_f[] ;
+[; ;u8x8.h: 1216: extern const uint8_t u8x8_font_8x13B_1x2_r[] ;
+[; ;u8x8.h: 1217: extern const uint8_t u8x8_font_8x13B_1x2_n[] ;
+[; ;u8x8.h: 1218: extern const uint8_t u8x8_font_7x14_1x2_f[] ;
+[; ;u8x8.h: 1219: extern const uint8_t u8x8_font_7x14_1x2_r[] ;
+[; ;u8x8.h: 1220: extern const uint8_t u8x8_font_7x14_1x2_n[] ;
+[; ;u8x8.h: 1221: extern const uint8_t u8x8_font_7x14B_1x2_f[] ;
+[; ;u8x8.h: 1222: extern const uint8_t u8x8_font_7x14B_1x2_r[] ;
+[; ;u8x8.h: 1223: extern const uint8_t u8x8_font_7x14B_1x2_n[] ;
+[; ;u8x8.h: 1224: extern const uint8_t u8x8_font_open_iconic_arrow_1x1[] ;
+[; ;u8x8.h: 1225: extern const uint8_t u8x8_font_open_iconic_check_1x1[] ;
+[; ;u8x8.h: 1226: extern const uint8_t u8x8_font_open_iconic_embedded_1x1[] ;
+[; ;u8x8.h: 1227: extern const uint8_t u8x8_font_open_iconic_play_1x1[] ;
+[; ;u8x8.h: 1228: extern const uint8_t u8x8_font_open_iconic_thing_1x1[] ;
+[; ;u8x8.h: 1229: extern const uint8_t u8x8_font_open_iconic_weather_1x1[] ;
+[; ;u8x8.h: 1230: extern const uint8_t u8x8_font_open_iconic_arrow_2x2[] ;
+[; ;u8x8.h: 1231: extern const uint8_t u8x8_font_open_iconic_check_2x2[] ;
+[; ;u8x8.h: 1232: extern const uint8_t u8x8_font_open_iconic_embedded_2x2[] ;
+[; ;u8x8.h: 1233: extern const uint8_t u8x8_font_open_iconic_play_2x2[] ;
+[; ;u8x8.h: 1234: extern const uint8_t u8x8_font_open_iconic_thing_2x2[] ;
+[; ;u8x8.h: 1235: extern const uint8_t u8x8_font_open_iconic_weather_2x2[] ;
+[; ;u8x8.h: 1236: extern const uint8_t u8x8_font_open_iconic_arrow_4x4[] ;
+[; ;u8x8.h: 1237: extern const uint8_t u8x8_font_open_iconic_check_4x4[] ;
+[; ;u8x8.h: 1238: extern const uint8_t u8x8_font_open_iconic_embedded_4x4[] ;
+[; ;u8x8.h: 1239: extern const uint8_t u8x8_font_open_iconic_play_4x4[] ;
+[; ;u8x8.h: 1240: extern const uint8_t u8x8_font_open_iconic_thing_4x4[] ;
+[; ;u8x8.h: 1241: extern const uint8_t u8x8_font_open_iconic_weather_4x4[] ;
+[; ;u8x8.h: 1242: extern const uint8_t u8x8_font_open_iconic_arrow_8x8[] ;
+[; ;u8x8.h: 1243: extern const uint8_t u8x8_font_open_iconic_check_8x8[] ;
+[; ;u8x8.h: 1244: extern const uint8_t u8x8_font_open_iconic_embedded_8x8[] ;
+[; ;u8x8.h: 1245: extern const uint8_t u8x8_font_open_iconic_play_8x8[] ;
+[; ;u8x8.h: 1246: extern const uint8_t u8x8_font_open_iconic_thing_8x8[] ;
+[; ;u8x8.h: 1247: extern const uint8_t u8x8_font_open_iconic_weather_8x8[] ;
+[; ;u8x8.h: 1248: extern const uint8_t u8x8_font_profont29_2x3_f[] ;
+[; ;u8x8.h: 1249: extern const uint8_t u8x8_font_profont29_2x3_r[] ;
+[; ;u8x8.h: 1250: extern const uint8_t u8x8_font_profont29_2x3_n[] ;
+[; ;u8x8.h: 1251: extern const uint8_t u8x8_font_artossans8_r[] ;
+[; ;u8x8.h: 1252: extern const uint8_t u8x8_font_artossans8_n[] ;
+[; ;u8x8.h: 1253: extern const uint8_t u8x8_font_artossans8_u[] ;
+[; ;u8x8.h: 1254: extern const uint8_t u8x8_font_artosserif8_r[] ;
+[; ;u8x8.h: 1255: extern const uint8_t u8x8_font_artosserif8_n[] ;
+[; ;u8x8.h: 1256: extern const uint8_t u8x8_font_artosserif8_u[] ;
+[; ;u8x8.h: 1257: extern const uint8_t u8x8_font_chroma48medium8_r[] ;
+[; ;u8x8.h: 1258: extern const uint8_t u8x8_font_chroma48medium8_n[] ;
+[; ;u8x8.h: 1259: extern const uint8_t u8x8_font_chroma48medium8_u[] ;
+[; ;u8x8.h: 1260: extern const uint8_t u8x8_font_saikyosansbold8_n[] ;
+[; ;u8x8.h: 1261: extern const uint8_t u8x8_font_saikyosansbold8_u[] ;
+[; ;u8x8.h: 1262: extern const uint8_t u8x8_font_torussansbold8_r[] ;
+[; ;u8x8.h: 1263: extern const uint8_t u8x8_font_torussansbold8_n[] ;
+[; ;u8x8.h: 1264: extern const uint8_t u8x8_font_torussansbold8_u[] ;
+[; ;u8x8.h: 1265: extern const uint8_t u8x8_font_victoriabold8_r[] ;
+[; ;u8x8.h: 1266: extern const uint8_t u8x8_font_victoriabold8_n[] ;
+[; ;u8x8.h: 1267: extern const uint8_t u8x8_font_victoriabold8_u[] ;
+[; ;u8x8.h: 1268: extern const uint8_t u8x8_font_victoriamedium8_r[] ;
+[; ;u8x8.h: 1269: extern const uint8_t u8x8_font_victoriamedium8_n[] ;
+[; ;u8x8.h: 1270: extern const uint8_t u8x8_font_victoriamedium8_u[] ;
+[; ;u8x8.h: 1271: extern const uint8_t u8x8_font_courB18_2x3_f[] ;
+[; ;u8x8.h: 1272: extern const uint8_t u8x8_font_courB18_2x3_r[] ;
+[; ;u8x8.h: 1273: extern const uint8_t u8x8_font_courB18_2x3_n[] ;
+[; ;u8x8.h: 1274: extern const uint8_t u8x8_font_courR18_2x3_f[] ;
+[; ;u8x8.h: 1275: extern const uint8_t u8x8_font_courR18_2x3_r[] ;
+[; ;u8x8.h: 1276: extern const uint8_t u8x8_font_courR18_2x3_n[] ;
+[; ;u8x8.h: 1277: extern const uint8_t u8x8_font_courB24_3x4_f[] ;
+[; ;u8x8.h: 1278: extern const uint8_t u8x8_font_courB24_3x4_r[] ;
+[; ;u8x8.h: 1279: extern const uint8_t u8x8_font_courB24_3x4_n[] ;
+[; ;u8x8.h: 1280: extern const uint8_t u8x8_font_courR24_3x4_f[] ;
+[; ;u8x8.h: 1281: extern const uint8_t u8x8_font_courR24_3x4_r[] ;
+[; ;u8x8.h: 1282: extern const uint8_t u8x8_font_courR24_3x4_n[] ;
+[; ;u8x8.h: 1283: extern const uint8_t u8x8_font_lucasarts_scumm_subtitle_o_2x2_f[] ;
+[; ;u8x8.h: 1284: extern const uint8_t u8x8_font_lucasarts_scumm_subtitle_o_2x2_r[] ;
+[; ;u8x8.h: 1285: extern const uint8_t u8x8_font_lucasarts_scumm_subtitle_o_2x2_n[] ;
+[; ;u8x8.h: 1286: extern const uint8_t u8x8_font_lucasarts_scumm_subtitle_r_2x2_f[] ;
+[; ;u8x8.h: 1287: extern const uint8_t u8x8_font_lucasarts_scumm_subtitle_r_2x2_r[] ;
+[; ;u8x8.h: 1288: extern const uint8_t u8x8_font_lucasarts_scumm_subtitle_r_2x2_n[] ;
+[; ;u8x8.h: 1289: extern const uint8_t u8x8_font_inr21_2x4_f[] ;
+[; ;u8x8.h: 1290: extern const uint8_t u8x8_font_inr21_2x4_r[] ;
+[; ;u8x8.h: 1291: extern const uint8_t u8x8_font_inr21_2x4_n[] ;
+[; ;u8x8.h: 1292: extern const uint8_t u8x8_font_inr33_3x6_f[] ;
+[; ;u8x8.h: 1293: extern const uint8_t u8x8_font_inr33_3x6_r[] ;
+[; ;u8x8.h: 1294: extern const uint8_t u8x8_font_inr33_3x6_n[] ;
+[; ;u8x8.h: 1295: extern const uint8_t u8x8_font_inr46_4x8_f[] ;
+[; ;u8x8.h: 1296: extern const uint8_t u8x8_font_inr46_4x8_r[] ;
+[; ;u8x8.h: 1297: extern const uint8_t u8x8_font_inr46_4x8_n[] ;
+[; ;u8x8.h: 1298: extern const uint8_t u8x8_font_inb21_2x4_f[] ;
+[; ;u8x8.h: 1299: extern const uint8_t u8x8_font_inb21_2x4_r[] ;
+[; ;u8x8.h: 1300: extern const uint8_t u8x8_font_inb21_2x4_n[] ;
+[; ;u8x8.h: 1301: extern const uint8_t u8x8_font_inb33_3x6_f[] ;
+[; ;u8x8.h: 1302: extern const uint8_t u8x8_font_inb33_3x6_r[] ;
+[; ;u8x8.h: 1303: extern const uint8_t u8x8_font_inb33_3x6_n[] ;
+[; ;u8x8.h: 1304: extern const uint8_t u8x8_font_inb46_4x8_f[] ;
+[; ;u8x8.h: 1305: extern const uint8_t u8x8_font_inb46_4x8_r[] ;
+[; ;u8x8.h: 1306: extern const uint8_t u8x8_font_inb46_4x8_n[] ;
+[; ;u8x8.h: 1307: extern const uint8_t u8x8_font_pressstart2p_f[] ;
+[; ;u8x8.h: 1308: extern const uint8_t u8x8_font_pressstart2p_r[] ;
+[; ;u8x8.h: 1309: extern const uint8_t u8x8_font_pressstart2p_n[] ;
+[; ;u8x8.h: 1310: extern const uint8_t u8x8_font_pressstart2p_u[] ;
+[; ;u8x8.h: 1311: extern const uint8_t u8x8_font_pcsenior_f[] ;
+[; ;u8x8.h: 1312: extern const uint8_t u8x8_font_pcsenior_r[] ;
+[; ;u8x8.h: 1313: extern const uint8_t u8x8_font_pcsenior_n[] ;
+[; ;u8x8.h: 1314: extern const uint8_t u8x8_font_pcsenior_u[] ;
+[; ;u8x8.h: 1315: extern const uint8_t u8x8_font_pxplusibmcgathin_f[] ;
+[; ;u8x8.h: 1316: extern const uint8_t u8x8_font_pxplusibmcgathin_r[] ;
+[; ;u8x8.h: 1317: extern const uint8_t u8x8_font_pxplusibmcgathin_n[] ;
+[; ;u8x8.h: 1318: extern const uint8_t u8x8_font_pxplusibmcgathin_u[] ;
+[; ;u8x8.h: 1319: extern const uint8_t u8x8_font_pxplusibmcga_f[] ;
+[; ;u8x8.h: 1320: extern const uint8_t u8x8_font_pxplusibmcga_r[] ;
+[; ;u8x8.h: 1321: extern const uint8_t u8x8_font_pxplusibmcga_n[] ;
+[; ;u8x8.h: 1322: extern const uint8_t u8x8_font_pxplusibmcga_u[] ;
+[; ;u8x8.h: 1323: extern const uint8_t u8x8_font_pxplustandynewtv_f[] ;
+[; ;u8x8.h: 1324: extern const uint8_t u8x8_font_pxplustandynewtv_r[] ;
+[; ;u8x8.h: 1325: extern const uint8_t u8x8_font_pxplustandynewtv_n[] ;
+[; ;u8x8.h: 1326: extern const uint8_t u8x8_font_pxplustandynewtv_u[] ;
+[; ;u8x8.h: 1327: extern const uint8_t u8x8_font_px437wyse700a_2x2_f[] ;
+[; ;u8x8.h: 1328: extern const uint8_t u8x8_font_px437wyse700a_2x2_r[] ;
+[; ;u8x8.h: 1329: extern const uint8_t u8x8_font_px437wyse700a_2x2_n[] ;
+[; ;u8x8.h: 1330: extern const uint8_t u8x8_font_px437wyse700b_2x2_f[] ;
+[; ;u8x8.h: 1331: extern const uint8_t u8x8_font_px437wyse700b_2x2_r[] ;
+[; ;u8x8.h: 1332: extern const uint8_t u8x8_font_px437wyse700b_2x2_n[] ;
+"88 ../../../../u8g2/csrc/u8x8_cad.c
+[v _u8x8_cad_SendCmd `(uc ~T0 @X0 1 ef2`*S1`uc ]
+"89
+{
+[; ;u8x8_cad.c: 88: uint8_t u8x8_cad_SendCmd(u8x8_t *u8x8, uint8_t cmd)
+[; ;u8x8_cad.c: 89: {
+[e :U _u8x8_cad_SendCmd ]
+"88
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _cmd `uc ~T0 @X0 1 r2 ]
+"89
+[f ]
+[; ;u8x8_cad.c: 90: return u8x8->cad_cb(u8x8, 21, cmd, (0));
+"90
+[e ) ( *U . *U _u8x8 3 (4 , , , _u8x8 -> -> 21 `i `uc _cmd -> -> 0 `i `*v ]
+[e $UE 6  ]
+[; ;u8x8_cad.c: 91: }
+"91
+[e :UE 6 ]
+}
+"93
+[v _u8x8_cad_SendArg `(uc ~T0 @X0 1 ef2`*S1`uc ]
+"94
+{
+[; ;u8x8_cad.c: 93: uint8_t u8x8_cad_SendArg(u8x8_t *u8x8, uint8_t arg)
+[; ;u8x8_cad.c: 94: {
+[e :U _u8x8_cad_SendArg ]
+"93
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _arg `uc ~T0 @X0 1 r2 ]
+"94
+[f ]
+[; ;u8x8_cad.c: 95: return u8x8->cad_cb(u8x8, 22, arg, (0));
+"95
+[e ) ( *U . *U _u8x8 3 (4 , , , _u8x8 -> -> 22 `i `uc _arg -> -> 0 `i `*v ]
+[e $UE 7  ]
+[; ;u8x8_cad.c: 96: }
+"96
+[e :UE 7 ]
+}
+"98
+[v _u8x8_cad_SendMultipleArg `(uc ~T0 @X0 1 ef3`*S1`uc`uc ]
+"99
+{
+[; ;u8x8_cad.c: 98: uint8_t u8x8_cad_SendMultipleArg(u8x8_t *u8x8, uint8_t cnt, uint8_t arg)
+[; ;u8x8_cad.c: 99: {
+[e :U _u8x8_cad_SendMultipleArg ]
+"98
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _cnt `uc ~T0 @X0 1 r2 ]
+[v _arg `uc ~T0 @X0 1 r3 ]
+"99
+[f ]
+[; ;u8x8_cad.c: 100: while( cnt > 0 )
+"100
+[e $U 9  ]
+[e :U 10 ]
+[; ;u8x8_cad.c: 101: {
+"101
+{
+[; ;u8x8_cad.c: 102: u8x8->cad_cb(u8x8, 22, arg, (0));
+"102
+[e ( *U . *U _u8x8 3 (4 , , , _u8x8 -> -> 22 `i `uc _arg -> -> 0 `i `*v ]
+[; ;u8x8_cad.c: 103: cnt--;
+"103
+[e -- _cnt -> -> 1 `i `uc ]
+"104
+}
+[e :U 9 ]
+"100
+[e $ > -> _cnt `i -> 0 `i 10  ]
+[e :U 11 ]
+[; ;u8x8_cad.c: 104: }
+[; ;u8x8_cad.c: 105: return 1;
+"105
+[e ) -> -> 1 `i `uc ]
+[e $UE 8  ]
+[; ;u8x8_cad.c: 106: }
+"106
+[e :UE 8 ]
+}
+"108
+[v _u8x8_cad_SendData `(uc ~T0 @X0 1 ef3`*S1`uc`*uc ]
+"109
+{
+[; ;u8x8_cad.c: 108: uint8_t u8x8_cad_SendData(u8x8_t *u8x8, uint8_t cnt, uint8_t *data)
+[; ;u8x8_cad.c: 109: {
+[e :U _u8x8_cad_SendData ]
+"108
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _cnt `uc ~T0 @X0 1 r2 ]
+[v _data `*uc ~T0 @X0 1 r3 ]
+"109
+[f ]
+[; ;u8x8_cad.c: 110: return u8x8->cad_cb(u8x8, 23, cnt, data);
+"110
+[e ) ( *U . *U _u8x8 3 (4 , , , _u8x8 -> -> 23 `i `uc _cnt -> _data `*v ]
+[e $UE 12  ]
+[; ;u8x8_cad.c: 111: }
+"111
+[e :UE 12 ]
+}
+"113
+[v _u8x8_cad_StartTransfer `(uc ~T0 @X0 1 ef1`*S1 ]
+"114
+{
+[; ;u8x8_cad.c: 113: uint8_t u8x8_cad_StartTransfer(u8x8_t *u8x8)
+[; ;u8x8_cad.c: 114: {
+[e :U _u8x8_cad_StartTransfer ]
+"113
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+"114
+[f ]
+[; ;u8x8_cad.c: 115: return u8x8->cad_cb(u8x8, 24, 0, (0));
+"115
+[e ) ( *U . *U _u8x8 3 (4 , , , _u8x8 -> -> 24 `i `uc -> -> 0 `i `uc -> -> 0 `i `*v ]
+[e $UE 13  ]
+[; ;u8x8_cad.c: 116: }
+"116
+[e :UE 13 ]
+}
+"118
+[v _u8x8_cad_EndTransfer `(uc ~T0 @X0 1 ef1`*S1 ]
+"119
+{
+[; ;u8x8_cad.c: 118: uint8_t u8x8_cad_EndTransfer(u8x8_t *u8x8)
+[; ;u8x8_cad.c: 119: {
+[e :U _u8x8_cad_EndTransfer ]
+"118
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+"119
+[f ]
+[; ;u8x8_cad.c: 120: return u8x8->cad_cb(u8x8, 25, 0, (0));
+"120
+[e ) ( *U . *U _u8x8 3 (4 , , , _u8x8 -> -> 25 `i `uc -> -> 0 `i `uc -> -> 0 `i `*v ]
+[e $UE 14  ]
+[; ;u8x8_cad.c: 121: }
+"121
+[e :UE 14 ]
+}
+"123
+[v _u8x8_cad_vsendf `(v ~T0 @X0 1 ef3`*S1`*Cuc`**v ]
+"124
+{
+[; ;u8x8_cad.c: 123: void u8x8_cad_vsendf(u8x8_t * u8x8, const char *fmt, va_list va)
+[; ;u8x8_cad.c: 124: {
+[e :U _u8x8_cad_vsendf ]
+"123
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _fmt `*Cuc ~T0 @X0 1 r2 ]
+[v _va `**v ~T0 @X0 1 r3 ]
+"124
+[f ]
+"125
+[v _d `uc ~T0 @X0 1 a ]
+[; ;u8x8_cad.c: 125: uint8_t d;
+[; ;u8x8_cad.c: 126: u8x8_cad_StartTransfer(u8x8);
+"126
+[e ( _u8x8_cad_StartTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 127: while( *fmt != '\0' )
+"127
+[e $U 16  ]
+[e :U 17 ]
+[; ;u8x8_cad.c: 128: {
+"128
+{
+[; ;u8x8_cad.c: 129: d = (uint8_t)(*(int *)__va_arg((*(int **)va), (int)0));
+"129
+[e = _d -> *U -> ( ___va_arg , (. -> *U -> _va `**i `*v -> 0 `i `*i `uc ]
+[; ;u8x8_cad.c: 130: switch(*fmt)
+"130
+[e $U 20  ]
+[; ;u8x8_cad.c: 131: {
+"131
+{
+[; ;u8x8_cad.c: 132: case 'a': u8x8_cad_SendArg(u8x8, d); break;
+"132
+[e :U 21 ]
+[e ( _u8x8_cad_SendArg (2 , _u8x8 _d ]
+[e $U 19  ]
+[; ;u8x8_cad.c: 133: case 'c': u8x8_cad_SendCmd(u8x8, d); break;
+"133
+[e :U 22 ]
+[e ( _u8x8_cad_SendCmd (2 , _u8x8 _d ]
+[e $U 19  ]
+[; ;u8x8_cad.c: 134: case 'd': u8x8_cad_SendData(u8x8, 1, &d); break;
+"134
+[e :U 23 ]
+[e ( _u8x8_cad_SendData (3 , , _u8x8 -> -> 1 `i `uc &U _d ]
+[e $U 19  ]
+"135
+}
+[; ;u8x8_cad.c: 135: }
+[e $U 19  ]
+"130
+[e :U 20 ]
+[e [\ *U _fmt , $ -> -> 97 `ui `uc 21
+ , $ -> -> 99 `ui `uc 22
+ , $ -> -> 100 `ui `uc 23
+ 19 ]
+"135
+[e :U 19 ]
+[; ;u8x8_cad.c: 136: fmt++;
+"136
+[e ++ _fmt * -> -> 1 `i `x -> -> # *U _fmt `i `x ]
+"137
+}
+[e :U 16 ]
+"127
+[e $ != -> *U _fmt `ui -> 0 `ui 17  ]
+[e :U 18 ]
+[; ;u8x8_cad.c: 137: }
+[; ;u8x8_cad.c: 138: u8x8_cad_EndTransfer(u8x8);
+"138
+[e ( _u8x8_cad_EndTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 139: }
+"139
+[e :UE 15 ]
+}
+"141
+[v _u8x8_SendF `(v ~T0 @X0 1 e1v`*S1`*Cuc ]
+"142
+{
+[; ;u8x8_cad.c: 141: void u8x8_SendF(u8x8_t * u8x8, const char *fmt, ...)
+[; ;u8x8_cad.c: 142: {
+[e :U _u8x8_SendF ]
+"141
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _fmt `*Cuc ~T0 @X0 1 r0 ]
+"142
+[f ]
+"143
+[v _va `*v ~T0 @X0 -> -> 1 `i `ux a ]
+[; ;u8x8_cad.c: 143: va_list va;
+[; ;u8x8_cad.c: 144: *va = __va_start();
+"144
+[e = *U &U _va ( ___va_start ..  ]
+[; ;u8x8_cad.c: 145: u8x8_cad_vsendf(u8x8, fmt, va);
+"145
+[e ( _u8x8_cad_vsendf (3 , , _u8x8 _fmt &U _va ]
+[; ;u8x8_cad.c: 146: ;
+[; ;u8x8_cad.c: 147: }
+"147
+[e :UE 24 ]
+}
+"159
+[v _u8x8_cad_SendSequence `(v ~T0 @X0 1 ef2`*S1`*Cuc ]
+"160
+{
+[; ;u8x8_cad.c: 159: void u8x8_cad_SendSequence(u8x8_t *u8x8, uint8_t const *data)
+[; ;u8x8_cad.c: 160: {
+[e :U _u8x8_cad_SendSequence ]
+"159
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _data `*Cuc ~T0 @X0 1 r2 ]
+"160
+[f ]
+"161
+[v _cmd `uc ~T0 @X0 1 a ]
+"162
+[v _v `uc ~T0 @X0 1 a ]
+[; ;u8x8_cad.c: 161: uint8_t cmd;
+[; ;u8x8_cad.c: 162: uint8_t v;
+[; ;u8x8_cad.c: 164: for(;;)
+"164
+{
+"165
+[e :U 26 ]
+[; ;u8x8_cad.c: 165: {
+{
+[; ;u8x8_cad.c: 166: cmd = *data;
+"166
+[e = _cmd *U _data ]
+[; ;u8x8_cad.c: 167: data++;
+"167
+[e ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
+[; ;u8x8_cad.c: 168: switch( cmd )
+"168
+[e $U 30  ]
+[; ;u8x8_cad.c: 169: {
+"169
+{
+[; ;u8x8_cad.c: 170: case 21:
+"170
+[e :U 31 ]
+"171
+[e :U 32 ]
+[; ;u8x8_cad.c: 171: case 22:
+[; ;u8x8_cad.c: 172: v = *data;
+"172
+[e = _v *U _data ]
+[; ;u8x8_cad.c: 173: u8x8->cad_cb(u8x8, cmd, v, (0));
+"173
+[e ( *U . *U _u8x8 3 (4 , , , _u8x8 _cmd _v -> -> 0 `i `*v ]
+[; ;u8x8_cad.c: 174: data++;
+"174
+[e ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
+[; ;u8x8_cad.c: 175: break;
+"175
+[e $U 29  ]
+[; ;u8x8_cad.c: 176: case 23:
+"176
+[e :U 33 ]
+[; ;u8x8_cad.c: 177: v = *data;
+"177
+[e = _v *U _data ]
+[; ;u8x8_cad.c: 178: u8x8_cad_SendData(u8x8, 1, &v);
+"178
+[e ( _u8x8_cad_SendData (3 , , _u8x8 -> -> 1 `i `uc &U _v ]
+[; ;u8x8_cad.c: 179: data++;
+"179
+[e ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
+[; ;u8x8_cad.c: 180: break;
+"180
+[e $U 29  ]
+[; ;u8x8_cad.c: 181: case 24:
+"181
+[e :U 34 ]
+"182
+[e :U 35 ]
+[; ;u8x8_cad.c: 182: case 25:
+[; ;u8x8_cad.c: 183: u8x8->cad_cb(u8x8, cmd, 0, (0));
+"183
+[e ( *U . *U _u8x8 3 (4 , , , _u8x8 _cmd -> -> 0 `i `uc -> -> 0 `i `*v ]
+[; ;u8x8_cad.c: 184: break;
+"184
+[e $U 29  ]
+[; ;u8x8_cad.c: 185: case 0x0fe:
+"185
+[e :U 36 ]
+[; ;u8x8_cad.c: 186: v = *data;
+"186
+[e = _v *U _data ]
+[; ;u8x8_cad.c: 187: u8x8_gpio_call((u8x8), (41), (v));
+"187
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> -> 41 `i `uc _v ]
+[; ;u8x8_cad.c: 188: data++;
+"188
+[e ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
+[; ;u8x8_cad.c: 189: break;
+"189
+[e $U 29  ]
+[; ;u8x8_cad.c: 190: default:
+"190
+[e :U 37 ]
+[; ;u8x8_cad.c: 191: return;
+"191
+[e $UE 25  ]
+"192
+}
+[; ;u8x8_cad.c: 192: }
+[e $U 29  ]
+"168
+[e :U 30 ]
+[e [\ _cmd , $ -> -> 21 `i `uc 31
+ , $ -> -> 22 `i `uc 32
+ , $ -> -> 23 `i `uc 33
+ , $ -> -> 24 `i `uc 34
+ , $ -> -> 25 `i `uc 35
+ , $ -> -> 254 `i `uc 36
+ 37 ]
+"192
+[e :U 29 ]
+"193
+}
+[; ;u8x8_cad.c: 193: }
+[e $U 26  ]
+[e :U 27 ]
+}
+[; ;u8x8_cad.c: 194: }
+"194
+[e :UE 25 ]
+}
+"197
+[v _u8x8_cad_empty `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"198
+{
+[; ;u8x8_cad.c: 197: uint8_t u8x8_cad_empty(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_cad.c: 198: {
+[e :U _u8x8_cad_empty ]
+"197
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"198
+[f ]
+[; ;u8x8_cad.c: 199: switch(msg)
+"199
+[e $U 40  ]
+[; ;u8x8_cad.c: 200: {
+"200
+{
+[; ;u8x8_cad.c: 201: case 21:
+"201
+[e :U 41 ]
+[; ;u8x8_cad.c: 202: u8x8_byte_SendByte(u8x8, arg_int);
+"202
+[e ( _u8x8_byte_SendByte (2 , _u8x8 _arg_int ]
+[; ;u8x8_cad.c: 203: break;
+"203
+[e $U 39  ]
+[; ;u8x8_cad.c: 204: case 22:
+"204
+[e :U 42 ]
+[; ;u8x8_cad.c: 205: u8x8_byte_SendByte(u8x8, arg_int);
+"205
+[e ( _u8x8_byte_SendByte (2 , _u8x8 _arg_int ]
+[; ;u8x8_cad.c: 206: break;
+"206
+[e $U 39  ]
+[; ;u8x8_cad.c: 207: case 23:
+"207
+[e :U 43 ]
+"208
+[e :U 44 ]
+"209
+[e :U 45 ]
+"210
+[e :U 46 ]
+[; ;u8x8_cad.c: 208: case 20:
+[; ;u8x8_cad.c: 209: case 24:
+[; ;u8x8_cad.c: 210: case 25:
+[; ;u8x8_cad.c: 211: return u8x8->byte_cb(u8x8, msg, arg_int, arg_ptr);
+"211
+[e ) ( *U . *U _u8x8 4 (4 , , , _u8x8 _msg _arg_int _arg_ptr ]
+[e $UE 38  ]
+[; ;u8x8_cad.c: 212: default:
+"212
+[e :U 47 ]
+[; ;u8x8_cad.c: 213: return 0;
+"213
+[e ) -> -> 0 `i `uc ]
+[e $UE 38  ]
+"214
+}
+[; ;u8x8_cad.c: 214: }
+[e $U 39  ]
+"199
+[e :U 40 ]
+[e [\ _msg , $ -> -> 21 `i `uc 41
+ , $ -> -> 22 `i `uc 42
+ , $ -> -> 23 `i `uc 43
+ , $ -> -> 20 `i `uc 44
+ , $ -> -> 24 `i `uc 45
+ , $ -> -> 25 `i `uc 46
+ 47 ]
+"214
+[e :U 39 ]
+[; ;u8x8_cad.c: 215: return 1;
+"215
+[e ) -> -> 1 `i `uc ]
+[e $UE 38  ]
+[; ;u8x8_cad.c: 216: }
+"216
+[e :UE 38 ]
+}
+"224
+[v _u8x8_cad_110 `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"225
+{
+[; ;u8x8_cad.c: 224: uint8_t u8x8_cad_110(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_cad.c: 225: {
+[e :U _u8x8_cad_110 ]
+"224
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"225
+[f ]
+[; ;u8x8_cad.c: 226: switch(msg)
+"226
+[e $U 50  ]
+[; ;u8x8_cad.c: 227: {
+"227
+{
+[; ;u8x8_cad.c: 228: case 21:
+"228
+[e :U 51 ]
+[; ;u8x8_cad.c: 229: u8x8_byte_SetDC(u8x8, 1);
+"229
+[e ( _u8x8_byte_SetDC (2 , _u8x8 -> -> 1 `i `uc ]
+[; ;u8x8_cad.c: 230: u8x8_byte_SendByte(u8x8, arg_int);
+"230
+[e ( _u8x8_byte_SendByte (2 , _u8x8 _arg_int ]
+[; ;u8x8_cad.c: 231: break;
+"231
+[e $U 49  ]
+[; ;u8x8_cad.c: 232: case 22:
+"232
+[e :U 52 ]
+[; ;u8x8_cad.c: 233: u8x8_byte_SetDC(u8x8, 1);
+"233
+[e ( _u8x8_byte_SetDC (2 , _u8x8 -> -> 1 `i `uc ]
+[; ;u8x8_cad.c: 234: u8x8_byte_SendByte(u8x8, arg_int);
+"234
+[e ( _u8x8_byte_SendByte (2 , _u8x8 _arg_int ]
+[; ;u8x8_cad.c: 235: break;
+"235
+[e $U 49  ]
+[; ;u8x8_cad.c: 236: case 23:
+"236
+[e :U 53 ]
+[; ;u8x8_cad.c: 237: u8x8_byte_SetDC(u8x8, 0);
+"237
+[e ( _u8x8_byte_SetDC (2 , _u8x8 -> -> 0 `i `uc ]
+[; ;u8x8_cad.c: 241: case 20:
+"241
+[e :U 54 ]
+"242
+[e :U 55 ]
+"243
+[e :U 56 ]
+[; ;u8x8_cad.c: 242: case 24:
+[; ;u8x8_cad.c: 243: case 25:
+[; ;u8x8_cad.c: 244: return u8x8->byte_cb(u8x8, msg, arg_int, arg_ptr);
+"244
+[e ) ( *U . *U _u8x8 4 (4 , , , _u8x8 _msg _arg_int _arg_ptr ]
+[e $UE 48  ]
+[; ;u8x8_cad.c: 245: default:
+"245
+[e :U 57 ]
+[; ;u8x8_cad.c: 246: return 0;
+"246
+[e ) -> -> 0 `i `uc ]
+[e $UE 48  ]
+"247
+}
+[; ;u8x8_cad.c: 247: }
+[e $U 49  ]
+"226
+[e :U 50 ]
+[e [\ _msg , $ -> -> 21 `i `uc 51
+ , $ -> -> 22 `i `uc 52
+ , $ -> -> 23 `i `uc 53
+ , $ -> -> 20 `i `uc 54
+ , $ -> -> 24 `i `uc 55
+ , $ -> -> 25 `i `uc 56
+ 57 ]
+"247
+[e :U 49 ]
+[; ;u8x8_cad.c: 248: return 1;
+"248
+[e ) -> -> 1 `i `uc ]
+[e $UE 48  ]
+[; ;u8x8_cad.c: 249: }
+"249
+[e :UE 48 ]
+}
+"256
+[v _u8x8_gu800_cad_110 `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"257
+{
+[; ;u8x8_cad.c: 256: uint8_t u8x8_gu800_cad_110(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_cad.c: 257: {
+[e :U _u8x8_gu800_cad_110 ]
+"256
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"257
+[f ]
+"258
+[v _data `*uc ~T0 @X0 1 a ]
+[; ;u8x8_cad.c: 258: uint8_t *data;
+[; ;u8x8_cad.c: 259: switch(msg)
+"259
+[e $U 60  ]
+[; ;u8x8_cad.c: 260: {
+"260
+{
+[; ;u8x8_cad.c: 261: case 21:
+"261
+[e :U 61 ]
+[; ;u8x8_cad.c: 262: u8x8_byte_SetDC(u8x8, 1);
+"262
+[e ( _u8x8_byte_SetDC (2 , _u8x8 -> -> 1 `i `uc ]
+[; ;u8x8_cad.c: 263: u8x8_byte_StartTransfer(u8x8);
+"263
+[e ( _u8x8_byte_StartTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 264: u8x8_byte_SendByte(u8x8, arg_int);
+"264
+[e ( _u8x8_byte_SendByte (2 , _u8x8 _arg_int ]
+[; ;u8x8_cad.c: 265: u8x8_byte_EndTransfer(u8x8);
+"265
+[e ( _u8x8_byte_EndTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 266: break;
+"266
+[e $U 59  ]
+[; ;u8x8_cad.c: 267: case 22:
+"267
+[e :U 62 ]
+[; ;u8x8_cad.c: 268: u8x8_byte_SetDC(u8x8, 1);
+"268
+[e ( _u8x8_byte_SetDC (2 , _u8x8 -> -> 1 `i `uc ]
+[; ;u8x8_cad.c: 269: u8x8_byte_StartTransfer(u8x8);
+"269
+[e ( _u8x8_byte_StartTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 270: u8x8_byte_SendByte(u8x8, arg_int);
+"270
+[e ( _u8x8_byte_SendByte (2 , _u8x8 _arg_int ]
+[; ;u8x8_cad.c: 271: u8x8_byte_EndTransfer(u8x8);
+"271
+[e ( _u8x8_byte_EndTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 272: break;
+"272
+[e $U 59  ]
+[; ;u8x8_cad.c: 273: case 23:
+"273
+[e :U 63 ]
+[; ;u8x8_cad.c: 274: u8x8_byte_SetDC(u8x8, 0);
+"274
+[e ( _u8x8_byte_SetDC (2 , _u8x8 -> -> 0 `i `uc ]
+[; ;u8x8_cad.c: 275: data = (uint8_t *)arg_ptr;
+"275
+[e = _data -> _arg_ptr `*uc ]
+[; ;u8x8_cad.c: 276: while( arg_int > 0 )
+"276
+[e $U 64  ]
+[e :U 65 ]
+[; ;u8x8_cad.c: 277: {
+"277
+{
+[; ;u8x8_cad.c: 278: u8x8_byte_StartTransfer(u8x8);
+"278
+[e ( _u8x8_byte_StartTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 279: u8x8_byte_SendByte(u8x8, *data);
+"279
+[e ( _u8x8_byte_SendByte (2 , _u8x8 *U _data ]
+[; ;u8x8_cad.c: 280: u8x8_byte_EndTransfer(u8x8);
+"280
+[e ( _u8x8_byte_EndTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 281: data++;
+"281
+[e ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
+[; ;u8x8_cad.c: 282: arg_int--;
+"282
+[e -- _arg_int -> -> 1 `i `uc ]
+"283
+}
+[e :U 64 ]
+"276
+[e $ > -> _arg_int `i -> 0 `i 65  ]
+[e :U 66 ]
+[; ;u8x8_cad.c: 283: }
+[; ;u8x8_cad.c: 284: break;
+"284
+[e $U 59  ]
+[; ;u8x8_cad.c: 285: case 20:
+"285
+[e :U 67 ]
+[; ;u8x8_cad.c: 286: u8x8->byte_cb(u8x8, msg, arg_int, arg_ptr);
+"286
+[e ( *U . *U _u8x8 4 (4 , , , _u8x8 _msg _arg_int _arg_ptr ]
+[; ;u8x8_cad.c: 287: break;
+"287
+[e $U 59  ]
+[; ;u8x8_cad.c: 288: case 24:
+"288
+[e :U 68 ]
+"289
+[e :U 69 ]
+[; ;u8x8_cad.c: 289: case 25:
+[; ;u8x8_cad.c: 290: break;
+"290
+[e $U 59  ]
+[; ;u8x8_cad.c: 291: default:
+"291
+[e :U 70 ]
+[; ;u8x8_cad.c: 292: return 0;
+"292
+[e ) -> -> 0 `i `uc ]
+[e $UE 58  ]
+"293
+}
+[; ;u8x8_cad.c: 293: }
+[e $U 59  ]
+"259
+[e :U 60 ]
+[e [\ _msg , $ -> -> 21 `i `uc 61
+ , $ -> -> 22 `i `uc 62
+ , $ -> -> 23 `i `uc 63
+ , $ -> -> 20 `i `uc 67
+ , $ -> -> 24 `i `uc 68
+ , $ -> -> 25 `i `uc 69
+ 70 ]
+"293
+[e :U 59 ]
+[; ;u8x8_cad.c: 294: return 1;
+"294
+[e ) -> -> 1 `i `uc ]
+[e $UE 58  ]
+[; ;u8x8_cad.c: 295: }
+"295
+[e :UE 58 ]
+}
+"303
+[v _u8x8_cad_100 `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"304
+{
+[; ;u8x8_cad.c: 303: uint8_t u8x8_cad_100(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_cad.c: 304: {
+[e :U _u8x8_cad_100 ]
+"303
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"304
+[f ]
+[; ;u8x8_cad.c: 305: switch(msg)
+"305
+[e $U 73  ]
+[; ;u8x8_cad.c: 306: {
+"306
+{
+[; ;u8x8_cad.c: 307: case 21:
+"307
+[e :U 74 ]
+[; ;u8x8_cad.c: 308: u8x8_byte_SetDC(u8x8, 1);
+"308
+[e ( _u8x8_byte_SetDC (2 , _u8x8 -> -> 1 `i `uc ]
+[; ;u8x8_cad.c: 309: u8x8_byte_SendByte(u8x8, arg_int);
+"309
+[e ( _u8x8_byte_SendByte (2 , _u8x8 _arg_int ]
+[; ;u8x8_cad.c: 310: break;
+"310
+[e $U 72  ]
+[; ;u8x8_cad.c: 311: case 22:
+"311
+[e :U 75 ]
+[; ;u8x8_cad.c: 312: u8x8_byte_SetDC(u8x8, 0);
+"312
+[e ( _u8x8_byte_SetDC (2 , _u8x8 -> -> 0 `i `uc ]
+[; ;u8x8_cad.c: 313: u8x8_byte_SendByte(u8x8, arg_int);
+"313
+[e ( _u8x8_byte_SendByte (2 , _u8x8 _arg_int ]
+[; ;u8x8_cad.c: 314: break;
+"314
+[e $U 72  ]
+[; ;u8x8_cad.c: 315: case 23:
+"315
+[e :U 76 ]
+[; ;u8x8_cad.c: 316: u8x8_byte_SetDC(u8x8, 0);
+"316
+[e ( _u8x8_byte_SetDC (2 , _u8x8 -> -> 0 `i `uc ]
+[; ;u8x8_cad.c: 320: case 20:
+"320
+[e :U 77 ]
+"321
+[e :U 78 ]
+"322
+[e :U 79 ]
+[; ;u8x8_cad.c: 321: case 24:
+[; ;u8x8_cad.c: 322: case 25:
+[; ;u8x8_cad.c: 323: return u8x8->byte_cb(u8x8, msg, arg_int, arg_ptr);
+"323
+[e ) ( *U . *U _u8x8 4 (4 , , , _u8x8 _msg _arg_int _arg_ptr ]
+[e $UE 71  ]
+[; ;u8x8_cad.c: 324: default:
+"324
+[e :U 80 ]
+[; ;u8x8_cad.c: 325: return 0;
+"325
+[e ) -> -> 0 `i `uc ]
+[e $UE 71  ]
+"326
+}
+[; ;u8x8_cad.c: 326: }
+[e $U 72  ]
+"305
+[e :U 73 ]
+[e [\ _msg , $ -> -> 21 `i `uc 74
+ , $ -> -> 22 `i `uc 75
+ , $ -> -> 23 `i `uc 76
+ , $ -> -> 20 `i `uc 77
+ , $ -> -> 24 `i `uc 78
+ , $ -> -> 25 `i `uc 79
+ 80 ]
+"326
+[e :U 72 ]
+[; ;u8x8_cad.c: 327: return 1;
+"327
+[e ) -> -> 1 `i `uc ]
+[e $UE 71  ]
+[; ;u8x8_cad.c: 328: }
+"328
+[e :UE 71 ]
+}
+"335
+[v _u8x8_cad_001 `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"336
+{
+[; ;u8x8_cad.c: 335: uint8_t u8x8_cad_001(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_cad.c: 336: {
+[e :U _u8x8_cad_001 ]
+"335
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"336
+[f ]
+[; ;u8x8_cad.c: 337: switch(msg)
+"337
+[e $U 83  ]
+[; ;u8x8_cad.c: 338: {
+"338
+{
+[; ;u8x8_cad.c: 339: case 21:
+"339
+[e :U 84 ]
+[; ;u8x8_cad.c: 340: u8x8_byte_SetDC(u8x8, 0);
+"340
+[e ( _u8x8_byte_SetDC (2 , _u8x8 -> -> 0 `i `uc ]
+[; ;u8x8_cad.c: 341: u8x8_byte_SendByte(u8x8, arg_int);
+"341
+[e ( _u8x8_byte_SendByte (2 , _u8x8 _arg_int ]
+[; ;u8x8_cad.c: 342: break;
+"342
+[e $U 82  ]
+[; ;u8x8_cad.c: 343: case 22:
+"343
+[e :U 85 ]
+[; ;u8x8_cad.c: 344: u8x8_byte_SetDC(u8x8, 0);
+"344
+[e ( _u8x8_byte_SetDC (2 , _u8x8 -> -> 0 `i `uc ]
+[; ;u8x8_cad.c: 345: u8x8_byte_SendByte(u8x8, arg_int);
+"345
+[e ( _u8x8_byte_SendByte (2 , _u8x8 _arg_int ]
+[; ;u8x8_cad.c: 346: break;
+"346
+[e $U 82  ]
+[; ;u8x8_cad.c: 347: case 23:
+"347
+[e :U 86 ]
+[; ;u8x8_cad.c: 348: u8x8_byte_SetDC(u8x8, 1);
+"348
+[e ( _u8x8_byte_SetDC (2 , _u8x8 -> -> 1 `i `uc ]
+[; ;u8x8_cad.c: 352: case 20:
+"352
+[e :U 87 ]
+"353
+[e :U 88 ]
+"354
+[e :U 89 ]
+[; ;u8x8_cad.c: 353: case 24:
+[; ;u8x8_cad.c: 354: case 25:
+[; ;u8x8_cad.c: 355: return u8x8->byte_cb(u8x8, msg, arg_int, arg_ptr);
+"355
+[e ) ( *U . *U _u8x8 4 (4 , , , _u8x8 _msg _arg_int _arg_ptr ]
+[e $UE 81  ]
+[; ;u8x8_cad.c: 356: default:
+"356
+[e :U 90 ]
+[; ;u8x8_cad.c: 357: return 0;
+"357
+[e ) -> -> 0 `i `uc ]
+[e $UE 81  ]
+"358
+}
+[; ;u8x8_cad.c: 358: }
+[e $U 82  ]
+"337
+[e :U 83 ]
+[e [\ _msg , $ -> -> 21 `i `uc 84
+ , $ -> -> 22 `i `uc 85
+ , $ -> -> 23 `i `uc 86
+ , $ -> -> 20 `i `uc 87
+ , $ -> -> 24 `i `uc 88
+ , $ -> -> 25 `i `uc 89
+ 90 ]
+"358
+[e :U 82 ]
+[; ;u8x8_cad.c: 359: return 1;
+"359
+[e ) -> -> 1 `i `uc ]
+[e $UE 81  ]
+[; ;u8x8_cad.c: 360: }
+"360
+[e :UE 81 ]
+}
+"367
+[v _u8x8_cad_011 `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"368
+{
+[; ;u8x8_cad.c: 367: uint8_t u8x8_cad_011(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_cad.c: 368: {
+[e :U _u8x8_cad_011 ]
+"367
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"368
+[f ]
+[; ;u8x8_cad.c: 369: switch(msg)
+"369
+[e $U 93  ]
+[; ;u8x8_cad.c: 370: {
+"370
+{
+[; ;u8x8_cad.c: 371: case 21:
+"371
+[e :U 94 ]
+[; ;u8x8_cad.c: 372: u8x8_byte_SetDC(u8x8, 0);
+"372
+[e ( _u8x8_byte_SetDC (2 , _u8x8 -> -> 0 `i `uc ]
+[; ;u8x8_cad.c: 373: u8x8_byte_SendByte(u8x8, arg_int);
+"373
+[e ( _u8x8_byte_SendByte (2 , _u8x8 _arg_int ]
+[; ;u8x8_cad.c: 374: break;
+"374
+[e $U 92  ]
+[; ;u8x8_cad.c: 375: case 22:
+"375
+[e :U 95 ]
+[; ;u8x8_cad.c: 376: u8x8_byte_SetDC(u8x8, 1);
+"376
+[e ( _u8x8_byte_SetDC (2 , _u8x8 -> -> 1 `i `uc ]
+[; ;u8x8_cad.c: 377: u8x8_byte_SendByte(u8x8, arg_int);
+"377
+[e ( _u8x8_byte_SendByte (2 , _u8x8 _arg_int ]
+[; ;u8x8_cad.c: 378: break;
+"378
+[e $U 92  ]
+[; ;u8x8_cad.c: 379: case 23:
+"379
+[e :U 96 ]
+[; ;u8x8_cad.c: 380: u8x8_byte_SetDC(u8x8, 1);
+"380
+[e ( _u8x8_byte_SetDC (2 , _u8x8 -> -> 1 `i `uc ]
+[; ;u8x8_cad.c: 384: case 20:
+"384
+[e :U 97 ]
+"385
+[e :U 98 ]
+"386
+[e :U 99 ]
+[; ;u8x8_cad.c: 385: case 24:
+[; ;u8x8_cad.c: 386: case 25:
+[; ;u8x8_cad.c: 387: return u8x8->byte_cb(u8x8, msg, arg_int, arg_ptr);
+"387
+[e ) ( *U . *U _u8x8 4 (4 , , , _u8x8 _msg _arg_int _arg_ptr ]
+[e $UE 91  ]
+[; ;u8x8_cad.c: 388: default:
+"388
+[e :U 100 ]
+[; ;u8x8_cad.c: 389: return 0;
+"389
+[e ) -> -> 0 `i `uc ]
+[e $UE 91  ]
+"390
+}
+[; ;u8x8_cad.c: 390: }
+[e $U 92  ]
+"369
+[e :U 93 ]
+[e [\ _msg , $ -> -> 21 `i `uc 94
+ , $ -> -> 22 `i `uc 95
+ , $ -> -> 23 `i `uc 96
+ , $ -> -> 20 `i `uc 97
+ , $ -> -> 24 `i `uc 98
+ , $ -> -> 25 `i `uc 99
+ 100 ]
+"390
+[e :U 92 ]
+[; ;u8x8_cad.c: 391: return 1;
+"391
+[e ) -> -> 1 `i `uc ]
+[e $UE 91  ]
+[; ;u8x8_cad.c: 392: }
+"392
+[e :UE 91 ]
+}
+"396
+[v _u8x8_cad_st7920_spi `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"397
+{
+[; ;u8x8_cad.c: 396: uint8_t u8x8_cad_st7920_spi(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_cad.c: 397: {
+[e :U _u8x8_cad_st7920_spi ]
+"396
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"397
+[f ]
+"398
+[v _data `*uc ~T0 @X0 1 a ]
+"399
+[v _b `uc ~T0 @X0 1 a ]
+"400
+[v _i `uc ~T0 @X0 1 a ]
+"401
+[v F1970 `uc ~T0 @X0 -> 16 `i s buf ]
+"402
+[v _ptr `*uc ~T0 @X0 1 a ]
+[; ;u8x8_cad.c: 398: uint8_t *data;
+[; ;u8x8_cad.c: 399: uint8_t b;
+[; ;u8x8_cad.c: 400: uint8_t i;
+[; ;u8x8_cad.c: 401: static uint8_t buf[16];
+[; ;u8x8_cad.c: 402: uint8_t *ptr;
+[; ;u8x8_cad.c: 404: switch(msg)
+"404
+[e $U 103  ]
+[; ;u8x8_cad.c: 405: {
+"405
+{
+[; ;u8x8_cad.c: 406: case 21:
+"406
+[e :U 104 ]
+[; ;u8x8_cad.c: 407: u8x8_byte_SendByte(u8x8, 0x0f8);
+"407
+[e ( _u8x8_byte_SendByte (2 , _u8x8 -> -> 248 `i `uc ]
+[; ;u8x8_cad.c: 408: u8x8_gpio_call((u8x8), (44), (1));
+"408
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> -> 44 `i `uc -> -> 1 `i `uc ]
+[; ;u8x8_cad.c: 409: u8x8_byte_SendByte(u8x8, arg_int & 0x0f0);
+"409
+[e ( _u8x8_byte_SendByte (2 , _u8x8 -> & -> _arg_int `i -> 240 `i `uc ]
+[; ;u8x8_cad.c: 410: u8x8_gpio_call((u8x8), (44), (1));
+"410
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> -> 44 `i `uc -> -> 1 `i `uc ]
+[; ;u8x8_cad.c: 411: u8x8_byte_SendByte(u8x8, arg_int << 4);
+"411
+[e ( _u8x8_byte_SendByte (2 , _u8x8 -> << -> _arg_int `i -> 4 `i `uc ]
+[; ;u8x8_cad.c: 412: u8x8_gpio_call((u8x8), (44), (1));
+"412
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> -> 44 `i `uc -> -> 1 `i `uc ]
+[; ;u8x8_cad.c: 413: break;
+"413
+[e $U 102  ]
+[; ;u8x8_cad.c: 414: case 22:
+"414
+[e :U 105 ]
+[; ;u8x8_cad.c: 415: u8x8_byte_SendByte(u8x8, 0x0f8);
+"415
+[e ( _u8x8_byte_SendByte (2 , _u8x8 -> -> 248 `i `uc ]
+[; ;u8x8_cad.c: 416: u8x8_byte_SendByte(u8x8, arg_int & 0x0f0);
+"416
+[e ( _u8x8_byte_SendByte (2 , _u8x8 -> & -> _arg_int `i -> 240 `i `uc ]
+[; ;u8x8_cad.c: 417: u8x8_byte_SendByte(u8x8, arg_int << 4);
+"417
+[e ( _u8x8_byte_SendByte (2 , _u8x8 -> << -> _arg_int `i -> 4 `i `uc ]
+[; ;u8x8_cad.c: 418: break;
+"418
+[e $U 102  ]
+[; ;u8x8_cad.c: 419: case 23:
+"419
+[e :U 106 ]
+[; ;u8x8_cad.c: 421: u8x8_byte_SendByte(u8x8, 0x0fa);
+"421
+[e ( _u8x8_byte_SendByte (2 , _u8x8 -> -> 250 `i `uc ]
+[; ;u8x8_cad.c: 422: u8x8_gpio_call((u8x8), (44), (1));
+"422
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> -> 44 `i `uc -> -> 1 `i `uc ]
+[; ;u8x8_cad.c: 426: data = (uint8_t *)arg_ptr;
+"426
+[e = _data -> _arg_ptr `*uc ]
+[; ;u8x8_cad.c: 429: while( arg_int >= 8 )
+"429
+[e $U 107  ]
+[e :U 108 ]
+[; ;u8x8_cad.c: 430: {
+"430
+{
+[; ;u8x8_cad.c: 431: i = 8;
+"431
+[e = _i -> -> 8 `i `uc ]
+[; ;u8x8_cad.c: 432: ptr = buf;
+"432
+[e = _ptr &U F1970 ]
+[; ;u8x8_cad.c: 433: do
+"433
+[e :U 112 ]
+[; ;u8x8_cad.c: 434: {
+"434
+{
+[; ;u8x8_cad.c: 435: b = *data++;
+"435
+[e = _b *U ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
+[; ;u8x8_cad.c: 436: *ptr++= b & 0x0f0;
+"436
+[e = *U ++ _ptr * -> -> 1 `i `x -> -> # *U _ptr `i `x -> & -> _b `i -> 240 `i `uc ]
+[; ;u8x8_cad.c: 437: b <<= 4;
+"437
+[e =<< _b -> 4 `i ]
+[; ;u8x8_cad.c: 438: *ptr++= b;
+"438
+[e = *U ++ _ptr * -> -> 1 `i `x -> -> # *U _ptr `i `x _b ]
+[; ;u8x8_cad.c: 439: i--;
+"439
+[e -- _i -> -> 1 `i `uc ]
+"440
+}
+[; ;u8x8_cad.c: 440: } while( i > 0 );
+[e $ > -> _i `i -> 0 `i 112  ]
+[e :U 111 ]
+[; ;u8x8_cad.c: 441: arg_int -= 8;
+"441
+[e =- _arg_int -> -> 8 `i `uc ]
+[; ;u8x8_cad.c: 442: u8x8_byte_SendBytes(u8x8, 16, buf);
+"442
+[e ( _u8x8_byte_SendBytes (3 , , _u8x8 -> -> 16 `i `uc &U F1970 ]
+"443
+}
+[e :U 107 ]
+"429
+[e $ >= -> _arg_int `i -> 8 `i 108  ]
+[e :U 109 ]
+[; ;u8x8_cad.c: 443: }
+[; ;u8x8_cad.c: 446: while( arg_int > 0 )
+"446
+[e $U 113  ]
+[e :U 114 ]
+[; ;u8x8_cad.c: 447: {
+"447
+{
+[; ;u8x8_cad.c: 448: b = *data;
+"448
+[e = _b *U _data ]
+[; ;u8x8_cad.c: 449: u8x8_byte_SendByte(u8x8, b & 0x0f0);
+"449
+[e ( _u8x8_byte_SendByte (2 , _u8x8 -> & -> _b `i -> 240 `i `uc ]
+[; ;u8x8_cad.c: 450: u8x8_byte_SendByte(u8x8, b << 4);
+"450
+[e ( _u8x8_byte_SendByte (2 , _u8x8 -> << -> _b `i -> 4 `i `uc ]
+[; ;u8x8_cad.c: 451: data++;
+"451
+[e ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
+[; ;u8x8_cad.c: 452: arg_int--;
+"452
+[e -- _arg_int -> -> 1 `i `uc ]
+"453
+}
+[e :U 113 ]
+"446
+[e $ > -> _arg_int `i -> 0 `i 114  ]
+[e :U 115 ]
+[; ;u8x8_cad.c: 453: }
+[; ;u8x8_cad.c: 454: u8x8_gpio_call((u8x8), (44), (1));
+"454
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> -> 44 `i `uc -> -> 1 `i `uc ]
+[; ;u8x8_cad.c: 455: break;
+"455
+[e $U 102  ]
+[; ;u8x8_cad.c: 456: case 20:
+"456
+[e :U 116 ]
+"457
+[e :U 117 ]
+"458
+[e :U 118 ]
+[; ;u8x8_cad.c: 457: case 24:
+[; ;u8x8_cad.c: 458: case 25:
+[; ;u8x8_cad.c: 459: return u8x8->byte_cb(u8x8, msg, arg_int, arg_ptr);
+"459
+[e ) ( *U . *U _u8x8 4 (4 , , , _u8x8 _msg _arg_int _arg_ptr ]
+[e $UE 101  ]
+[; ;u8x8_cad.c: 460: default:
+"460
+[e :U 119 ]
+[; ;u8x8_cad.c: 461: return 0;
+"461
+[e ) -> -> 0 `i `uc ]
+[e $UE 101  ]
+"462
+}
+[; ;u8x8_cad.c: 462: }
+[e $U 102  ]
+"404
+[e :U 103 ]
+[e [\ _msg , $ -> -> 21 `i `uc 104
+ , $ -> -> 22 `i `uc 105
+ , $ -> -> 23 `i `uc 106
+ , $ -> -> 20 `i `uc 116
+ , $ -> -> 24 `i `uc 117
+ , $ -> -> 25 `i `uc 118
+ 119 ]
+"462
+[e :U 102 ]
+[; ;u8x8_cad.c: 463: return 1;
+"463
+[e ) -> -> 1 `i `uc ]
+[e $UE 101  ]
+[; ;u8x8_cad.c: 464: }
+"464
+[e :UE 101 ]
+}
+[; ;u8x8_cad.c: 473: static void u8x8_i2c_data_transfer(u8x8_t *u8x8, uint8_t arg_int, void *arg_ptr) ;
+"474
+[v _u8x8_i2c_data_transfer `(v ~T0 @X0 1 sf3`*S1`uc`*v ]
+"475
+{
+[; ;u8x8_cad.c: 474: static void u8x8_i2c_data_transfer(u8x8_t *u8x8, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_cad.c: 475: {
+[e :U _u8x8_i2c_data_transfer ]
+"474
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _arg_int `uc ~T0 @X0 1 r2 ]
+[v _arg_ptr `*v ~T0 @X0 1 r3 ]
+"475
+[f ]
+[; ;u8x8_cad.c: 476: u8x8_byte_StartTransfer(u8x8);
+"476
+[e ( _u8x8_byte_StartTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 477: u8x8_byte_SendByte(u8x8, 0x040);
+"477
+[e ( _u8x8_byte_SendByte (2 , _u8x8 -> -> 64 `i `uc ]
+[; ;u8x8_cad.c: 478: u8x8->byte_cb(u8x8, 23, arg_int, arg_ptr);
+"478
+[e ( *U . *U _u8x8 4 (4 , , , _u8x8 -> -> 23 `i `uc _arg_int _arg_ptr ]
+[; ;u8x8_cad.c: 479: u8x8_byte_EndTransfer(u8x8);
+"479
+[e ( _u8x8_byte_EndTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 480: }
+"480
+[e :UE 120 ]
+}
+"484
+[v _u8x8_cad_ssd13xx_i2c `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"485
+{
+[; ;u8x8_cad.c: 484: uint8_t u8x8_cad_ssd13xx_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_cad.c: 485: {
+[e :U _u8x8_cad_ssd13xx_i2c ]
+"484
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"485
+[f ]
+"486
+[v _p `*uc ~T0 @X0 1 a ]
+[; ;u8x8_cad.c: 486: uint8_t *p;
+[; ;u8x8_cad.c: 487: switch(msg)
+"487
+[e $U 123  ]
+[; ;u8x8_cad.c: 488: {
+"488
+{
+[; ;u8x8_cad.c: 489: case 21:
+"489
+[e :U 124 ]
+"490
+[e :U 125 ]
+[; ;u8x8_cad.c: 490: case 22:
+[; ;u8x8_cad.c: 493: u8x8_byte_StartTransfer(u8x8);
+"493
+[e ( _u8x8_byte_StartTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 495: u8x8_byte_SendByte(u8x8, 0x000);
+"495
+[e ( _u8x8_byte_SendByte (2 , _u8x8 -> -> 0 `i `uc ]
+[; ;u8x8_cad.c: 496: u8x8_byte_SendByte(u8x8, arg_int);
+"496
+[e ( _u8x8_byte_SendByte (2 , _u8x8 _arg_int ]
+[; ;u8x8_cad.c: 497: u8x8_byte_EndTransfer(u8x8);
+"497
+[e ( _u8x8_byte_EndTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 498: break;
+"498
+[e $U 122  ]
+[; ;u8x8_cad.c: 499: case 23:
+"499
+[e :U 126 ]
+[; ;u8x8_cad.c: 509: p = (uint8_t *)arg_ptr;
+"509
+[e = _p -> _arg_ptr `*uc ]
+[; ;u8x8_cad.c: 510: while( arg_int > 24 )
+"510
+[e $U 127  ]
+[e :U 128 ]
+[; ;u8x8_cad.c: 511: {
+"511
+{
+[; ;u8x8_cad.c: 512: u8x8_i2c_data_transfer(u8x8, 24, p);
+"512
+[e ( _u8x8_i2c_data_transfer (3 , , _u8x8 -> -> 24 `i `uc -> _p `*v ]
+[; ;u8x8_cad.c: 513: arg_int-=24;
+"513
+[e =- _arg_int -> -> 24 `i `uc ]
+[; ;u8x8_cad.c: 514: p+=24;
+"514
+[e =+ _p * -> -> 24 `i `x -> -> # *U _p `i `x ]
+"515
+}
+[e :U 127 ]
+"510
+[e $ > -> _arg_int `i -> 24 `i 128  ]
+[e :U 129 ]
+[; ;u8x8_cad.c: 515: }
+[; ;u8x8_cad.c: 516: u8x8_i2c_data_transfer(u8x8, arg_int, p);
+"516
+[e ( _u8x8_i2c_data_transfer (3 , , _u8x8 _arg_int -> _p `*v ]
+[; ;u8x8_cad.c: 517: break;
+"517
+[e $U 122  ]
+[; ;u8x8_cad.c: 518: case 20:
+"518
+[e :U 130 ]
+[; ;u8x8_cad.c: 520: if ( u8x8->i2c_address == 255 )
+"520
+[e $ ! == -> . *U _u8x8 11 `i -> 255 `i 131  ]
+[; ;u8x8_cad.c: 521: u8x8->i2c_address = 0x078;
+"521
+[e = . *U _u8x8 11 -> -> 120 `i `uc ]
+[e :U 131 ]
+[; ;u8x8_cad.c: 522: return u8x8->byte_cb(u8x8, msg, arg_int, arg_ptr);
+"522
+[e ) ( *U . *U _u8x8 4 (4 , , , _u8x8 _msg _arg_int _arg_ptr ]
+[e $UE 121  ]
+[; ;u8x8_cad.c: 523: case 24:
+"523
+[e :U 132 ]
+"524
+[e :U 133 ]
+[; ;u8x8_cad.c: 524: case 25:
+[; ;u8x8_cad.c: 526: break;
+"526
+[e $U 122  ]
+[; ;u8x8_cad.c: 527: default:
+"527
+[e :U 134 ]
+[; ;u8x8_cad.c: 528: return 0;
+"528
+[e ) -> -> 0 `i `uc ]
+[e $UE 121  ]
+"529
+}
+[; ;u8x8_cad.c: 529: }
+[e $U 122  ]
+"487
+[e :U 123 ]
+[e [\ _msg , $ -> -> 21 `i `uc 124
+ , $ -> -> 22 `i `uc 125
+ , $ -> -> 23 `i `uc 126
+ , $ -> -> 20 `i `uc 130
+ , $ -> -> 24 `i `uc 132
+ , $ -> -> 25 `i `uc 133
+ 134 ]
+"529
+[e :U 122 ]
+[; ;u8x8_cad.c: 530: return 1;
+"530
+[e ) -> -> 1 `i `uc ]
+[e $UE 121  ]
+[; ;u8x8_cad.c: 531: }
+"531
+[e :UE 121 ]
+}
+"537
+[v _u8x8_cad_011_ssd13xx_i2c `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"538
+{
+[; ;u8x8_cad.c: 537: uint8_t u8x8_cad_011_ssd13xx_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_cad.c: 538: {
+[e :U _u8x8_cad_011_ssd13xx_i2c ]
+"537
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"538
+[f ]
+"539
+[v _p `*uc ~T0 @X0 1 a ]
+[; ;u8x8_cad.c: 539: uint8_t *p;
+[; ;u8x8_cad.c: 540: switch(msg)
+"540
+[e $U 137  ]
+[; ;u8x8_cad.c: 541: {
+"541
+{
+[; ;u8x8_cad.c: 542: case 21:
+"542
+[e :U 138 ]
+[; ;u8x8_cad.c: 543: u8x8_byte_StartTransfer(u8x8);
+"543
+[e ( _u8x8_byte_StartTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 544: u8x8_byte_SendByte(u8x8, 0x000);
+"544
+[e ( _u8x8_byte_SendByte (2 , _u8x8 -> -> 0 `i `uc ]
+[; ;u8x8_cad.c: 545: u8x8_byte_SendByte(u8x8, arg_int);
+"545
+[e ( _u8x8_byte_SendByte (2 , _u8x8 _arg_int ]
+[; ;u8x8_cad.c: 546: u8x8_byte_EndTransfer(u8x8);
+"546
+[e ( _u8x8_byte_EndTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 547: break;
+"547
+[e $U 136  ]
+[; ;u8x8_cad.c: 548: case 22:
+"548
+[e :U 139 ]
+[; ;u8x8_cad.c: 549: u8x8_byte_StartTransfer(u8x8);
+"549
+[e ( _u8x8_byte_StartTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 550: u8x8_byte_SendByte(u8x8, 0x040);
+"550
+[e ( _u8x8_byte_SendByte (2 , _u8x8 -> -> 64 `i `uc ]
+[; ;u8x8_cad.c: 551: u8x8_byte_SendByte(u8x8, arg_int);
+"551
+[e ( _u8x8_byte_SendByte (2 , _u8x8 _arg_int ]
+[; ;u8x8_cad.c: 552: u8x8_byte_EndTransfer(u8x8);
+"552
+[e ( _u8x8_byte_EndTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 553: break;
+"553
+[e $U 136  ]
+[; ;u8x8_cad.c: 554: case 23:
+"554
+[e :U 140 ]
+[; ;u8x8_cad.c: 555: p = (uint8_t *)arg_ptr;
+"555
+[e = _p -> _arg_ptr `*uc ]
+[; ;u8x8_cad.c: 556: while( arg_int > 24 )
+"556
+[e $U 141  ]
+[e :U 142 ]
+[; ;u8x8_cad.c: 557: {
+"557
+{
+[; ;u8x8_cad.c: 558: u8x8_i2c_data_transfer(u8x8, 24, p);
+"558
+[e ( _u8x8_i2c_data_transfer (3 , , _u8x8 -> -> 24 `i `uc -> _p `*v ]
+[; ;u8x8_cad.c: 559: arg_int-=24;
+"559
+[e =- _arg_int -> -> 24 `i `uc ]
+[; ;u8x8_cad.c: 560: p+=24;
+"560
+[e =+ _p * -> -> 24 `i `x -> -> # *U _p `i `x ]
+"561
+}
+[e :U 141 ]
+"556
+[e $ > -> _arg_int `i -> 24 `i 142  ]
+[e :U 143 ]
+[; ;u8x8_cad.c: 561: }
+[; ;u8x8_cad.c: 562: u8x8_i2c_data_transfer(u8x8, arg_int, p);
+"562
+[e ( _u8x8_i2c_data_transfer (3 , , _u8x8 _arg_int -> _p `*v ]
+[; ;u8x8_cad.c: 563: break;
+"563
+[e $U 136  ]
+[; ;u8x8_cad.c: 564: case 20:
+"564
+[e :U 144 ]
+[; ;u8x8_cad.c: 566: if ( u8x8->i2c_address == 255 )
+"566
+[e $ ! == -> . *U _u8x8 11 `i -> 255 `i 145  ]
+[; ;u8x8_cad.c: 567: u8x8->i2c_address = 0x078;
+"567
+[e = . *U _u8x8 11 -> -> 120 `i `uc ]
+[e :U 145 ]
+[; ;u8x8_cad.c: 568: return u8x8->byte_cb(u8x8, msg, arg_int, arg_ptr);
+"568
+[e ) ( *U . *U _u8x8 4 (4 , , , _u8x8 _msg _arg_int _arg_ptr ]
+[e $UE 135  ]
+[; ;u8x8_cad.c: 569: case 24:
+"569
+[e :U 146 ]
+"570
+[e :U 147 ]
+[; ;u8x8_cad.c: 570: case 25:
+[; ;u8x8_cad.c: 572: break;
+"572
+[e $U 136  ]
+[; ;u8x8_cad.c: 573: default:
+"573
+[e :U 148 ]
+[; ;u8x8_cad.c: 574: return 0;
+"574
+[e ) -> -> 0 `i `uc ]
+[e $UE 135  ]
+"575
+}
+[; ;u8x8_cad.c: 575: }
+[e $U 136  ]
+"540
+[e :U 137 ]
+[e [\ _msg , $ -> -> 21 `i `uc 138
+ , $ -> -> 22 `i `uc 139
+ , $ -> -> 23 `i `uc 140
+ , $ -> -> 20 `i `uc 144
+ , $ -> -> 24 `i `uc 146
+ , $ -> -> 25 `i `uc 147
+ 148 ]
+"575
+[e :U 136 ]
+[; ;u8x8_cad.c: 576: return 1;
+"576
+[e ) -> -> 1 `i `uc ]
+[e $UE 135  ]
+[; ;u8x8_cad.c: 577: }
+"577
+[e :UE 135 ]
+}
+"581
+[v _u8x8_cad_ssd13xx_fast_i2c `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"582
+{
+[; ;u8x8_cad.c: 581: uint8_t u8x8_cad_ssd13xx_fast_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_cad.c: 582: {
+[e :U _u8x8_cad_ssd13xx_fast_i2c ]
+"581
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"582
+[f ]
+"583
+[v F1996 `uc ~T0 @X0 1 s in_transfer ]
+[i F1996
+-> -> 0 `i `uc
+]
+"584
+[v _p `*uc ~T0 @X0 1 a ]
+[; ;u8x8_cad.c: 583: static uint8_t in_transfer = 0;
+[; ;u8x8_cad.c: 584: uint8_t *p;
+[; ;u8x8_cad.c: 585: switch(msg)
+"585
+[e $U 151  ]
+[; ;u8x8_cad.c: 586: {
+"586
+{
+[; ;u8x8_cad.c: 587: case 21:
+"587
+[e :U 152 ]
+[; ;u8x8_cad.c: 591: if ( in_transfer != 0 )
+"591
+[e $ ! != -> F1996 `i -> 0 `i 153  ]
+[; ;u8x8_cad.c: 592: u8x8_byte_EndTransfer(u8x8);
+"592
+[e ( _u8x8_byte_EndTransfer (1 _u8x8 ]
+[e :U 153 ]
+[; ;u8x8_cad.c: 594: u8x8_byte_StartTransfer(u8x8);
+"594
+[e ( _u8x8_byte_StartTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 595: u8x8_byte_SendByte(u8x8, 0x000);
+"595
+[e ( _u8x8_byte_SendByte (2 , _u8x8 -> -> 0 `i `uc ]
+[; ;u8x8_cad.c: 596: u8x8_byte_SendByte(u8x8, arg_int);
+"596
+[e ( _u8x8_byte_SendByte (2 , _u8x8 _arg_int ]
+[; ;u8x8_cad.c: 597: in_transfer = 1;
+"597
+[e = F1996 -> -> 1 `i `uc ]
+[; ;u8x8_cad.c: 609: break;
+"609
+[e $U 150  ]
+[; ;u8x8_cad.c: 610: case 22:
+"610
+[e :U 154 ]
+[; ;u8x8_cad.c: 611: u8x8_byte_SendByte(u8x8, arg_int);
+"611
+[e ( _u8x8_byte_SendByte (2 , _u8x8 _arg_int ]
+[; ;u8x8_cad.c: 612: break;
+"612
+[e $U 150  ]
+[; ;u8x8_cad.c: 613: case 23:
+"613
+[e :U 155 ]
+[; ;u8x8_cad.c: 614: if ( in_transfer != 0 )
+"614
+[e $ ! != -> F1996 `i -> 0 `i 156  ]
+[; ;u8x8_cad.c: 615: u8x8_byte_EndTransfer(u8x8);
+"615
+[e ( _u8x8_byte_EndTransfer (1 _u8x8 ]
+[e :U 156 ]
+[; ;u8x8_cad.c: 625: p = (uint8_t *)arg_ptr;
+"625
+[e = _p -> _arg_ptr `*uc ]
+[; ;u8x8_cad.c: 626: while( arg_int > 24 )
+"626
+[e $U 157  ]
+[e :U 158 ]
+[; ;u8x8_cad.c: 627: {
+"627
+{
+[; ;u8x8_cad.c: 628: u8x8_i2c_data_transfer(u8x8, 24, p);
+"628
+[e ( _u8x8_i2c_data_transfer (3 , , _u8x8 -> -> 24 `i `uc -> _p `*v ]
+[; ;u8x8_cad.c: 629: arg_int-=24;
+"629
+[e =- _arg_int -> -> 24 `i `uc ]
+[; ;u8x8_cad.c: 630: p+=24;
+"630
+[e =+ _p * -> -> 24 `i `x -> -> # *U _p `i `x ]
+"631
+}
+[e :U 157 ]
+"626
+[e $ > -> _arg_int `i -> 24 `i 158  ]
+[e :U 159 ]
+[; ;u8x8_cad.c: 631: }
+[; ;u8x8_cad.c: 632: u8x8_i2c_data_transfer(u8x8, arg_int, p);
+"632
+[e ( _u8x8_i2c_data_transfer (3 , , _u8x8 _arg_int -> _p `*v ]
+[; ;u8x8_cad.c: 633: in_transfer = 0;
+"633
+[e = F1996 -> -> 0 `i `uc ]
+[; ;u8x8_cad.c: 634: break;
+"634
+[e $U 150  ]
+[; ;u8x8_cad.c: 635: case 20:
+"635
+[e :U 160 ]
+[; ;u8x8_cad.c: 637: if ( u8x8->i2c_address == 255 )
+"637
+[e $ ! == -> . *U _u8x8 11 `i -> 255 `i 161  ]
+[; ;u8x8_cad.c: 638: u8x8->i2c_address = 0x078;
+"638
+[e = . *U _u8x8 11 -> -> 120 `i `uc ]
+[e :U 161 ]
+[; ;u8x8_cad.c: 639: return u8x8->byte_cb(u8x8, msg, arg_int, arg_ptr);
+"639
+[e ) ( *U . *U _u8x8 4 (4 , , , _u8x8 _msg _arg_int _arg_ptr ]
+[e $UE 149  ]
+[; ;u8x8_cad.c: 640: case 24:
+"640
+[e :U 162 ]
+[; ;u8x8_cad.c: 641: in_transfer = 0;
+"641
+[e = F1996 -> -> 0 `i `uc ]
+[; ;u8x8_cad.c: 642: break;
+"642
+[e $U 150  ]
+[; ;u8x8_cad.c: 643: case 25:
+"643
+[e :U 163 ]
+[; ;u8x8_cad.c: 644: if ( in_transfer != 0 )
+"644
+[e $ ! != -> F1996 `i -> 0 `i 164  ]
+[; ;u8x8_cad.c: 645: u8x8_byte_EndTransfer(u8x8);
+"645
+[e ( _u8x8_byte_EndTransfer (1 _u8x8 ]
+[e :U 164 ]
+[; ;u8x8_cad.c: 646: in_transfer = 0;
+"646
+[e = F1996 -> -> 0 `i `uc ]
+[; ;u8x8_cad.c: 647: break;
+"647
+[e $U 150  ]
+[; ;u8x8_cad.c: 648: default:
+"648
+[e :U 165 ]
+[; ;u8x8_cad.c: 649: return 0;
+"649
+[e ) -> -> 0 `i `uc ]
+[e $UE 149  ]
+"650
+}
+[; ;u8x8_cad.c: 650: }
+[e $U 150  ]
+"585
+[e :U 151 ]
+[e [\ _msg , $ -> -> 21 `i `uc 152
+ , $ -> -> 22 `i `uc 154
+ , $ -> -> 23 `i `uc 155
+ , $ -> -> 20 `i `uc 160
+ , $ -> -> 24 `i `uc 162
+ , $ -> -> 25 `i `uc 163
+ 165 ]
+"650
+[e :U 150 ]
+[; ;u8x8_cad.c: 651: return 1;
+"651
+[e ) -> -> 1 `i `uc ]
+[e $UE 149  ]
+[; ;u8x8_cad.c: 652: }
+"652
+[e :UE 149 ]
+}
+"658
+[v _u8x8_cad_st75256_i2c `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"659
+{
+[; ;u8x8_cad.c: 658: uint8_t u8x8_cad_st75256_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_cad.c: 659: {
+[e :U _u8x8_cad_st75256_i2c ]
+"658
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"659
+[f ]
+"660
+[v _p `*uc ~T0 @X0 1 a ]
+[; ;u8x8_cad.c: 660: uint8_t *p;
+[; ;u8x8_cad.c: 661: switch(msg)
+"661
+[e $U 168  ]
+[; ;u8x8_cad.c: 662: {
+"662
+{
+[; ;u8x8_cad.c: 663: case 21:
+"663
+[e :U 169 ]
+[; ;u8x8_cad.c: 664: u8x8_byte_StartTransfer(u8x8);
+"664
+[e ( _u8x8_byte_StartTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 665: u8x8_byte_SendByte(u8x8, 0x000);
+"665
+[e ( _u8x8_byte_SendByte (2 , _u8x8 -> -> 0 `i `uc ]
+[; ;u8x8_cad.c: 666: u8x8_byte_SendByte(u8x8, arg_int);
+"666
+[e ( _u8x8_byte_SendByte (2 , _u8x8 _arg_int ]
+[; ;u8x8_cad.c: 667: u8x8_byte_EndTransfer(u8x8);
+"667
+[e ( _u8x8_byte_EndTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 668: break;
+"668
+[e $U 167  ]
+[; ;u8x8_cad.c: 669: case 22:
+"669
+[e :U 170 ]
+[; ;u8x8_cad.c: 670: u8x8_byte_StartTransfer(u8x8);
+"670
+[e ( _u8x8_byte_StartTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 671: u8x8_byte_SendByte(u8x8, 0x040);
+"671
+[e ( _u8x8_byte_SendByte (2 , _u8x8 -> -> 64 `i `uc ]
+[; ;u8x8_cad.c: 672: u8x8_byte_SendByte(u8x8, arg_int);
+"672
+[e ( _u8x8_byte_SendByte (2 , _u8x8 _arg_int ]
+[; ;u8x8_cad.c: 673: u8x8_byte_EndTransfer(u8x8);
+"673
+[e ( _u8x8_byte_EndTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 674: break;
+"674
+[e $U 167  ]
+[; ;u8x8_cad.c: 675: case 23:
+"675
+[e :U 171 ]
+[; ;u8x8_cad.c: 677: p = (uint8_t *)arg_ptr;
+"677
+[e = _p -> _arg_ptr `*uc ]
+[; ;u8x8_cad.c: 678: while( arg_int > 24 )
+"678
+[e $U 172  ]
+[e :U 173 ]
+[; ;u8x8_cad.c: 679: {
+"679
+{
+[; ;u8x8_cad.c: 680: u8x8_i2c_data_transfer(u8x8, 24, p);
+"680
+[e ( _u8x8_i2c_data_transfer (3 , , _u8x8 -> -> 24 `i `uc -> _p `*v ]
+[; ;u8x8_cad.c: 681: arg_int-=24;
+"681
+[e =- _arg_int -> -> 24 `i `uc ]
+[; ;u8x8_cad.c: 682: p+=24;
+"682
+[e =+ _p * -> -> 24 `i `x -> -> # *U _p `i `x ]
+"683
+}
+[e :U 172 ]
+"678
+[e $ > -> _arg_int `i -> 24 `i 173  ]
+[e :U 174 ]
+[; ;u8x8_cad.c: 683: }
+[; ;u8x8_cad.c: 684: u8x8_i2c_data_transfer(u8x8, arg_int, p);
+"684
+[e ( _u8x8_i2c_data_transfer (3 , , _u8x8 _arg_int -> _p `*v ]
+[; ;u8x8_cad.c: 685: break;
+"685
+[e $U 167  ]
+[; ;u8x8_cad.c: 686: case 20:
+"686
+[e :U 175 ]
+[; ;u8x8_cad.c: 688: if ( u8x8->i2c_address == 255 )
+"688
+[e $ ! == -> . *U _u8x8 11 `i -> 255 `i 176  ]
+[; ;u8x8_cad.c: 689: u8x8->i2c_address = 0x078;
+"689
+[e = . *U _u8x8 11 -> -> 120 `i `uc ]
+[e :U 176 ]
+[; ;u8x8_cad.c: 690: return u8x8->byte_cb(u8x8, msg, arg_int, arg_ptr);
+"690
+[e ) ( *U . *U _u8x8 4 (4 , , , _u8x8 _msg _arg_int _arg_ptr ]
+[e $UE 166  ]
+[; ;u8x8_cad.c: 691: case 24:
+"691
+[e :U 177 ]
+"692
+[e :U 178 ]
+[; ;u8x8_cad.c: 692: case 25:
+[; ;u8x8_cad.c: 694: break;
+"694
+[e $U 167  ]
+[; ;u8x8_cad.c: 695: default:
+"695
+[e :U 179 ]
+[; ;u8x8_cad.c: 696: return 0;
+"696
+[e ) -> -> 0 `i `uc ]
+[e $UE 166  ]
+"697
+}
+[; ;u8x8_cad.c: 697: }
+[e $U 167  ]
+"661
+[e :U 168 ]
+[e [\ _msg , $ -> -> 21 `i `uc 169
+ , $ -> -> 22 `i `uc 170
+ , $ -> -> 23 `i `uc 171
+ , $ -> -> 20 `i `uc 175
+ , $ -> -> 24 `i `uc 177
+ , $ -> -> 25 `i `uc 178
+ 179 ]
+"697
+[e :U 167 ]
+[; ;u8x8_cad.c: 698: return 1;
+"698
+[e ) -> -> 1 `i `uc ]
+[e $UE 166  ]
+[; ;u8x8_cad.c: 699: }
+"699
+[e :UE 166 ]
+}
+"704
+[v _u8x8_cad_ld7032_i2c `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"705
+{
+[; ;u8x8_cad.c: 704: uint8_t u8x8_cad_ld7032_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_cad.c: 705: {
+[e :U _u8x8_cad_ld7032_i2c ]
+"704
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"705
+[f ]
+"706
+[v F2009 `uc ~T0 @X0 1 s in_transfer ]
+[i F2009
+-> -> 0 `i `uc
+]
+"707
+[v _p `*uc ~T0 @X0 1 a ]
+[; ;u8x8_cad.c: 706: static uint8_t in_transfer = 0;
+[; ;u8x8_cad.c: 707: uint8_t *p;
+[; ;u8x8_cad.c: 708: switch(msg)
+"708
+[e $U 182  ]
+[; ;u8x8_cad.c: 709: {
+"709
+{
+[; ;u8x8_cad.c: 710: case 21:
+"710
+[e :U 183 ]
+[; ;u8x8_cad.c: 711: if ( in_transfer != 0 )
+"711
+[e $ ! != -> F2009 `i -> 0 `i 184  ]
+[; ;u8x8_cad.c: 712: u8x8_byte_EndTransfer(u8x8);
+"712
+[e ( _u8x8_byte_EndTransfer (1 _u8x8 ]
+[e :U 184 ]
+[; ;u8x8_cad.c: 713: u8x8_byte_StartTransfer(u8x8);
+"713
+[e ( _u8x8_byte_StartTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 714: u8x8_byte_SendByte(u8x8, arg_int);
+"714
+[e ( _u8x8_byte_SendByte (2 , _u8x8 _arg_int ]
+[; ;u8x8_cad.c: 715: in_transfer = 1;
+"715
+[e = F2009 -> -> 1 `i `uc ]
+[; ;u8x8_cad.c: 716: break;
+"716
+[e $U 181  ]
+[; ;u8x8_cad.c: 717: case 22:
+"717
+[e :U 185 ]
+[; ;u8x8_cad.c: 718: u8x8_byte_SendByte(u8x8, arg_int);
+"718
+[e ( _u8x8_byte_SendByte (2 , _u8x8 _arg_int ]
+[; ;u8x8_cad.c: 719: break;
+"719
+[e $U 181  ]
+[; ;u8x8_cad.c: 720: case 23:
+"720
+[e :U 186 ]
+[; ;u8x8_cad.c: 730: p = (uint8_t *)arg_ptr;
+"730
+[e = _p -> _arg_ptr `*uc ]
+[; ;u8x8_cad.c: 731: while( arg_int > 24 )
+"731
+[e $U 187  ]
+[e :U 188 ]
+[; ;u8x8_cad.c: 732: {
+"732
+{
+[; ;u8x8_cad.c: 733: u8x8->byte_cb(u8x8, 23, 24, p);
+"733
+[e ( *U . *U _u8x8 4 (4 , , , _u8x8 -> -> 23 `i `uc -> -> 24 `i `uc -> _p `*v ]
+[; ;u8x8_cad.c: 734: arg_int-=24;
+"734
+[e =- _arg_int -> -> 24 `i `uc ]
+[; ;u8x8_cad.c: 735: p+=24;
+"735
+[e =+ _p * -> -> 24 `i `x -> -> # *U _p `i `x ]
+[; ;u8x8_cad.c: 736: u8x8_byte_EndTransfer(u8x8);
+"736
+[e ( _u8x8_byte_EndTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 737: u8x8_byte_StartTransfer(u8x8);
+"737
+[e ( _u8x8_byte_StartTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 738: u8x8_byte_SendByte(u8x8, 0x08);
+"738
+[e ( _u8x8_byte_SendByte (2 , _u8x8 -> -> 8 `i `uc ]
+"739
+}
+[e :U 187 ]
+"731
+[e $ > -> _arg_int `i -> 24 `i 188  ]
+[e :U 189 ]
+[; ;u8x8_cad.c: 739: }
+[; ;u8x8_cad.c: 740: u8x8->byte_cb(u8x8, 23, arg_int, p);
+"740
+[e ( *U . *U _u8x8 4 (4 , , , _u8x8 -> -> 23 `i `uc _arg_int -> _p `*v ]
+[; ;u8x8_cad.c: 741: break;
+"741
+[e $U 181  ]
+[; ;u8x8_cad.c: 742: case 20:
+"742
+[e :U 190 ]
+[; ;u8x8_cad.c: 744: if ( u8x8->i2c_address == 255 )
+"744
+[e $ ! == -> . *U _u8x8 11 `i -> 255 `i 191  ]
+[; ;u8x8_cad.c: 745: u8x8->i2c_address = 0x060;
+"745
+[e = . *U _u8x8 11 -> -> 96 `i `uc ]
+[e :U 191 ]
+[; ;u8x8_cad.c: 746: return u8x8->byte_cb(u8x8, msg, arg_int, arg_ptr);
+"746
+[e ) ( *U . *U _u8x8 4 (4 , , , _u8x8 _msg _arg_int _arg_ptr ]
+[e $UE 180  ]
+[; ;u8x8_cad.c: 747: case 24:
+"747
+[e :U 192 ]
+[; ;u8x8_cad.c: 748: in_transfer = 0;
+"748
+[e = F2009 -> -> 0 `i `uc ]
+[; ;u8x8_cad.c: 749: break;
+"749
+[e $U 181  ]
+[; ;u8x8_cad.c: 750: case 25:
+"750
+[e :U 193 ]
+[; ;u8x8_cad.c: 751: if ( in_transfer != 0 )
+"751
+[e $ ! != -> F2009 `i -> 0 `i 194  ]
+[; ;u8x8_cad.c: 752: u8x8_byte_EndTransfer(u8x8);
+"752
+[e ( _u8x8_byte_EndTransfer (1 _u8x8 ]
+[e :U 194 ]
+[; ;u8x8_cad.c: 753: break;
+"753
+[e $U 181  ]
+[; ;u8x8_cad.c: 754: default:
+"754
+[e :U 195 ]
+[; ;u8x8_cad.c: 755: return 0;
+"755
+[e ) -> -> 0 `i `uc ]
+[e $UE 180  ]
+"756
+}
+[; ;u8x8_cad.c: 756: }
+[e $U 181  ]
+"708
+[e :U 182 ]
+[e [\ _msg , $ -> -> 21 `i `uc 183
+ , $ -> -> 22 `i `uc 185
+ , $ -> -> 23 `i `uc 186
+ , $ -> -> 20 `i `uc 190
+ , $ -> -> 24 `i `uc 192
+ , $ -> -> 25 `i `uc 193
+ 195 ]
+"756
+[e :U 181 ]
+[; ;u8x8_cad.c: 757: return 1;
+"757
+[e ) -> -> 1 `i `uc ]
+[e $UE 180  ]
+[; ;u8x8_cad.c: 758: }
+"758
+[e :UE 180 ]
+}
+"763
+[v _u8x8_cad_uc16xx_i2c `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"764
+{
+[; ;u8x8_cad.c: 763: uint8_t u8x8_cad_uc16xx_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_cad.c: 764: {
+[e :U _u8x8_cad_uc16xx_i2c ]
+"763
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"764
+[f ]
+"765
+[v F2016 `uc ~T0 @X0 1 s in_transfer ]
+[i F2016
+-> -> 0 `i `uc
+]
+"766
+[v F2017 `uc ~T0 @X0 1 s is_data ]
+[i F2017
+-> -> 0 `i `uc
+]
+"767
+[v _p `*uc ~T0 @X0 1 a ]
+[; ;u8x8_cad.c: 765: static uint8_t in_transfer = 0;
+[; ;u8x8_cad.c: 766: static uint8_t is_data = 0;
+[; ;u8x8_cad.c: 767: uint8_t *p;
+[; ;u8x8_cad.c: 768: switch(msg)
+"768
+[e $U 198  ]
+[; ;u8x8_cad.c: 769: {
+"769
+{
+[; ;u8x8_cad.c: 770: case 21:
+"770
+[e :U 199 ]
+"771
+[e :U 200 ]
+[; ;u8x8_cad.c: 771: case 22:
+[; ;u8x8_cad.c: 772: if ( in_transfer != 0 )
+"772
+[e $ ! != -> F2016 `i -> 0 `i 201  ]
+[; ;u8x8_cad.c: 773: {
+"773
+{
+[; ;u8x8_cad.c: 774: if ( is_data != 0 )
+"774
+[e $ ! != -> F2017 `i -> 0 `i 202  ]
+[; ;u8x8_cad.c: 775: {
+"775
+{
+[; ;u8x8_cad.c: 777: u8x8_byte_EndTransfer(u8x8);
+"777
+[e ( _u8x8_byte_EndTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 779: ((u8x8)->i2c_address = (((u8x8)->i2c_address)&0x0fc));
+"779
+[e = . *U _u8x8 11 -> & -> . *U _u8x8 11 `i -> 252 `i `uc ]
+[; ;u8x8_cad.c: 780: u8x8_byte_StartTransfer(u8x8);
+"780
+[e ( _u8x8_byte_StartTransfer (1 _u8x8 ]
+"781
+}
+[e :U 202 ]
+"782
+}
+[; ;u8x8_cad.c: 781: }
+[; ;u8x8_cad.c: 782: }
+[e $U 203  ]
+"783
+[e :U 201 ]
+[; ;u8x8_cad.c: 783: else
+[; ;u8x8_cad.c: 784: {
+"784
+{
+[; ;u8x8_cad.c: 786: ((u8x8)->i2c_address = (((u8x8)->i2c_address)&0x0fc));
+"786
+[e = . *U _u8x8 11 -> & -> . *U _u8x8 11 `i -> 252 `i `uc ]
+[; ;u8x8_cad.c: 787: u8x8_byte_StartTransfer(u8x8);
+"787
+[e ( _u8x8_byte_StartTransfer (1 _u8x8 ]
+"788
+}
+[e :U 203 ]
+[; ;u8x8_cad.c: 788: }
+[; ;u8x8_cad.c: 789: u8x8_byte_SendByte(u8x8, arg_int);
+"789
+[e ( _u8x8_byte_SendByte (2 , _u8x8 _arg_int ]
+[; ;u8x8_cad.c: 790: in_transfer = 1;
+"790
+[e = F2016 -> -> 1 `i `uc ]
+[; ;u8x8_cad.c: 792: break;
+"792
+[e $U 197  ]
+[; ;u8x8_cad.c: 793: case 23:
+"793
+[e :U 204 ]
+[; ;u8x8_cad.c: 794: if ( in_transfer != 0 )
+"794
+[e $ ! != -> F2016 `i -> 0 `i 205  ]
+[; ;u8x8_cad.c: 795: {
+"795
+{
+[; ;u8x8_cad.c: 796: if ( is_data == 0 )
+"796
+[e $ ! == -> F2017 `i -> 0 `i 206  ]
+[; ;u8x8_cad.c: 797: {
+"797
+{
+[; ;u8x8_cad.c: 799: u8x8_byte_EndTransfer(u8x8);
+"799
+[e ( _u8x8_byte_EndTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 801: ((u8x8)->i2c_address = ((((u8x8)->i2c_address)&0x0fc)|2));
+"801
+[e = . *U _u8x8 11 -> | & -> . *U _u8x8 11 `i -> 252 `i -> 2 `i `uc ]
+[; ;u8x8_cad.c: 802: u8x8_byte_StartTransfer(u8x8);
+"802
+[e ( _u8x8_byte_StartTransfer (1 _u8x8 ]
+"803
+}
+[e :U 206 ]
+"804
+}
+[; ;u8x8_cad.c: 803: }
+[; ;u8x8_cad.c: 804: }
+[e $U 207  ]
+"805
+[e :U 205 ]
+[; ;u8x8_cad.c: 805: else
+[; ;u8x8_cad.c: 806: {
+"806
+{
+[; ;u8x8_cad.c: 808: ((u8x8)->i2c_address = ((((u8x8)->i2c_address)&0x0fc)|2));
+"808
+[e = . *U _u8x8 11 -> | & -> . *U _u8x8 11 `i -> 252 `i -> 2 `i `uc ]
+[; ;u8x8_cad.c: 809: u8x8_byte_StartTransfer(u8x8);
+"809
+[e ( _u8x8_byte_StartTransfer (1 _u8x8 ]
+"810
+}
+[e :U 207 ]
+[; ;u8x8_cad.c: 810: }
+[; ;u8x8_cad.c: 811: in_transfer = 1;
+"811
+[e = F2016 -> -> 1 `i `uc ]
+[; ;u8x8_cad.c: 814: p = (uint8_t *)arg_ptr;
+"814
+[e = _p -> _arg_ptr `*uc ]
+[; ;u8x8_cad.c: 815: while( arg_int > 24 )
+"815
+[e $U 208  ]
+[e :U 209 ]
+[; ;u8x8_cad.c: 816: {
+"816
+{
+[; ;u8x8_cad.c: 817: u8x8->byte_cb(u8x8, 23, 24, p);
+"817
+[e ( *U . *U _u8x8 4 (4 , , , _u8x8 -> -> 23 `i `uc -> -> 24 `i `uc -> _p `*v ]
+[; ;u8x8_cad.c: 818: arg_int-=24;
+"818
+[e =- _arg_int -> -> 24 `i `uc ]
+[; ;u8x8_cad.c: 819: p+=24;
+"819
+[e =+ _p * -> -> 24 `i `x -> -> # *U _p `i `x ]
+[; ;u8x8_cad.c: 820: u8x8_byte_EndTransfer(u8x8);
+"820
+[e ( _u8x8_byte_EndTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 821: u8x8_byte_StartTransfer(u8x8);
+"821
+[e ( _u8x8_byte_StartTransfer (1 _u8x8 ]
+"822
+}
+[e :U 208 ]
+"815
+[e $ > -> _arg_int `i -> 24 `i 209  ]
+[e :U 210 ]
+[; ;u8x8_cad.c: 822: }
+[; ;u8x8_cad.c: 823: u8x8->byte_cb(u8x8, 23, arg_int, p);
+"823
+[e ( *U . *U _u8x8 4 (4 , , , _u8x8 -> -> 23 `i `uc _arg_int -> _p `*v ]
+[; ;u8x8_cad.c: 825: break;
+"825
+[e $U 197  ]
+[; ;u8x8_cad.c: 826: case 20:
+"826
+[e :U 211 ]
+[; ;u8x8_cad.c: 828: if ( u8x8->i2c_address == 255 )
+"828
+[e $ ! == -> . *U _u8x8 11 `i -> 255 `i 212  ]
+[; ;u8x8_cad.c: 829: u8x8->i2c_address = 0x070;
+"829
+[e = . *U _u8x8 11 -> -> 112 `i `uc ]
+[e :U 212 ]
+[; ;u8x8_cad.c: 830: return u8x8->byte_cb(u8x8, msg, arg_int, arg_ptr);
+"830
+[e ) ( *U . *U _u8x8 4 (4 , , , _u8x8 _msg _arg_int _arg_ptr ]
+[e $UE 196  ]
+[; ;u8x8_cad.c: 831: case 24:
+"831
+[e :U 213 ]
+[; ;u8x8_cad.c: 832: in_transfer = 0;
+"832
+[e = F2016 -> -> 0 `i `uc ]
+[; ;u8x8_cad.c: 834: break;
+"834
+[e $U 197  ]
+[; ;u8x8_cad.c: 835: case 25:
+"835
+[e :U 214 ]
+[; ;u8x8_cad.c: 836: if ( in_transfer != 0 )
+"836
+[e $ ! != -> F2016 `i -> 0 `i 215  ]
+[; ;u8x8_cad.c: 837: u8x8_byte_EndTransfer(u8x8);
+"837
+[e ( _u8x8_byte_EndTransfer (1 _u8x8 ]
+[e :U 215 ]
+[; ;u8x8_cad.c: 838: in_transfer = 0;
+"838
+[e = F2016 -> -> 0 `i `uc ]
+[; ;u8x8_cad.c: 839: break;
+"839
+[e $U 197  ]
+[; ;u8x8_cad.c: 840: default:
+"840
+[e :U 216 ]
+[; ;u8x8_cad.c: 841: return 0;
+"841
+[e ) -> -> 0 `i `uc ]
+[e $UE 196  ]
+"842
+}
+[; ;u8x8_cad.c: 842: }
+[e $U 197  ]
+"768
+[e :U 198 ]
+[e [\ _msg , $ -> -> 21 `i `uc 199
+ , $ -> -> 22 `i `uc 200
+ , $ -> -> 23 `i `uc 204
+ , $ -> -> 20 `i `uc 211
+ , $ -> -> 24 `i `uc 213
+ , $ -> -> 25 `i `uc 214
+ 216 ]
+"842
+[e :U 197 ]
+[; ;u8x8_cad.c: 843: return 1;
+"843
+[e ) -> -> 1 `i `uc ]
+[e $UE 196  ]
+[; ;u8x8_cad.c: 844: }
+"844
+[e :UE 196 ]
+}
+"849
+[v _u8x8_cad_uc1638_i2c `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"850
+{
+[; ;u8x8_cad.c: 849: uint8_t u8x8_cad_uc1638_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_cad.c: 850: {
+[e :U _u8x8_cad_uc1638_i2c ]
+"849
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"850
+[f ]
+"851
+[v F2024 `uc ~T0 @X0 1 s in_transfer ]
+[i F2024
+-> -> 0 `i `uc
+]
+"852
+[v F2025 `uc ~T0 @X0 1 s is_data ]
+[i F2025
+-> -> 0 `i `uc
+]
+"853
+[v _p `*uc ~T0 @X0 1 a ]
+[; ;u8x8_cad.c: 851: static uint8_t in_transfer = 0;
+[; ;u8x8_cad.c: 852: static uint8_t is_data = 0;
+[; ;u8x8_cad.c: 853: uint8_t *p;
+[; ;u8x8_cad.c: 854: switch(msg)
+"854
+[e $U 219  ]
+[; ;u8x8_cad.c: 855: {
+"855
+{
+[; ;u8x8_cad.c: 856: case 21:
+"856
+[e :U 220 ]
+[; ;u8x8_cad.c: 857: if ( in_transfer != 0 )
+"857
+[e $ ! != -> F2024 `i -> 0 `i 221  ]
+[; ;u8x8_cad.c: 858: {
+"858
+{
+[; ;u8x8_cad.c: 859: if ( is_data != 0 )
+"859
+[e $ ! != -> F2025 `i -> 0 `i 222  ]
+[; ;u8x8_cad.c: 860: {
+"860
+{
+[; ;u8x8_cad.c: 862: u8x8_byte_EndTransfer(u8x8);
+"862
+[e ( _u8x8_byte_EndTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 864: ((u8x8)->i2c_address = (((u8x8)->i2c_address)&0x0fc));
+"864
+[e = . *U _u8x8 11 -> & -> . *U _u8x8 11 `i -> 252 `i `uc ]
+[; ;u8x8_cad.c: 865: u8x8_byte_StartTransfer(u8x8);
+"865
+[e ( _u8x8_byte_StartTransfer (1 _u8x8 ]
+"866
+}
+[e :U 222 ]
+"867
+}
+[; ;u8x8_cad.c: 866: }
+[; ;u8x8_cad.c: 867: }
+[e $U 223  ]
+"868
+[e :U 221 ]
+[; ;u8x8_cad.c: 868: else
+[; ;u8x8_cad.c: 869: {
+"869
+{
+[; ;u8x8_cad.c: 871: ((u8x8)->i2c_address = (((u8x8)->i2c_address)&0x0fc));
+"871
+[e = . *U _u8x8 11 -> & -> . *U _u8x8 11 `i -> 252 `i `uc ]
+[; ;u8x8_cad.c: 872: u8x8_byte_StartTransfer(u8x8);
+"872
+[e ( _u8x8_byte_StartTransfer (1 _u8x8 ]
+"873
+}
+[e :U 223 ]
+[; ;u8x8_cad.c: 873: }
+[; ;u8x8_cad.c: 874: u8x8_byte_SendByte(u8x8, arg_int);
+"874
+[e ( _u8x8_byte_SendByte (2 , _u8x8 _arg_int ]
+[; ;u8x8_cad.c: 875: in_transfer = 1;
+"875
+[e = F2024 -> -> 1 `i `uc ]
+[; ;u8x8_cad.c: 876: is_data = 0;
+"876
+[e = F2025 -> -> 0 `i `uc ]
+[; ;u8x8_cad.c: 877: break;
+"877
+[e $U 218  ]
+[; ;u8x8_cad.c: 878: case 22:
+"878
+[e :U 224 ]
+[; ;u8x8_cad.c: 879: if ( in_transfer != 0 )
+"879
+[e $ ! != -> F2024 `i -> 0 `i 225  ]
+[; ;u8x8_cad.c: 880: {
+"880
+{
+[; ;u8x8_cad.c: 881: if ( is_data == 0 )
+"881
+[e $ ! == -> F2025 `i -> 0 `i 226  ]
+[; ;u8x8_cad.c: 882: {
+"882
+{
+[; ;u8x8_cad.c: 884: u8x8_byte_EndTransfer(u8x8);
+"884
+[e ( _u8x8_byte_EndTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 886: ((u8x8)->i2c_address = ((((u8x8)->i2c_address)&0x0fc)|2));
+"886
+[e = . *U _u8x8 11 -> | & -> . *U _u8x8 11 `i -> 252 `i -> 2 `i `uc ]
+[; ;u8x8_cad.c: 887: u8x8_byte_StartTransfer(u8x8);
+"887
+[e ( _u8x8_byte_StartTransfer (1 _u8x8 ]
+"888
+}
+[e :U 226 ]
+"889
+}
+[; ;u8x8_cad.c: 888: }
+[; ;u8x8_cad.c: 889: }
+[e $U 227  ]
+"890
+[e :U 225 ]
+[; ;u8x8_cad.c: 890: else
+[; ;u8x8_cad.c: 891: {
+"891
+{
+[; ;u8x8_cad.c: 893: ((u8x8)->i2c_address = ((((u8x8)->i2c_address)&0x0fc)|2));
+"893
+[e = . *U _u8x8 11 -> | & -> . *U _u8x8 11 `i -> 252 `i -> 2 `i `uc ]
+[; ;u8x8_cad.c: 894: u8x8_byte_StartTransfer(u8x8);
+"894
+[e ( _u8x8_byte_StartTransfer (1 _u8x8 ]
+"895
+}
+[e :U 227 ]
+[; ;u8x8_cad.c: 895: }
+[; ;u8x8_cad.c: 896: u8x8_byte_SendByte(u8x8, arg_int);
+"896
+[e ( _u8x8_byte_SendByte (2 , _u8x8 _arg_int ]
+[; ;u8x8_cad.c: 897: in_transfer = 1;
+"897
+[e = F2024 -> -> 1 `i `uc ]
+[; ;u8x8_cad.c: 898: is_data = 1;
+"898
+[e = F2025 -> -> 1 `i `uc ]
+[; ;u8x8_cad.c: 899: break;
+"899
+[e $U 218  ]
+[; ;u8x8_cad.c: 900: case 23:
+"900
+[e :U 228 ]
+[; ;u8x8_cad.c: 901: if ( in_transfer != 0 )
+"901
+[e $ ! != -> F2024 `i -> 0 `i 229  ]
+[; ;u8x8_cad.c: 902: {
+"902
+{
+[; ;u8x8_cad.c: 903: if ( is_data == 0 )
+"903
+[e $ ! == -> F2025 `i -> 0 `i 230  ]
+[; ;u8x8_cad.c: 904: {
+"904
+{
+[; ;u8x8_cad.c: 906: u8x8_byte_EndTransfer(u8x8);
+"906
+[e ( _u8x8_byte_EndTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 908: ((u8x8)->i2c_address = ((((u8x8)->i2c_address)&0x0fc)|2));
+"908
+[e = . *U _u8x8 11 -> | & -> . *U _u8x8 11 `i -> 252 `i -> 2 `i `uc ]
+[; ;u8x8_cad.c: 909: u8x8_byte_StartTransfer(u8x8);
+"909
+[e ( _u8x8_byte_StartTransfer (1 _u8x8 ]
+"910
+}
+[e :U 230 ]
+"911
+}
+[; ;u8x8_cad.c: 910: }
+[; ;u8x8_cad.c: 911: }
+[e $U 231  ]
+"912
+[e :U 229 ]
+[; ;u8x8_cad.c: 912: else
+[; ;u8x8_cad.c: 913: {
+"913
+{
+[; ;u8x8_cad.c: 915: ((u8x8)->i2c_address = ((((u8x8)->i2c_address)&0x0fc)|2));
+"915
+[e = . *U _u8x8 11 -> | & -> . *U _u8x8 11 `i -> 252 `i -> 2 `i `uc ]
+[; ;u8x8_cad.c: 916: u8x8_byte_StartTransfer(u8x8);
+"916
+[e ( _u8x8_byte_StartTransfer (1 _u8x8 ]
+"917
+}
+[e :U 231 ]
+[; ;u8x8_cad.c: 917: }
+[; ;u8x8_cad.c: 918: in_transfer = 1;
+"918
+[e = F2024 -> -> 1 `i `uc ]
+[; ;u8x8_cad.c: 919: is_data = 1;
+"919
+[e = F2025 -> -> 1 `i `uc ]
+[; ;u8x8_cad.c: 921: p = (uint8_t *)arg_ptr;
+"921
+[e = _p -> _arg_ptr `*uc ]
+[; ;u8x8_cad.c: 922: while( arg_int > 24 )
+"922
+[e $U 232  ]
+[e :U 233 ]
+[; ;u8x8_cad.c: 923: {
+"923
+{
+[; ;u8x8_cad.c: 924: u8x8->byte_cb(u8x8, 23, 24, p);
+"924
+[e ( *U . *U _u8x8 4 (4 , , , _u8x8 -> -> 23 `i `uc -> -> 24 `i `uc -> _p `*v ]
+[; ;u8x8_cad.c: 925: arg_int-=24;
+"925
+[e =- _arg_int -> -> 24 `i `uc ]
+[; ;u8x8_cad.c: 926: p+=24;
+"926
+[e =+ _p * -> -> 24 `i `x -> -> # *U _p `i `x ]
+[; ;u8x8_cad.c: 927: u8x8_byte_EndTransfer(u8x8);
+"927
+[e ( _u8x8_byte_EndTransfer (1 _u8x8 ]
+[; ;u8x8_cad.c: 928: u8x8_byte_StartTransfer(u8x8);
+"928
+[e ( _u8x8_byte_StartTransfer (1 _u8x8 ]
+"929
+}
+[e :U 232 ]
+"922
+[e $ > -> _arg_int `i -> 24 `i 233  ]
+[e :U 234 ]
+[; ;u8x8_cad.c: 929: }
+[; ;u8x8_cad.c: 930: u8x8->byte_cb(u8x8, 23, arg_int, p);
+"930
+[e ( *U . *U _u8x8 4 (4 , , , _u8x8 -> -> 23 `i `uc _arg_int -> _p `*v ]
+[; ;u8x8_cad.c: 932: break;
+"932
+[e $U 218  ]
+[; ;u8x8_cad.c: 933: case 20:
+"933
+[e :U 235 ]
+[; ;u8x8_cad.c: 935: if ( u8x8->i2c_address == 255 )
+"935
+[e $ ! == -> . *U _u8x8 11 `i -> 255 `i 236  ]
+[; ;u8x8_cad.c: 936: u8x8->i2c_address = 0x078;
+"936
+[e = . *U _u8x8 11 -> -> 120 `i `uc ]
+[e :U 236 ]
+[; ;u8x8_cad.c: 937: return u8x8->byte_cb(u8x8, msg, arg_int, arg_ptr);
+"937
+[e ) ( *U . *U _u8x8 4 (4 , , , _u8x8 _msg _arg_int _arg_ptr ]
+[e $UE 217  ]
+[; ;u8x8_cad.c: 938: case 24:
+"938
+[e :U 237 ]
+[; ;u8x8_cad.c: 939: in_transfer = 0;
+"939
+[e = F2024 -> -> 0 `i `uc ]
+[; ;u8x8_cad.c: 941: break;
+"941
+[e $U 218  ]
+[; ;u8x8_cad.c: 942: case 25:
+"942
+[e :U 238 ]
+[; ;u8x8_cad.c: 943: if ( in_transfer != 0 )
+"943
+[e $ ! != -> F2024 `i -> 0 `i 239  ]
+[; ;u8x8_cad.c: 944: u8x8_byte_EndTransfer(u8x8);
+"944
+[e ( _u8x8_byte_EndTransfer (1 _u8x8 ]
+[e :U 239 ]
+[; ;u8x8_cad.c: 945: in_transfer = 0;
+"945
+[e = F2024 -> -> 0 `i `uc ]
+[; ;u8x8_cad.c: 946: break;
+"946
+[e $U 218  ]
+[; ;u8x8_cad.c: 947: default:
+"947
+[e :U 240 ]
+[; ;u8x8_cad.c: 948: return 0;
+"948
+[e ) -> -> 0 `i `uc ]
+[e $UE 217  ]
+"949
+}
+[; ;u8x8_cad.c: 949: }
+[e $U 218  ]
+"854
+[e :U 219 ]
+[e [\ _msg , $ -> -> 21 `i `uc 220
+ , $ -> -> 22 `i `uc 224
+ , $ -> -> 23 `i `uc 228
+ , $ -> -> 20 `i `uc 235
+ , $ -> -> 24 `i `uc 237
+ , $ -> -> 25 `i `uc 238
+ 240 ]
+"949
+[e :U 218 ]
+[; ;u8x8_cad.c: 950: return 1;
+"950
+[e ) -> -> 1 `i `uc ]
+[e $UE 217  ]
+[; ;u8x8_cad.c: 951: }
+"951
+[e :UE 217 ]
+}

@@ -1,0 +1,22 @@
+ build/default/production/_ext/502061985/SPI_init.d  \
+ build/default/production/_ext/502061985/SPI_init.p1:  \
+ ../../../../SPI/src/SPI_init.c  \
+../../../../common/include/pic18fx7k40_config.h  \
+../../../../u8g2/csrc/u8g2.h  \
+../../../../common/include/delay.h  \
+../../../../i2c1/include/i2c1.h  \
+../../../../uart1/include/uart1.h  \
+../../../../u8g2/csrc/u8x8.h  \
+../../../../uart2/include/uart2.h  \
+../../../../u8g2/csrc/u8g2.h  \
+../../../../bsplib.h  \
+../../../../gpio/include/gpio.h  \
+../../../../lcd/include/lcd.h  \
+../../../../timer0/include/timer0.h  \
+../../../../rn52/include/rn52.h  \
+../../../../common/include/common.h  \
+../../../../timer1/include/timer1.h  \
+../../../../SPI/include/SPI.h  \
+../../../../IRsensor/include/IRsensor.h  \
+../../../../OLED_W/include/OLED_W.h  \
+../../../../adc/include/adc.h 

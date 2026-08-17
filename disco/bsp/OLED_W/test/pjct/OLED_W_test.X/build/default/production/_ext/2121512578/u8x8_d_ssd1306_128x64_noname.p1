@@ -1,0 +1,2140 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"237 ../../../../u8g2/csrc/u8x8.h
+[s S2 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ul 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 ]
+[n S2 u8x8_display_info_struct chip_enable_level chip_disable_level post_chip_enable_wait_ns pre_chip_disable_wait_ns reset_pulse_width_ms post_reset_wait_ms sda_setup_time_ns sck_pulse_width_ns sck_clock_hz spi_mode i2c_bus_clock_100kHz data_setup_time_ns write_pulse_width_ns tile_width tile_height default_x_offset flipmode_x_offset pixel_width pixel_height ]
+[v F49 `(ui ~T0 @X0 0 tf2`*S1`uc ]
+[v F43 `(uc ~T0 @X0 0 tf4`*S1`uc`uc`*v ]
+"342
+[s S1 `*CS2 1 `*F49 1 `*F43 1 `*F43 1 `*F43 1 `*F43 1 `ul 1 `*Cuc 1 `ui 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S1 u8x8_struct display_info next_cb display_cb cad_cb byte_cb gpio_and_delay_cb bus_clock font encoding x_offset is_font_inverse_mode i2c_address i2c_started utf8_state gpio_result debounce_default_pin_state debounce_last_pin_state debounce_state debounce_result_msg ]
+"658
+[v _u8x8_cad_SendSequence `(v ~T0 @X0 0 ef2`*S1`*Cuc ]
+"625
+[v _u8x8_cad_StartTransfer `(uc ~T0 @X0 0 ef1`*S1 ]
+"621
+[v _u8x8_cad_SendCmd `(uc ~T0 @X0 0 ef2`*S1`uc ]
+"622
+[v _u8x8_cad_SendArg `(uc ~T0 @X0 0 ef2`*S1`uc ]
+"626
+[v _u8x8_cad_EndTransfer `(uc ~T0 @X0 0 ef1`*S1 ]
+"228
+[s S3 `*uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S3 u8x8_tile_struct tile_ptr cnt x_pos y_pos ]
+"624
+[v _u8x8_cad_SendData `(uc ~T0 @X0 0 ef3`*S1`uc`*uc ]
+"437
+[v _u8x8_d_helper_display_init `(v ~T0 @X0 0 ef1`*S1 ]
+"436
+[v _u8x8_d_helper_display_setup_memory `(v ~T0 @X0 0 ef2`*S1`*CS2 ]
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef __int24 int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 52: typedef unsigned char uint8_t;
+[; ;stdint.h: 58: typedef unsigned int uint16_t;
+[; ;stdint.h: 65: typedef __uint24 uint24_t;
+[; ;stdint.h: 72: typedef unsigned long int uint32_t;
+[; ;stdint.h: 88: typedef signed char int_least8_t;
+[; ;stdint.h: 96: typedef signed int int_least16_t;
+[; ;stdint.h: 109: typedef __int24 int_least24_t;
+[; ;stdint.h: 118: typedef signed long int int_least32_t;
+[; ;stdint.h: 136: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 143: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 154: typedef __uint24 uint_least24_t;
+[; ;stdint.h: 162: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 181: typedef signed char int_fast8_t;
+[; ;stdint.h: 188: typedef signed int int_fast16_t;
+[; ;stdint.h: 200: typedef __int24 int_fast24_t;
+[; ;stdint.h: 208: typedef signed long int int_fast32_t;
+[; ;stdint.h: 224: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 230: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 240: typedef __uint24 uint_fast24_t;
+[; ;stdint.h: 247: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 268: typedef int32_t intmax_t;
+[; ;stdint.h: 282: typedef uint32_t uintmax_t;
+[; ;stdint.h: 289: typedef int16_t intptr_t;
+[; ;stdint.h: 294: typedef uint16_t uintptr_t;
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stddef.h: 6: typedef int ptrdiff_t;
+[; ;u8x8.h: 211: typedef struct u8x8_struct u8x8_t;
+[; ;u8x8.h: 212: typedef struct u8x8_display_info_struct u8x8_display_info_t;
+[; ;u8x8.h: 213: typedef struct u8x8_tile_struct u8x8_tile_t;
+[; ;u8x8.h: 215: typedef uint8_t (*u8x8_msg_cb)(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 216: typedef uint16_t (*u8x8_char_cb)(u8x8_t *u8x8, uint8_t b);
+[; ;u8x8.h: 228: struct u8x8_tile_struct
+[; ;u8x8.h: 229: {
+[; ;u8x8.h: 230: uint8_t *tile_ptr;
+[; ;u8x8.h: 231: uint8_t cnt;
+[; ;u8x8.h: 232: uint8_t x_pos;
+[; ;u8x8.h: 233: uint8_t y_pos;
+[; ;u8x8.h: 234: };
+[; ;u8x8.h: 237: struct u8x8_display_info_struct
+[; ;u8x8.h: 238: {
+[; ;u8x8.h: 241: uint8_t chip_enable_level;
+[; ;u8x8.h: 242: uint8_t chip_disable_level;
+[; ;u8x8.h: 244: uint8_t post_chip_enable_wait_ns;
+[; ;u8x8.h: 245: uint8_t pre_chip_disable_wait_ns;
+[; ;u8x8.h: 246: uint8_t reset_pulse_width_ms;
+[; ;u8x8.h: 247: uint8_t post_reset_wait_ms;
+[; ;u8x8.h: 254: uint8_t sda_setup_time_ns;
+[; ;u8x8.h: 258: uint8_t sck_pulse_width_ns;
+[; ;u8x8.h: 261: uint32_t sck_clock_hz;
+[; ;u8x8.h: 271: uint8_t spi_mode;
+[; ;u8x8.h: 274: uint8_t i2c_bus_clock_100kHz;
+[; ;u8x8.h: 280: uint8_t data_setup_time_ns;
+[; ;u8x8.h: 282: uint8_t write_pulse_width_ns;
+[; ;u8x8.h: 285: uint8_t tile_width;
+[; ;u8x8.h: 286: uint8_t tile_height;
+[; ;u8x8.h: 288: uint8_t default_x_offset;
+[; ;u8x8.h: 289: uint8_t flipmode_x_offset;
+[; ;u8x8.h: 297: uint16_t pixel_width;
+[; ;u8x8.h: 298: uint16_t pixel_height;
+[; ;u8x8.h: 299: };
+[; ;u8x8.h: 342: struct u8x8_struct
+[; ;u8x8.h: 343: {
+[; ;u8x8.h: 344: const u8x8_display_info_t *display_info;
+[; ;u8x8.h: 345: u8x8_char_cb next_cb;
+[; ;u8x8.h: 346: u8x8_msg_cb display_cb;
+[; ;u8x8.h: 347: u8x8_msg_cb cad_cb;
+[; ;u8x8.h: 348: u8x8_msg_cb byte_cb;
+[; ;u8x8.h: 349: u8x8_msg_cb gpio_and_delay_cb;
+[; ;u8x8.h: 350: uint32_t bus_clock;
+[; ;u8x8.h: 351: const uint8_t *font;
+[; ;u8x8.h: 352: uint16_t encoding;
+[; ;u8x8.h: 353: uint8_t x_offset;
+[; ;u8x8.h: 354: uint8_t is_font_inverse_mode;
+[; ;u8x8.h: 355: uint8_t i2c_address;
+[; ;u8x8.h: 358: uint8_t i2c_started;
+[; ;u8x8.h: 360: uint8_t utf8_state;
+[; ;u8x8.h: 361: uint8_t gpio_result;
+[; ;u8x8.h: 362: uint8_t debounce_default_pin_state;
+[; ;u8x8.h: 363: uint8_t debounce_last_pin_state;
+[; ;u8x8.h: 364: uint8_t debounce_state;
+[; ;u8x8.h: 365: uint8_t debounce_result_msg;
+[; ;u8x8.h: 372: };
+[; ;u8x8.h: 407: typedef struct u8log_struct u8log_t;
+[; ;u8x8.h: 411: typedef void (*u8log_cb)(u8log_t * u8log);
+[; ;u8x8.h: 413: struct u8log_struct
+[; ;u8x8.h: 414: {
+[; ;u8x8.h: 416: void *aux_data;
+[; ;u8x8.h: 417: uint8_t width, height;
+[; ;u8x8.h: 418: u8log_cb cb;
+[; ;u8x8.h: 419: uint8_t *screen_buffer;
+[; ;u8x8.h: 420: uint8_t is_redraw_line_for_each_char;
+[; ;u8x8.h: 421: int8_t line_height_offset;
+[; ;u8x8.h: 425: uint8_t cursor_x, cursor_y;
+[; ;u8x8.h: 426: uint8_t redraw_line;
+[; ;u8x8.h: 427: uint8_t is_redraw_line;
+[; ;u8x8.h: 428: uint8_t is_redraw_all;
+[; ;u8x8.h: 429: uint8_t is_redraw_all_required_for_next_nl;
+[; ;u8x8.h: 430: };
+[; ;u8x8.h: 436: void u8x8_d_helper_display_setup_memory(u8x8_t *u8x8, const u8x8_display_info_t *display_info);
+[; ;u8x8.h: 437: void u8x8_d_helper_display_init(u8x8_t *u8g2);
+[; ;u8x8.h: 539: uint8_t u8x8_dummy_cb(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 547: void u8x8_SetupDefaults(u8x8_t *u8x8);
+[; ;u8x8.h: 549: void u8x8_Setup(u8x8_t *u8x8, u8x8_msg_cb display_cb, u8x8_msg_cb cad_cb, u8x8_msg_cb byte_cb, u8x8_msg_cb gpio_and_delay_cb);
+[; ;u8x8.h: 553: uint8_t u8x8_DrawTile(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t cnt, uint8_t *tile_ptr);
+[; ;u8x8.h: 561: void u8x8_SetupMemory(u8x8_t *u8x8);
+[; ;u8x8.h: 569: void u8x8_InitInterface(u8x8_t *u8x8);
+[; ;u8x8.h: 577: void u8x8_InitDisplay(u8x8_t *u8x8);
+[; ;u8x8.h: 579: void u8x8_SetPowerSave(u8x8_t *u8x8, uint8_t is_enable);
+[; ;u8x8.h: 580: void u8x8_SetFlipMode(u8x8_t *u8x8, uint8_t mode);
+[; ;u8x8.h: 581: void u8x8_SetContrast(u8x8_t *u8x8, uint8_t value);
+[; ;u8x8.h: 582: void u8x8_ClearDisplayWithTile(u8x8_t *u8x8, const uint8_t *buf) ;
+[; ;u8x8.h: 583: void u8x8_ClearDisplay(u8x8_t *u8x8);
+[; ;u8x8.h: 584: void u8x8_FillDisplay(u8x8_t *u8x8);
+[; ;u8x8.h: 585: void u8x8_RefreshDisplay(u8x8_t *u8x8);
+[; ;u8x8.h: 586: void u8x8_ClearLine(u8x8_t *u8x8, uint8_t line);
+[; ;u8x8.h: 621: uint8_t u8x8_cad_SendCmd(u8x8_t *u8x8, uint8_t cmd) ;
+[; ;u8x8.h: 622: uint8_t u8x8_cad_SendArg(u8x8_t *u8x8, uint8_t arg) ;
+[; ;u8x8.h: 623: uint8_t u8x8_cad_SendMultipleArg(u8x8_t *u8x8, uint8_t cnt, uint8_t arg) ;
+[; ;u8x8.h: 624: uint8_t u8x8_cad_SendData(u8x8_t *u8x8, uint8_t cnt, uint8_t *data) ;
+[; ;u8x8.h: 625: uint8_t u8x8_cad_StartTransfer(u8x8_t *u8x8) ;
+[; ;u8x8.h: 626: uint8_t u8x8_cad_EndTransfer(u8x8_t *u8x8) ;
+[; ;u8x8.h: 627: void u8x8_cad_vsendf(u8x8_t * u8x8, const char *fmt, va_list va);
+[; ;u8x8.h: 628: void u8x8_SendF(u8x8_t * u8x8, const char *fmt, ...);
+[; ;u8x8.h: 658: void u8x8_cad_SendSequence(u8x8_t *u8x8, uint8_t const *data);
+[; ;u8x8.h: 659: uint8_t u8x8_cad_empty(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 660: uint8_t u8x8_cad_110(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 661: uint8_t u8x8_gu800_cad_110(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 662: uint8_t u8x8_cad_001(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 663: uint8_t u8x8_cad_011(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 664: uint8_t u8x8_cad_100(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 665: uint8_t u8x8_cad_st7920_spi(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 666: uint8_t u8x8_cad_ssd13xx_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 667: uint8_t u8x8_cad_011_ssd13xx_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 668: uint8_t u8x8_cad_ssd13xx_fast_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 669: uint8_t u8x8_cad_st75256_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 670: uint8_t u8x8_cad_ld7032_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 671: uint8_t u8x8_cad_uc16xx_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 672: uint8_t u8x8_cad_uc1638_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 690: uint8_t u8x8_byte_SetDC(u8x8_t *u8x8, uint8_t dc) ;
+[; ;u8x8.h: 691: uint8_t u8x8_byte_SendByte(u8x8_t *u8x8, uint8_t byte) ;
+[; ;u8x8.h: 692: uint8_t u8x8_byte_SendBytes(u8x8_t *u8x8, uint8_t cnt, uint8_t *data) ;
+[; ;u8x8.h: 693: uint8_t u8x8_byte_StartTransfer(u8x8_t *u8x8);
+[; ;u8x8.h: 694: uint8_t u8x8_byte_EndTransfer(u8x8_t *u8x8);
+[; ;u8x8.h: 696: uint8_t u8x8_byte_empty(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 697: uint8_t u8x8_byte_4wire_sw_spi(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 698: uint8_t u8x8_byte_8bit_6800mode(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 699: uint8_t u8x8_byte_8bit_8080mode(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 700: uint8_t u8x8_byte_3wire_sw_spi(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 702: void u8x8_byte_set_ks0108_cs(u8x8_t *u8x8, uint8_t arg) ;
+[; ;u8x8.h: 703: uint8_t u8x8_byte_ks0108(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 704: uint8_t u8x8_byte_ssd13xx_sw_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 705: uint8_t u8x8_byte_sw_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 706: uint8_t u8x8_byte_sed1520(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 786: void u8x8_gpio_call(u8x8_t *u8x8, uint8_t msg, uint8_t arg) ;
+[; ;u8x8.h: 795: uint8_t u8x8_GetMenuEvent(u8x8_t *u8x8);
+[; ;u8x8.h: 799: void u8x8_SetupStdio(u8x8_t *u8x8);
+[; ;u8x8.h: 803: void u8x8_Setup_SDL_128x64(u8x8_t *u8x8);
+[; ;u8x8.h: 804: void u8x8_Setup_SDL_240x160(u8x8_t *u8x8);
+[; ;u8x8.h: 805: void u8x8_Setup_SDL_256x128(u8x8_t *u8x8);
+[; ;u8x8.h: 806: int u8g_sdl_get_key(void);
+[; ;u8x8.h: 810: void u8x8_Setup_TGA_DESC(u8x8_t *u8x8);
+[; ;u8x8.h: 811: void u8x8_Setup_TGA_LCD(u8x8_t *u8x8);
+[; ;u8x8.h: 812: void tga_save(const char *name);
+[; ;u8x8.h: 816: uint8_t u8x8_GetBitmapPixel(u8x8_t *u8x8, uint16_t x, uint16_t y);
+[; ;u8x8.h: 817: void u8x8_SaveBitmapTGA(u8x8_t *u8x8, const char *filename);
+[; ;u8x8.h: 818: void u8x8_SetupBitmap(u8x8_t *u8x8, uint16_t pixel_width, uint16_t pixel_height);
+[; ;u8x8.h: 819: uint8_t u8x8_ConnectBitmapToU8x8(u8x8_t *u8x8);
+[; ;u8x8.h: 823: void u8x8_SetupLinuxFb(u8x8_t *u8x8, int fbfd);
+[; ;u8x8.h: 824: void u8x8_LinuxFbSetActiveColor(uint32_t color);
+[; ;u8x8.h: 828: void u8x8_Setup_Utf8(u8x8_t *u8x8);
+[; ;u8x8.h: 829: void utf8_show(void);
+[; ;u8x8.h: 835: uint8_t u8x8_d_null_cb(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 838: uint8_t u8x8_d_uc1701_ea_dogs102(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 839: uint8_t u8x8_d_uc1701_mini12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 840: uint8_t u8x8_d_ssd1305_128x32_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 841: uint8_t u8x8_d_ssd1305_128x32_adafruit(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 843: uint8_t u8x8_d_ssd1305_128x64_adafruit(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 844: uint8_t u8x8_d_ssd1305_128x64_raystar(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 845: uint8_t u8x8_d_ssd1306_128x64_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 846: uint8_t u8x8_d_ssd1306_128x64_vcomh0(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 847: uint8_t u8x8_d_ssd1306_128x64_alt0(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 848: uint8_t u8x8_d_ssd1309_128x64_noname0(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 850: uint8_t u8x8_d_ssd1309_128x128_noname0(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 852: uint8_t u8x8_d_ssd1309_128x64_noname2(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 854: uint8_t u8x8_d_ssd1312_128x64_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 855: uint8_t u8x8_d_ssd1312_128x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 856: uint8_t u8x8_d_ssd1312_120x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 857: uint8_t u8x8_d_ssd1312_120x28(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 859: uint8_t u8x8_d_ssd1306_2040x16(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 860: uint8_t u8x8_d_ssd1306_128x32_univision(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 861: uint8_t u8x8_d_ssd1306_128x32_winstar(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 862: uint8_t u8x8_d_ssd1306_102x64_ea_oleds102(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 863: uint8_t u8x8_d_ssd1306_64x48_er(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 864: uint8_t u8x8_d_ssd1306_48x64_winstar(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 865: uint8_t u8x8_d_ssd1306_64x32_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 866: uint8_t u8x8_d_ssd1306_64x32_1f(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 867: uint8_t u8x8_d_ssd1306_96x16_er(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 868: uint8_t u8x8_d_ssd1306_96x40(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 869: uint8_t u8x8_d_ssd1306_96x39(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 870: uint8_t u8x8_d_ssd1306_72x40_er(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 871: uint8_t u8x8_d_sh1106_128x64_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 872: uint8_t u8x8_d_sh1106_128x64_vcomh0(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 873: uint8_t u8x8_d_sh1106_128x64_winstar(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 874: uint8_t u8x8_d_sh1106_128x32_visionox(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 875: uint8_t u8x8_d_sh1106_72x40_wise(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 876: uint8_t u8x8_d_sh1106_64x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 877: uint8_t u8x8_d_sh1107_64x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 878: uint8_t u8x8_d_sh1107_seeed_96x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 879: uint8_t u8x8_d_sh1107_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 880: uint8_t u8x8_d_sh1107_128x80(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 881: uint8_t u8x8_d_sh1107_pimoroni_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 882: uint8_t u8x8_d_sh1107_seeed_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 883: uint8_t u8x8_d_sh1107_hjr_oel1m0201_96x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 884: uint8_t u8x8_d_sh1107_tk078f288_80x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 885: uint8_t u8x8_d_sh1108_128x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 886: uint8_t u8x8_d_sh1108_160x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 887: uint8_t u8x8_d_ch1120_128x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 888: uint8_t u8x8_d_sh1122_256x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 889: uint8_t u8x8_d_st7920_128x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 890: uint8_t u8x8_d_st7920_144x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 891: uint8_t u8x8_d_st7920_160x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 892: uint8_t u8x8_d_st7920_192x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 893: uint8_t u8x8_d_st7920_256x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 894: uint8_t u8x8_d_st7920_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 895: uint8_t u8x8_d_ls013b7dh03_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 896: uint8_t u8x8_d_ls027b7dh01_400x240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 897: uint8_t u8x8_d_ls027b7dh01_m0_400x240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 898: uint8_t u8x8_d_ls013b7dh05_144x168(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 899: uint8_t u8x8_d_ls011b7dh03_160x68(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 900: uint8_t u8x8_d_st7511_avd_320x240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 901: uint8_t u8x8_d_st7511_640x320(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 902: uint8_t u8x8_d_st7528_nhd_c160100(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 903: uint8_t u8x8_d_st7528_erc16064(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 904: uint8_t u8x8_d_st7539_192x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 905: uint8_t u8x8_d_st7565_ea_dogm128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 906: uint8_t u8x8_d_st7565_lm6063(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 907: uint8_t u8x8_d_st7565_64128n(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 908: uint8_t u8x8_d_st7565_ea_dogm132(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 909: uint8_t u8x8_d_st7565_zolen_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 910: uint8_t u8x8_d_st7565_nhd_c12832(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 911: uint8_t u8x8_d_st7565_nhd_c12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 912: uint8_t u8x8_d_st7565_jlx12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 913: uint8_t u8x8_d_st7565_lm6059(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 914: uint8_t u8x8_d_st7565_ks0713(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 915: uint8_t u8x8_d_st7565_lx12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 916: uint8_t u8x8_d_st7565_erc12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 917: uint8_t u8x8_d_st7565_erc12864_alt(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 918: uint8_t u8x8_d_st7567_pi_132x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 919: uint8_t u8x8_d_st7567_jlx12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 920: uint8_t u8x8_d_st7567_122x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 921: uint8_t u8x8_d_st7567_enh_dg128064(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 922: uint8_t u8x8_d_st7567_enh_dg128064i(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 923: uint8_t u8x8_d_st7567_64x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 924: uint8_t u8x8_d_st7567_hem6432(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 925: uint8_t u8x8_d_st7567_os12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 926: uint8_t u8x8_d_st7567_erc13232(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 927: uint8_t u8x8_d_st7567_erc12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 928: uint8_t u8x8_d_st7567_lw12832(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 929: uint8_t u8x8_d_st7567_yxd12832(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 930: uint8_t u8x8_d_st7567_96x65(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 931: uint8_t u8x8_d_st7571_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 932: uint8_t u8x8_d_st7571_128x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 933: uint8_t u8x8_d_st7571_g12896(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 934: uint8_t u8x8_d_st7302_122x250(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 935: uint8_t u8x8_d_st7305_122x250(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 936: uint8_t u8x8_d_st7305_200x200(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 937: uint8_t u8x8_d_st7305_168x384(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 938: uint8_t u8x8_d_st7305_300x400(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 939: uint8_t u8x8_d_st7586s_s028hn118a(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 940: uint8_t u8x8_d_st7586s_jlx384160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 941: uint8_t u8x8_d_st7586s_erc240160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 942: uint8_t u8x8_d_st7586s_ymc240160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 943: uint8_t u8x8_d_st7586s_jlx320160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 944: uint8_t u8x8_d_st7586s_md240128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 945: uint8_t u8x8_d_st7586s_pe24064(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 946: uint8_t u8x8_d_st7588_jlx12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 947: uint8_t u8x8_d_st75160_jm16096(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 948: uint8_t u8x8_d_st75161_jlx160160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 949: uint8_t u8x8_d_st75256_jlx256128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 950: uint8_t u8x8_d_st75256_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 951: uint8_t u8x8_d_st75256_wo256x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 952: uint8_t u8x8_d_st75256_jlx256160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 953: uint8_t u8x8_d_st75256_jlx256160m(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 954: uint8_t u8x8_d_st75256_jlx256160_alt(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 955: uint8_t u8x8_d_st75256_jlx240160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 956: uint8_t u8x8_d_st75256_jlx25664(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 957: uint8_t u8x8_d_st75256_jlx172104(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 958: uint8_t u8x8_d_st75256_jlx19296(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 959: uint8_t u8x8_d_st75256_jlx16080(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 960: uint8_t u8x8_d_st75320_jlx320240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 961: uint8_t u8x8_d_nt7534_tg12864r(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 962: uint8_t u8x8_d_ld7032_60x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 963: uint8_t u8x8_d_ld7032_60x32_alt(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 964: uint8_t u8x8_d_ld7032_128x36(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 965: uint8_t u8x8_d_t6963_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 966: uint8_t u8x8_d_t6963_240x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 967: uint8_t u8x8_d_t6963_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 968: uint8_t u8x8_d_t6963_128x64_alt(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 969: uint8_t u8x8_d_t6963_160x80(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 970: uint8_t u8x8_d_t6963_256x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 971: uint8_t u8x8_d_t6963_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 972: uint8_t u8x8_d_t6963_128x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 973: uint8_t u8x8_d_ssd1316_128x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 974: uint8_t u8x8_d_ssd1316_96x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 975: uint8_t u8x8_d_ssd1317_96x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 976: uint8_t u8x8_d_ssd1318_128x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 977: uint8_t u8x8_d_ssd1318_128x96_xcp(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 978: uint8_t u8x8_d_ssd1320_160x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 979: uint8_t u8x8_d_ssd1320_160x132(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 980: uint8_t u8x8_d_ssd1320_160x80(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 981: uint8_t u8x8_d_ssd1320_128x72(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 982: uint8_t u8x8_d_ssd1322_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 983: uint8_t u8x8_d_ssd1322_topwin_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 984: uint8_t u8x8_d_ssd1322_nhd_256x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 985: uint8_t u8x8_d_ssd1322_zjy_256x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 986: uint8_t u8x8_d_ssd1322_nhd_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 987: uint8_t u8x8_d_ssd1362z_256x64_oel1m0033we(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 988: uint8_t u8x8_d_ssd1362_256x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 989: uint8_t u8x8_d_ssd1362_206x36(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 990: uint8_t u8x8_d_ssd1363_256x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 991: uint8_t u8x8_d_a2printer_384x240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 992: uint8_t u8x8_d_sed1330_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 993: uint8_t u8x8_d_sed1330_240x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 994: uint8_t u8x8_d_sed1330_256x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 995: uint8_t u8x8_d_sed1330_320x200(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 996: uint8_t u8x8_d_sed1330_320x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 997: uint8_t u8x8_d_ra8835_nhd_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 998: uint8_t u8x8_d_ra8835_320x240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 999: uint8_t u8x8_d_ra8835_320x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1000: uint8_t u8x8_d_ssd1325_nhd_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1001: uint8_t u8x8_d_ssd0323_os128064(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1002: uint8_t u8x8_d_ssd1327_ws_96x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1003: uint8_t u8x8_d_ssd1327_seeed_96x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1004: uint8_t u8x8_d_ssd1327_ea_w128128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1005: uint8_t u8x8_d_ssd1327_midas_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1006: uint8_t u8x8_d_ssd1327_zjy_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1007: uint8_t u8x8_d_ssd1327_ws_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1008: uint8_t u8x8_d_ssd1327_visionox_128x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1009: uint8_t u8x8_d_ssd1326_er_256x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1010: uint8_t u8x8_d_ssd1329_128x96_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1011: uint8_t u8x8_d_ssd1329_96x96_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1012: uint8_t u8x8_d_uc1601_128x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1013: uint8_t u8x8_d_uc1601_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1014: uint8_t u8x8_d_uc1604_jlx12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1015: uint8_t u8x8_d_uc1604_jlx19264(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1016: uint8_t u8x8_d_uc1608_erc24064(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1017: uint8_t u8x8_d_uc1608_dem240064(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1018: uint8_t u8x8_d_uc1608_erc240120(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1019: uint8_t u8x8_d_uc1608_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1020: uint8_t u8x8_d_uc1609_slg19264(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1021: uint8_t u8x8_d_uc1610_ea_dogxl160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1022: uint8_t u8x8_d_uc1611_ea_dogm240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1023: uint8_t u8x8_d_uc1611_ea_dogxl240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1024: uint8_t u8x8_d_uc1611_ew50850(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1025: uint8_t u8x8_d_uc1611_cg160160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1026: uint8_t u8x8_d_uc1617_jlx128128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1027: uint8_t u8x8_d_uc1611_ids4073(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1028: uint8_t u8x8_d_uc1628_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1029: uint8_t u8x8_d_uc1628_256x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1030: uint8_t u8x8_d_uc1628_256x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1031: uint8_t u8x8_d_uc1638_160x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1032: uint8_t u8x8_d_uc1638_192x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1033: uint8_t u8x8_d_uc1638_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1034: uint8_t u8x8_d_uc1698_160x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1035: uint8_t u8x8_d_uc1698_240x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1036: uint8_t u8x8_d_ks0108_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1037: uint8_t u8x8_d_ks0108_erm19264(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1038: uint8_t u8x8_d_t7932_150x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1039: uint8_t u8x8_d_hd44102_100x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1040: uint8_t u8x8_d_sbn1661_122x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1041: uint8_t u8x8_d_sed1520_122x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1042: uint8_t u8x8_d_sbn1661_80x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1043: uint8_t u8x8_d_pcd8544_84x48(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1044: uint8_t u8x8_d_pcf8812_96x65(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1045: uint8_t u8x8_d_pcf8812_101x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1046: uint8_t u8x8_d_hx1230_96x68(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1047: uint8_t u8x8_d_ssd1606_172x72(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1048: uint8_t u8x8_d_ssd1607_200x200(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1049: uint8_t u8x8_d_ssd1607_v2_200x200(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1050: uint8_t u8x8_d_ssd1607_gd_200x200(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1051: uint8_t u8x8_d_ssd1607_ws_200x200(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1052: uint8_t u8x8_d_il3820_296x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1053: uint8_t u8x8_d_il3820_v2_296x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1054: uint8_t u8x8_d_lc7981_160x80(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1055: uint8_t u8x8_d_lc7981_160x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1056: uint8_t u8x8_d_lc7981_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1057: uint8_t u8x8_d_lc7981_240x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1058: uint8_t u8x8_d_lc7981_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1059: uint8_t u8x8_d_ist3020_erc19264(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1060: uint8_t u8x8_d_ist3088_320x240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1061: uint8_t u8x8_d_ist7920_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1062: uint8_t u8x8_d_max7219_64x8(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1063: uint8_t u8x8_d_max7219_32x8(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1064: uint8_t u8x8_d_max7219_16x16(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1065: uint8_t u8x8_d_max7219_8x8(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1066: uint8_t u8x8_d_s1d15e06_160100(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1067: uint8_t u8x8_d_s1d15300_lm6023(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1068: uint8_t u8x8_d_s1d15300_97x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1069: uint8_t u8x8_d_s1d15300_100x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1070: uint8_t u8x8_d_s1d15300_100x32i(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1071: uint8_t u8x8_d_s1d15721_240x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1072: uint8_t u8x8_d_gu800_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1073: uint8_t u8x8_d_gu800_160x16(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1074: uint8_t u8x8_d_gp1287ai_256x50(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1075: uint8_t u8x8_d_gp1247ai_253x63(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1076: uint8_t u8x8_d_gp1294ai_256x48(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1077: uint8_t u8x8_d_ssd1315_128x64_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1083: uint16_t u8x8_upscale_byte(uint8_t x) ;
+[; ;u8x8.h: 1085: void u8x8_get_glyph_data(u8x8_t *u8x8, uint8_t encoding, uint8_t *buf, uint8_t tile_offset) ;
+[; ;u8x8.h: 1087: void u8x8_utf8_init(u8x8_t *u8x8);
+[; ;u8x8.h: 1088: uint16_t u8x8_ascii_next(u8x8_t *u8x8, uint8_t b);
+[; ;u8x8.h: 1089: uint16_t u8x8_utf8_next(u8x8_t *u8x8, uint8_t b);
+[; ;u8x8.h: 1094: void u8x8_SetFont(u8x8_t *u8x8, const uint8_t *font_8x8);
+[; ;u8x8.h: 1095: void u8x8_DrawGlyph(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t encoding);
+[; ;u8x8.h: 1096: void u8x8_Draw2x2Glyph(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t encoding);
+[; ;u8x8.h: 1097: void u8x8_Draw1x2Glyph(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t encoding);
+[; ;u8x8.h: 1098: uint8_t u8x8_DrawString(u8x8_t *u8x8, uint8_t x, uint8_t y, const char *s);
+[; ;u8x8.h: 1099: uint8_t u8x8_DrawUTF8(u8x8_t *u8x8, uint8_t x, uint8_t y, const char *s);
+[; ;u8x8.h: 1100: uint8_t u8x8_Draw2x2String(u8x8_t *u8x8, uint8_t x, uint8_t y, const char *s);
+[; ;u8x8.h: 1101: uint8_t u8x8_Draw2x2UTF8(u8x8_t *u8x8, uint8_t x, uint8_t y, const char *s);
+[; ;u8x8.h: 1102: uint8_t u8x8_Draw1x2String(u8x8_t *u8x8, uint8_t x, uint8_t y, const char *s);
+[; ;u8x8.h: 1103: uint8_t u8x8_Draw1x2UTF8(u8x8_t *u8x8, uint8_t x, uint8_t y, const char *s);
+[; ;u8x8.h: 1104: uint8_t u8x8_GetUTF8Len(u8x8_t *u8x8, const char *s);
+[; ;u8x8.h: 1109: const char *u8x8_u8toa(uint8_t v, uint8_t d);
+[; ;u8x8.h: 1110: const char *u8x8_s8toa(int8_t v, uint8_t d);
+[; ;u8x8.h: 1111: const char *u8x8_u8tox(uint8_t v, uint8_t d);
+[; ;u8x8.h: 1112: const char *u8x8_u16toa(uint16_t v, uint8_t d);
+[; ;u8x8.h: 1113: const char *u8x8_utoa(uint16_t v);
+[; ;u8x8.h: 1119: uint8_t u8x8_GetStringLineCnt(const char *str);
+[; ;u8x8.h: 1120: const char *u8x8_GetStringLineStart(uint8_t line_idx, const char *str );
+[; ;u8x8.h: 1121: void u8x8_CopyStringLine(char *dest, uint8_t line_idx, const char *str);
+[; ;u8x8.h: 1123: uint8_t u8x8_DrawUTF8Line(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t w, const char *s);
+[; ;u8x8.h: 1125: uint8_t u8x8_DrawUTF8Lines(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t w, const char *s);
+[; ;u8x8.h: 1130: struct _u8sl_struct
+[; ;u8x8.h: 1131: {
+[; ;u8x8.h: 1132: uint8_t visible;
+[; ;u8x8.h: 1133: uint8_t total;
+[; ;u8x8.h: 1134: uint8_t first_pos;
+[; ;u8x8.h: 1135: uint8_t current_pos;
+[; ;u8x8.h: 1137: uint8_t x;
+[; ;u8x8.h: 1138: uint8_t y;
+[; ;u8x8.h: 1139: };
+[; ;u8x8.h: 1140: typedef struct _u8sl_struct u8sl_t;
+[; ;u8x8.h: 1142: typedef void (*u8x8_sl_cb)(u8x8_t *u8x8, u8sl_t *u8sl, uint8_t idx, const void *aux);
+[; ;u8x8.h: 1144: void u8sl_Next(u8sl_t *u8sl);
+[; ;u8x8.h: 1145: void u8sl_Prev(u8sl_t *u8sl);
+[; ;u8x8.h: 1147: uint8_t u8x8_UserInterfaceSelectionList(u8x8_t *u8x8, const char *title, uint8_t start_pos, const char *sl);
+[; ;u8x8.h: 1152: uint8_t u8x8_UserInterfaceMessage(u8x8_t *u8x8, const char *title1, const char *title2, const char *title3, const char *buttons);
+[; ;u8x8.h: 1158: uint8_t u8x8_capture_get_pixel_1(uint16_t x, uint16_t y, uint8_t *dest_ptr, uint8_t tile_width);
+[; ;u8x8.h: 1162: uint8_t u8x8_capture_get_pixel_2(uint16_t x, uint16_t y, uint8_t *dest_ptr, uint8_t tile_width);
+[; ;u8x8.h: 1166: void u8x8_capture_write_pbm_pre(uint8_t tile_width, uint8_t tile_height, void (*out)(const char *s));
+[; ;u8x8.h: 1167: void u8x8_capture_write_pbm_buffer(uint8_t *buffer, uint8_t tile_width, uint8_t tile_height, uint8_t (*get_pixel)(uint16_t x, uint16_t y, uint8_t *dest_ptr, uint8_t tile_width), void (*out)(const char *s));
+[; ;u8x8.h: 1169: void u8x8_capture_write_xbm_pre(uint8_t tile_width, uint8_t tile_height, void (*out)(const char *s));
+[; ;u8x8.h: 1170: void u8x8_capture_write_xbm_buffer(uint8_t *buffer, uint8_t tile_width, uint8_t tile_height, uint8_t (*get_pixel)(uint16_t x, uint16_t y, uint8_t *dest_ptr, uint8_t tile_width), void (*out)(const char *s));
+[; ;u8x8.h: 1178: uint8_t u8x8_UserInterfaceInputValue(u8x8_t *u8x8, const char *title, const char *pre, uint8_t *value, uint8_t lo, uint8_t hi, uint8_t digits, const char *post);
+[; ;u8x8.h: 1182: void u8log_Init(u8log_t *u8log, uint8_t width, uint8_t height, uint8_t *buf);
+[; ;u8x8.h: 1183: void u8log_SetCallback(u8log_t *u8log, u8log_cb cb, void *aux_data);
+[; ;u8x8.h: 1184: void u8log_SetRedrawMode(u8log_t *u8log, uint8_t is_redraw_line_for_each_char);
+[; ;u8x8.h: 1185: void u8log_SetLineHeightOffset(u8log_t *u8log, int8_t line_height_offset);
+[; ;u8x8.h: 1186: void u8log_WriteString(u8log_t *u8log, const char *s) ;
+[; ;u8x8.h: 1187: void u8log_WriteChar(u8log_t *u8log, uint8_t c) ;
+[; ;u8x8.h: 1188: void u8log_WriteHex8(u8log_t *u8log, uint8_t b) ;
+[; ;u8x8.h: 1189: void u8log_WriteHex16(u8log_t *u8log, uint16_t v);
+[; ;u8x8.h: 1190: void u8log_WriteHex32(u8log_t *u8log, uint32_t v);
+[; ;u8x8.h: 1191: void u8log_WriteDec8(u8log_t *u8log, uint8_t v, uint8_t d);
+[; ;u8x8.h: 1192: void u8log_WriteDec16(u8log_t *u8log, uint16_t v, uint8_t d);
+[; ;u8x8.h: 1196: void u8x8_DrawLog(u8x8_t *u8x8, uint8_t x, uint8_t y, u8log_t *u8log);
+[; ;u8x8.h: 1197: void u8log_u8x8_cb(u8log_t * u8log);
+[; ;u8x8.h: 1202: extern const uint8_t u8x8_font_amstrad_cpc_extended_f[] ;
+[; ;u8x8.h: 1203: extern const uint8_t u8x8_font_amstrad_cpc_extended_r[] ;
+[; ;u8x8.h: 1204: extern const uint8_t u8x8_font_amstrad_cpc_extended_n[] ;
+[; ;u8x8.h: 1205: extern const uint8_t u8x8_font_amstrad_cpc_extended_u[] ;
+[; ;u8x8.h: 1206: extern const uint8_t u8x8_font_5x7_f[] ;
+[; ;u8x8.h: 1207: extern const uint8_t u8x8_font_5x7_r[] ;
+[; ;u8x8.h: 1208: extern const uint8_t u8x8_font_5x7_n[] ;
+[; ;u8x8.h: 1209: extern const uint8_t u8x8_font_5x8_f[] ;
+[; ;u8x8.h: 1210: extern const uint8_t u8x8_font_5x8_r[] ;
+[; ;u8x8.h: 1211: extern const uint8_t u8x8_font_5x8_n[] ;
+[; ;u8x8.h: 1212: extern const uint8_t u8x8_font_8x13_1x2_f[] ;
+[; ;u8x8.h: 1213: extern const uint8_t u8x8_font_8x13_1x2_r[] ;
+[; ;u8x8.h: 1214: extern const uint8_t u8x8_font_8x13_1x2_n[] ;
+[; ;u8x8.h: 1215: extern const uint8_t u8x8_font_8x13B_1x2_f[] ;
+[; ;u8x8.h: 1216: extern const uint8_t u8x8_font_8x13B_1x2_r[] ;
+[; ;u8x8.h: 1217: extern const uint8_t u8x8_font_8x13B_1x2_n[] ;
+[; ;u8x8.h: 1218: extern const uint8_t u8x8_font_7x14_1x2_f[] ;
+[; ;u8x8.h: 1219: extern const uint8_t u8x8_font_7x14_1x2_r[] ;
+[; ;u8x8.h: 1220: extern const uint8_t u8x8_font_7x14_1x2_n[] ;
+[; ;u8x8.h: 1221: extern const uint8_t u8x8_font_7x14B_1x2_f[] ;
+[; ;u8x8.h: 1222: extern const uint8_t u8x8_font_7x14B_1x2_r[] ;
+[; ;u8x8.h: 1223: extern const uint8_t u8x8_font_7x14B_1x2_n[] ;
+[; ;u8x8.h: 1224: extern const uint8_t u8x8_font_open_iconic_arrow_1x1[] ;
+[; ;u8x8.h: 1225: extern const uint8_t u8x8_font_open_iconic_check_1x1[] ;
+[; ;u8x8.h: 1226: extern const uint8_t u8x8_font_open_iconic_embedded_1x1[] ;
+[; ;u8x8.h: 1227: extern const uint8_t u8x8_font_open_iconic_play_1x1[] ;
+[; ;u8x8.h: 1228: extern const uint8_t u8x8_font_open_iconic_thing_1x1[] ;
+[; ;u8x8.h: 1229: extern const uint8_t u8x8_font_open_iconic_weather_1x1[] ;
+[; ;u8x8.h: 1230: extern const uint8_t u8x8_font_open_iconic_arrow_2x2[] ;
+[; ;u8x8.h: 1231: extern const uint8_t u8x8_font_open_iconic_check_2x2[] ;
+[; ;u8x8.h: 1232: extern const uint8_t u8x8_font_open_iconic_embedded_2x2[] ;
+[; ;u8x8.h: 1233: extern const uint8_t u8x8_font_open_iconic_play_2x2[] ;
+[; ;u8x8.h: 1234: extern const uint8_t u8x8_font_open_iconic_thing_2x2[] ;
+[; ;u8x8.h: 1235: extern const uint8_t u8x8_font_open_iconic_weather_2x2[] ;
+[; ;u8x8.h: 1236: extern const uint8_t u8x8_font_open_iconic_arrow_4x4[] ;
+[; ;u8x8.h: 1237: extern const uint8_t u8x8_font_open_iconic_check_4x4[] ;
+[; ;u8x8.h: 1238: extern const uint8_t u8x8_font_open_iconic_embedded_4x4[] ;
+[; ;u8x8.h: 1239: extern const uint8_t u8x8_font_open_iconic_play_4x4[] ;
+[; ;u8x8.h: 1240: extern const uint8_t u8x8_font_open_iconic_thing_4x4[] ;
+[; ;u8x8.h: 1241: extern const uint8_t u8x8_font_open_iconic_weather_4x4[] ;
+[; ;u8x8.h: 1242: extern const uint8_t u8x8_font_open_iconic_arrow_8x8[] ;
+[; ;u8x8.h: 1243: extern const uint8_t u8x8_font_open_iconic_check_8x8[] ;
+[; ;u8x8.h: 1244: extern const uint8_t u8x8_font_open_iconic_embedded_8x8[] ;
+[; ;u8x8.h: 1245: extern const uint8_t u8x8_font_open_iconic_play_8x8[] ;
+[; ;u8x8.h: 1246: extern const uint8_t u8x8_font_open_iconic_thing_8x8[] ;
+[; ;u8x8.h: 1247: extern const uint8_t u8x8_font_open_iconic_weather_8x8[] ;
+[; ;u8x8.h: 1248: extern const uint8_t u8x8_font_profont29_2x3_f[] ;
+[; ;u8x8.h: 1249: extern const uint8_t u8x8_font_profont29_2x3_r[] ;
+[; ;u8x8.h: 1250: extern const uint8_t u8x8_font_profont29_2x3_n[] ;
+[; ;u8x8.h: 1251: extern const uint8_t u8x8_font_artossans8_r[] ;
+[; ;u8x8.h: 1252: extern const uint8_t u8x8_font_artossans8_n[] ;
+[; ;u8x8.h: 1253: extern const uint8_t u8x8_font_artossans8_u[] ;
+[; ;u8x8.h: 1254: extern const uint8_t u8x8_font_artosserif8_r[] ;
+[; ;u8x8.h: 1255: extern const uint8_t u8x8_font_artosserif8_n[] ;
+[; ;u8x8.h: 1256: extern const uint8_t u8x8_font_artosserif8_u[] ;
+[; ;u8x8.h: 1257: extern const uint8_t u8x8_font_chroma48medium8_r[] ;
+[; ;u8x8.h: 1258: extern const uint8_t u8x8_font_chroma48medium8_n[] ;
+[; ;u8x8.h: 1259: extern const uint8_t u8x8_font_chroma48medium8_u[] ;
+[; ;u8x8.h: 1260: extern const uint8_t u8x8_font_saikyosansbold8_n[] ;
+[; ;u8x8.h: 1261: extern const uint8_t u8x8_font_saikyosansbold8_u[] ;
+[; ;u8x8.h: 1262: extern const uint8_t u8x8_font_torussansbold8_r[] ;
+[; ;u8x8.h: 1263: extern const uint8_t u8x8_font_torussansbold8_n[] ;
+[; ;u8x8.h: 1264: extern const uint8_t u8x8_font_torussansbold8_u[] ;
+[; ;u8x8.h: 1265: extern const uint8_t u8x8_font_victoriabold8_r[] ;
+[; ;u8x8.h: 1266: extern const uint8_t u8x8_font_victoriabold8_n[] ;
+[; ;u8x8.h: 1267: extern const uint8_t u8x8_font_victoriabold8_u[] ;
+[; ;u8x8.h: 1268: extern const uint8_t u8x8_font_victoriamedium8_r[] ;
+[; ;u8x8.h: 1269: extern const uint8_t u8x8_font_victoriamedium8_n[] ;
+[; ;u8x8.h: 1270: extern const uint8_t u8x8_font_victoriamedium8_u[] ;
+[; ;u8x8.h: 1271: extern const uint8_t u8x8_font_courB18_2x3_f[] ;
+[; ;u8x8.h: 1272: extern const uint8_t u8x8_font_courB18_2x3_r[] ;
+[; ;u8x8.h: 1273: extern const uint8_t u8x8_font_courB18_2x3_n[] ;
+[; ;u8x8.h: 1274: extern const uint8_t u8x8_font_courR18_2x3_f[] ;
+[; ;u8x8.h: 1275: extern const uint8_t u8x8_font_courR18_2x3_r[] ;
+[; ;u8x8.h: 1276: extern const uint8_t u8x8_font_courR18_2x3_n[] ;
+[; ;u8x8.h: 1277: extern const uint8_t u8x8_font_courB24_3x4_f[] ;
+[; ;u8x8.h: 1278: extern const uint8_t u8x8_font_courB24_3x4_r[] ;
+[; ;u8x8.h: 1279: extern const uint8_t u8x8_font_courB24_3x4_n[] ;
+[; ;u8x8.h: 1280: extern const uint8_t u8x8_font_courR24_3x4_f[] ;
+[; ;u8x8.h: 1281: extern const uint8_t u8x8_font_courR24_3x4_r[] ;
+[; ;u8x8.h: 1282: extern const uint8_t u8x8_font_courR24_3x4_n[] ;
+[; ;u8x8.h: 1283: extern const uint8_t u8x8_font_lucasarts_scumm_subtitle_o_2x2_f[] ;
+[; ;u8x8.h: 1284: extern const uint8_t u8x8_font_lucasarts_scumm_subtitle_o_2x2_r[] ;
+[; ;u8x8.h: 1285: extern const uint8_t u8x8_font_lucasarts_scumm_subtitle_o_2x2_n[] ;
+[; ;u8x8.h: 1286: extern const uint8_t u8x8_font_lucasarts_scumm_subtitle_r_2x2_f[] ;
+[; ;u8x8.h: 1287: extern const uint8_t u8x8_font_lucasarts_scumm_subtitle_r_2x2_r[] ;
+[; ;u8x8.h: 1288: extern const uint8_t u8x8_font_lucasarts_scumm_subtitle_r_2x2_n[] ;
+[; ;u8x8.h: 1289: extern const uint8_t u8x8_font_inr21_2x4_f[] ;
+[; ;u8x8.h: 1290: extern const uint8_t u8x8_font_inr21_2x4_r[] ;
+[; ;u8x8.h: 1291: extern const uint8_t u8x8_font_inr21_2x4_n[] ;
+[; ;u8x8.h: 1292: extern const uint8_t u8x8_font_inr33_3x6_f[] ;
+[; ;u8x8.h: 1293: extern const uint8_t u8x8_font_inr33_3x6_r[] ;
+[; ;u8x8.h: 1294: extern const uint8_t u8x8_font_inr33_3x6_n[] ;
+[; ;u8x8.h: 1295: extern const uint8_t u8x8_font_inr46_4x8_f[] ;
+[; ;u8x8.h: 1296: extern const uint8_t u8x8_font_inr46_4x8_r[] ;
+[; ;u8x8.h: 1297: extern const uint8_t u8x8_font_inr46_4x8_n[] ;
+[; ;u8x8.h: 1298: extern const uint8_t u8x8_font_inb21_2x4_f[] ;
+[; ;u8x8.h: 1299: extern const uint8_t u8x8_font_inb21_2x4_r[] ;
+[; ;u8x8.h: 1300: extern const uint8_t u8x8_font_inb21_2x4_n[] ;
+[; ;u8x8.h: 1301: extern const uint8_t u8x8_font_inb33_3x6_f[] ;
+[; ;u8x8.h: 1302: extern const uint8_t u8x8_font_inb33_3x6_r[] ;
+[; ;u8x8.h: 1303: extern const uint8_t u8x8_font_inb33_3x6_n[] ;
+[; ;u8x8.h: 1304: extern const uint8_t u8x8_font_inb46_4x8_f[] ;
+[; ;u8x8.h: 1305: extern const uint8_t u8x8_font_inb46_4x8_r[] ;
+[; ;u8x8.h: 1306: extern const uint8_t u8x8_font_inb46_4x8_n[] ;
+[; ;u8x8.h: 1307: extern const uint8_t u8x8_font_pressstart2p_f[] ;
+[; ;u8x8.h: 1308: extern const uint8_t u8x8_font_pressstart2p_r[] ;
+[; ;u8x8.h: 1309: extern const uint8_t u8x8_font_pressstart2p_n[] ;
+[; ;u8x8.h: 1310: extern const uint8_t u8x8_font_pressstart2p_u[] ;
+[; ;u8x8.h: 1311: extern const uint8_t u8x8_font_pcsenior_f[] ;
+[; ;u8x8.h: 1312: extern const uint8_t u8x8_font_pcsenior_r[] ;
+[; ;u8x8.h: 1313: extern const uint8_t u8x8_font_pcsenior_n[] ;
+[; ;u8x8.h: 1314: extern const uint8_t u8x8_font_pcsenior_u[] ;
+[; ;u8x8.h: 1315: extern const uint8_t u8x8_font_pxplusibmcgathin_f[] ;
+[; ;u8x8.h: 1316: extern const uint8_t u8x8_font_pxplusibmcgathin_r[] ;
+[; ;u8x8.h: 1317: extern const uint8_t u8x8_font_pxplusibmcgathin_n[] ;
+[; ;u8x8.h: 1318: extern const uint8_t u8x8_font_pxplusibmcgathin_u[] ;
+[; ;u8x8.h: 1319: extern const uint8_t u8x8_font_pxplusibmcga_f[] ;
+[; ;u8x8.h: 1320: extern const uint8_t u8x8_font_pxplusibmcga_r[] ;
+[; ;u8x8.h: 1321: extern const uint8_t u8x8_font_pxplusibmcga_n[] ;
+[; ;u8x8.h: 1322: extern const uint8_t u8x8_font_pxplusibmcga_u[] ;
+[; ;u8x8.h: 1323: extern const uint8_t u8x8_font_pxplustandynewtv_f[] ;
+[; ;u8x8.h: 1324: extern const uint8_t u8x8_font_pxplustandynewtv_r[] ;
+[; ;u8x8.h: 1325: extern const uint8_t u8x8_font_pxplustandynewtv_n[] ;
+[; ;u8x8.h: 1326: extern const uint8_t u8x8_font_pxplustandynewtv_u[] ;
+[; ;u8x8.h: 1327: extern const uint8_t u8x8_font_px437wyse700a_2x2_f[] ;
+[; ;u8x8.h: 1328: extern const uint8_t u8x8_font_px437wyse700a_2x2_r[] ;
+[; ;u8x8.h: 1329: extern const uint8_t u8x8_font_px437wyse700a_2x2_n[] ;
+[; ;u8x8.h: 1330: extern const uint8_t u8x8_font_px437wyse700b_2x2_f[] ;
+[; ;u8x8.h: 1331: extern const uint8_t u8x8_font_px437wyse700b_2x2_r[] ;
+[; ;u8x8.h: 1332: extern const uint8_t u8x8_font_px437wyse700b_2x2_n[] ;
+"42 ../../../../u8g2/csrc/u8x8_d_ssd1306_128x64_noname.c
+[v _u8x8_d_ssd1306_128x64_noname_init_seq `Cuc ~T0 @X0 -> 0 `x s ]
+[i _u8x8_d_ssd1306_128x64_noname_init_seq
+:U ..
+"44
+-> -> 24 `i `uc
+"47
+-> -> 21 `i `uc
+-> -> 174 `i `uc
+"48
+-> -> 21 `i `uc
+-> -> 213 `i `uc
+-> -> 22 `i `uc
+-> -> 128 `i `uc
+"49
+-> -> 21 `i `uc
+-> -> 168 `i `uc
+-> -> 22 `i `uc
+-> -> 63 `i `uc
+"50
+-> -> 21 `i `uc
+-> -> 211 `i `uc
+-> -> 22 `i `uc
+-> -> 0 `i `uc
+"51
+-> -> 21 `i `uc
+-> -> 64 `i `uc
+"52
+-> -> 21 `i `uc
+-> -> 141 `i `uc
+-> -> 22 `i `uc
+-> -> 20 `i `uc
+"53
+-> -> 21 `i `uc
+-> -> 32 `i `uc
+-> -> 22 `i `uc
+-> -> 0 `i `uc
+"55
+-> -> 21 `i `uc
+-> -> 161 `i `uc
+"56
+-> -> 21 `i `uc
+-> -> 200 `i `uc
+"61
+-> -> 21 `i `uc
+-> -> 218 `i `uc
+-> -> 22 `i `uc
+-> -> 18 `i `uc
+"63
+-> -> 21 `i `uc
+-> -> 129 `i `uc
+-> -> 22 `i `uc
+-> -> 207 `i `uc
+"64
+-> -> 21 `i `uc
+-> -> 217 `i `uc
+-> -> 22 `i `uc
+-> -> 241 `i `uc
+"65
+-> -> 21 `i `uc
+-> -> 219 `i `uc
+-> -> 22 `i `uc
+-> -> 64 `i `uc
+"69
+-> -> 21 `i `uc
+-> -> 46 `i `uc
+"70
+-> -> 21 `i `uc
+-> -> 164 `i `uc
+"71
+-> -> 21 `i `uc
+-> -> 166 `i `uc
+"73
+-> -> 25 `i `uc
+"75
+-> -> 255 `i `uc
+..
+]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 42: static const uint8_t u8x8_d_ssd1306_128x64_noname_init_seq[] = {
+[; ;u8x8_d_ssd1306_128x64_noname.c: 44: (24),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 47: (21), (0x0ae),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 48: (21), (0x0d5), (22), (0x080),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 49: (21), (0x0a8), (22), (0x03f),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 50: (21), (0x0d3), (22), (0x000),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 51: (21), (0x040),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 52: (21), (0x08d), (22), (0x014),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 53: (21), (0x020), (22), (0x000),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 55: (21), (0x0a1),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 56: (21), (0x0c8),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 61: (21), (0x0da), (22), (0x012),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 63: (21), (0x081), (22), (0x0cf),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 64: (21), (0x0d9), (22), (0x0f1),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 65: (21), (0x0db), (22), (0x040),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 69: (21), (0x02e),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 70: (21), (0x0a4),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 71: (21), (0x0a6),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 73: (25),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 74: (0xff)
+[; ;u8x8_d_ssd1306_128x64_noname.c: 75: };
+"79
+[v _u8x8_d_ssd1306_128x64_vcomh0_init_seq `Cuc ~T0 @X0 -> 0 `x s ]
+[i _u8x8_d_ssd1306_128x64_vcomh0_init_seq
+:U ..
+"81
+-> -> 24 `i `uc
+"84
+-> -> 21 `i `uc
+-> -> 174 `i `uc
+"85
+-> -> 21 `i `uc
+-> -> 213 `i `uc
+-> -> 22 `i `uc
+-> -> 128 `i `uc
+"86
+-> -> 21 `i `uc
+-> -> 168 `i `uc
+-> -> 22 `i `uc
+-> -> 63 `i `uc
+"87
+-> -> 21 `i `uc
+-> -> 211 `i `uc
+-> -> 22 `i `uc
+-> -> 0 `i `uc
+"88
+-> -> 21 `i `uc
+-> -> 64 `i `uc
+"89
+-> -> 21 `i `uc
+-> -> 141 `i `uc
+-> -> 22 `i `uc
+-> -> 20 `i `uc
+"90
+-> -> 21 `i `uc
+-> -> 32 `i `uc
+-> -> 22 `i `uc
+-> -> 0 `i `uc
+"92
+-> -> 21 `i `uc
+-> -> 161 `i `uc
+"93
+-> -> 21 `i `uc
+-> -> 200 `i `uc
+"98
+-> -> 21 `i `uc
+-> -> 218 `i `uc
+-> -> 22 `i `uc
+-> -> 18 `i `uc
+"99
+-> -> 21 `i `uc
+-> -> 129 `i `uc
+-> -> 22 `i `uc
+-> -> 239 `i `uc
+"100
+-> -> 21 `i `uc
+-> -> 217 `i `uc
+-> -> 22 `i `uc
+-> -> 161 `i `uc
+"101
+-> -> 21 `i `uc
+-> -> 219 `i `uc
+-> -> 22 `i `uc
+-> -> 0 `i `uc
+"104
+-> -> 21 `i `uc
+-> -> 46 `i `uc
+"105
+-> -> 21 `i `uc
+-> -> 164 `i `uc
+"106
+-> -> 21 `i `uc
+-> -> 166 `i `uc
+"108
+-> -> 25 `i `uc
+"110
+-> -> 255 `i `uc
+..
+]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 79: static const uint8_t u8x8_d_ssd1306_128x64_vcomh0_init_seq[] = {
+[; ;u8x8_d_ssd1306_128x64_noname.c: 81: (24),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 84: (21), (0x0ae),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 85: (21), (0x0d5), (22), (0x080),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 86: (21), (0x0a8), (22), (0x03f),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 87: (21), (0x0d3), (22), (0x000),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 88: (21), (0x040),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 89: (21), (0x08d), (22), (0x014),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 90: (21), (0x020), (22), (0x000),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 92: (21), (0x0a1),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 93: (21), (0x0c8),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 98: (21), (0x0da), (22), (0x012),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 99: (21), (0x081), (22), (0x0ef),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 100: (21), (0x0d9), (22), (0x0a1),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 101: (21), (0x0db), (22), (0x000),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 104: (21), (0x02e),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 105: (21), (0x0a4),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 106: (21), (0x0a6),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 108: (25),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 109: (0xff)
+[; ;u8x8_d_ssd1306_128x64_noname.c: 110: };
+"115
+[v _u8x8_d_ssd1306_128x64_alt0_init_seq `Cuc ~T0 @X0 -> 0 `x s ]
+[i _u8x8_d_ssd1306_128x64_alt0_init_seq
+:U ..
+"117
+-> -> 24 `i `uc
+"120
+-> -> 21 `i `uc
+-> -> 174 `i `uc
+"121
+-> -> 21 `i `uc
+-> -> 213 `i `uc
+-> -> 22 `i `uc
+-> -> 128 `i `uc
+"122
+-> -> 21 `i `uc
+-> -> 168 `i `uc
+-> -> 22 `i `uc
+-> -> 63 `i `uc
+"123
+-> -> 21 `i `uc
+-> -> 211 `i `uc
+-> -> 22 `i `uc
+-> -> 0 `i `uc
+"124
+-> -> 21 `i `uc
+-> -> 64 `i `uc
+"125
+-> -> 21 `i `uc
+-> -> 141 `i `uc
+-> -> 22 `i `uc
+-> -> 20 `i `uc
+"126
+-> -> 21 `i `uc
+-> -> 32 `i `uc
+-> -> 22 `i `uc
+-> -> 0 `i `uc
+"128
+-> -> 21 `i `uc
+-> -> 161 `i `uc
+"129
+-> -> 21 `i `uc
+-> -> 200 `i `uc
+"134
+-> -> 21 `i `uc
+-> -> 218 `i `uc
+-> -> 22 `i `uc
+-> -> 2 `i `uc
+"136
+-> -> 21 `i `uc
+-> -> 129 `i `uc
+-> -> 22 `i `uc
+-> -> 207 `i `uc
+"137
+-> -> 21 `i `uc
+-> -> 217 `i `uc
+-> -> 22 `i `uc
+-> -> 241 `i `uc
+"138
+-> -> 21 `i `uc
+-> -> 219 `i `uc
+-> -> 22 `i `uc
+-> -> 64 `i `uc
+"142
+-> -> 21 `i `uc
+-> -> 46 `i `uc
+"143
+-> -> 21 `i `uc
+-> -> 164 `i `uc
+"144
+-> -> 21 `i `uc
+-> -> 166 `i `uc
+"146
+-> -> 25 `i `uc
+"148
+-> -> 255 `i `uc
+..
+]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 115: static const uint8_t u8x8_d_ssd1306_128x64_alt0_init_seq[] = {
+[; ;u8x8_d_ssd1306_128x64_noname.c: 117: (24),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 120: (21), (0x0ae),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 121: (21), (0x0d5), (22), (0x080),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 122: (21), (0x0a8), (22), (0x03f),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 123: (21), (0x0d3), (22), (0x000),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 124: (21), (0x040),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 125: (21), (0x08d), (22), (0x014),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 126: (21), (0x020), (22), (0x000),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 128: (21), (0x0a1),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 129: (21), (0x0c8),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 134: (21), (0x0da), (22), (0x002),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 136: (21), (0x081), (22), (0x0cf),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 137: (21), (0x0d9), (22), (0x0f1),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 138: (21), (0x0db), (22), (0x040),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 142: (21), (0x02e),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 143: (21), (0x0a4),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 144: (21), (0x0a6),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 146: (25),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 147: (0xff)
+[; ;u8x8_d_ssd1306_128x64_noname.c: 148: };
+"153
+[v _u8x8_d_sh1106_128x64_winstar_init_seq `Cuc ~T0 @X0 -> 0 `x s ]
+[i _u8x8_d_sh1106_128x64_winstar_init_seq
+:U ..
+"155
+-> -> 24 `i `uc
+"157
+-> -> 21 `i `uc
+-> -> 174 `i `uc
+"158
+-> -> 21 `i `uc
+-> -> 164 `i `uc
+"159
+-> -> 21 `i `uc
+-> -> 213 `i `uc
+-> -> 22 `i `uc
+-> -> 80 `i `uc
+"160
+-> -> 21 `i `uc
+-> -> 168 `i `uc
+-> -> 22 `i `uc
+-> -> 63 `i `uc
+"161
+-> -> 21 `i `uc
+-> -> 211 `i `uc
+-> -> 22 `i `uc
+-> -> 0 `i `uc
+"162
+-> -> 21 `i `uc
+-> -> 64 `i `uc
+"163
+-> -> 21 `i `uc
+-> -> 173 `i `uc
+-> -> 22 `i `uc
+-> -> 139 `i `uc
+"164
+-> -> 21 `i `uc
+-> -> 217 `i `uc
+-> -> 22 `i `uc
+-> -> 34 `i `uc
+"165
+-> -> 21 `i `uc
+-> -> 219 `i `uc
+-> -> 22 `i `uc
+-> -> 53 `i `uc
+"166
+-> -> 21 `i `uc
+-> -> 50 `i `uc
+"167
+-> -> 21 `i `uc
+-> -> 129 `i `uc
+-> -> 22 `i `uc
+-> -> 255 `i `uc
+"168
+-> -> 21 `i `uc
+-> -> 166 `i `uc
+"169
+-> -> 21 `i `uc
+-> -> 218 `i `uc
+-> -> 22 `i `uc
+-> -> 18 `i `uc
+"171
+-> -> 25 `i `uc
+"173
+-> -> 255 `i `uc
+..
+]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 153: static const uint8_t u8x8_d_sh1106_128x64_winstar_init_seq[] = {
+[; ;u8x8_d_ssd1306_128x64_noname.c: 155: (24),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 157: (21), (0xae),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 158: (21), (0xa4),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 159: (21), (0xd5), (22), (0x50),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 160: (21), (0xa8), (22), (0x3f),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 161: (21), (0xd3), (22), (0x00),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 162: (21), (0x40),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 163: (21), (0xad), (22), (0x8b),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 164: (21), (0xd9), (22), (0x22),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 165: (21), (0xdb), (22), (0x35),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 166: (21), (0x32),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 167: (21), (0x81), (22), (0xff),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 168: (21), (0x0a6),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 169: (21), (0x0da), (22), (0x012),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 171: (25),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 172: (0xff)
+[; ;u8x8_d_ssd1306_128x64_noname.c: 173: };
+"175
+[v _u8x8_d_ssd1312_128x64_noname_init_seq `Cuc ~T0 @X0 -> 0 `x s ]
+[i _u8x8_d_ssd1312_128x64_noname_init_seq
+:U ..
+"177
+-> -> 24 `i `uc
+"180
+-> -> 21 `i `uc
+-> -> 174 `i `uc
+"181
+-> -> 21 `i `uc
+-> -> 213 `i `uc
+-> -> 22 `i `uc
+-> -> 128 `i `uc
+"182
+-> -> 21 `i `uc
+-> -> 168 `i `uc
+-> -> 22 `i `uc
+-> -> 63 `i `uc
+"183
+-> -> 21 `i `uc
+-> -> 211 `i `uc
+-> -> 22 `i `uc
+-> -> 0 `i `uc
+"184
+-> -> 21 `i `uc
+-> -> 64 `i `uc
+"185
+-> -> 21 `i `uc
+-> -> 141 `i `uc
+-> -> 22 `i `uc
+-> -> 20 `i `uc
+"186
+-> -> 21 `i `uc
+-> -> 32 `i `uc
+-> -> 22 `i `uc
+-> -> 0 `i `uc
+"188
+-> -> 21 `i `uc
+-> -> 161 `i `uc
+"189
+-> -> 21 `i `uc
+-> -> 192 `i `uc
+"191
+-> -> 21 `i `uc
+-> -> 218 `i `uc
+-> -> 22 `i `uc
+-> -> 18 `i `uc
+"193
+-> -> 21 `i `uc
+-> -> 129 `i `uc
+-> -> 22 `i `uc
+-> -> 207 `i `uc
+"194
+-> -> 21 `i `uc
+-> -> 217 `i `uc
+-> -> 22 `i `uc
+-> -> 241 `i `uc
+"195
+-> -> 21 `i `uc
+-> -> 219 `i `uc
+-> -> 22 `i `uc
+-> -> 64 `i `uc
+"199
+-> -> 21 `i `uc
+-> -> 46 `i `uc
+"200
+-> -> 21 `i `uc
+-> -> 164 `i `uc
+"201
+-> -> 21 `i `uc
+-> -> 166 `i `uc
+"203
+-> -> 25 `i `uc
+"205
+-> -> 255 `i `uc
+..
+]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 175: static const uint8_t u8x8_d_ssd1312_128x64_noname_init_seq[] = {
+[; ;u8x8_d_ssd1306_128x64_noname.c: 177: (24),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 180: (21), (0x0ae),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 181: (21), (0x0d5), (22), (0x080),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 182: (21), (0x0a8), (22), (0x03f),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 183: (21), (0x0d3), (22), (0x000),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 184: (21), (0x040),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 185: (21), (0x08d), (22), (0x014),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 186: (21), (0x020), (22), (0x000),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 188: (21), (0x0a1),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 189: (21), (0x0c0),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 191: (21), (0x0da), (22), (0x012),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 193: (21), (0x081), (22), (0x0cf),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 194: (21), (0x0d9), (22), (0x0f1),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 195: (21), (0x0db), (22), (0x040),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 199: (21), (0x02e),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 200: (21), (0x0a4),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 201: (21), (0x0a6),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 203: (25),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 204: (0xff)
+[; ;u8x8_d_ssd1306_128x64_noname.c: 205: };
+"208
+[v _u8x8_d_ssd1306_128x64_noname_powersave0_seq `Cuc ~T0 @X0 -> 0 `x s ]
+[i _u8x8_d_ssd1306_128x64_noname_powersave0_seq
+:U ..
+"209
+-> -> 24 `i `uc
+"210
+-> -> 21 `i `uc
+-> -> 175 `i `uc
+"211
+-> -> 25 `i `uc
+"213
+-> -> 255 `i `uc
+..
+]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 208: static const uint8_t u8x8_d_ssd1306_128x64_noname_powersave0_seq[] = {
+[; ;u8x8_d_ssd1306_128x64_noname.c: 209: (24),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 210: (21), (0x0af),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 211: (25),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 212: (0xff)
+[; ;u8x8_d_ssd1306_128x64_noname.c: 213: };
+"215
+[v _u8x8_d_ssd1306_128x64_noname_powersave1_seq `Cuc ~T0 @X0 -> 0 `x s ]
+[i _u8x8_d_ssd1306_128x64_noname_powersave1_seq
+:U ..
+"216
+-> -> 24 `i `uc
+"217
+-> -> 21 `i `uc
+-> -> 174 `i `uc
+"218
+-> -> 25 `i `uc
+"220
+-> -> 255 `i `uc
+..
+]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 215: static const uint8_t u8x8_d_ssd1306_128x64_noname_powersave1_seq[] = {
+[; ;u8x8_d_ssd1306_128x64_noname.c: 216: (24),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 217: (21), (0x0ae),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 218: (25),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 219: (0xff)
+[; ;u8x8_d_ssd1306_128x64_noname.c: 220: };
+"222
+[v _u8x8_d_ssd1306_128x64_noname_flip0_seq `Cuc ~T0 @X0 -> 0 `x s ]
+[i _u8x8_d_ssd1306_128x64_noname_flip0_seq
+:U ..
+"223
+-> -> 24 `i `uc
+"224
+-> -> 21 `i `uc
+-> -> 161 `i `uc
+"225
+-> -> 21 `i `uc
+-> -> 200 `i `uc
+"226
+-> -> 25 `i `uc
+"228
+-> -> 255 `i `uc
+..
+]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 222: static const uint8_t u8x8_d_ssd1306_128x64_noname_flip0_seq[] = {
+[; ;u8x8_d_ssd1306_128x64_noname.c: 223: (24),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 224: (21), (0x0a1),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 225: (21), (0x0c8),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 226: (25),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 227: (0xff)
+[; ;u8x8_d_ssd1306_128x64_noname.c: 228: };
+"230
+[v _u8x8_d_ssd1306_128x64_noname_flip1_seq `Cuc ~T0 @X0 -> 0 `x s ]
+[i _u8x8_d_ssd1306_128x64_noname_flip1_seq
+:U ..
+"231
+-> -> 24 `i `uc
+"232
+-> -> 21 `i `uc
+-> -> 160 `i `uc
+"233
+-> -> 21 `i `uc
+-> -> 192 `i `uc
+"234
+-> -> 25 `i `uc
+"236
+-> -> 255 `i `uc
+..
+]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 230: static const uint8_t u8x8_d_ssd1306_128x64_noname_flip1_seq[] = {
+[; ;u8x8_d_ssd1306_128x64_noname.c: 231: (24),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 232: (21), (0x0a0),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 233: (21), (0x0c0),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 234: (25),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 235: (0xff)
+[; ;u8x8_d_ssd1306_128x64_noname.c: 236: };
+"238
+[v _u8x8_d_ssd1312_128x64_noname_flip0_seq `Cuc ~T0 @X0 -> 0 `x s ]
+[i _u8x8_d_ssd1312_128x64_noname_flip0_seq
+:U ..
+"239
+-> -> 24 `i `uc
+"240
+-> -> 21 `i `uc
+-> -> 161 `i `uc
+"241
+-> -> 21 `i `uc
+-> -> 192 `i `uc
+"242
+-> -> 25 `i `uc
+"244
+-> -> 255 `i `uc
+..
+]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 238: static const uint8_t u8x8_d_ssd1312_128x64_noname_flip0_seq[] = {
+[; ;u8x8_d_ssd1306_128x64_noname.c: 239: (24),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 240: (21), (0x0a1),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 241: (21), (0x0c0),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 242: (25),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 243: (0xff)
+[; ;u8x8_d_ssd1306_128x64_noname.c: 244: };
+"246
+[v _u8x8_d_ssd1312_128x64_noname_flip1_seq `Cuc ~T0 @X0 -> 0 `x s ]
+[i _u8x8_d_ssd1312_128x64_noname_flip1_seq
+:U ..
+"247
+-> -> 24 `i `uc
+"248
+-> -> 21 `i `uc
+-> -> 160 `i `uc
+"249
+-> -> 21 `i `uc
+-> -> 200 `i `uc
+"250
+-> -> 25 `i `uc
+"252
+-> -> 255 `i `uc
+..
+]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 246: static const uint8_t u8x8_d_ssd1312_128x64_noname_flip1_seq[] = {
+[; ;u8x8_d_ssd1306_128x64_noname.c: 247: (24),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 248: (21), (0x0a0),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 249: (21), (0x0c8),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 250: (25),
+[; ;u8x8_d_ssd1306_128x64_noname.c: 251: (0xff)
+[; ;u8x8_d_ssd1306_128x64_noname.c: 252: };
+"254
+[v _u8x8_d_ssd1306_sh1106_generic `(uc ~T0 @X0 1 sf4`*S1`uc`uc`*v ]
+"255
+{
+[; ;u8x8_d_ssd1306_128x64_noname.c: 254: static uint8_t u8x8_d_ssd1306_sh1106_generic(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_d_ssd1306_128x64_noname.c: 255: {
+[e :U _u8x8_d_ssd1306_sh1106_generic ]
+"254
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"255
+[f ]
+"256
+[v _x `uc ~T0 @X0 1 a ]
+[v _c `uc ~T0 @X0 1 a ]
+"257
+[v _ptr `*uc ~T0 @X0 1 a ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 256: uint8_t x, c;
+[; ;u8x8_d_ssd1306_128x64_noname.c: 257: uint8_t *ptr;
+[; ;u8x8_d_ssd1306_128x64_noname.c: 258: switch(msg)
+"258
+[e $U 8  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 259: {
+"259
+{
+[; ;u8x8_d_ssd1306_128x64_noname.c: 271: case 11:
+"271
+[e :U 9 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 272: if ( arg_int == 0 )
+"272
+[e $ ! == -> _arg_int `i -> 0 `i 10  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 273: u8x8_cad_SendSequence(u8x8, u8x8_d_ssd1306_128x64_noname_powersave0_seq);
+"273
+[e ( _u8x8_cad_SendSequence (2 , _u8x8 &U _u8x8_d_ssd1306_128x64_noname_powersave0_seq ]
+[e $U 11  ]
+"274
+[e :U 10 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 274: else
+[; ;u8x8_d_ssd1306_128x64_noname.c: 275: u8x8_cad_SendSequence(u8x8, u8x8_d_ssd1306_128x64_noname_powersave1_seq);
+"275
+[e ( _u8x8_cad_SendSequence (2 , _u8x8 &U _u8x8_d_ssd1306_128x64_noname_powersave1_seq ]
+[e :U 11 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 276: break;
+"276
+[e $U 7  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 277: case 13:
+"277
+[e :U 12 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 278: if ( arg_int == 0 )
+"278
+[e $ ! == -> _arg_int `i -> 0 `i 13  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 279: {
+"279
+{
+[; ;u8x8_d_ssd1306_128x64_noname.c: 280: u8x8_cad_SendSequence(u8x8, u8x8_d_ssd1306_128x64_noname_flip0_seq);
+"280
+[e ( _u8x8_cad_SendSequence (2 , _u8x8 &U _u8x8_d_ssd1306_128x64_noname_flip0_seq ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 281: u8x8->x_offset = u8x8->display_info->default_x_offset;
+"281
+[e = . *U _u8x8 9 . *U . *U _u8x8 0 15 ]
+"282
+}
+[; ;u8x8_d_ssd1306_128x64_noname.c: 282: }
+[e $U 14  ]
+"283
+[e :U 13 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 283: else
+[; ;u8x8_d_ssd1306_128x64_noname.c: 284: {
+"284
+{
+[; ;u8x8_d_ssd1306_128x64_noname.c: 285: u8x8_cad_SendSequence(u8x8, u8x8_d_ssd1306_128x64_noname_flip1_seq);
+"285
+[e ( _u8x8_cad_SendSequence (2 , _u8x8 &U _u8x8_d_ssd1306_128x64_noname_flip1_seq ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 286: u8x8->x_offset = u8x8->display_info->flipmode_x_offset;
+"286
+[e = . *U _u8x8 9 . *U . *U _u8x8 0 16 ]
+"287
+}
+[e :U 14 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 287: }
+[; ;u8x8_d_ssd1306_128x64_noname.c: 288: break;
+"288
+[e $U 7  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 290: case 14:
+"290
+[e :U 15 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 291: u8x8_cad_StartTransfer(u8x8);
+"291
+[e ( _u8x8_cad_StartTransfer (1 _u8x8 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 292: u8x8_cad_SendCmd(u8x8, 0x081 );
+"292
+[e ( _u8x8_cad_SendCmd (2 , _u8x8 -> -> 129 `i `uc ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 293: u8x8_cad_SendArg(u8x8, arg_int );
+"293
+[e ( _u8x8_cad_SendArg (2 , _u8x8 _arg_int ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 294: u8x8_cad_EndTransfer(u8x8);
+"294
+[e ( _u8x8_cad_EndTransfer (1 _u8x8 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 295: break;
+"295
+[e $U 7  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 297: case 15:
+"297
+[e :U 16 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 298: u8x8_cad_StartTransfer(u8x8);
+"298
+[e ( _u8x8_cad_StartTransfer (1 _u8x8 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 299: x = ((u8x8_tile_t *)arg_ptr)->x_pos;
+"299
+[e = _x . *U -> _arg_ptr `*S3 2 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 300: x *= 8;
+"300
+[e =* _x -> -> 8 `i `uc ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 301: x += u8x8->x_offset;
+"301
+[e =+ _x . *U _u8x8 9 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 303: u8x8_cad_SendCmd(u8x8, 0x040 );
+"303
+[e ( _u8x8_cad_SendCmd (2 , _u8x8 -> -> 64 `i `uc ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 305: u8x8_cad_SendCmd(u8x8, 0x010 | (x>>4) );
+"305
+[e ( _u8x8_cad_SendCmd (2 , _u8x8 -> | -> 16 `i >> -> _x `i -> 4 `i `uc ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 306: u8x8_cad_SendArg(u8x8, 0x000 | ((x&15)));
+"306
+[e ( _u8x8_cad_SendArg (2 , _u8x8 -> | -> 0 `i & -> _x `i -> 15 `i `uc ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 307: u8x8_cad_SendArg(u8x8, 0x0b0 | (((u8x8_tile_t *)arg_ptr)->y_pos));
+"307
+[e ( _u8x8_cad_SendArg (2 , _u8x8 -> | -> 176 `i -> . *U -> _arg_ptr `*S3 3 `i `uc ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 310: do
+"310
+[e :U 19 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 311: {
+"311
+{
+[; ;u8x8_d_ssd1306_128x64_noname.c: 312: c = ((u8x8_tile_t *)arg_ptr)->cnt;
+"312
+[e = _c . *U -> _arg_ptr `*S3 1 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 313: ptr = ((u8x8_tile_t *)arg_ptr)->tile_ptr;
+"313
+[e = _ptr . *U -> _arg_ptr `*S3 0 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 314: u8x8_cad_SendData(u8x8, c*8, ptr);
+"314
+[e ( _u8x8_cad_SendData (3 , , _u8x8 -> * -> _c `i -> 8 `i `uc _ptr ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 323: arg_int--;
+"323
+[e -- _arg_int -> -> 1 `i `uc ]
+"324
+}
+[; ;u8x8_d_ssd1306_128x64_noname.c: 324: } while( arg_int > 0 );
+[e $ > -> _arg_int `i -> 0 `i 19  ]
+[e :U 18 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 326: u8x8_cad_EndTransfer(u8x8);
+"326
+[e ( _u8x8_cad_EndTransfer (1 _u8x8 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 327: break;
+"327
+[e $U 7  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 328: default:
+"328
+[e :U 20 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 329: return 0;
+"329
+[e ) -> -> 0 `i `uc ]
+[e $UE 6  ]
+"330
+}
+[; ;u8x8_d_ssd1306_128x64_noname.c: 330: }
+[e $U 7  ]
+"258
+[e :U 8 ]
+[e [\ _msg , $ -> -> 11 `i `uc 9
+ , $ -> -> 13 `i `uc 12
+ , $ -> -> 14 `i `uc 15
+ , $ -> -> 15 `i `uc 16
+ 20 ]
+"330
+[e :U 7 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 331: return 1;
+"331
+[e ) -> -> 1 `i `uc ]
+[e $UE 6  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 332: }
+"332
+[e :UE 6 ]
+}
+"335
+[v _u8x8_ssd1306_128x64_noname_display_info `CS2 ~T0 @X0 1 s ]
+[i _u8x8_ssd1306_128x64_noname_display_info
+:U ..
+:U ..
+"337
+-> -> 0 `i `uc
+"338
+-> -> 1 `i `uc
+"340
+-> -> 20 `i `uc
+"341
+-> -> 10 `i `uc
+"342
+-> -> 100 `i `uc
+"343
+-> -> 100 `i `uc
+"344
+-> -> 50 `i `uc
+"345
+-> -> 50 `i `uc
+"346
+-> 8000000 `ul
+"347
+-> -> 0 `i `uc
+"348
+-> -> 4 `i `uc
+"349
+-> -> 40 `i `uc
+"350
+-> -> 150 `i `uc
+"351
+-> -> 16 `i `uc
+"352
+-> -> 8 `i `uc
+"353
+-> -> 0 `i `uc
+"354
+-> -> 0 `i `uc
+"355
+-> -> 128 `i `ui
+"357
+-> -> 64 `i `ui
+..
+..
+]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 335: static const u8x8_display_info_t u8x8_ssd1306_128x64_noname_display_info =
+[; ;u8x8_d_ssd1306_128x64_noname.c: 336: {
+[; ;u8x8_d_ssd1306_128x64_noname.c: 337: 0,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 338: 1,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 340: 20,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 341: 10,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 342: 100,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 343: 100,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 344: 50,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 345: 50,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 346: 8000000UL,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 347: 0,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 348: 4,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 349: 40,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 350: 150,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 351: 16,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 352: 8,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 353: 0,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 354: 0,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 355: 128,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 356: 64
+[; ;u8x8_d_ssd1306_128x64_noname.c: 357: };
+"359
+[v _u8x8_d_ssd1306_128x64_noname `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"360
+{
+[; ;u8x8_d_ssd1306_128x64_noname.c: 359: uint8_t u8x8_d_ssd1306_128x64_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_d_ssd1306_128x64_noname.c: 360: {
+[e :U _u8x8_d_ssd1306_128x64_noname ]
+"359
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"360
+[f ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 362: if ( u8x8_d_ssd1306_sh1106_generic(u8x8, msg, arg_int, arg_ptr) != 0 )
+"362
+[e $ ! != -> ( _u8x8_d_ssd1306_sh1106_generic (4 , , , _u8x8 _msg _arg_int _arg_ptr `i -> 0 `i 22  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 363: return 1;
+"363
+[e ) -> -> 1 `i `uc ]
+[e $UE 21  ]
+[e :U 22 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 365: switch(msg)
+"365
+[e $U 24  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 366: {
+"366
+{
+[; ;u8x8_d_ssd1306_128x64_noname.c: 367: case 10:
+"367
+[e :U 25 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 368: u8x8_d_helper_display_init(u8x8);
+"368
+[e ( _u8x8_d_helper_display_init (1 _u8x8 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 369: u8x8_cad_SendSequence(u8x8, u8x8_d_ssd1306_128x64_noname_init_seq);
+"369
+[e ( _u8x8_cad_SendSequence (2 , _u8x8 &U _u8x8_d_ssd1306_128x64_noname_init_seq ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 370: break;
+"370
+[e $U 23  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 371: case 9:
+"371
+[e :U 26 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 372: u8x8_d_helper_display_setup_memory(u8x8, &u8x8_ssd1306_128x64_noname_display_info);
+"372
+[e ( _u8x8_d_helper_display_setup_memory (2 , _u8x8 &U _u8x8_ssd1306_128x64_noname_display_info ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 373: break;
+"373
+[e $U 23  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 374: default:
+"374
+[e :U 27 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 375: return 0;
+"375
+[e ) -> -> 0 `i `uc ]
+[e $UE 21  ]
+"376
+}
+[; ;u8x8_d_ssd1306_128x64_noname.c: 376: }
+[e $U 23  ]
+"365
+[e :U 24 ]
+[e [\ _msg , $ -> -> 10 `i `uc 25
+ , $ -> -> 9 `i `uc 26
+ 27 ]
+"376
+[e :U 23 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 377: return 1;
+"377
+[e ) -> -> 1 `i `uc ]
+[e $UE 21  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 378: }
+"378
+[e :UE 21 ]
+}
+"380
+[v _u8x8_d_ssd1312_128x64_noname `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"381
+{
+[; ;u8x8_d_ssd1306_128x64_noname.c: 380: uint8_t u8x8_d_ssd1312_128x64_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_d_ssd1306_128x64_noname.c: 381: {
+[e :U _u8x8_d_ssd1312_128x64_noname ]
+"380
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"381
+[f ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 382: switch(msg)
+"382
+[e $U 30  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 383: {
+"383
+{
+[; ;u8x8_d_ssd1306_128x64_noname.c: 384: case 13:
+"384
+[e :U 31 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 385: if ( arg_int == 0 )
+"385
+[e $ ! == -> _arg_int `i -> 0 `i 32  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 386: {
+"386
+{
+[; ;u8x8_d_ssd1306_128x64_noname.c: 387: u8x8_cad_SendSequence(u8x8, u8x8_d_ssd1312_128x64_noname_flip0_seq);
+"387
+[e ( _u8x8_cad_SendSequence (2 , _u8x8 &U _u8x8_d_ssd1312_128x64_noname_flip0_seq ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 388: u8x8->x_offset = u8x8->display_info->default_x_offset;
+"388
+[e = . *U _u8x8 9 . *U . *U _u8x8 0 15 ]
+"389
+}
+[; ;u8x8_d_ssd1306_128x64_noname.c: 389: }
+[e $U 33  ]
+"390
+[e :U 32 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 390: else
+[; ;u8x8_d_ssd1306_128x64_noname.c: 391: {
+"391
+{
+[; ;u8x8_d_ssd1306_128x64_noname.c: 392: u8x8_cad_SendSequence(u8x8, u8x8_d_ssd1312_128x64_noname_flip1_seq);
+"392
+[e ( _u8x8_cad_SendSequence (2 , _u8x8 &U _u8x8_d_ssd1312_128x64_noname_flip1_seq ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 393: u8x8->x_offset = u8x8->display_info->flipmode_x_offset;
+"393
+[e = . *U _u8x8 9 . *U . *U _u8x8 0 16 ]
+"394
+}
+[e :U 33 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 394: }
+[; ;u8x8_d_ssd1306_128x64_noname.c: 395: break;
+"395
+[e $U 29  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 396: case 10:
+"396
+[e :U 34 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 397: u8x8_d_helper_display_init(u8x8);
+"397
+[e ( _u8x8_d_helper_display_init (1 _u8x8 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 398: u8x8_cad_SendSequence(u8x8, u8x8_d_ssd1312_128x64_noname_init_seq);
+"398
+[e ( _u8x8_cad_SendSequence (2 , _u8x8 &U _u8x8_d_ssd1312_128x64_noname_init_seq ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 399: break;
+"399
+[e $U 29  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 400: case 9:
+"400
+[e :U 35 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 401: u8x8_d_helper_display_setup_memory(u8x8, &u8x8_ssd1306_128x64_noname_display_info);
+"401
+[e ( _u8x8_d_helper_display_setup_memory (2 , _u8x8 &U _u8x8_ssd1306_128x64_noname_display_info ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 402: break;
+"402
+[e $U 29  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 403: default:
+"403
+[e :U 36 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 404: if ( u8x8_d_ssd1306_sh1106_generic(u8x8, msg, arg_int, arg_ptr) != 0 )
+"404
+[e $ ! != -> ( _u8x8_d_ssd1306_sh1106_generic (4 , , , _u8x8 _msg _arg_int _arg_ptr `i -> 0 `i 37  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 405: return 1;
+"405
+[e ) -> -> 1 `i `uc ]
+[e $UE 28  ]
+[e :U 37 ]
+"406
+}
+[; ;u8x8_d_ssd1306_128x64_noname.c: 406: }
+[e $U 29  ]
+"382
+[e :U 30 ]
+[e [\ _msg , $ -> -> 13 `i `uc 31
+ , $ -> -> 10 `i `uc 34
+ , $ -> -> 9 `i `uc 35
+ 36 ]
+"406
+[e :U 29 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 407: return 1;
+"407
+[e ) -> -> 1 `i `uc ]
+[e $UE 28  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 408: }
+"408
+[e :UE 28 ]
+}
+"412
+[v _u8x8_d_ssd1306_128x64_vcomh0 `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"413
+{
+[; ;u8x8_d_ssd1306_128x64_noname.c: 412: uint8_t u8x8_d_ssd1306_128x64_vcomh0(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_d_ssd1306_128x64_noname.c: 413: {
+[e :U _u8x8_d_ssd1306_128x64_vcomh0 ]
+"412
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"413
+[f ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 415: if ( u8x8_d_ssd1306_sh1106_generic(u8x8, msg, arg_int, arg_ptr) != 0 )
+"415
+[e $ ! != -> ( _u8x8_d_ssd1306_sh1106_generic (4 , , , _u8x8 _msg _arg_int _arg_ptr `i -> 0 `i 39  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 416: return 1;
+"416
+[e ) -> -> 1 `i `uc ]
+[e $UE 38  ]
+[e :U 39 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 418: switch(msg)
+"418
+[e $U 41  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 419: {
+"419
+{
+[; ;u8x8_d_ssd1306_128x64_noname.c: 420: case 10:
+"420
+[e :U 42 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 421: u8x8_d_helper_display_init(u8x8);
+"421
+[e ( _u8x8_d_helper_display_init (1 _u8x8 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 422: u8x8_cad_SendSequence(u8x8, u8x8_d_ssd1306_128x64_vcomh0_init_seq);
+"422
+[e ( _u8x8_cad_SendSequence (2 , _u8x8 &U _u8x8_d_ssd1306_128x64_vcomh0_init_seq ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 423: break;
+"423
+[e $U 40  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 424: case 9:
+"424
+[e :U 43 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 425: u8x8_d_helper_display_setup_memory(u8x8, &u8x8_ssd1306_128x64_noname_display_info);
+"425
+[e ( _u8x8_d_helper_display_setup_memory (2 , _u8x8 &U _u8x8_ssd1306_128x64_noname_display_info ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 426: break;
+"426
+[e $U 40  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 427: default:
+"427
+[e :U 44 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 428: return 0;
+"428
+[e ) -> -> 0 `i `uc ]
+[e $UE 38  ]
+"429
+}
+[; ;u8x8_d_ssd1306_128x64_noname.c: 429: }
+[e $U 40  ]
+"418
+[e :U 41 ]
+[e [\ _msg , $ -> -> 10 `i `uc 42
+ , $ -> -> 9 `i `uc 43
+ 44 ]
+"429
+[e :U 40 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 430: return 1;
+"430
+[e ) -> -> 1 `i `uc ]
+[e $UE 38  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 431: }
+"431
+[e :UE 38 ]
+}
+"433
+[v _u8x8_d_ssd1306_128x64_alt0 `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"434
+{
+[; ;u8x8_d_ssd1306_128x64_noname.c: 433: uint8_t u8x8_d_ssd1306_128x64_alt0(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_d_ssd1306_128x64_noname.c: 434: {
+[e :U _u8x8_d_ssd1306_128x64_alt0 ]
+"433
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"434
+[f ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 436: if ( u8x8_d_ssd1306_sh1106_generic(u8x8, msg, arg_int, arg_ptr) != 0 )
+"436
+[e $ ! != -> ( _u8x8_d_ssd1306_sh1106_generic (4 , , , _u8x8 _msg _arg_int _arg_ptr `i -> 0 `i 46  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 437: return 1;
+"437
+[e ) -> -> 1 `i `uc ]
+[e $UE 45  ]
+[e :U 46 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 439: switch(msg)
+"439
+[e $U 48  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 440: {
+"440
+{
+[; ;u8x8_d_ssd1306_128x64_noname.c: 441: case 10:
+"441
+[e :U 49 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 442: u8x8_d_helper_display_init(u8x8);
+"442
+[e ( _u8x8_d_helper_display_init (1 _u8x8 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 443: u8x8_cad_SendSequence(u8x8, u8x8_d_ssd1306_128x64_alt0_init_seq);
+"443
+[e ( _u8x8_cad_SendSequence (2 , _u8x8 &U _u8x8_d_ssd1306_128x64_alt0_init_seq ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 444: break;
+"444
+[e $U 47  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 445: case 9:
+"445
+[e :U 50 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 446: u8x8_d_helper_display_setup_memory(u8x8, &u8x8_ssd1306_128x64_noname_display_info);
+"446
+[e ( _u8x8_d_helper_display_setup_memory (2 , _u8x8 &U _u8x8_ssd1306_128x64_noname_display_info ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 447: break;
+"447
+[e $U 47  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 448: default:
+"448
+[e :U 51 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 449: return 0;
+"449
+[e ) -> -> 0 `i `uc ]
+[e $UE 45  ]
+"450
+}
+[; ;u8x8_d_ssd1306_128x64_noname.c: 450: }
+[e $U 47  ]
+"439
+[e :U 48 ]
+[e [\ _msg , $ -> -> 10 `i `uc 49
+ , $ -> -> 9 `i `uc 50
+ 51 ]
+"450
+[e :U 47 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 451: return 1;
+"451
+[e ) -> -> 1 `i `uc ]
+[e $UE 45  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 452: }
+"452
+[e :UE 45 ]
+}
+"455
+[v _u8x8_sh1106_128x64_noname_display_info `CS2 ~T0 @X0 1 s ]
+[i _u8x8_sh1106_128x64_noname_display_info
+:U ..
+:U ..
+"457
+-> -> 0 `i `uc
+"458
+-> -> 1 `i `uc
+"460
+-> -> 20 `i `uc
+"461
+-> -> 10 `i `uc
+"462
+-> -> 100 `i `uc
+"463
+-> -> 100 `i `uc
+"464
+-> -> 50 `i `uc
+"465
+-> -> 50 `i `uc
+"466
+-> 4000000 `ul
+"467
+-> -> 0 `i `uc
+"468
+-> -> 4 `i `uc
+"469
+-> -> 40 `i `uc
+"470
+-> -> 150 `i `uc
+"471
+-> -> 16 `i `uc
+"472
+-> -> 8 `i `uc
+"473
+-> -> 2 `i `uc
+"474
+-> -> 2 `i `uc
+"475
+-> -> 128 `i `ui
+"477
+-> -> 64 `i `ui
+..
+..
+]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 455: static const u8x8_display_info_t u8x8_sh1106_128x64_noname_display_info =
+[; ;u8x8_d_ssd1306_128x64_noname.c: 456: {
+[; ;u8x8_d_ssd1306_128x64_noname.c: 457: 0,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 458: 1,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 460: 20,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 461: 10,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 462: 100,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 463: 100,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 464: 50,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 465: 50,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 466: 4000000UL,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 467: 0,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 468: 4,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 469: 40,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 470: 150,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 471: 16,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 472: 8,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 473: 2,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 474: 2,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 475: 128,
+[; ;u8x8_d_ssd1306_128x64_noname.c: 476: 64
+[; ;u8x8_d_ssd1306_128x64_noname.c: 477: };
+"479
+[v _u8x8_d_sh1106_128x64_noname `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"480
+{
+[; ;u8x8_d_ssd1306_128x64_noname.c: 479: uint8_t u8x8_d_sh1106_128x64_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_d_ssd1306_128x64_noname.c: 480: {
+[e :U _u8x8_d_sh1106_128x64_noname ]
+"479
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"480
+[f ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 481: if ( u8x8_d_ssd1306_sh1106_generic(u8x8, msg, arg_int, arg_ptr) != 0 )
+"481
+[e $ ! != -> ( _u8x8_d_ssd1306_sh1106_generic (4 , , , _u8x8 _msg _arg_int _arg_ptr `i -> 0 `i 53  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 482: return 1;
+"482
+[e ) -> -> 1 `i `uc ]
+[e $UE 52  ]
+[e :U 53 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 484: switch(msg)
+"484
+[e $U 55  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 485: {
+"485
+{
+[; ;u8x8_d_ssd1306_128x64_noname.c: 486: case 10:
+"486
+[e :U 56 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 487: u8x8_d_helper_display_init(u8x8);
+"487
+[e ( _u8x8_d_helper_display_init (1 _u8x8 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 491: u8x8_cad_SendSequence(u8x8, u8x8_d_ssd1306_128x64_noname_init_seq);
+"491
+[e ( _u8x8_cad_SendSequence (2 , _u8x8 &U _u8x8_d_ssd1306_128x64_noname_init_seq ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 492: break;
+"492
+[e $U 54  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 493: case 9:
+"493
+[e :U 57 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 494: u8x8_d_helper_display_setup_memory(u8x8, &u8x8_sh1106_128x64_noname_display_info);
+"494
+[e ( _u8x8_d_helper_display_setup_memory (2 , _u8x8 &U _u8x8_sh1106_128x64_noname_display_info ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 495: break;
+"495
+[e $U 54  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 496: default:
+"496
+[e :U 58 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 497: return 0;
+"497
+[e ) -> -> 0 `i `uc ]
+[e $UE 52  ]
+"498
+}
+[; ;u8x8_d_ssd1306_128x64_noname.c: 498: }
+[e $U 54  ]
+"484
+[e :U 55 ]
+[e [\ _msg , $ -> -> 10 `i `uc 56
+ , $ -> -> 9 `i `uc 57
+ 58 ]
+"498
+[e :U 54 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 499: return 1;
+"499
+[e ) -> -> 1 `i `uc ]
+[e $UE 52  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 501: }
+"501
+[e :UE 52 ]
+}
+"503
+[v _u8x8_d_sh1106_128x64_vcomh0 `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"504
+{
+[; ;u8x8_d_ssd1306_128x64_noname.c: 503: uint8_t u8x8_d_sh1106_128x64_vcomh0(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_d_ssd1306_128x64_noname.c: 504: {
+[e :U _u8x8_d_sh1106_128x64_vcomh0 ]
+"503
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"504
+[f ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 505: if ( u8x8_d_ssd1306_sh1106_generic(u8x8, msg, arg_int, arg_ptr) != 0 )
+"505
+[e $ ! != -> ( _u8x8_d_ssd1306_sh1106_generic (4 , , , _u8x8 _msg _arg_int _arg_ptr `i -> 0 `i 60  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 506: return 1;
+"506
+[e ) -> -> 1 `i `uc ]
+[e $UE 59  ]
+[e :U 60 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 508: switch(msg)
+"508
+[e $U 62  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 509: {
+"509
+{
+[; ;u8x8_d_ssd1306_128x64_noname.c: 510: case 10:
+"510
+[e :U 63 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 511: u8x8_d_helper_display_init(u8x8);
+"511
+[e ( _u8x8_d_helper_display_init (1 _u8x8 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 512: u8x8_cad_SendSequence(u8x8, u8x8_d_ssd1306_128x64_vcomh0_init_seq);
+"512
+[e ( _u8x8_cad_SendSequence (2 , _u8x8 &U _u8x8_d_ssd1306_128x64_vcomh0_init_seq ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 513: break;
+"513
+[e $U 61  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 514: case 9:
+"514
+[e :U 64 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 515: u8x8_d_helper_display_setup_memory(u8x8, &u8x8_sh1106_128x64_noname_display_info);
+"515
+[e ( _u8x8_d_helper_display_setup_memory (2 , _u8x8 &U _u8x8_sh1106_128x64_noname_display_info ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 516: break;
+"516
+[e $U 61  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 517: default:
+"517
+[e :U 65 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 518: return 0;
+"518
+[e ) -> -> 0 `i `uc ]
+[e $UE 59  ]
+"519
+}
+[; ;u8x8_d_ssd1306_128x64_noname.c: 519: }
+[e $U 61  ]
+"508
+[e :U 62 ]
+[e [\ _msg , $ -> -> 10 `i `uc 63
+ , $ -> -> 9 `i `uc 64
+ 65 ]
+"519
+[e :U 61 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 520: return 1;
+"520
+[e ) -> -> 1 `i `uc ]
+[e $UE 59  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 522: }
+"522
+[e :UE 59 ]
+}
+"524
+[v _u8x8_d_sh1106_128x64_winstar `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"525
+{
+[; ;u8x8_d_ssd1306_128x64_noname.c: 524: uint8_t u8x8_d_sh1106_128x64_winstar(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_d_ssd1306_128x64_noname.c: 525: {
+[e :U _u8x8_d_sh1106_128x64_winstar ]
+"524
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"525
+[f ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 526: if ( u8x8_d_ssd1306_sh1106_generic(u8x8, msg, arg_int, arg_ptr) != 0 )
+"526
+[e $ ! != -> ( _u8x8_d_ssd1306_sh1106_generic (4 , , , _u8x8 _msg _arg_int _arg_ptr `i -> 0 `i 67  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 527: return 1;
+"527
+[e ) -> -> 1 `i `uc ]
+[e $UE 66  ]
+[e :U 67 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 529: switch(msg)
+"529
+[e $U 69  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 530: {
+"530
+{
+[; ;u8x8_d_ssd1306_128x64_noname.c: 531: case 10:
+"531
+[e :U 70 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 532: u8x8_d_helper_display_init(u8x8);
+"532
+[e ( _u8x8_d_helper_display_init (1 _u8x8 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 533: u8x8_cad_SendSequence(u8x8, u8x8_d_sh1106_128x64_winstar_init_seq);
+"533
+[e ( _u8x8_cad_SendSequence (2 , _u8x8 &U _u8x8_d_sh1106_128x64_winstar_init_seq ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 534: break;
+"534
+[e $U 68  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 535: case 9:
+"535
+[e :U 71 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 536: u8x8_d_helper_display_setup_memory(u8x8, &u8x8_sh1106_128x64_noname_display_info);
+"536
+[e ( _u8x8_d_helper_display_setup_memory (2 , _u8x8 &U _u8x8_sh1106_128x64_noname_display_info ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 537: break;
+"537
+[e $U 68  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 538: default:
+"538
+[e :U 72 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 539: return 0;
+"539
+[e ) -> -> 0 `i `uc ]
+[e $UE 66  ]
+"540
+}
+[; ;u8x8_d_ssd1306_128x64_noname.c: 540: }
+[e $U 68  ]
+"529
+[e :U 69 ]
+[e [\ _msg , $ -> -> 10 `i `uc 70
+ , $ -> -> 9 `i `uc 71
+ 72 ]
+"540
+[e :U 68 ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 541: return 1;
+"541
+[e ) -> -> 1 `i `uc ]
+[e $UE 66  ]
+[; ;u8x8_d_ssd1306_128x64_noname.c: 543: }
+"543
+[e :UE 66 ]
+}

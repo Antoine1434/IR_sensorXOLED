@@ -1,0 +1,1007 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"237 ../../../../u8g2/csrc/u8x8.h
+[s S2 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ul 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 ]
+[n S2 u8x8_display_info_struct chip_enable_level chip_disable_level post_chip_enable_wait_ns pre_chip_disable_wait_ns reset_pulse_width_ms post_reset_wait_ms sda_setup_time_ns sck_pulse_width_ns sck_clock_hz spi_mode i2c_bus_clock_100kHz data_setup_time_ns write_pulse_width_ns tile_width tile_height default_x_offset flipmode_x_offset pixel_width pixel_height ]
+[v F49 `(ui ~T0 @X0 0 tf2`*S1`uc ]
+[v F43 `(uc ~T0 @X0 0 tf4`*S1`uc`uc`*v ]
+"342
+[s S1 `*CS2 1 `*F49 1 `*F43 1 `*F43 1 `*F43 1 `*F43 1 `ul 1 `*Cuc 1 `ui 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S1 u8x8_struct display_info next_cb display_cb cad_cb byte_cb gpio_and_delay_cb bus_clock font encoding x_offset is_font_inverse_mode i2c_address i2c_started utf8_state gpio_result debounce_default_pin_state debounce_last_pin_state debounce_state debounce_result_msg ]
+"1104
+[v _u8x8_GetUTF8Len `(uc ~T0 @X0 0 ef2`*S1`*Cuc ]
+"1099
+[v _u8x8_DrawUTF8 `(uc ~T0 @X0 0 ef4`*S1`uc`uc`*Cuc ]
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef __int24 int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 52: typedef unsigned char uint8_t;
+[; ;stdint.h: 58: typedef unsigned int uint16_t;
+[; ;stdint.h: 65: typedef __uint24 uint24_t;
+[; ;stdint.h: 72: typedef unsigned long int uint32_t;
+[; ;stdint.h: 88: typedef signed char int_least8_t;
+[; ;stdint.h: 96: typedef signed int int_least16_t;
+[; ;stdint.h: 109: typedef __int24 int_least24_t;
+[; ;stdint.h: 118: typedef signed long int int_least32_t;
+[; ;stdint.h: 136: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 143: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 154: typedef __uint24 uint_least24_t;
+[; ;stdint.h: 162: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 181: typedef signed char int_fast8_t;
+[; ;stdint.h: 188: typedef signed int int_fast16_t;
+[; ;stdint.h: 200: typedef __int24 int_fast24_t;
+[; ;stdint.h: 208: typedef signed long int int_fast32_t;
+[; ;stdint.h: 224: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 230: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 240: typedef __uint24 uint_fast24_t;
+[; ;stdint.h: 247: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 268: typedef int32_t intmax_t;
+[; ;stdint.h: 282: typedef uint32_t uintmax_t;
+[; ;stdint.h: 289: typedef int16_t intptr_t;
+[; ;stdint.h: 294: typedef uint16_t uintptr_t;
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stddef.h: 6: typedef int ptrdiff_t;
+[; ;u8x8.h: 211: typedef struct u8x8_struct u8x8_t;
+[; ;u8x8.h: 212: typedef struct u8x8_display_info_struct u8x8_display_info_t;
+[; ;u8x8.h: 213: typedef struct u8x8_tile_struct u8x8_tile_t;
+[; ;u8x8.h: 215: typedef uint8_t (*u8x8_msg_cb)(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 216: typedef uint16_t (*u8x8_char_cb)(u8x8_t *u8x8, uint8_t b);
+[; ;u8x8.h: 228: struct u8x8_tile_struct
+[; ;u8x8.h: 229: {
+[; ;u8x8.h: 230: uint8_t *tile_ptr;
+[; ;u8x8.h: 231: uint8_t cnt;
+[; ;u8x8.h: 232: uint8_t x_pos;
+[; ;u8x8.h: 233: uint8_t y_pos;
+[; ;u8x8.h: 234: };
+[; ;u8x8.h: 237: struct u8x8_display_info_struct
+[; ;u8x8.h: 238: {
+[; ;u8x8.h: 241: uint8_t chip_enable_level;
+[; ;u8x8.h: 242: uint8_t chip_disable_level;
+[; ;u8x8.h: 244: uint8_t post_chip_enable_wait_ns;
+[; ;u8x8.h: 245: uint8_t pre_chip_disable_wait_ns;
+[; ;u8x8.h: 246: uint8_t reset_pulse_width_ms;
+[; ;u8x8.h: 247: uint8_t post_reset_wait_ms;
+[; ;u8x8.h: 254: uint8_t sda_setup_time_ns;
+[; ;u8x8.h: 258: uint8_t sck_pulse_width_ns;
+[; ;u8x8.h: 261: uint32_t sck_clock_hz;
+[; ;u8x8.h: 271: uint8_t spi_mode;
+[; ;u8x8.h: 274: uint8_t i2c_bus_clock_100kHz;
+[; ;u8x8.h: 280: uint8_t data_setup_time_ns;
+[; ;u8x8.h: 282: uint8_t write_pulse_width_ns;
+[; ;u8x8.h: 285: uint8_t tile_width;
+[; ;u8x8.h: 286: uint8_t tile_height;
+[; ;u8x8.h: 288: uint8_t default_x_offset;
+[; ;u8x8.h: 289: uint8_t flipmode_x_offset;
+[; ;u8x8.h: 297: uint16_t pixel_width;
+[; ;u8x8.h: 298: uint16_t pixel_height;
+[; ;u8x8.h: 299: };
+[; ;u8x8.h: 342: struct u8x8_struct
+[; ;u8x8.h: 343: {
+[; ;u8x8.h: 344: const u8x8_display_info_t *display_info;
+[; ;u8x8.h: 345: u8x8_char_cb next_cb;
+[; ;u8x8.h: 346: u8x8_msg_cb display_cb;
+[; ;u8x8.h: 347: u8x8_msg_cb cad_cb;
+[; ;u8x8.h: 348: u8x8_msg_cb byte_cb;
+[; ;u8x8.h: 349: u8x8_msg_cb gpio_and_delay_cb;
+[; ;u8x8.h: 350: uint32_t bus_clock;
+[; ;u8x8.h: 351: const uint8_t *font;
+[; ;u8x8.h: 352: uint16_t encoding;
+[; ;u8x8.h: 353: uint8_t x_offset;
+[; ;u8x8.h: 354: uint8_t is_font_inverse_mode;
+[; ;u8x8.h: 355: uint8_t i2c_address;
+[; ;u8x8.h: 358: uint8_t i2c_started;
+[; ;u8x8.h: 360: uint8_t utf8_state;
+[; ;u8x8.h: 361: uint8_t gpio_result;
+[; ;u8x8.h: 362: uint8_t debounce_default_pin_state;
+[; ;u8x8.h: 363: uint8_t debounce_last_pin_state;
+[; ;u8x8.h: 364: uint8_t debounce_state;
+[; ;u8x8.h: 365: uint8_t debounce_result_msg;
+[; ;u8x8.h: 372: };
+[; ;u8x8.h: 407: typedef struct u8log_struct u8log_t;
+[; ;u8x8.h: 411: typedef void (*u8log_cb)(u8log_t * u8log);
+[; ;u8x8.h: 413: struct u8log_struct
+[; ;u8x8.h: 414: {
+[; ;u8x8.h: 416: void *aux_data;
+[; ;u8x8.h: 417: uint8_t width, height;
+[; ;u8x8.h: 418: u8log_cb cb;
+[; ;u8x8.h: 419: uint8_t *screen_buffer;
+[; ;u8x8.h: 420: uint8_t is_redraw_line_for_each_char;
+[; ;u8x8.h: 421: int8_t line_height_offset;
+[; ;u8x8.h: 425: uint8_t cursor_x, cursor_y;
+[; ;u8x8.h: 426: uint8_t redraw_line;
+[; ;u8x8.h: 427: uint8_t is_redraw_line;
+[; ;u8x8.h: 428: uint8_t is_redraw_all;
+[; ;u8x8.h: 429: uint8_t is_redraw_all_required_for_next_nl;
+[; ;u8x8.h: 430: };
+[; ;u8x8.h: 436: void u8x8_d_helper_display_setup_memory(u8x8_t *u8x8, const u8x8_display_info_t *display_info);
+[; ;u8x8.h: 437: void u8x8_d_helper_display_init(u8x8_t *u8g2);
+[; ;u8x8.h: 539: uint8_t u8x8_dummy_cb(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 547: void u8x8_SetupDefaults(u8x8_t *u8x8);
+[; ;u8x8.h: 549: void u8x8_Setup(u8x8_t *u8x8, u8x8_msg_cb display_cb, u8x8_msg_cb cad_cb, u8x8_msg_cb byte_cb, u8x8_msg_cb gpio_and_delay_cb);
+[; ;u8x8.h: 553: uint8_t u8x8_DrawTile(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t cnt, uint8_t *tile_ptr);
+[; ;u8x8.h: 561: void u8x8_SetupMemory(u8x8_t *u8x8);
+[; ;u8x8.h: 569: void u8x8_InitInterface(u8x8_t *u8x8);
+[; ;u8x8.h: 577: void u8x8_InitDisplay(u8x8_t *u8x8);
+[; ;u8x8.h: 579: void u8x8_SetPowerSave(u8x8_t *u8x8, uint8_t is_enable);
+[; ;u8x8.h: 580: void u8x8_SetFlipMode(u8x8_t *u8x8, uint8_t mode);
+[; ;u8x8.h: 581: void u8x8_SetContrast(u8x8_t *u8x8, uint8_t value);
+[; ;u8x8.h: 582: void u8x8_ClearDisplayWithTile(u8x8_t *u8x8, const uint8_t *buf) ;
+[; ;u8x8.h: 583: void u8x8_ClearDisplay(u8x8_t *u8x8);
+[; ;u8x8.h: 584: void u8x8_FillDisplay(u8x8_t *u8x8);
+[; ;u8x8.h: 585: void u8x8_RefreshDisplay(u8x8_t *u8x8);
+[; ;u8x8.h: 586: void u8x8_ClearLine(u8x8_t *u8x8, uint8_t line);
+[; ;u8x8.h: 621: uint8_t u8x8_cad_SendCmd(u8x8_t *u8x8, uint8_t cmd) ;
+[; ;u8x8.h: 622: uint8_t u8x8_cad_SendArg(u8x8_t *u8x8, uint8_t arg) ;
+[; ;u8x8.h: 623: uint8_t u8x8_cad_SendMultipleArg(u8x8_t *u8x8, uint8_t cnt, uint8_t arg) ;
+[; ;u8x8.h: 624: uint8_t u8x8_cad_SendData(u8x8_t *u8x8, uint8_t cnt, uint8_t *data) ;
+[; ;u8x8.h: 625: uint8_t u8x8_cad_StartTransfer(u8x8_t *u8x8) ;
+[; ;u8x8.h: 626: uint8_t u8x8_cad_EndTransfer(u8x8_t *u8x8) ;
+[; ;u8x8.h: 627: void u8x8_cad_vsendf(u8x8_t * u8x8, const char *fmt, va_list va);
+[; ;u8x8.h: 628: void u8x8_SendF(u8x8_t * u8x8, const char *fmt, ...);
+[; ;u8x8.h: 658: void u8x8_cad_SendSequence(u8x8_t *u8x8, uint8_t const *data);
+[; ;u8x8.h: 659: uint8_t u8x8_cad_empty(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 660: uint8_t u8x8_cad_110(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 661: uint8_t u8x8_gu800_cad_110(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 662: uint8_t u8x8_cad_001(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 663: uint8_t u8x8_cad_011(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 664: uint8_t u8x8_cad_100(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 665: uint8_t u8x8_cad_st7920_spi(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 666: uint8_t u8x8_cad_ssd13xx_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 667: uint8_t u8x8_cad_011_ssd13xx_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 668: uint8_t u8x8_cad_ssd13xx_fast_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 669: uint8_t u8x8_cad_st75256_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 670: uint8_t u8x8_cad_ld7032_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 671: uint8_t u8x8_cad_uc16xx_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 672: uint8_t u8x8_cad_uc1638_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 690: uint8_t u8x8_byte_SetDC(u8x8_t *u8x8, uint8_t dc) ;
+[; ;u8x8.h: 691: uint8_t u8x8_byte_SendByte(u8x8_t *u8x8, uint8_t byte) ;
+[; ;u8x8.h: 692: uint8_t u8x8_byte_SendBytes(u8x8_t *u8x8, uint8_t cnt, uint8_t *data) ;
+[; ;u8x8.h: 693: uint8_t u8x8_byte_StartTransfer(u8x8_t *u8x8);
+[; ;u8x8.h: 694: uint8_t u8x8_byte_EndTransfer(u8x8_t *u8x8);
+[; ;u8x8.h: 696: uint8_t u8x8_byte_empty(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 697: uint8_t u8x8_byte_4wire_sw_spi(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 698: uint8_t u8x8_byte_8bit_6800mode(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 699: uint8_t u8x8_byte_8bit_8080mode(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 700: uint8_t u8x8_byte_3wire_sw_spi(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 702: void u8x8_byte_set_ks0108_cs(u8x8_t *u8x8, uint8_t arg) ;
+[; ;u8x8.h: 703: uint8_t u8x8_byte_ks0108(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 704: uint8_t u8x8_byte_ssd13xx_sw_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 705: uint8_t u8x8_byte_sw_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 706: uint8_t u8x8_byte_sed1520(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 786: void u8x8_gpio_call(u8x8_t *u8x8, uint8_t msg, uint8_t arg) ;
+[; ;u8x8.h: 795: uint8_t u8x8_GetMenuEvent(u8x8_t *u8x8);
+[; ;u8x8.h: 799: void u8x8_SetupStdio(u8x8_t *u8x8);
+[; ;u8x8.h: 803: void u8x8_Setup_SDL_128x64(u8x8_t *u8x8);
+[; ;u8x8.h: 804: void u8x8_Setup_SDL_240x160(u8x8_t *u8x8);
+[; ;u8x8.h: 805: void u8x8_Setup_SDL_256x128(u8x8_t *u8x8);
+[; ;u8x8.h: 806: int u8g_sdl_get_key(void);
+[; ;u8x8.h: 810: void u8x8_Setup_TGA_DESC(u8x8_t *u8x8);
+[; ;u8x8.h: 811: void u8x8_Setup_TGA_LCD(u8x8_t *u8x8);
+[; ;u8x8.h: 812: void tga_save(const char *name);
+[; ;u8x8.h: 816: uint8_t u8x8_GetBitmapPixel(u8x8_t *u8x8, uint16_t x, uint16_t y);
+[; ;u8x8.h: 817: void u8x8_SaveBitmapTGA(u8x8_t *u8x8, const char *filename);
+[; ;u8x8.h: 818: void u8x8_SetupBitmap(u8x8_t *u8x8, uint16_t pixel_width, uint16_t pixel_height);
+[; ;u8x8.h: 819: uint8_t u8x8_ConnectBitmapToU8x8(u8x8_t *u8x8);
+[; ;u8x8.h: 823: void u8x8_SetupLinuxFb(u8x8_t *u8x8, int fbfd);
+[; ;u8x8.h: 824: void u8x8_LinuxFbSetActiveColor(uint32_t color);
+[; ;u8x8.h: 828: void u8x8_Setup_Utf8(u8x8_t *u8x8);
+[; ;u8x8.h: 829: void utf8_show(void);
+[; ;u8x8.h: 835: uint8_t u8x8_d_null_cb(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 838: uint8_t u8x8_d_uc1701_ea_dogs102(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 839: uint8_t u8x8_d_uc1701_mini12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 840: uint8_t u8x8_d_ssd1305_128x32_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 841: uint8_t u8x8_d_ssd1305_128x32_adafruit(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 843: uint8_t u8x8_d_ssd1305_128x64_adafruit(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 844: uint8_t u8x8_d_ssd1305_128x64_raystar(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 845: uint8_t u8x8_d_ssd1306_128x64_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 846: uint8_t u8x8_d_ssd1306_128x64_vcomh0(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 847: uint8_t u8x8_d_ssd1306_128x64_alt0(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 848: uint8_t u8x8_d_ssd1309_128x64_noname0(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 850: uint8_t u8x8_d_ssd1309_128x128_noname0(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 852: uint8_t u8x8_d_ssd1309_128x64_noname2(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 854: uint8_t u8x8_d_ssd1312_128x64_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 855: uint8_t u8x8_d_ssd1312_128x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 856: uint8_t u8x8_d_ssd1312_120x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 857: uint8_t u8x8_d_ssd1312_120x28(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 859: uint8_t u8x8_d_ssd1306_2040x16(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 860: uint8_t u8x8_d_ssd1306_128x32_univision(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 861: uint8_t u8x8_d_ssd1306_128x32_winstar(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 862: uint8_t u8x8_d_ssd1306_102x64_ea_oleds102(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 863: uint8_t u8x8_d_ssd1306_64x48_er(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 864: uint8_t u8x8_d_ssd1306_48x64_winstar(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 865: uint8_t u8x8_d_ssd1306_64x32_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 866: uint8_t u8x8_d_ssd1306_64x32_1f(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 867: uint8_t u8x8_d_ssd1306_96x16_er(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 868: uint8_t u8x8_d_ssd1306_96x40(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 869: uint8_t u8x8_d_ssd1306_96x39(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 870: uint8_t u8x8_d_ssd1306_72x40_er(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 871: uint8_t u8x8_d_sh1106_128x64_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 872: uint8_t u8x8_d_sh1106_128x64_vcomh0(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 873: uint8_t u8x8_d_sh1106_128x64_winstar(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 874: uint8_t u8x8_d_sh1106_128x32_visionox(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 875: uint8_t u8x8_d_sh1106_72x40_wise(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 876: uint8_t u8x8_d_sh1106_64x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 877: uint8_t u8x8_d_sh1107_64x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 878: uint8_t u8x8_d_sh1107_seeed_96x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 879: uint8_t u8x8_d_sh1107_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 880: uint8_t u8x8_d_sh1107_128x80(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 881: uint8_t u8x8_d_sh1107_pimoroni_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 882: uint8_t u8x8_d_sh1107_seeed_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 883: uint8_t u8x8_d_sh1107_hjr_oel1m0201_96x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 884: uint8_t u8x8_d_sh1107_tk078f288_80x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 885: uint8_t u8x8_d_sh1108_128x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 886: uint8_t u8x8_d_sh1108_160x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 887: uint8_t u8x8_d_ch1120_128x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 888: uint8_t u8x8_d_sh1122_256x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 889: uint8_t u8x8_d_st7920_128x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 890: uint8_t u8x8_d_st7920_144x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 891: uint8_t u8x8_d_st7920_160x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 892: uint8_t u8x8_d_st7920_192x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 893: uint8_t u8x8_d_st7920_256x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 894: uint8_t u8x8_d_st7920_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 895: uint8_t u8x8_d_ls013b7dh03_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 896: uint8_t u8x8_d_ls027b7dh01_400x240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 897: uint8_t u8x8_d_ls027b7dh01_m0_400x240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 898: uint8_t u8x8_d_ls013b7dh05_144x168(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 899: uint8_t u8x8_d_ls011b7dh03_160x68(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 900: uint8_t u8x8_d_st7511_avd_320x240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 901: uint8_t u8x8_d_st7511_640x320(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 902: uint8_t u8x8_d_st7528_nhd_c160100(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 903: uint8_t u8x8_d_st7528_erc16064(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 904: uint8_t u8x8_d_st7539_192x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 905: uint8_t u8x8_d_st7565_ea_dogm128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 906: uint8_t u8x8_d_st7565_lm6063(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 907: uint8_t u8x8_d_st7565_64128n(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 908: uint8_t u8x8_d_st7565_ea_dogm132(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 909: uint8_t u8x8_d_st7565_zolen_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 910: uint8_t u8x8_d_st7565_nhd_c12832(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 911: uint8_t u8x8_d_st7565_nhd_c12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 912: uint8_t u8x8_d_st7565_jlx12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 913: uint8_t u8x8_d_st7565_lm6059(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 914: uint8_t u8x8_d_st7565_ks0713(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 915: uint8_t u8x8_d_st7565_lx12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 916: uint8_t u8x8_d_st7565_erc12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 917: uint8_t u8x8_d_st7565_erc12864_alt(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 918: uint8_t u8x8_d_st7567_pi_132x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 919: uint8_t u8x8_d_st7567_jlx12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 920: uint8_t u8x8_d_st7567_122x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 921: uint8_t u8x8_d_st7567_enh_dg128064(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 922: uint8_t u8x8_d_st7567_enh_dg128064i(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 923: uint8_t u8x8_d_st7567_64x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 924: uint8_t u8x8_d_st7567_hem6432(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 925: uint8_t u8x8_d_st7567_os12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 926: uint8_t u8x8_d_st7567_erc13232(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 927: uint8_t u8x8_d_st7567_erc12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 928: uint8_t u8x8_d_st7567_lw12832(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 929: uint8_t u8x8_d_st7567_yxd12832(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 930: uint8_t u8x8_d_st7567_96x65(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 931: uint8_t u8x8_d_st7571_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 932: uint8_t u8x8_d_st7571_128x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 933: uint8_t u8x8_d_st7571_g12896(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 934: uint8_t u8x8_d_st7302_122x250(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 935: uint8_t u8x8_d_st7305_122x250(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 936: uint8_t u8x8_d_st7305_200x200(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 937: uint8_t u8x8_d_st7305_168x384(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 938: uint8_t u8x8_d_st7305_300x400(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 939: uint8_t u8x8_d_st7586s_s028hn118a(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 940: uint8_t u8x8_d_st7586s_jlx384160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 941: uint8_t u8x8_d_st7586s_erc240160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 942: uint8_t u8x8_d_st7586s_ymc240160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 943: uint8_t u8x8_d_st7586s_jlx320160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 944: uint8_t u8x8_d_st7586s_md240128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 945: uint8_t u8x8_d_st7586s_pe24064(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 946: uint8_t u8x8_d_st7588_jlx12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 947: uint8_t u8x8_d_st75160_jm16096(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 948: uint8_t u8x8_d_st75161_jlx160160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 949: uint8_t u8x8_d_st75256_jlx256128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 950: uint8_t u8x8_d_st75256_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 951: uint8_t u8x8_d_st75256_wo256x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 952: uint8_t u8x8_d_st75256_jlx256160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 953: uint8_t u8x8_d_st75256_jlx256160m(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 954: uint8_t u8x8_d_st75256_jlx256160_alt(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 955: uint8_t u8x8_d_st75256_jlx240160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 956: uint8_t u8x8_d_st75256_jlx25664(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 957: uint8_t u8x8_d_st75256_jlx172104(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 958: uint8_t u8x8_d_st75256_jlx19296(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 959: uint8_t u8x8_d_st75256_jlx16080(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 960: uint8_t u8x8_d_st75320_jlx320240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 961: uint8_t u8x8_d_nt7534_tg12864r(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 962: uint8_t u8x8_d_ld7032_60x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 963: uint8_t u8x8_d_ld7032_60x32_alt(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 964: uint8_t u8x8_d_ld7032_128x36(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 965: uint8_t u8x8_d_t6963_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 966: uint8_t u8x8_d_t6963_240x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 967: uint8_t u8x8_d_t6963_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 968: uint8_t u8x8_d_t6963_128x64_alt(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 969: uint8_t u8x8_d_t6963_160x80(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 970: uint8_t u8x8_d_t6963_256x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 971: uint8_t u8x8_d_t6963_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 972: uint8_t u8x8_d_t6963_128x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 973: uint8_t u8x8_d_ssd1316_128x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 974: uint8_t u8x8_d_ssd1316_96x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 975: uint8_t u8x8_d_ssd1317_96x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 976: uint8_t u8x8_d_ssd1318_128x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 977: uint8_t u8x8_d_ssd1318_128x96_xcp(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 978: uint8_t u8x8_d_ssd1320_160x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 979: uint8_t u8x8_d_ssd1320_160x132(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 980: uint8_t u8x8_d_ssd1320_160x80(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 981: uint8_t u8x8_d_ssd1320_128x72(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 982: uint8_t u8x8_d_ssd1322_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 983: uint8_t u8x8_d_ssd1322_topwin_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 984: uint8_t u8x8_d_ssd1322_nhd_256x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 985: uint8_t u8x8_d_ssd1322_zjy_256x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 986: uint8_t u8x8_d_ssd1322_nhd_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 987: uint8_t u8x8_d_ssd1362z_256x64_oel1m0033we(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 988: uint8_t u8x8_d_ssd1362_256x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 989: uint8_t u8x8_d_ssd1362_206x36(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 990: uint8_t u8x8_d_ssd1363_256x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 991: uint8_t u8x8_d_a2printer_384x240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 992: uint8_t u8x8_d_sed1330_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 993: uint8_t u8x8_d_sed1330_240x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 994: uint8_t u8x8_d_sed1330_256x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 995: uint8_t u8x8_d_sed1330_320x200(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 996: uint8_t u8x8_d_sed1330_320x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 997: uint8_t u8x8_d_ra8835_nhd_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 998: uint8_t u8x8_d_ra8835_320x240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 999: uint8_t u8x8_d_ra8835_320x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1000: uint8_t u8x8_d_ssd1325_nhd_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1001: uint8_t u8x8_d_ssd0323_os128064(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1002: uint8_t u8x8_d_ssd1327_ws_96x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1003: uint8_t u8x8_d_ssd1327_seeed_96x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1004: uint8_t u8x8_d_ssd1327_ea_w128128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1005: uint8_t u8x8_d_ssd1327_midas_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1006: uint8_t u8x8_d_ssd1327_zjy_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1007: uint8_t u8x8_d_ssd1327_ws_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1008: uint8_t u8x8_d_ssd1327_visionox_128x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1009: uint8_t u8x8_d_ssd1326_er_256x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1010: uint8_t u8x8_d_ssd1329_128x96_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1011: uint8_t u8x8_d_ssd1329_96x96_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1012: uint8_t u8x8_d_uc1601_128x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1013: uint8_t u8x8_d_uc1601_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1014: uint8_t u8x8_d_uc1604_jlx12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1015: uint8_t u8x8_d_uc1604_jlx19264(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1016: uint8_t u8x8_d_uc1608_erc24064(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1017: uint8_t u8x8_d_uc1608_dem240064(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1018: uint8_t u8x8_d_uc1608_erc240120(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1019: uint8_t u8x8_d_uc1608_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1020: uint8_t u8x8_d_uc1609_slg19264(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1021: uint8_t u8x8_d_uc1610_ea_dogxl160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1022: uint8_t u8x8_d_uc1611_ea_dogm240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1023: uint8_t u8x8_d_uc1611_ea_dogxl240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1024: uint8_t u8x8_d_uc1611_ew50850(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1025: uint8_t u8x8_d_uc1611_cg160160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1026: uint8_t u8x8_d_uc1617_jlx128128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1027: uint8_t u8x8_d_uc1611_ids4073(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1028: uint8_t u8x8_d_uc1628_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1029: uint8_t u8x8_d_uc1628_256x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1030: uint8_t u8x8_d_uc1628_256x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1031: uint8_t u8x8_d_uc1638_160x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1032: uint8_t u8x8_d_uc1638_192x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1033: uint8_t u8x8_d_uc1638_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1034: uint8_t u8x8_d_uc1698_160x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1035: uint8_t u8x8_d_uc1698_240x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1036: uint8_t u8x8_d_ks0108_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1037: uint8_t u8x8_d_ks0108_erm19264(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1038: uint8_t u8x8_d_t7932_150x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1039: uint8_t u8x8_d_hd44102_100x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1040: uint8_t u8x8_d_sbn1661_122x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1041: uint8_t u8x8_d_sed1520_122x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1042: uint8_t u8x8_d_sbn1661_80x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1043: uint8_t u8x8_d_pcd8544_84x48(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1044: uint8_t u8x8_d_pcf8812_96x65(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1045: uint8_t u8x8_d_pcf8812_101x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1046: uint8_t u8x8_d_hx1230_96x68(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1047: uint8_t u8x8_d_ssd1606_172x72(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1048: uint8_t u8x8_d_ssd1607_200x200(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1049: uint8_t u8x8_d_ssd1607_v2_200x200(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1050: uint8_t u8x8_d_ssd1607_gd_200x200(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1051: uint8_t u8x8_d_ssd1607_ws_200x200(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1052: uint8_t u8x8_d_il3820_296x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1053: uint8_t u8x8_d_il3820_v2_296x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1054: uint8_t u8x8_d_lc7981_160x80(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1055: uint8_t u8x8_d_lc7981_160x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1056: uint8_t u8x8_d_lc7981_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1057: uint8_t u8x8_d_lc7981_240x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1058: uint8_t u8x8_d_lc7981_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1059: uint8_t u8x8_d_ist3020_erc19264(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1060: uint8_t u8x8_d_ist3088_320x240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1061: uint8_t u8x8_d_ist7920_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1062: uint8_t u8x8_d_max7219_64x8(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1063: uint8_t u8x8_d_max7219_32x8(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1064: uint8_t u8x8_d_max7219_16x16(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1065: uint8_t u8x8_d_max7219_8x8(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1066: uint8_t u8x8_d_s1d15e06_160100(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1067: uint8_t u8x8_d_s1d15300_lm6023(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1068: uint8_t u8x8_d_s1d15300_97x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1069: uint8_t u8x8_d_s1d15300_100x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1070: uint8_t u8x8_d_s1d15300_100x32i(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1071: uint8_t u8x8_d_s1d15721_240x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1072: uint8_t u8x8_d_gu800_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1073: uint8_t u8x8_d_gu800_160x16(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1074: uint8_t u8x8_d_gp1287ai_256x50(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1075: uint8_t u8x8_d_gp1247ai_253x63(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1076: uint8_t u8x8_d_gp1294ai_256x48(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1077: uint8_t u8x8_d_ssd1315_128x64_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1083: uint16_t u8x8_upscale_byte(uint8_t x) ;
+[; ;u8x8.h: 1085: void u8x8_get_glyph_data(u8x8_t *u8x8, uint8_t encoding, uint8_t *buf, uint8_t tile_offset) ;
+[; ;u8x8.h: 1087: void u8x8_utf8_init(u8x8_t *u8x8);
+[; ;u8x8.h: 1088: uint16_t u8x8_ascii_next(u8x8_t *u8x8, uint8_t b);
+[; ;u8x8.h: 1089: uint16_t u8x8_utf8_next(u8x8_t *u8x8, uint8_t b);
+[; ;u8x8.h: 1094: void u8x8_SetFont(u8x8_t *u8x8, const uint8_t *font_8x8);
+[; ;u8x8.h: 1095: void u8x8_DrawGlyph(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t encoding);
+[; ;u8x8.h: 1096: void u8x8_Draw2x2Glyph(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t encoding);
+[; ;u8x8.h: 1097: void u8x8_Draw1x2Glyph(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t encoding);
+[; ;u8x8.h: 1098: uint8_t u8x8_DrawString(u8x8_t *u8x8, uint8_t x, uint8_t y, const char *s);
+[; ;u8x8.h: 1099: uint8_t u8x8_DrawUTF8(u8x8_t *u8x8, uint8_t x, uint8_t y, const char *s);
+[; ;u8x8.h: 1100: uint8_t u8x8_Draw2x2String(u8x8_t *u8x8, uint8_t x, uint8_t y, const char *s);
+[; ;u8x8.h: 1101: uint8_t u8x8_Draw2x2UTF8(u8x8_t *u8x8, uint8_t x, uint8_t y, const char *s);
+[; ;u8x8.h: 1102: uint8_t u8x8_Draw1x2String(u8x8_t *u8x8, uint8_t x, uint8_t y, const char *s);
+[; ;u8x8.h: 1103: uint8_t u8x8_Draw1x2UTF8(u8x8_t *u8x8, uint8_t x, uint8_t y, const char *s);
+[; ;u8x8.h: 1104: uint8_t u8x8_GetUTF8Len(u8x8_t *u8x8, const char *s);
+[; ;u8x8.h: 1109: const char *u8x8_u8toa(uint8_t v, uint8_t d);
+[; ;u8x8.h: 1110: const char *u8x8_s8toa(int8_t v, uint8_t d);
+[; ;u8x8.h: 1111: const char *u8x8_u8tox(uint8_t v, uint8_t d);
+[; ;u8x8.h: 1112: const char *u8x8_u16toa(uint16_t v, uint8_t d);
+[; ;u8x8.h: 1113: const char *u8x8_utoa(uint16_t v);
+[; ;u8x8.h: 1119: uint8_t u8x8_GetStringLineCnt(const char *str);
+[; ;u8x8.h: 1120: const char *u8x8_GetStringLineStart(uint8_t line_idx, const char *str );
+[; ;u8x8.h: 1121: void u8x8_CopyStringLine(char *dest, uint8_t line_idx, const char *str);
+[; ;u8x8.h: 1123: uint8_t u8x8_DrawUTF8Line(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t w, const char *s);
+[; ;u8x8.h: 1125: uint8_t u8x8_DrawUTF8Lines(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t w, const char *s);
+[; ;u8x8.h: 1130: struct _u8sl_struct
+[; ;u8x8.h: 1131: {
+[; ;u8x8.h: 1132: uint8_t visible;
+[; ;u8x8.h: 1133: uint8_t total;
+[; ;u8x8.h: 1134: uint8_t first_pos;
+[; ;u8x8.h: 1135: uint8_t current_pos;
+[; ;u8x8.h: 1137: uint8_t x;
+[; ;u8x8.h: 1138: uint8_t y;
+[; ;u8x8.h: 1139: };
+[; ;u8x8.h: 1140: typedef struct _u8sl_struct u8sl_t;
+[; ;u8x8.h: 1142: typedef void (*u8x8_sl_cb)(u8x8_t *u8x8, u8sl_t *u8sl, uint8_t idx, const void *aux);
+[; ;u8x8.h: 1144: void u8sl_Next(u8sl_t *u8sl);
+[; ;u8x8.h: 1145: void u8sl_Prev(u8sl_t *u8sl);
+[; ;u8x8.h: 1147: uint8_t u8x8_UserInterfaceSelectionList(u8x8_t *u8x8, const char *title, uint8_t start_pos, const char *sl);
+[; ;u8x8.h: 1152: uint8_t u8x8_UserInterfaceMessage(u8x8_t *u8x8, const char *title1, const char *title2, const char *title3, const char *buttons);
+[; ;u8x8.h: 1158: uint8_t u8x8_capture_get_pixel_1(uint16_t x, uint16_t y, uint8_t *dest_ptr, uint8_t tile_width);
+[; ;u8x8.h: 1162: uint8_t u8x8_capture_get_pixel_2(uint16_t x, uint16_t y, uint8_t *dest_ptr, uint8_t tile_width);
+[; ;u8x8.h: 1166: void u8x8_capture_write_pbm_pre(uint8_t tile_width, uint8_t tile_height, void (*out)(const char *s));
+[; ;u8x8.h: 1167: void u8x8_capture_write_pbm_buffer(uint8_t *buffer, uint8_t tile_width, uint8_t tile_height, uint8_t (*get_pixel)(uint16_t x, uint16_t y, uint8_t *dest_ptr, uint8_t tile_width), void (*out)(const char *s));
+[; ;u8x8.h: 1169: void u8x8_capture_write_xbm_pre(uint8_t tile_width, uint8_t tile_height, void (*out)(const char *s));
+[; ;u8x8.h: 1170: void u8x8_capture_write_xbm_buffer(uint8_t *buffer, uint8_t tile_width, uint8_t tile_height, uint8_t (*get_pixel)(uint16_t x, uint16_t y, uint8_t *dest_ptr, uint8_t tile_width), void (*out)(const char *s));
+[; ;u8x8.h: 1178: uint8_t u8x8_UserInterfaceInputValue(u8x8_t *u8x8, const char *title, const char *pre, uint8_t *value, uint8_t lo, uint8_t hi, uint8_t digits, const char *post);
+[; ;u8x8.h: 1182: void u8log_Init(u8log_t *u8log, uint8_t width, uint8_t height, uint8_t *buf);
+[; ;u8x8.h: 1183: void u8log_SetCallback(u8log_t *u8log, u8log_cb cb, void *aux_data);
+[; ;u8x8.h: 1184: void u8log_SetRedrawMode(u8log_t *u8log, uint8_t is_redraw_line_for_each_char);
+[; ;u8x8.h: 1185: void u8log_SetLineHeightOffset(u8log_t *u8log, int8_t line_height_offset);
+[; ;u8x8.h: 1186: void u8log_WriteString(u8log_t *u8log, const char *s) ;
+[; ;u8x8.h: 1187: void u8log_WriteChar(u8log_t *u8log, uint8_t c) ;
+[; ;u8x8.h: 1188: void u8log_WriteHex8(u8log_t *u8log, uint8_t b) ;
+[; ;u8x8.h: 1189: void u8log_WriteHex16(u8log_t *u8log, uint16_t v);
+[; ;u8x8.h: 1190: void u8log_WriteHex32(u8log_t *u8log, uint32_t v);
+[; ;u8x8.h: 1191: void u8log_WriteDec8(u8log_t *u8log, uint8_t v, uint8_t d);
+[; ;u8x8.h: 1192: void u8log_WriteDec16(u8log_t *u8log, uint16_t v, uint8_t d);
+[; ;u8x8.h: 1196: void u8x8_DrawLog(u8x8_t *u8x8, uint8_t x, uint8_t y, u8log_t *u8log);
+[; ;u8x8.h: 1197: void u8log_u8x8_cb(u8log_t * u8log);
+[; ;u8x8.h: 1202: extern const uint8_t u8x8_font_amstrad_cpc_extended_f[] ;
+[; ;u8x8.h: 1203: extern const uint8_t u8x8_font_amstrad_cpc_extended_r[] ;
+[; ;u8x8.h: 1204: extern const uint8_t u8x8_font_amstrad_cpc_extended_n[] ;
+[; ;u8x8.h: 1205: extern const uint8_t u8x8_font_amstrad_cpc_extended_u[] ;
+[; ;u8x8.h: 1206: extern const uint8_t u8x8_font_5x7_f[] ;
+[; ;u8x8.h: 1207: extern const uint8_t u8x8_font_5x7_r[] ;
+[; ;u8x8.h: 1208: extern const uint8_t u8x8_font_5x7_n[] ;
+[; ;u8x8.h: 1209: extern const uint8_t u8x8_font_5x8_f[] ;
+[; ;u8x8.h: 1210: extern const uint8_t u8x8_font_5x8_r[] ;
+[; ;u8x8.h: 1211: extern const uint8_t u8x8_font_5x8_n[] ;
+[; ;u8x8.h: 1212: extern const uint8_t u8x8_font_8x13_1x2_f[] ;
+[; ;u8x8.h: 1213: extern const uint8_t u8x8_font_8x13_1x2_r[] ;
+[; ;u8x8.h: 1214: extern const uint8_t u8x8_font_8x13_1x2_n[] ;
+[; ;u8x8.h: 1215: extern const uint8_t u8x8_font_8x13B_1x2_f[] ;
+[; ;u8x8.h: 1216: extern const uint8_t u8x8_font_8x13B_1x2_r[] ;
+[; ;u8x8.h: 1217: extern const uint8_t u8x8_font_8x13B_1x2_n[] ;
+[; ;u8x8.h: 1218: extern const uint8_t u8x8_font_7x14_1x2_f[] ;
+[; ;u8x8.h: 1219: extern const uint8_t u8x8_font_7x14_1x2_r[] ;
+[; ;u8x8.h: 1220: extern const uint8_t u8x8_font_7x14_1x2_n[] ;
+[; ;u8x8.h: 1221: extern const uint8_t u8x8_font_7x14B_1x2_f[] ;
+[; ;u8x8.h: 1222: extern const uint8_t u8x8_font_7x14B_1x2_r[] ;
+[; ;u8x8.h: 1223: extern const uint8_t u8x8_font_7x14B_1x2_n[] ;
+[; ;u8x8.h: 1224: extern const uint8_t u8x8_font_open_iconic_arrow_1x1[] ;
+[; ;u8x8.h: 1225: extern const uint8_t u8x8_font_open_iconic_check_1x1[] ;
+[; ;u8x8.h: 1226: extern const uint8_t u8x8_font_open_iconic_embedded_1x1[] ;
+[; ;u8x8.h: 1227: extern const uint8_t u8x8_font_open_iconic_play_1x1[] ;
+[; ;u8x8.h: 1228: extern const uint8_t u8x8_font_open_iconic_thing_1x1[] ;
+[; ;u8x8.h: 1229: extern const uint8_t u8x8_font_open_iconic_weather_1x1[] ;
+[; ;u8x8.h: 1230: extern const uint8_t u8x8_font_open_iconic_arrow_2x2[] ;
+[; ;u8x8.h: 1231: extern const uint8_t u8x8_font_open_iconic_check_2x2[] ;
+[; ;u8x8.h: 1232: extern const uint8_t u8x8_font_open_iconic_embedded_2x2[] ;
+[; ;u8x8.h: 1233: extern const uint8_t u8x8_font_open_iconic_play_2x2[] ;
+[; ;u8x8.h: 1234: extern const uint8_t u8x8_font_open_iconic_thing_2x2[] ;
+[; ;u8x8.h: 1235: extern const uint8_t u8x8_font_open_iconic_weather_2x2[] ;
+[; ;u8x8.h: 1236: extern const uint8_t u8x8_font_open_iconic_arrow_4x4[] ;
+[; ;u8x8.h: 1237: extern const uint8_t u8x8_font_open_iconic_check_4x4[] ;
+[; ;u8x8.h: 1238: extern const uint8_t u8x8_font_open_iconic_embedded_4x4[] ;
+[; ;u8x8.h: 1239: extern const uint8_t u8x8_font_open_iconic_play_4x4[] ;
+[; ;u8x8.h: 1240: extern const uint8_t u8x8_font_open_iconic_thing_4x4[] ;
+[; ;u8x8.h: 1241: extern const uint8_t u8x8_font_open_iconic_weather_4x4[] ;
+[; ;u8x8.h: 1242: extern const uint8_t u8x8_font_open_iconic_arrow_8x8[] ;
+[; ;u8x8.h: 1243: extern const uint8_t u8x8_font_open_iconic_check_8x8[] ;
+[; ;u8x8.h: 1244: extern const uint8_t u8x8_font_open_iconic_embedded_8x8[] ;
+[; ;u8x8.h: 1245: extern const uint8_t u8x8_font_open_iconic_play_8x8[] ;
+[; ;u8x8.h: 1246: extern const uint8_t u8x8_font_open_iconic_thing_8x8[] ;
+[; ;u8x8.h: 1247: extern const uint8_t u8x8_font_open_iconic_weather_8x8[] ;
+[; ;u8x8.h: 1248: extern const uint8_t u8x8_font_profont29_2x3_f[] ;
+[; ;u8x8.h: 1249: extern const uint8_t u8x8_font_profont29_2x3_r[] ;
+[; ;u8x8.h: 1250: extern const uint8_t u8x8_font_profont29_2x3_n[] ;
+[; ;u8x8.h: 1251: extern const uint8_t u8x8_font_artossans8_r[] ;
+[; ;u8x8.h: 1252: extern const uint8_t u8x8_font_artossans8_n[] ;
+[; ;u8x8.h: 1253: extern const uint8_t u8x8_font_artossans8_u[] ;
+[; ;u8x8.h: 1254: extern const uint8_t u8x8_font_artosserif8_r[] ;
+[; ;u8x8.h: 1255: extern const uint8_t u8x8_font_artosserif8_n[] ;
+[; ;u8x8.h: 1256: extern const uint8_t u8x8_font_artosserif8_u[] ;
+[; ;u8x8.h: 1257: extern const uint8_t u8x8_font_chroma48medium8_r[] ;
+[; ;u8x8.h: 1258: extern const uint8_t u8x8_font_chroma48medium8_n[] ;
+[; ;u8x8.h: 1259: extern const uint8_t u8x8_font_chroma48medium8_u[] ;
+[; ;u8x8.h: 1260: extern const uint8_t u8x8_font_saikyosansbold8_n[] ;
+[; ;u8x8.h: 1261: extern const uint8_t u8x8_font_saikyosansbold8_u[] ;
+[; ;u8x8.h: 1262: extern const uint8_t u8x8_font_torussansbold8_r[] ;
+[; ;u8x8.h: 1263: extern const uint8_t u8x8_font_torussansbold8_n[] ;
+[; ;u8x8.h: 1264: extern const uint8_t u8x8_font_torussansbold8_u[] ;
+[; ;u8x8.h: 1265: extern const uint8_t u8x8_font_victoriabold8_r[] ;
+[; ;u8x8.h: 1266: extern const uint8_t u8x8_font_victoriabold8_n[] ;
+[; ;u8x8.h: 1267: extern const uint8_t u8x8_font_victoriabold8_u[] ;
+[; ;u8x8.h: 1268: extern const uint8_t u8x8_font_victoriamedium8_r[] ;
+[; ;u8x8.h: 1269: extern const uint8_t u8x8_font_victoriamedium8_n[] ;
+[; ;u8x8.h: 1270: extern const uint8_t u8x8_font_victoriamedium8_u[] ;
+[; ;u8x8.h: 1271: extern const uint8_t u8x8_font_courB18_2x3_f[] ;
+[; ;u8x8.h: 1272: extern const uint8_t u8x8_font_courB18_2x3_r[] ;
+[; ;u8x8.h: 1273: extern const uint8_t u8x8_font_courB18_2x3_n[] ;
+[; ;u8x8.h: 1274: extern const uint8_t u8x8_font_courR18_2x3_f[] ;
+[; ;u8x8.h: 1275: extern const uint8_t u8x8_font_courR18_2x3_r[] ;
+[; ;u8x8.h: 1276: extern const uint8_t u8x8_font_courR18_2x3_n[] ;
+[; ;u8x8.h: 1277: extern const uint8_t u8x8_font_courB24_3x4_f[] ;
+[; ;u8x8.h: 1278: extern const uint8_t u8x8_font_courB24_3x4_r[] ;
+[; ;u8x8.h: 1279: extern const uint8_t u8x8_font_courB24_3x4_n[] ;
+[; ;u8x8.h: 1280: extern const uint8_t u8x8_font_courR24_3x4_f[] ;
+[; ;u8x8.h: 1281: extern const uint8_t u8x8_font_courR24_3x4_r[] ;
+[; ;u8x8.h: 1282: extern const uint8_t u8x8_font_courR24_3x4_n[] ;
+[; ;u8x8.h: 1283: extern const uint8_t u8x8_font_lucasarts_scumm_subtitle_o_2x2_f[] ;
+[; ;u8x8.h: 1284: extern const uint8_t u8x8_font_lucasarts_scumm_subtitle_o_2x2_r[] ;
+[; ;u8x8.h: 1285: extern const uint8_t u8x8_font_lucasarts_scumm_subtitle_o_2x2_n[] ;
+[; ;u8x8.h: 1286: extern const uint8_t u8x8_font_lucasarts_scumm_subtitle_r_2x2_f[] ;
+[; ;u8x8.h: 1287: extern const uint8_t u8x8_font_lucasarts_scumm_subtitle_r_2x2_r[] ;
+[; ;u8x8.h: 1288: extern const uint8_t u8x8_font_lucasarts_scumm_subtitle_r_2x2_n[] ;
+[; ;u8x8.h: 1289: extern const uint8_t u8x8_font_inr21_2x4_f[] ;
+[; ;u8x8.h: 1290: extern const uint8_t u8x8_font_inr21_2x4_r[] ;
+[; ;u8x8.h: 1291: extern const uint8_t u8x8_font_inr21_2x4_n[] ;
+[; ;u8x8.h: 1292: extern const uint8_t u8x8_font_inr33_3x6_f[] ;
+[; ;u8x8.h: 1293: extern const uint8_t u8x8_font_inr33_3x6_r[] ;
+[; ;u8x8.h: 1294: extern const uint8_t u8x8_font_inr33_3x6_n[] ;
+[; ;u8x8.h: 1295: extern const uint8_t u8x8_font_inr46_4x8_f[] ;
+[; ;u8x8.h: 1296: extern const uint8_t u8x8_font_inr46_4x8_r[] ;
+[; ;u8x8.h: 1297: extern const uint8_t u8x8_font_inr46_4x8_n[] ;
+[; ;u8x8.h: 1298: extern const uint8_t u8x8_font_inb21_2x4_f[] ;
+[; ;u8x8.h: 1299: extern const uint8_t u8x8_font_inb21_2x4_r[] ;
+[; ;u8x8.h: 1300: extern const uint8_t u8x8_font_inb21_2x4_n[] ;
+[; ;u8x8.h: 1301: extern const uint8_t u8x8_font_inb33_3x6_f[] ;
+[; ;u8x8.h: 1302: extern const uint8_t u8x8_font_inb33_3x6_r[] ;
+[; ;u8x8.h: 1303: extern const uint8_t u8x8_font_inb33_3x6_n[] ;
+[; ;u8x8.h: 1304: extern const uint8_t u8x8_font_inb46_4x8_f[] ;
+[; ;u8x8.h: 1305: extern const uint8_t u8x8_font_inb46_4x8_r[] ;
+[; ;u8x8.h: 1306: extern const uint8_t u8x8_font_inb46_4x8_n[] ;
+[; ;u8x8.h: 1307: extern const uint8_t u8x8_font_pressstart2p_f[] ;
+[; ;u8x8.h: 1308: extern const uint8_t u8x8_font_pressstart2p_r[] ;
+[; ;u8x8.h: 1309: extern const uint8_t u8x8_font_pressstart2p_n[] ;
+[; ;u8x8.h: 1310: extern const uint8_t u8x8_font_pressstart2p_u[] ;
+[; ;u8x8.h: 1311: extern const uint8_t u8x8_font_pcsenior_f[] ;
+[; ;u8x8.h: 1312: extern const uint8_t u8x8_font_pcsenior_r[] ;
+[; ;u8x8.h: 1313: extern const uint8_t u8x8_font_pcsenior_n[] ;
+[; ;u8x8.h: 1314: extern const uint8_t u8x8_font_pcsenior_u[] ;
+[; ;u8x8.h: 1315: extern const uint8_t u8x8_font_pxplusibmcgathin_f[] ;
+[; ;u8x8.h: 1316: extern const uint8_t u8x8_font_pxplusibmcgathin_r[] ;
+[; ;u8x8.h: 1317: extern const uint8_t u8x8_font_pxplusibmcgathin_n[] ;
+[; ;u8x8.h: 1318: extern const uint8_t u8x8_font_pxplusibmcgathin_u[] ;
+[; ;u8x8.h: 1319: extern const uint8_t u8x8_font_pxplusibmcga_f[] ;
+[; ;u8x8.h: 1320: extern const uint8_t u8x8_font_pxplusibmcga_r[] ;
+[; ;u8x8.h: 1321: extern const uint8_t u8x8_font_pxplusibmcga_n[] ;
+[; ;u8x8.h: 1322: extern const uint8_t u8x8_font_pxplusibmcga_u[] ;
+[; ;u8x8.h: 1323: extern const uint8_t u8x8_font_pxplustandynewtv_f[] ;
+[; ;u8x8.h: 1324: extern const uint8_t u8x8_font_pxplustandynewtv_r[] ;
+[; ;u8x8.h: 1325: extern const uint8_t u8x8_font_pxplustandynewtv_n[] ;
+[; ;u8x8.h: 1326: extern const uint8_t u8x8_font_pxplustandynewtv_u[] ;
+[; ;u8x8.h: 1327: extern const uint8_t u8x8_font_px437wyse700a_2x2_f[] ;
+[; ;u8x8.h: 1328: extern const uint8_t u8x8_font_px437wyse700a_2x2_r[] ;
+[; ;u8x8.h: 1329: extern const uint8_t u8x8_font_px437wyse700a_2x2_n[] ;
+[; ;u8x8.h: 1330: extern const uint8_t u8x8_font_px437wyse700b_2x2_f[] ;
+[; ;u8x8.h: 1331: extern const uint8_t u8x8_font_px437wyse700b_2x2_r[] ;
+[; ;u8x8.h: 1332: extern const uint8_t u8x8_font_px437wyse700b_2x2_n[] ;
+"40 ../../../../u8g2/csrc/u8x8_string.c
+[v _u8x8_GetStringLineCnt `(uc ~T0 @X0 1 ef1`*Cuc ]
+"41
+{
+[; ;u8x8_string.c: 40: uint8_t u8x8_GetStringLineCnt(const char *str)
+[; ;u8x8_string.c: 41: {
+[e :U _u8x8_GetStringLineCnt ]
+"40
+[v _str `*Cuc ~T0 @X0 1 r1 ]
+"41
+[f ]
+"42
+[v _e `uc ~T0 @X0 1 a ]
+"43
+[v _line_cnt `uc ~T0 @X0 1 a ]
+[; ;u8x8_string.c: 42: char e;
+[; ;u8x8_string.c: 43: uint8_t line_cnt = 1;
+[e = _line_cnt -> -> 1 `i `uc ]
+[; ;u8x8_string.c: 44: if ( str == (0) )
+"44
+[e $ ! == _str -> -> 0 `i `*Cuc 7  ]
+[; ;u8x8_string.c: 45: return 0;
+"45
+[e ) -> -> 0 `i `uc ]
+[e $UE 6  ]
+[e :U 7 ]
+[; ;u8x8_string.c: 46: for(;;)
+"46
+{
+"47
+[e :U 8 ]
+[; ;u8x8_string.c: 47: {
+{
+[; ;u8x8_string.c: 48: e = *str;
+"48
+[e = _e *U _str ]
+[; ;u8x8_string.c: 49: if ( e == '\0' )
+"49
+[e $ ! == -> _e `ui -> 0 `ui 11  ]
+[; ;u8x8_string.c: 50: break;
+"50
+[e $U 9  ]
+[e :U 11 ]
+[; ;u8x8_string.c: 51: str++;
+"51
+[e ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x ]
+[; ;u8x8_string.c: 52: if ( e == '\n' )
+"52
+[e $ ! == -> _e `ui -> 10 `ui 12  ]
+[; ;u8x8_string.c: 53: line_cnt++;
+"53
+[e ++ _line_cnt -> -> 1 `i `uc ]
+[e :U 12 ]
+"54
+}
+[; ;u8x8_string.c: 54: }
+[e $U 8  ]
+[e :U 9 ]
+}
+[; ;u8x8_string.c: 55: return line_cnt;
+"55
+[e ) _line_cnt ]
+[e $UE 6  ]
+[; ;u8x8_string.c: 56: }
+"56
+[e :UE 6 ]
+}
+"66
+[v _u8x8_GetStringLineStart `(*Cuc ~T0 @X0 1 ef2`uc`*Cuc ]
+"67
+{
+[; ;u8x8_string.c: 66: const char *u8x8_GetStringLineStart(uint8_t line_idx, const char *str )
+[; ;u8x8_string.c: 67: {
+[e :U _u8x8_GetStringLineStart ]
+"66
+[v _line_idx `uc ~T0 @X0 1 r1 ]
+[v _str `*Cuc ~T0 @X0 1 r2 ]
+"67
+[f ]
+"68
+[v _e `uc ~T0 @X0 1 a ]
+"69
+[v _line_cnt `uc ~T0 @X0 1 a ]
+[; ;u8x8_string.c: 68: char e;
+[; ;u8x8_string.c: 69: uint8_t line_cnt = 1;
+[e = _line_cnt -> -> 1 `i `uc ]
+[; ;u8x8_string.c: 71: if ( line_idx == 0 )
+"71
+[e $ ! == -> _line_idx `i -> 0 `i 14  ]
+[; ;u8x8_string.c: 72: return str;
+"72
+[e ) _str ]
+[e $UE 13  ]
+[e :U 14 ]
+[; ;u8x8_string.c: 74: for(;;)
+"74
+{
+"75
+[e :U 15 ]
+[; ;u8x8_string.c: 75: {
+{
+[; ;u8x8_string.c: 76: e = *str;
+"76
+[e = _e *U _str ]
+[; ;u8x8_string.c: 77: if ( e == '\0' )
+"77
+[e $ ! == -> _e `ui -> 0 `ui 18  ]
+[; ;u8x8_string.c: 78: break;
+"78
+[e $U 16  ]
+[e :U 18 ]
+[; ;u8x8_string.c: 79: str++;
+"79
+[e ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x ]
+[; ;u8x8_string.c: 80: if ( e == '\n' )
+"80
+[e $ ! == -> _e `ui -> 10 `ui 19  ]
+[; ;u8x8_string.c: 81: {
+"81
+{
+[; ;u8x8_string.c: 82: if ( line_cnt == line_idx )
+"82
+[e $ ! == -> _line_cnt `i -> _line_idx `i 20  ]
+[; ;u8x8_string.c: 83: return str;
+"83
+[e ) _str ]
+[e $UE 13  ]
+[e :U 20 ]
+[; ;u8x8_string.c: 84: line_cnt++;
+"84
+[e ++ _line_cnt -> -> 1 `i `uc ]
+"85
+}
+[e :U 19 ]
+"86
+}
+[; ;u8x8_string.c: 85: }
+[; ;u8x8_string.c: 86: }
+[e $U 15  ]
+[e :U 16 ]
+}
+[; ;u8x8_string.c: 87: return (0);
+"87
+[e ) -> -> 0 `i `*Cuc ]
+[e $UE 13  ]
+[; ;u8x8_string.c: 88: }
+"88
+[e :UE 13 ]
+}
+"93
+[v _u8x8_CopyStringLine `(v ~T0 @X0 1 ef3`*uc`uc`*Cuc ]
+"94
+{
+[; ;u8x8_string.c: 93: void u8x8_CopyStringLine(char *dest, uint8_t line_idx, const char *str)
+[; ;u8x8_string.c: 94: {
+[e :U _u8x8_CopyStringLine ]
+"93
+[v _dest `*uc ~T0 @X0 1 r1 ]
+[v _line_idx `uc ~T0 @X0 1 r2 ]
+[v _str `*Cuc ~T0 @X0 1 r3 ]
+"94
+[f ]
+[; ;u8x8_string.c: 95: if ( dest == (0) )
+"95
+[e $ ! == _dest -> -> 0 `i `*uc 22  ]
+[; ;u8x8_string.c: 96: return;
+"96
+[e $UE 21  ]
+[e :U 22 ]
+[; ;u8x8_string.c: 97: str = u8x8_GetStringLineStart( line_idx, str );
+"97
+[e = _str ( _u8x8_GetStringLineStart (2 , _line_idx _str ]
+[; ;u8x8_string.c: 98: if ( str != (0) )
+"98
+[e $ ! != _str -> -> 0 `i `*Cuc 23  ]
+[; ;u8x8_string.c: 99: {
+"99
+{
+[; ;u8x8_string.c: 100: for(;;)
+"100
+{
+"101
+[e :U 24 ]
+[; ;u8x8_string.c: 101: {
+{
+[; ;u8x8_string.c: 102: if ( *str == '\n' || *str == '\0' )
+"102
+[e $ ! || == -> *U _str `ui -> 10 `ui == -> *U _str `ui -> 0 `ui 27  ]
+[; ;u8x8_string.c: 103: break;
+"103
+[e $U 25  ]
+[e :U 27 ]
+[; ;u8x8_string.c: 104: *dest = *str;
+"104
+[e = *U _dest *U _str ]
+[; ;u8x8_string.c: 105: dest++;
+"105
+[e ++ _dest * -> -> 1 `i `x -> -> # *U _dest `i `x ]
+[; ;u8x8_string.c: 106: str++;
+"106
+[e ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x ]
+"107
+}
+[; ;u8x8_string.c: 107: }
+[e $U 24  ]
+[e :U 25 ]
+}
+"108
+}
+[e :U 23 ]
+[; ;u8x8_string.c: 108: }
+[; ;u8x8_string.c: 109: *dest = '\0';
+"109
+[e = *U _dest -> -> 0 `ui `uc ]
+[; ;u8x8_string.c: 110: }
+"110
+[e :UE 21 ]
+}
+"119
+[v _u8x8_DrawUTF8Line `(uc ~T0 @X0 1 ef5`*S1`uc`uc`uc`*Cuc ]
+"120
+{
+[; ;u8x8_string.c: 119: uint8_t u8x8_DrawUTF8Line(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t w, const char *s)
+[; ;u8x8_string.c: 120: {
+[e :U _u8x8_DrawUTF8Line ]
+"119
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _x `uc ~T0 @X0 1 r2 ]
+[v _y `uc ~T0 @X0 1 r3 ]
+[v _w `uc ~T0 @X0 1 r4 ]
+[v _s `*Cuc ~T0 @X0 1 r5 ]
+"120
+[f ]
+"121
+[v _d `uc ~T0 @X0 1 a ]
+[v _lw `uc ~T0 @X0 1 a ]
+"122
+[v _cx `uc ~T0 @X0 1 a ]
+[v _dx `uc ~T0 @X0 1 a ]
+[; ;u8x8_string.c: 121: uint8_t d, lw;
+[; ;u8x8_string.c: 122: uint8_t cx, dx;
+[; ;u8x8_string.c: 124: d = 0;
+"124
+[e = _d -> -> 0 `i `uc ]
+[; ;u8x8_string.c: 126: lw = u8x8_GetUTF8Len(u8x8, s);
+"126
+[e = _lw ( _u8x8_GetUTF8Len (2 , _u8x8 _s ]
+[; ;u8x8_string.c: 127: if ( lw < w )
+"127
+[e $ ! < -> _lw `i -> _w `i 29  ]
+[; ;u8x8_string.c: 128: {
+"128
+{
+[; ;u8x8_string.c: 129: d = w;
+"129
+[e = _d _w ]
+[; ;u8x8_string.c: 130: d -=lw;
+"130
+[e =- _d _lw ]
+[; ;u8x8_string.c: 131: d /= 2;
+"131
+[e =/ _d -> 2 `uc ]
+"132
+}
+[e :U 29 ]
+[; ;u8x8_string.c: 132: }
+[; ;u8x8_string.c: 134: cx = x;
+"134
+[e = _cx _x ]
+[; ;u8x8_string.c: 135: dx = cx + d;
+"135
+[e = _dx -> + -> _cx `i -> _d `i `uc ]
+[; ;u8x8_string.c: 136: while( cx < dx )
+"136
+[e $U 30  ]
+[e :U 31 ]
+[; ;u8x8_string.c: 137: {
+"137
+{
+[; ;u8x8_string.c: 138: u8x8_DrawUTF8(u8x8, cx, y, " ");
+"138
+[e ( _u8x8_DrawUTF8 (4 , , , _u8x8 _cx _y :s 1C ]
+[; ;u8x8_string.c: 139: cx++;
+"139
+[e ++ _cx -> -> 1 `i `uc ]
+"140
+}
+[e :U 30 ]
+"136
+[e $ < -> _cx `i -> _dx `i 31  ]
+[e :U 32 ]
+[; ;u8x8_string.c: 140: }
+[; ;u8x8_string.c: 141: cx += u8x8_DrawUTF8(u8x8, cx, y, s);
+"141
+[e =+ _cx ( _u8x8_DrawUTF8 (4 , , , _u8x8 _cx _y _s ]
+[; ;u8x8_string.c: 142: dx = x + w;
+"142
+[e = _dx -> + -> _x `i -> _w `i `uc ]
+[; ;u8x8_string.c: 143: while( cx < dx )
+"143
+[e $U 33  ]
+[e :U 34 ]
+[; ;u8x8_string.c: 144: {
+"144
+{
+[; ;u8x8_string.c: 145: u8x8_DrawUTF8(u8x8, cx, y, " ");
+"145
+[e ( _u8x8_DrawUTF8 (4 , , , _u8x8 _cx _y :s 2C ]
+[; ;u8x8_string.c: 146: cx++;
+"146
+[e ++ _cx -> -> 1 `i `uc ]
+"147
+}
+[e :U 33 ]
+"143
+[e $ < -> _cx `i -> _dx `i 34  ]
+[e :U 35 ]
+[; ;u8x8_string.c: 147: }
+[; ;u8x8_string.c: 148: cx -= x;
+"148
+[e =- _cx _x ]
+[; ;u8x8_string.c: 149: return cx;
+"149
+[e ) _cx ]
+[e $UE 28  ]
+[; ;u8x8_string.c: 150: }
+"150
+[e :UE 28 ]
+}
+"159
+[v _u8x8_DrawUTF8Lines `(uc ~T0 @X0 1 ef5`*S1`uc`uc`uc`*Cuc ]
+"160
+{
+[; ;u8x8_string.c: 159: uint8_t u8x8_DrawUTF8Lines(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t w, const char *s)
+[; ;u8x8_string.c: 160: {
+[e :U _u8x8_DrawUTF8Lines ]
+"159
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _x `uc ~T0 @X0 1 r2 ]
+[v _y `uc ~T0 @X0 1 r3 ]
+[v _w `uc ~T0 @X0 1 r4 ]
+[v _s `*Cuc ~T0 @X0 1 r5 ]
+"160
+[f ]
+"161
+[v _i `uc ~T0 @X0 1 a ]
+"162
+[v _cnt `uc ~T0 @X0 1 a ]
+[; ;u8x8_string.c: 161: uint8_t i;
+[; ;u8x8_string.c: 162: uint8_t cnt;
+[; ;u8x8_string.c: 163: cnt = u8x8_GetStringLineCnt(s);
+"163
+[e = _cnt ( _u8x8_GetStringLineCnt (1 _s ]
+[; ;u8x8_string.c: 164: for( i = 0; i < cnt; i++ )
+"164
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 40  ]
+"165
+[e :U 37 ]
+[; ;u8x8_string.c: 165: {
+{
+[; ;u8x8_string.c: 166: u8x8_DrawUTF8Line(u8x8, x, y, w, u8x8_GetStringLineStart(i, s));
+"166
+[e ( _u8x8_DrawUTF8Line (4 , , , , _u8x8 _x _y _w ( _u8x8_GetStringLineStart (2 , _i _s ]
+[; ;u8x8_string.c: 167: y++;
+"167
+[e ++ _y -> -> 1 `i `uc ]
+"168
+}
+"164
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 40 ]
+[e $ < -> _i `i -> _cnt `i 37  ]
+[e :U 38 ]
+"168
+}
+[; ;u8x8_string.c: 168: }
+[; ;u8x8_string.c: 169: return cnt;
+"169
+[e ) _cnt ]
+[e $UE 36  ]
+[; ;u8x8_string.c: 170: }
+"170
+[e :UE 36 ]
+}
+[a 1C 32 0 ]
+[a 2C 32 0 ]

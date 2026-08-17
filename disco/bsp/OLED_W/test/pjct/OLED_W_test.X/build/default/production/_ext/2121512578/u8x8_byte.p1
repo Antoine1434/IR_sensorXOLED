@@ -1,0 +1,2322 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"237 ../../../../u8g2/csrc/u8x8.h
+[s S2 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ul 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 ]
+[n S2 u8x8_display_info_struct chip_enable_level chip_disable_level post_chip_enable_wait_ns pre_chip_disable_wait_ns reset_pulse_width_ms post_reset_wait_ms sda_setup_time_ns sck_pulse_width_ns sck_clock_hz spi_mode i2c_bus_clock_100kHz data_setup_time_ns write_pulse_width_ns tile_width tile_height default_x_offset flipmode_x_offset pixel_width pixel_height ]
+[v F49 `(ui ~T0 @X0 0 tf2`*S1`uc ]
+[v F43 `(uc ~T0 @X0 0 tf4`*S1`uc`uc`*v ]
+"342
+[s S1 `*CS2 1 `*F49 1 `*F43 1 `*F43 1 `*F43 1 `*F43 1 `ul 1 `*Cuc 1 `ui 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S1 u8x8_struct display_info next_cb display_cb cad_cb byte_cb gpio_and_delay_cb bus_clock font encoding x_offset is_font_inverse_mode i2c_address i2c_started utf8_state gpio_result debounce_default_pin_state debounce_last_pin_state debounce_state debounce_result_msg ]
+"786
+[v _u8x8_gpio_call `(v ~T0 @X0 0 ef3`*S1`uc`uc ]
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef __int24 int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 52: typedef unsigned char uint8_t;
+[; ;stdint.h: 58: typedef unsigned int uint16_t;
+[; ;stdint.h: 65: typedef __uint24 uint24_t;
+[; ;stdint.h: 72: typedef unsigned long int uint32_t;
+[; ;stdint.h: 88: typedef signed char int_least8_t;
+[; ;stdint.h: 96: typedef signed int int_least16_t;
+[; ;stdint.h: 109: typedef __int24 int_least24_t;
+[; ;stdint.h: 118: typedef signed long int int_least32_t;
+[; ;stdint.h: 136: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 143: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 154: typedef __uint24 uint_least24_t;
+[; ;stdint.h: 162: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 181: typedef signed char int_fast8_t;
+[; ;stdint.h: 188: typedef signed int int_fast16_t;
+[; ;stdint.h: 200: typedef __int24 int_fast24_t;
+[; ;stdint.h: 208: typedef signed long int int_fast32_t;
+[; ;stdint.h: 224: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 230: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 240: typedef __uint24 uint_fast24_t;
+[; ;stdint.h: 247: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 268: typedef int32_t intmax_t;
+[; ;stdint.h: 282: typedef uint32_t uintmax_t;
+[; ;stdint.h: 289: typedef int16_t intptr_t;
+[; ;stdint.h: 294: typedef uint16_t uintptr_t;
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stddef.h: 6: typedef int ptrdiff_t;
+[; ;u8x8.h: 211: typedef struct u8x8_struct u8x8_t;
+[; ;u8x8.h: 212: typedef struct u8x8_display_info_struct u8x8_display_info_t;
+[; ;u8x8.h: 213: typedef struct u8x8_tile_struct u8x8_tile_t;
+[; ;u8x8.h: 215: typedef uint8_t (*u8x8_msg_cb)(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 216: typedef uint16_t (*u8x8_char_cb)(u8x8_t *u8x8, uint8_t b);
+[; ;u8x8.h: 228: struct u8x8_tile_struct
+[; ;u8x8.h: 229: {
+[; ;u8x8.h: 230: uint8_t *tile_ptr;
+[; ;u8x8.h: 231: uint8_t cnt;
+[; ;u8x8.h: 232: uint8_t x_pos;
+[; ;u8x8.h: 233: uint8_t y_pos;
+[; ;u8x8.h: 234: };
+[; ;u8x8.h: 237: struct u8x8_display_info_struct
+[; ;u8x8.h: 238: {
+[; ;u8x8.h: 241: uint8_t chip_enable_level;
+[; ;u8x8.h: 242: uint8_t chip_disable_level;
+[; ;u8x8.h: 244: uint8_t post_chip_enable_wait_ns;
+[; ;u8x8.h: 245: uint8_t pre_chip_disable_wait_ns;
+[; ;u8x8.h: 246: uint8_t reset_pulse_width_ms;
+[; ;u8x8.h: 247: uint8_t post_reset_wait_ms;
+[; ;u8x8.h: 254: uint8_t sda_setup_time_ns;
+[; ;u8x8.h: 258: uint8_t sck_pulse_width_ns;
+[; ;u8x8.h: 261: uint32_t sck_clock_hz;
+[; ;u8x8.h: 271: uint8_t spi_mode;
+[; ;u8x8.h: 274: uint8_t i2c_bus_clock_100kHz;
+[; ;u8x8.h: 280: uint8_t data_setup_time_ns;
+[; ;u8x8.h: 282: uint8_t write_pulse_width_ns;
+[; ;u8x8.h: 285: uint8_t tile_width;
+[; ;u8x8.h: 286: uint8_t tile_height;
+[; ;u8x8.h: 288: uint8_t default_x_offset;
+[; ;u8x8.h: 289: uint8_t flipmode_x_offset;
+[; ;u8x8.h: 297: uint16_t pixel_width;
+[; ;u8x8.h: 298: uint16_t pixel_height;
+[; ;u8x8.h: 299: };
+[; ;u8x8.h: 342: struct u8x8_struct
+[; ;u8x8.h: 343: {
+[; ;u8x8.h: 344: const u8x8_display_info_t *display_info;
+[; ;u8x8.h: 345: u8x8_char_cb next_cb;
+[; ;u8x8.h: 346: u8x8_msg_cb display_cb;
+[; ;u8x8.h: 347: u8x8_msg_cb cad_cb;
+[; ;u8x8.h: 348: u8x8_msg_cb byte_cb;
+[; ;u8x8.h: 349: u8x8_msg_cb gpio_and_delay_cb;
+[; ;u8x8.h: 350: uint32_t bus_clock;
+[; ;u8x8.h: 351: const uint8_t *font;
+[; ;u8x8.h: 352: uint16_t encoding;
+[; ;u8x8.h: 353: uint8_t x_offset;
+[; ;u8x8.h: 354: uint8_t is_font_inverse_mode;
+[; ;u8x8.h: 355: uint8_t i2c_address;
+[; ;u8x8.h: 358: uint8_t i2c_started;
+[; ;u8x8.h: 360: uint8_t utf8_state;
+[; ;u8x8.h: 361: uint8_t gpio_result;
+[; ;u8x8.h: 362: uint8_t debounce_default_pin_state;
+[; ;u8x8.h: 363: uint8_t debounce_last_pin_state;
+[; ;u8x8.h: 364: uint8_t debounce_state;
+[; ;u8x8.h: 365: uint8_t debounce_result_msg;
+[; ;u8x8.h: 372: };
+[; ;u8x8.h: 407: typedef struct u8log_struct u8log_t;
+[; ;u8x8.h: 411: typedef void (*u8log_cb)(u8log_t * u8log);
+[; ;u8x8.h: 413: struct u8log_struct
+[; ;u8x8.h: 414: {
+[; ;u8x8.h: 416: void *aux_data;
+[; ;u8x8.h: 417: uint8_t width, height;
+[; ;u8x8.h: 418: u8log_cb cb;
+[; ;u8x8.h: 419: uint8_t *screen_buffer;
+[; ;u8x8.h: 420: uint8_t is_redraw_line_for_each_char;
+[; ;u8x8.h: 421: int8_t line_height_offset;
+[; ;u8x8.h: 425: uint8_t cursor_x, cursor_y;
+[; ;u8x8.h: 426: uint8_t redraw_line;
+[; ;u8x8.h: 427: uint8_t is_redraw_line;
+[; ;u8x8.h: 428: uint8_t is_redraw_all;
+[; ;u8x8.h: 429: uint8_t is_redraw_all_required_for_next_nl;
+[; ;u8x8.h: 430: };
+[; ;u8x8.h: 436: void u8x8_d_helper_display_setup_memory(u8x8_t *u8x8, const u8x8_display_info_t *display_info);
+[; ;u8x8.h: 437: void u8x8_d_helper_display_init(u8x8_t *u8g2);
+[; ;u8x8.h: 539: uint8_t u8x8_dummy_cb(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 547: void u8x8_SetupDefaults(u8x8_t *u8x8);
+[; ;u8x8.h: 549: void u8x8_Setup(u8x8_t *u8x8, u8x8_msg_cb display_cb, u8x8_msg_cb cad_cb, u8x8_msg_cb byte_cb, u8x8_msg_cb gpio_and_delay_cb);
+[; ;u8x8.h: 553: uint8_t u8x8_DrawTile(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t cnt, uint8_t *tile_ptr);
+[; ;u8x8.h: 561: void u8x8_SetupMemory(u8x8_t *u8x8);
+[; ;u8x8.h: 569: void u8x8_InitInterface(u8x8_t *u8x8);
+[; ;u8x8.h: 577: void u8x8_InitDisplay(u8x8_t *u8x8);
+[; ;u8x8.h: 579: void u8x8_SetPowerSave(u8x8_t *u8x8, uint8_t is_enable);
+[; ;u8x8.h: 580: void u8x8_SetFlipMode(u8x8_t *u8x8, uint8_t mode);
+[; ;u8x8.h: 581: void u8x8_SetContrast(u8x8_t *u8x8, uint8_t value);
+[; ;u8x8.h: 582: void u8x8_ClearDisplayWithTile(u8x8_t *u8x8, const uint8_t *buf) ;
+[; ;u8x8.h: 583: void u8x8_ClearDisplay(u8x8_t *u8x8);
+[; ;u8x8.h: 584: void u8x8_FillDisplay(u8x8_t *u8x8);
+[; ;u8x8.h: 585: void u8x8_RefreshDisplay(u8x8_t *u8x8);
+[; ;u8x8.h: 586: void u8x8_ClearLine(u8x8_t *u8x8, uint8_t line);
+[; ;u8x8.h: 621: uint8_t u8x8_cad_SendCmd(u8x8_t *u8x8, uint8_t cmd) ;
+[; ;u8x8.h: 622: uint8_t u8x8_cad_SendArg(u8x8_t *u8x8, uint8_t arg) ;
+[; ;u8x8.h: 623: uint8_t u8x8_cad_SendMultipleArg(u8x8_t *u8x8, uint8_t cnt, uint8_t arg) ;
+[; ;u8x8.h: 624: uint8_t u8x8_cad_SendData(u8x8_t *u8x8, uint8_t cnt, uint8_t *data) ;
+[; ;u8x8.h: 625: uint8_t u8x8_cad_StartTransfer(u8x8_t *u8x8) ;
+[; ;u8x8.h: 626: uint8_t u8x8_cad_EndTransfer(u8x8_t *u8x8) ;
+[; ;u8x8.h: 627: void u8x8_cad_vsendf(u8x8_t * u8x8, const char *fmt, va_list va);
+[; ;u8x8.h: 628: void u8x8_SendF(u8x8_t * u8x8, const char *fmt, ...);
+[; ;u8x8.h: 658: void u8x8_cad_SendSequence(u8x8_t *u8x8, uint8_t const *data);
+[; ;u8x8.h: 659: uint8_t u8x8_cad_empty(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 660: uint8_t u8x8_cad_110(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 661: uint8_t u8x8_gu800_cad_110(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 662: uint8_t u8x8_cad_001(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 663: uint8_t u8x8_cad_011(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 664: uint8_t u8x8_cad_100(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 665: uint8_t u8x8_cad_st7920_spi(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 666: uint8_t u8x8_cad_ssd13xx_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 667: uint8_t u8x8_cad_011_ssd13xx_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 668: uint8_t u8x8_cad_ssd13xx_fast_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 669: uint8_t u8x8_cad_st75256_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 670: uint8_t u8x8_cad_ld7032_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 671: uint8_t u8x8_cad_uc16xx_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 672: uint8_t u8x8_cad_uc1638_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 690: uint8_t u8x8_byte_SetDC(u8x8_t *u8x8, uint8_t dc) ;
+[; ;u8x8.h: 691: uint8_t u8x8_byte_SendByte(u8x8_t *u8x8, uint8_t byte) ;
+[; ;u8x8.h: 692: uint8_t u8x8_byte_SendBytes(u8x8_t *u8x8, uint8_t cnt, uint8_t *data) ;
+[; ;u8x8.h: 693: uint8_t u8x8_byte_StartTransfer(u8x8_t *u8x8);
+[; ;u8x8.h: 694: uint8_t u8x8_byte_EndTransfer(u8x8_t *u8x8);
+[; ;u8x8.h: 696: uint8_t u8x8_byte_empty(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 697: uint8_t u8x8_byte_4wire_sw_spi(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 698: uint8_t u8x8_byte_8bit_6800mode(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 699: uint8_t u8x8_byte_8bit_8080mode(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 700: uint8_t u8x8_byte_3wire_sw_spi(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 702: void u8x8_byte_set_ks0108_cs(u8x8_t *u8x8, uint8_t arg) ;
+[; ;u8x8.h: 703: uint8_t u8x8_byte_ks0108(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 704: uint8_t u8x8_byte_ssd13xx_sw_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 705: uint8_t u8x8_byte_sw_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 706: uint8_t u8x8_byte_sed1520(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 786: void u8x8_gpio_call(u8x8_t *u8x8, uint8_t msg, uint8_t arg) ;
+[; ;u8x8.h: 795: uint8_t u8x8_GetMenuEvent(u8x8_t *u8x8);
+[; ;u8x8.h: 799: void u8x8_SetupStdio(u8x8_t *u8x8);
+[; ;u8x8.h: 803: void u8x8_Setup_SDL_128x64(u8x8_t *u8x8);
+[; ;u8x8.h: 804: void u8x8_Setup_SDL_240x160(u8x8_t *u8x8);
+[; ;u8x8.h: 805: void u8x8_Setup_SDL_256x128(u8x8_t *u8x8);
+[; ;u8x8.h: 806: int u8g_sdl_get_key(void);
+[; ;u8x8.h: 810: void u8x8_Setup_TGA_DESC(u8x8_t *u8x8);
+[; ;u8x8.h: 811: void u8x8_Setup_TGA_LCD(u8x8_t *u8x8);
+[; ;u8x8.h: 812: void tga_save(const char *name);
+[; ;u8x8.h: 816: uint8_t u8x8_GetBitmapPixel(u8x8_t *u8x8, uint16_t x, uint16_t y);
+[; ;u8x8.h: 817: void u8x8_SaveBitmapTGA(u8x8_t *u8x8, const char *filename);
+[; ;u8x8.h: 818: void u8x8_SetupBitmap(u8x8_t *u8x8, uint16_t pixel_width, uint16_t pixel_height);
+[; ;u8x8.h: 819: uint8_t u8x8_ConnectBitmapToU8x8(u8x8_t *u8x8);
+[; ;u8x8.h: 823: void u8x8_SetupLinuxFb(u8x8_t *u8x8, int fbfd);
+[; ;u8x8.h: 824: void u8x8_LinuxFbSetActiveColor(uint32_t color);
+[; ;u8x8.h: 828: void u8x8_Setup_Utf8(u8x8_t *u8x8);
+[; ;u8x8.h: 829: void utf8_show(void);
+[; ;u8x8.h: 835: uint8_t u8x8_d_null_cb(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 838: uint8_t u8x8_d_uc1701_ea_dogs102(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 839: uint8_t u8x8_d_uc1701_mini12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 840: uint8_t u8x8_d_ssd1305_128x32_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 841: uint8_t u8x8_d_ssd1305_128x32_adafruit(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 843: uint8_t u8x8_d_ssd1305_128x64_adafruit(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 844: uint8_t u8x8_d_ssd1305_128x64_raystar(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 845: uint8_t u8x8_d_ssd1306_128x64_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 846: uint8_t u8x8_d_ssd1306_128x64_vcomh0(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 847: uint8_t u8x8_d_ssd1306_128x64_alt0(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 848: uint8_t u8x8_d_ssd1309_128x64_noname0(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 850: uint8_t u8x8_d_ssd1309_128x128_noname0(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 852: uint8_t u8x8_d_ssd1309_128x64_noname2(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 854: uint8_t u8x8_d_ssd1312_128x64_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 855: uint8_t u8x8_d_ssd1312_128x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 856: uint8_t u8x8_d_ssd1312_120x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 857: uint8_t u8x8_d_ssd1312_120x28(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 859: uint8_t u8x8_d_ssd1306_2040x16(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 860: uint8_t u8x8_d_ssd1306_128x32_univision(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 861: uint8_t u8x8_d_ssd1306_128x32_winstar(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 862: uint8_t u8x8_d_ssd1306_102x64_ea_oleds102(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 863: uint8_t u8x8_d_ssd1306_64x48_er(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 864: uint8_t u8x8_d_ssd1306_48x64_winstar(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 865: uint8_t u8x8_d_ssd1306_64x32_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 866: uint8_t u8x8_d_ssd1306_64x32_1f(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 867: uint8_t u8x8_d_ssd1306_96x16_er(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 868: uint8_t u8x8_d_ssd1306_96x40(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 869: uint8_t u8x8_d_ssd1306_96x39(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 870: uint8_t u8x8_d_ssd1306_72x40_er(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 871: uint8_t u8x8_d_sh1106_128x64_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 872: uint8_t u8x8_d_sh1106_128x64_vcomh0(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 873: uint8_t u8x8_d_sh1106_128x64_winstar(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 874: uint8_t u8x8_d_sh1106_128x32_visionox(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 875: uint8_t u8x8_d_sh1106_72x40_wise(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 876: uint8_t u8x8_d_sh1106_64x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 877: uint8_t u8x8_d_sh1107_64x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 878: uint8_t u8x8_d_sh1107_seeed_96x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 879: uint8_t u8x8_d_sh1107_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 880: uint8_t u8x8_d_sh1107_128x80(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 881: uint8_t u8x8_d_sh1107_pimoroni_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 882: uint8_t u8x8_d_sh1107_seeed_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 883: uint8_t u8x8_d_sh1107_hjr_oel1m0201_96x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 884: uint8_t u8x8_d_sh1107_tk078f288_80x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 885: uint8_t u8x8_d_sh1108_128x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 886: uint8_t u8x8_d_sh1108_160x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 887: uint8_t u8x8_d_ch1120_128x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 888: uint8_t u8x8_d_sh1122_256x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 889: uint8_t u8x8_d_st7920_128x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 890: uint8_t u8x8_d_st7920_144x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 891: uint8_t u8x8_d_st7920_160x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 892: uint8_t u8x8_d_st7920_192x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 893: uint8_t u8x8_d_st7920_256x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 894: uint8_t u8x8_d_st7920_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 895: uint8_t u8x8_d_ls013b7dh03_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 896: uint8_t u8x8_d_ls027b7dh01_400x240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 897: uint8_t u8x8_d_ls027b7dh01_m0_400x240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 898: uint8_t u8x8_d_ls013b7dh05_144x168(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 899: uint8_t u8x8_d_ls011b7dh03_160x68(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 900: uint8_t u8x8_d_st7511_avd_320x240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 901: uint8_t u8x8_d_st7511_640x320(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 902: uint8_t u8x8_d_st7528_nhd_c160100(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 903: uint8_t u8x8_d_st7528_erc16064(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 904: uint8_t u8x8_d_st7539_192x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 905: uint8_t u8x8_d_st7565_ea_dogm128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 906: uint8_t u8x8_d_st7565_lm6063(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 907: uint8_t u8x8_d_st7565_64128n(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 908: uint8_t u8x8_d_st7565_ea_dogm132(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 909: uint8_t u8x8_d_st7565_zolen_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 910: uint8_t u8x8_d_st7565_nhd_c12832(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 911: uint8_t u8x8_d_st7565_nhd_c12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 912: uint8_t u8x8_d_st7565_jlx12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 913: uint8_t u8x8_d_st7565_lm6059(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 914: uint8_t u8x8_d_st7565_ks0713(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 915: uint8_t u8x8_d_st7565_lx12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 916: uint8_t u8x8_d_st7565_erc12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 917: uint8_t u8x8_d_st7565_erc12864_alt(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 918: uint8_t u8x8_d_st7567_pi_132x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 919: uint8_t u8x8_d_st7567_jlx12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 920: uint8_t u8x8_d_st7567_122x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 921: uint8_t u8x8_d_st7567_enh_dg128064(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 922: uint8_t u8x8_d_st7567_enh_dg128064i(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 923: uint8_t u8x8_d_st7567_64x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 924: uint8_t u8x8_d_st7567_hem6432(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 925: uint8_t u8x8_d_st7567_os12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 926: uint8_t u8x8_d_st7567_erc13232(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 927: uint8_t u8x8_d_st7567_erc12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 928: uint8_t u8x8_d_st7567_lw12832(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 929: uint8_t u8x8_d_st7567_yxd12832(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 930: uint8_t u8x8_d_st7567_96x65(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 931: uint8_t u8x8_d_st7571_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 932: uint8_t u8x8_d_st7571_128x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 933: uint8_t u8x8_d_st7571_g12896(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 934: uint8_t u8x8_d_st7302_122x250(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 935: uint8_t u8x8_d_st7305_122x250(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 936: uint8_t u8x8_d_st7305_200x200(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 937: uint8_t u8x8_d_st7305_168x384(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 938: uint8_t u8x8_d_st7305_300x400(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 939: uint8_t u8x8_d_st7586s_s028hn118a(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 940: uint8_t u8x8_d_st7586s_jlx384160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 941: uint8_t u8x8_d_st7586s_erc240160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 942: uint8_t u8x8_d_st7586s_ymc240160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 943: uint8_t u8x8_d_st7586s_jlx320160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 944: uint8_t u8x8_d_st7586s_md240128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 945: uint8_t u8x8_d_st7586s_pe24064(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 946: uint8_t u8x8_d_st7588_jlx12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 947: uint8_t u8x8_d_st75160_jm16096(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 948: uint8_t u8x8_d_st75161_jlx160160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 949: uint8_t u8x8_d_st75256_jlx256128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 950: uint8_t u8x8_d_st75256_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 951: uint8_t u8x8_d_st75256_wo256x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 952: uint8_t u8x8_d_st75256_jlx256160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 953: uint8_t u8x8_d_st75256_jlx256160m(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 954: uint8_t u8x8_d_st75256_jlx256160_alt(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 955: uint8_t u8x8_d_st75256_jlx240160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 956: uint8_t u8x8_d_st75256_jlx25664(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 957: uint8_t u8x8_d_st75256_jlx172104(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 958: uint8_t u8x8_d_st75256_jlx19296(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 959: uint8_t u8x8_d_st75256_jlx16080(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 960: uint8_t u8x8_d_st75320_jlx320240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 961: uint8_t u8x8_d_nt7534_tg12864r(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 962: uint8_t u8x8_d_ld7032_60x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 963: uint8_t u8x8_d_ld7032_60x32_alt(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 964: uint8_t u8x8_d_ld7032_128x36(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 965: uint8_t u8x8_d_t6963_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 966: uint8_t u8x8_d_t6963_240x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 967: uint8_t u8x8_d_t6963_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 968: uint8_t u8x8_d_t6963_128x64_alt(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 969: uint8_t u8x8_d_t6963_160x80(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 970: uint8_t u8x8_d_t6963_256x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 971: uint8_t u8x8_d_t6963_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 972: uint8_t u8x8_d_t6963_128x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 973: uint8_t u8x8_d_ssd1316_128x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 974: uint8_t u8x8_d_ssd1316_96x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 975: uint8_t u8x8_d_ssd1317_96x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 976: uint8_t u8x8_d_ssd1318_128x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 977: uint8_t u8x8_d_ssd1318_128x96_xcp(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 978: uint8_t u8x8_d_ssd1320_160x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 979: uint8_t u8x8_d_ssd1320_160x132(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 980: uint8_t u8x8_d_ssd1320_160x80(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 981: uint8_t u8x8_d_ssd1320_128x72(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 982: uint8_t u8x8_d_ssd1322_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 983: uint8_t u8x8_d_ssd1322_topwin_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 984: uint8_t u8x8_d_ssd1322_nhd_256x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 985: uint8_t u8x8_d_ssd1322_zjy_256x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 986: uint8_t u8x8_d_ssd1322_nhd_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 987: uint8_t u8x8_d_ssd1362z_256x64_oel1m0033we(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 988: uint8_t u8x8_d_ssd1362_256x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 989: uint8_t u8x8_d_ssd1362_206x36(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 990: uint8_t u8x8_d_ssd1363_256x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 991: uint8_t u8x8_d_a2printer_384x240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 992: uint8_t u8x8_d_sed1330_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 993: uint8_t u8x8_d_sed1330_240x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 994: uint8_t u8x8_d_sed1330_256x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 995: uint8_t u8x8_d_sed1330_320x200(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 996: uint8_t u8x8_d_sed1330_320x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 997: uint8_t u8x8_d_ra8835_nhd_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 998: uint8_t u8x8_d_ra8835_320x240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 999: uint8_t u8x8_d_ra8835_320x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1000: uint8_t u8x8_d_ssd1325_nhd_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1001: uint8_t u8x8_d_ssd0323_os128064(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1002: uint8_t u8x8_d_ssd1327_ws_96x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1003: uint8_t u8x8_d_ssd1327_seeed_96x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1004: uint8_t u8x8_d_ssd1327_ea_w128128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1005: uint8_t u8x8_d_ssd1327_midas_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1006: uint8_t u8x8_d_ssd1327_zjy_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1007: uint8_t u8x8_d_ssd1327_ws_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1008: uint8_t u8x8_d_ssd1327_visionox_128x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1009: uint8_t u8x8_d_ssd1326_er_256x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1010: uint8_t u8x8_d_ssd1329_128x96_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1011: uint8_t u8x8_d_ssd1329_96x96_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1012: uint8_t u8x8_d_uc1601_128x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1013: uint8_t u8x8_d_uc1601_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1014: uint8_t u8x8_d_uc1604_jlx12864(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1015: uint8_t u8x8_d_uc1604_jlx19264(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1016: uint8_t u8x8_d_uc1608_erc24064(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1017: uint8_t u8x8_d_uc1608_dem240064(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1018: uint8_t u8x8_d_uc1608_erc240120(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1019: uint8_t u8x8_d_uc1608_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1020: uint8_t u8x8_d_uc1609_slg19264(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1021: uint8_t u8x8_d_uc1610_ea_dogxl160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1022: uint8_t u8x8_d_uc1611_ea_dogm240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1023: uint8_t u8x8_d_uc1611_ea_dogxl240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1024: uint8_t u8x8_d_uc1611_ew50850(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1025: uint8_t u8x8_d_uc1611_cg160160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1026: uint8_t u8x8_d_uc1617_jlx128128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1027: uint8_t u8x8_d_uc1611_ids4073(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1028: uint8_t u8x8_d_uc1628_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1029: uint8_t u8x8_d_uc1628_256x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1030: uint8_t u8x8_d_uc1628_256x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1031: uint8_t u8x8_d_uc1638_160x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1032: uint8_t u8x8_d_uc1638_192x96(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1033: uint8_t u8x8_d_uc1638_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1034: uint8_t u8x8_d_uc1698_160x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1035: uint8_t u8x8_d_uc1698_240x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1036: uint8_t u8x8_d_ks0108_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1037: uint8_t u8x8_d_ks0108_erm19264(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1038: uint8_t u8x8_d_t7932_150x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1039: uint8_t u8x8_d_hd44102_100x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1040: uint8_t u8x8_d_sbn1661_122x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1041: uint8_t u8x8_d_sed1520_122x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1042: uint8_t u8x8_d_sbn1661_80x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1043: uint8_t u8x8_d_pcd8544_84x48(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1044: uint8_t u8x8_d_pcf8812_96x65(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1045: uint8_t u8x8_d_pcf8812_101x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1046: uint8_t u8x8_d_hx1230_96x68(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1047: uint8_t u8x8_d_ssd1606_172x72(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1048: uint8_t u8x8_d_ssd1607_200x200(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1049: uint8_t u8x8_d_ssd1607_v2_200x200(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1050: uint8_t u8x8_d_ssd1607_gd_200x200(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1051: uint8_t u8x8_d_ssd1607_ws_200x200(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1052: uint8_t u8x8_d_il3820_296x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1053: uint8_t u8x8_d_il3820_v2_296x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1054: uint8_t u8x8_d_lc7981_160x80(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1055: uint8_t u8x8_d_lc7981_160x160(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1056: uint8_t u8x8_d_lc7981_240x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1057: uint8_t u8x8_d_lc7981_240x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1058: uint8_t u8x8_d_lc7981_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1059: uint8_t u8x8_d_ist3020_erc19264(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1060: uint8_t u8x8_d_ist3088_320x240(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1061: uint8_t u8x8_d_ist7920_128x128(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1062: uint8_t u8x8_d_max7219_64x8(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1063: uint8_t u8x8_d_max7219_32x8(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1064: uint8_t u8x8_d_max7219_16x16(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1065: uint8_t u8x8_d_max7219_8x8(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1066: uint8_t u8x8_d_s1d15e06_160100(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1067: uint8_t u8x8_d_s1d15300_lm6023(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1068: uint8_t u8x8_d_s1d15300_97x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1069: uint8_t u8x8_d_s1d15300_100x32(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1070: uint8_t u8x8_d_s1d15300_100x32i(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1071: uint8_t u8x8_d_s1d15721_240x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1072: uint8_t u8x8_d_gu800_128x64(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1073: uint8_t u8x8_d_gu800_160x16(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1074: uint8_t u8x8_d_gp1287ai_256x50(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1075: uint8_t u8x8_d_gp1247ai_253x63(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1076: uint8_t u8x8_d_gp1294ai_256x48(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1077: uint8_t u8x8_d_ssd1315_128x64_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+[; ;u8x8.h: 1083: uint16_t u8x8_upscale_byte(uint8_t x) ;
+[; ;u8x8.h: 1085: void u8x8_get_glyph_data(u8x8_t *u8x8, uint8_t encoding, uint8_t *buf, uint8_t tile_offset) ;
+[; ;u8x8.h: 1087: void u8x8_utf8_init(u8x8_t *u8x8);
+[; ;u8x8.h: 1088: uint16_t u8x8_ascii_next(u8x8_t *u8x8, uint8_t b);
+[; ;u8x8.h: 1089: uint16_t u8x8_utf8_next(u8x8_t *u8x8, uint8_t b);
+[; ;u8x8.h: 1094: void u8x8_SetFont(u8x8_t *u8x8, const uint8_t *font_8x8);
+[; ;u8x8.h: 1095: void u8x8_DrawGlyph(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t encoding);
+[; ;u8x8.h: 1096: void u8x8_Draw2x2Glyph(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t encoding);
+[; ;u8x8.h: 1097: void u8x8_Draw1x2Glyph(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t encoding);
+[; ;u8x8.h: 1098: uint8_t u8x8_DrawString(u8x8_t *u8x8, uint8_t x, uint8_t y, const char *s);
+[; ;u8x8.h: 1099: uint8_t u8x8_DrawUTF8(u8x8_t *u8x8, uint8_t x, uint8_t y, const char *s);
+[; ;u8x8.h: 1100: uint8_t u8x8_Draw2x2String(u8x8_t *u8x8, uint8_t x, uint8_t y, const char *s);
+[; ;u8x8.h: 1101: uint8_t u8x8_Draw2x2UTF8(u8x8_t *u8x8, uint8_t x, uint8_t y, const char *s);
+[; ;u8x8.h: 1102: uint8_t u8x8_Draw1x2String(u8x8_t *u8x8, uint8_t x, uint8_t y, const char *s);
+[; ;u8x8.h: 1103: uint8_t u8x8_Draw1x2UTF8(u8x8_t *u8x8, uint8_t x, uint8_t y, const char *s);
+[; ;u8x8.h: 1104: uint8_t u8x8_GetUTF8Len(u8x8_t *u8x8, const char *s);
+[; ;u8x8.h: 1109: const char *u8x8_u8toa(uint8_t v, uint8_t d);
+[; ;u8x8.h: 1110: const char *u8x8_s8toa(int8_t v, uint8_t d);
+[; ;u8x8.h: 1111: const char *u8x8_u8tox(uint8_t v, uint8_t d);
+[; ;u8x8.h: 1112: const char *u8x8_u16toa(uint16_t v, uint8_t d);
+[; ;u8x8.h: 1113: const char *u8x8_utoa(uint16_t v);
+[; ;u8x8.h: 1119: uint8_t u8x8_GetStringLineCnt(const char *str);
+[; ;u8x8.h: 1120: const char *u8x8_GetStringLineStart(uint8_t line_idx, const char *str );
+[; ;u8x8.h: 1121: void u8x8_CopyStringLine(char *dest, uint8_t line_idx, const char *str);
+[; ;u8x8.h: 1123: uint8_t u8x8_DrawUTF8Line(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t w, const char *s);
+[; ;u8x8.h: 1125: uint8_t u8x8_DrawUTF8Lines(u8x8_t *u8x8, uint8_t x, uint8_t y, uint8_t w, const char *s);
+[; ;u8x8.h: 1130: struct _u8sl_struct
+[; ;u8x8.h: 1131: {
+[; ;u8x8.h: 1132: uint8_t visible;
+[; ;u8x8.h: 1133: uint8_t total;
+[; ;u8x8.h: 1134: uint8_t first_pos;
+[; ;u8x8.h: 1135: uint8_t current_pos;
+[; ;u8x8.h: 1137: uint8_t x;
+[; ;u8x8.h: 1138: uint8_t y;
+[; ;u8x8.h: 1139: };
+[; ;u8x8.h: 1140: typedef struct _u8sl_struct u8sl_t;
+[; ;u8x8.h: 1142: typedef void (*u8x8_sl_cb)(u8x8_t *u8x8, u8sl_t *u8sl, uint8_t idx, const void *aux);
+[; ;u8x8.h: 1144: void u8sl_Next(u8sl_t *u8sl);
+[; ;u8x8.h: 1145: void u8sl_Prev(u8sl_t *u8sl);
+[; ;u8x8.h: 1147: uint8_t u8x8_UserInterfaceSelectionList(u8x8_t *u8x8, const char *title, uint8_t start_pos, const char *sl);
+[; ;u8x8.h: 1152: uint8_t u8x8_UserInterfaceMessage(u8x8_t *u8x8, const char *title1, const char *title2, const char *title3, const char *buttons);
+[; ;u8x8.h: 1158: uint8_t u8x8_capture_get_pixel_1(uint16_t x, uint16_t y, uint8_t *dest_ptr, uint8_t tile_width);
+[; ;u8x8.h: 1162: uint8_t u8x8_capture_get_pixel_2(uint16_t x, uint16_t y, uint8_t *dest_ptr, uint8_t tile_width);
+[; ;u8x8.h: 1166: void u8x8_capture_write_pbm_pre(uint8_t tile_width, uint8_t tile_height, void (*out)(const char *s));
+[; ;u8x8.h: 1167: void u8x8_capture_write_pbm_buffer(uint8_t *buffer, uint8_t tile_width, uint8_t tile_height, uint8_t (*get_pixel)(uint16_t x, uint16_t y, uint8_t *dest_ptr, uint8_t tile_width), void (*out)(const char *s));
+[; ;u8x8.h: 1169: void u8x8_capture_write_xbm_pre(uint8_t tile_width, uint8_t tile_height, void (*out)(const char *s));
+[; ;u8x8.h: 1170: void u8x8_capture_write_xbm_buffer(uint8_t *buffer, uint8_t tile_width, uint8_t tile_height, uint8_t (*get_pixel)(uint16_t x, uint16_t y, uint8_t *dest_ptr, uint8_t tile_width), void (*out)(const char *s));
+[; ;u8x8.h: 1178: uint8_t u8x8_UserInterfaceInputValue(u8x8_t *u8x8, const char *title, const char *pre, uint8_t *value, uint8_t lo, uint8_t hi, uint8_t digits, const char *post);
+[; ;u8x8.h: 1182: void u8log_Init(u8log_t *u8log, uint8_t width, uint8_t height, uint8_t *buf);
+[; ;u8x8.h: 1183: void u8log_SetCallback(u8log_t *u8log, u8log_cb cb, void *aux_data);
+[; ;u8x8.h: 1184: void u8log_SetRedrawMode(u8log_t *u8log, uint8_t is_redraw_line_for_each_char);
+[; ;u8x8.h: 1185: void u8log_SetLineHeightOffset(u8log_t *u8log, int8_t line_height_offset);
+[; ;u8x8.h: 1186: void u8log_WriteString(u8log_t *u8log, const char *s) ;
+[; ;u8x8.h: 1187: void u8log_WriteChar(u8log_t *u8log, uint8_t c) ;
+[; ;u8x8.h: 1188: void u8log_WriteHex8(u8log_t *u8log, uint8_t b) ;
+[; ;u8x8.h: 1189: void u8log_WriteHex16(u8log_t *u8log, uint16_t v);
+[; ;u8x8.h: 1190: void u8log_WriteHex32(u8log_t *u8log, uint32_t v);
+[; ;u8x8.h: 1191: void u8log_WriteDec8(u8log_t *u8log, uint8_t v, uint8_t d);
+[; ;u8x8.h: 1192: void u8log_WriteDec16(u8log_t *u8log, uint16_t v, uint8_t d);
+[; ;u8x8.h: 1196: void u8x8_DrawLog(u8x8_t *u8x8, uint8_t x, uint8_t y, u8log_t *u8log);
+[; ;u8x8.h: 1197: void u8log_u8x8_cb(u8log_t * u8log);
+[; ;u8x8.h: 1202: extern const uint8_t u8x8_font_amstrad_cpc_extended_f[] ;
+[; ;u8x8.h: 1203: extern const uint8_t u8x8_font_amstrad_cpc_extended_r[] ;
+[; ;u8x8.h: 1204: extern const uint8_t u8x8_font_amstrad_cpc_extended_n[] ;
+[; ;u8x8.h: 1205: extern const uint8_t u8x8_font_amstrad_cpc_extended_u[] ;
+[; ;u8x8.h: 1206: extern const uint8_t u8x8_font_5x7_f[] ;
+[; ;u8x8.h: 1207: extern const uint8_t u8x8_font_5x7_r[] ;
+[; ;u8x8.h: 1208: extern const uint8_t u8x8_font_5x7_n[] ;
+[; ;u8x8.h: 1209: extern const uint8_t u8x8_font_5x8_f[] ;
+[; ;u8x8.h: 1210: extern const uint8_t u8x8_font_5x8_r[] ;
+[; ;u8x8.h: 1211: extern const uint8_t u8x8_font_5x8_n[] ;
+[; ;u8x8.h: 1212: extern const uint8_t u8x8_font_8x13_1x2_f[] ;
+[; ;u8x8.h: 1213: extern const uint8_t u8x8_font_8x13_1x2_r[] ;
+[; ;u8x8.h: 1214: extern const uint8_t u8x8_font_8x13_1x2_n[] ;
+[; ;u8x8.h: 1215: extern const uint8_t u8x8_font_8x13B_1x2_f[] ;
+[; ;u8x8.h: 1216: extern const uint8_t u8x8_font_8x13B_1x2_r[] ;
+[; ;u8x8.h: 1217: extern const uint8_t u8x8_font_8x13B_1x2_n[] ;
+[; ;u8x8.h: 1218: extern const uint8_t u8x8_font_7x14_1x2_f[] ;
+[; ;u8x8.h: 1219: extern const uint8_t u8x8_font_7x14_1x2_r[] ;
+[; ;u8x8.h: 1220: extern const uint8_t u8x8_font_7x14_1x2_n[] ;
+[; ;u8x8.h: 1221: extern const uint8_t u8x8_font_7x14B_1x2_f[] ;
+[; ;u8x8.h: 1222: extern const uint8_t u8x8_font_7x14B_1x2_r[] ;
+[; ;u8x8.h: 1223: extern const uint8_t u8x8_font_7x14B_1x2_n[] ;
+[; ;u8x8.h: 1224: extern const uint8_t u8x8_font_open_iconic_arrow_1x1[] ;
+[; ;u8x8.h: 1225: extern const uint8_t u8x8_font_open_iconic_check_1x1[] ;
+[; ;u8x8.h: 1226: extern const uint8_t u8x8_font_open_iconic_embedded_1x1[] ;
+[; ;u8x8.h: 1227: extern const uint8_t u8x8_font_open_iconic_play_1x1[] ;
+[; ;u8x8.h: 1228: extern const uint8_t u8x8_font_open_iconic_thing_1x1[] ;
+[; ;u8x8.h: 1229: extern const uint8_t u8x8_font_open_iconic_weather_1x1[] ;
+[; ;u8x8.h: 1230: extern const uint8_t u8x8_font_open_iconic_arrow_2x2[] ;
+[; ;u8x8.h: 1231: extern const uint8_t u8x8_font_open_iconic_check_2x2[] ;
+[; ;u8x8.h: 1232: extern const uint8_t u8x8_font_open_iconic_embedded_2x2[] ;
+[; ;u8x8.h: 1233: extern const uint8_t u8x8_font_open_iconic_play_2x2[] ;
+[; ;u8x8.h: 1234: extern const uint8_t u8x8_font_open_iconic_thing_2x2[] ;
+[; ;u8x8.h: 1235: extern const uint8_t u8x8_font_open_iconic_weather_2x2[] ;
+[; ;u8x8.h: 1236: extern const uint8_t u8x8_font_open_iconic_arrow_4x4[] ;
+[; ;u8x8.h: 1237: extern const uint8_t u8x8_font_open_iconic_check_4x4[] ;
+[; ;u8x8.h: 1238: extern const uint8_t u8x8_font_open_iconic_embedded_4x4[] ;
+[; ;u8x8.h: 1239: extern const uint8_t u8x8_font_open_iconic_play_4x4[] ;
+[; ;u8x8.h: 1240: extern const uint8_t u8x8_font_open_iconic_thing_4x4[] ;
+[; ;u8x8.h: 1241: extern const uint8_t u8x8_font_open_iconic_weather_4x4[] ;
+[; ;u8x8.h: 1242: extern const uint8_t u8x8_font_open_iconic_arrow_8x8[] ;
+[; ;u8x8.h: 1243: extern const uint8_t u8x8_font_open_iconic_check_8x8[] ;
+[; ;u8x8.h: 1244: extern const uint8_t u8x8_font_open_iconic_embedded_8x8[] ;
+[; ;u8x8.h: 1245: extern const uint8_t u8x8_font_open_iconic_play_8x8[] ;
+[; ;u8x8.h: 1246: extern const uint8_t u8x8_font_open_iconic_thing_8x8[] ;
+[; ;u8x8.h: 1247: extern const uint8_t u8x8_font_open_iconic_weather_8x8[] ;
+[; ;u8x8.h: 1248: extern const uint8_t u8x8_font_profont29_2x3_f[] ;
+[; ;u8x8.h: 1249: extern const uint8_t u8x8_font_profont29_2x3_r[] ;
+[; ;u8x8.h: 1250: extern const uint8_t u8x8_font_profont29_2x3_n[] ;
+[; ;u8x8.h: 1251: extern const uint8_t u8x8_font_artossans8_r[] ;
+[; ;u8x8.h: 1252: extern const uint8_t u8x8_font_artossans8_n[] ;
+[; ;u8x8.h: 1253: extern const uint8_t u8x8_font_artossans8_u[] ;
+[; ;u8x8.h: 1254: extern const uint8_t u8x8_font_artosserif8_r[] ;
+[; ;u8x8.h: 1255: extern const uint8_t u8x8_font_artosserif8_n[] ;
+[; ;u8x8.h: 1256: extern const uint8_t u8x8_font_artosserif8_u[] ;
+[; ;u8x8.h: 1257: extern const uint8_t u8x8_font_chroma48medium8_r[] ;
+[; ;u8x8.h: 1258: extern const uint8_t u8x8_font_chroma48medium8_n[] ;
+[; ;u8x8.h: 1259: extern const uint8_t u8x8_font_chroma48medium8_u[] ;
+[; ;u8x8.h: 1260: extern const uint8_t u8x8_font_saikyosansbold8_n[] ;
+[; ;u8x8.h: 1261: extern const uint8_t u8x8_font_saikyosansbold8_u[] ;
+[; ;u8x8.h: 1262: extern const uint8_t u8x8_font_torussansbold8_r[] ;
+[; ;u8x8.h: 1263: extern const uint8_t u8x8_font_torussansbold8_n[] ;
+[; ;u8x8.h: 1264: extern const uint8_t u8x8_font_torussansbold8_u[] ;
+[; ;u8x8.h: 1265: extern const uint8_t u8x8_font_victoriabold8_r[] ;
+[; ;u8x8.h: 1266: extern const uint8_t u8x8_font_victoriabold8_n[] ;
+[; ;u8x8.h: 1267: extern const uint8_t u8x8_font_victoriabold8_u[] ;
+[; ;u8x8.h: 1268: extern const uint8_t u8x8_font_victoriamedium8_r[] ;
+[; ;u8x8.h: 1269: extern const uint8_t u8x8_font_victoriamedium8_n[] ;
+[; ;u8x8.h: 1270: extern const uint8_t u8x8_font_victoriamedium8_u[] ;
+[; ;u8x8.h: 1271: extern const uint8_t u8x8_font_courB18_2x3_f[] ;
+[; ;u8x8.h: 1272: extern const uint8_t u8x8_font_courB18_2x3_r[] ;
+[; ;u8x8.h: 1273: extern const uint8_t u8x8_font_courB18_2x3_n[] ;
+[; ;u8x8.h: 1274: extern const uint8_t u8x8_font_courR18_2x3_f[] ;
+[; ;u8x8.h: 1275: extern const uint8_t u8x8_font_courR18_2x3_r[] ;
+[; ;u8x8.h: 1276: extern const uint8_t u8x8_font_courR18_2x3_n[] ;
+[; ;u8x8.h: 1277: extern const uint8_t u8x8_font_courB24_3x4_f[] ;
+[; ;u8x8.h: 1278: extern const uint8_t u8x8_font_courB24_3x4_r[] ;
+[; ;u8x8.h: 1279: extern const uint8_t u8x8_font_courB24_3x4_n[] ;
+[; ;u8x8.h: 1280: extern const uint8_t u8x8_font_courR24_3x4_f[] ;
+[; ;u8x8.h: 1281: extern const uint8_t u8x8_font_courR24_3x4_r[] ;
+[; ;u8x8.h: 1282: extern const uint8_t u8x8_font_courR24_3x4_n[] ;
+[; ;u8x8.h: 1283: extern const uint8_t u8x8_font_lucasarts_scumm_subtitle_o_2x2_f[] ;
+[; ;u8x8.h: 1284: extern const uint8_t u8x8_font_lucasarts_scumm_subtitle_o_2x2_r[] ;
+[; ;u8x8.h: 1285: extern const uint8_t u8x8_font_lucasarts_scumm_subtitle_o_2x2_n[] ;
+[; ;u8x8.h: 1286: extern const uint8_t u8x8_font_lucasarts_scumm_subtitle_r_2x2_f[] ;
+[; ;u8x8.h: 1287: extern const uint8_t u8x8_font_lucasarts_scumm_subtitle_r_2x2_r[] ;
+[; ;u8x8.h: 1288: extern const uint8_t u8x8_font_lucasarts_scumm_subtitle_r_2x2_n[] ;
+[; ;u8x8.h: 1289: extern const uint8_t u8x8_font_inr21_2x4_f[] ;
+[; ;u8x8.h: 1290: extern const uint8_t u8x8_font_inr21_2x4_r[] ;
+[; ;u8x8.h: 1291: extern const uint8_t u8x8_font_inr21_2x4_n[] ;
+[; ;u8x8.h: 1292: extern const uint8_t u8x8_font_inr33_3x6_f[] ;
+[; ;u8x8.h: 1293: extern const uint8_t u8x8_font_inr33_3x6_r[] ;
+[; ;u8x8.h: 1294: extern const uint8_t u8x8_font_inr33_3x6_n[] ;
+[; ;u8x8.h: 1295: extern const uint8_t u8x8_font_inr46_4x8_f[] ;
+[; ;u8x8.h: 1296: extern const uint8_t u8x8_font_inr46_4x8_r[] ;
+[; ;u8x8.h: 1297: extern const uint8_t u8x8_font_inr46_4x8_n[] ;
+[; ;u8x8.h: 1298: extern const uint8_t u8x8_font_inb21_2x4_f[] ;
+[; ;u8x8.h: 1299: extern const uint8_t u8x8_font_inb21_2x4_r[] ;
+[; ;u8x8.h: 1300: extern const uint8_t u8x8_font_inb21_2x4_n[] ;
+[; ;u8x8.h: 1301: extern const uint8_t u8x8_font_inb33_3x6_f[] ;
+[; ;u8x8.h: 1302: extern const uint8_t u8x8_font_inb33_3x6_r[] ;
+[; ;u8x8.h: 1303: extern const uint8_t u8x8_font_inb33_3x6_n[] ;
+[; ;u8x8.h: 1304: extern const uint8_t u8x8_font_inb46_4x8_f[] ;
+[; ;u8x8.h: 1305: extern const uint8_t u8x8_font_inb46_4x8_r[] ;
+[; ;u8x8.h: 1306: extern const uint8_t u8x8_font_inb46_4x8_n[] ;
+[; ;u8x8.h: 1307: extern const uint8_t u8x8_font_pressstart2p_f[] ;
+[; ;u8x8.h: 1308: extern const uint8_t u8x8_font_pressstart2p_r[] ;
+[; ;u8x8.h: 1309: extern const uint8_t u8x8_font_pressstart2p_n[] ;
+[; ;u8x8.h: 1310: extern const uint8_t u8x8_font_pressstart2p_u[] ;
+[; ;u8x8.h: 1311: extern const uint8_t u8x8_font_pcsenior_f[] ;
+[; ;u8x8.h: 1312: extern const uint8_t u8x8_font_pcsenior_r[] ;
+[; ;u8x8.h: 1313: extern const uint8_t u8x8_font_pcsenior_n[] ;
+[; ;u8x8.h: 1314: extern const uint8_t u8x8_font_pcsenior_u[] ;
+[; ;u8x8.h: 1315: extern const uint8_t u8x8_font_pxplusibmcgathin_f[] ;
+[; ;u8x8.h: 1316: extern const uint8_t u8x8_font_pxplusibmcgathin_r[] ;
+[; ;u8x8.h: 1317: extern const uint8_t u8x8_font_pxplusibmcgathin_n[] ;
+[; ;u8x8.h: 1318: extern const uint8_t u8x8_font_pxplusibmcgathin_u[] ;
+[; ;u8x8.h: 1319: extern const uint8_t u8x8_font_pxplusibmcga_f[] ;
+[; ;u8x8.h: 1320: extern const uint8_t u8x8_font_pxplusibmcga_r[] ;
+[; ;u8x8.h: 1321: extern const uint8_t u8x8_font_pxplusibmcga_n[] ;
+[; ;u8x8.h: 1322: extern const uint8_t u8x8_font_pxplusibmcga_u[] ;
+[; ;u8x8.h: 1323: extern const uint8_t u8x8_font_pxplustandynewtv_f[] ;
+[; ;u8x8.h: 1324: extern const uint8_t u8x8_font_pxplustandynewtv_r[] ;
+[; ;u8x8.h: 1325: extern const uint8_t u8x8_font_pxplustandynewtv_n[] ;
+[; ;u8x8.h: 1326: extern const uint8_t u8x8_font_pxplustandynewtv_u[] ;
+[; ;u8x8.h: 1327: extern const uint8_t u8x8_font_px437wyse700a_2x2_f[] ;
+[; ;u8x8.h: 1328: extern const uint8_t u8x8_font_px437wyse700a_2x2_r[] ;
+[; ;u8x8.h: 1329: extern const uint8_t u8x8_font_px437wyse700a_2x2_n[] ;
+[; ;u8x8.h: 1330: extern const uint8_t u8x8_font_px437wyse700b_2x2_f[] ;
+[; ;u8x8.h: 1331: extern const uint8_t u8x8_font_px437wyse700b_2x2_r[] ;
+[; ;u8x8.h: 1332: extern const uint8_t u8x8_font_px437wyse700b_2x2_n[] ;
+"39 ../../../../u8g2/csrc/u8x8_byte.c
+[v _u8x8_byte_SetDC `(uc ~T0 @X0 1 ef2`*S1`uc ]
+"40
+{
+[; ;u8x8_byte.c: 39: uint8_t u8x8_byte_SetDC(u8x8_t *u8x8, uint8_t dc)
+[; ;u8x8_byte.c: 40: {
+[e :U _u8x8_byte_SetDC ]
+"39
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _dc `uc ~T0 @X0 1 r2 ]
+"40
+[f ]
+[; ;u8x8_byte.c: 41: return u8x8->byte_cb(u8x8, 32, dc, (0));
+"41
+[e ) ( *U . *U _u8x8 4 (4 , , , _u8x8 -> -> 32 `i `uc _dc -> -> 0 `i `*v ]
+[e $UE 6  ]
+[; ;u8x8_byte.c: 42: }
+"42
+[e :UE 6 ]
+}
+"44
+[v _u8x8_byte_SendBytes `(uc ~T0 @X0 1 ef3`*S1`uc`*uc ]
+"45
+{
+[; ;u8x8_byte.c: 44: uint8_t u8x8_byte_SendBytes(u8x8_t *u8x8, uint8_t cnt, uint8_t *data)
+[; ;u8x8_byte.c: 45: {
+[e :U _u8x8_byte_SendBytes ]
+"44
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _cnt `uc ~T0 @X0 1 r2 ]
+[v _data `*uc ~T0 @X0 1 r3 ]
+"45
+[f ]
+[; ;u8x8_byte.c: 46: return u8x8->byte_cb(u8x8, 23, cnt, (void *)data);
+"46
+[e ) ( *U . *U _u8x8 4 (4 , , , _u8x8 -> -> 23 `i `uc _cnt -> _data `*v ]
+[e $UE 7  ]
+[; ;u8x8_byte.c: 47: }
+"47
+[e :UE 7 ]
+}
+"49
+[v _u8x8_byte_SendByte `(uc ~T0 @X0 1 ef2`*S1`uc ]
+"50
+{
+[; ;u8x8_byte.c: 49: uint8_t u8x8_byte_SendByte(u8x8_t *u8x8, uint8_t byte)
+[; ;u8x8_byte.c: 50: {
+[e :U _u8x8_byte_SendByte ]
+"49
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _byte `uc ~T0 @X0 1 r2 ]
+"50
+[f ]
+[; ;u8x8_byte.c: 51: return u8x8_byte_SendBytes(u8x8, 1, &byte);
+"51
+[e ) ( _u8x8_byte_SendBytes (3 , , _u8x8 -> -> 1 `i `uc &U _byte ]
+[e $UE 8  ]
+[; ;u8x8_byte.c: 52: }
+"52
+[e :UE 8 ]
+}
+"54
+[v _u8x8_byte_StartTransfer `(uc ~T0 @X0 1 ef1`*S1 ]
+"55
+{
+[; ;u8x8_byte.c: 54: uint8_t u8x8_byte_StartTransfer(u8x8_t *u8x8)
+[; ;u8x8_byte.c: 55: {
+[e :U _u8x8_byte_StartTransfer ]
+"54
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+"55
+[f ]
+[; ;u8x8_byte.c: 56: return u8x8->byte_cb(u8x8, 24, 0, (0));
+"56
+[e ) ( *U . *U _u8x8 4 (4 , , , _u8x8 -> -> 24 `i `uc -> -> 0 `i `uc -> -> 0 `i `*v ]
+[e $UE 9  ]
+[; ;u8x8_byte.c: 57: }
+"57
+[e :UE 9 ]
+}
+"59
+[v _u8x8_byte_EndTransfer `(uc ~T0 @X0 1 ef1`*S1 ]
+"60
+{
+[; ;u8x8_byte.c: 59: uint8_t u8x8_byte_EndTransfer(u8x8_t *u8x8)
+[; ;u8x8_byte.c: 60: {
+[e :U _u8x8_byte_EndTransfer ]
+"59
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+"60
+[f ]
+[; ;u8x8_byte.c: 61: return u8x8->byte_cb(u8x8, 25, 0, (0));
+"61
+[e ) ( *U . *U _u8x8 4 (4 , , , _u8x8 -> -> 25 `i `uc -> -> 0 `i `uc -> -> 0 `i `*v ]
+[e $UE 10  ]
+[; ;u8x8_byte.c: 62: }
+"62
+[e :UE 10 ]
+}
+"66
+[v _u8x8_byte_empty `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"67
+{
+[; ;u8x8_byte.c: 66: uint8_t u8x8_byte_empty( u8x8_t *u8x8, uint8_t msg,  uint8_t arg_int,  void *arg_ptr)
+[; ;u8x8_byte.c: 67: {
+[e :U _u8x8_byte_empty ]
+"66
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"67
+[f ]
+[; ;u8x8_byte.c: 68: switch(msg)
+"68
+[e $U 13  ]
+[; ;u8x8_byte.c: 69: {
+"69
+{
+[; ;u8x8_byte.c: 70: case 23:
+"70
+[e :U 14 ]
+"71
+[e :U 15 ]
+"72
+[e :U 16 ]
+"73
+[e :U 17 ]
+"74
+[e :U 18 ]
+[; ;u8x8_byte.c: 71: case 20:
+[; ;u8x8_byte.c: 72: case 32:
+[; ;u8x8_byte.c: 73: case 24:
+[; ;u8x8_byte.c: 74: case 25:
+[; ;u8x8_byte.c: 75: break;
+"75
+[e $U 12  ]
+"76
+}
+[; ;u8x8_byte.c: 76: }
+[e $U 12  ]
+"68
+[e :U 13 ]
+[e [\ _msg , $ -> -> 23 `i `uc 14
+ , $ -> -> 20 `i `uc 15
+ , $ -> -> 32 `i `uc 16
+ , $ -> -> 24 `i `uc 17
+ , $ -> -> 25 `i `uc 18
+ 12 ]
+"76
+[e :U 12 ]
+[; ;u8x8_byte.c: 77: return 1;
+"77
+[e ) -> -> 1 `i `uc ]
+[e $UE 11  ]
+[; ;u8x8_byte.c: 78: }
+"78
+[e :UE 11 ]
+}
+"107
+[v _u8x8_byte_4wire_sw_spi `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"108
+{
+[; ;u8x8_byte.c: 107: uint8_t u8x8_byte_4wire_sw_spi(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_byte.c: 108: {
+[e :U _u8x8_byte_4wire_sw_spi ]
+"107
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"108
+[f ]
+"109
+[v _i `uc ~T0 @X0 1 a ]
+[v _b `uc ~T0 @X0 1 a ]
+"110
+[v _data `*uc ~T0 @X0 1 a ]
+"111
+[v _takeover_edge `uc ~T0 @X0 1 a ]
+[; ;u8x8_byte.c: 109: uint8_t i, b;
+[; ;u8x8_byte.c: 110: uint8_t *data;
+[; ;u8x8_byte.c: 111: uint8_t takeover_edge = ((u8x8)->display_info->spi_mode & 0x01);
+[e = _takeover_edge -> & -> . *U . *U _u8x8 0 9 `i -> 1 `i `uc ]
+"112
+[v _not_takeover_edge `uc ~T0 @X0 1 a ]
+[; ;u8x8_byte.c: 112: uint8_t not_takeover_edge = 1 - takeover_edge;
+[e = _not_takeover_edge -> - -> 1 `i -> _takeover_edge `i `uc ]
+[; ;u8x8_byte.c: 114: switch(msg)
+"114
+[e $U 21  ]
+[; ;u8x8_byte.c: 115: {
+"115
+{
+[; ;u8x8_byte.c: 116: case 23:
+"116
+[e :U 22 ]
+[; ;u8x8_byte.c: 117: data = (uint8_t *)arg_ptr;
+"117
+[e = _data -> _arg_ptr `*uc ]
+[; ;u8x8_byte.c: 118: while( arg_int > 0 )
+"118
+[e $U 23  ]
+[e :U 24 ]
+[; ;u8x8_byte.c: 119: {
+"119
+{
+[; ;u8x8_byte.c: 120: b = *data;
+"120
+[e = _b *U _data ]
+[; ;u8x8_byte.c: 121: data++;
+"121
+[e ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
+[; ;u8x8_byte.c: 122: arg_int--;
+"122
+[e -- _arg_int -> -> 1 `i `uc ]
+[; ;u8x8_byte.c: 123: for( i = 0; i < 8; i++ )
+"123
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 8 `i 26  ]
+[e $U 27  ]
+"124
+[e :U 26 ]
+[; ;u8x8_byte.c: 124: {
+{
+[; ;u8x8_byte.c: 125: if ( b & 128 )
+"125
+[e $ ! != & -> _b `i -> 128 `i -> 0 `i 29  ]
+[; ;u8x8_byte.c: 126: u8x8_gpio_call(u8x8, (64+(1)), (1));
+"126
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 1 `i `uc -> -> 1 `i `uc ]
+[e $U 30  ]
+"127
+[e :U 29 ]
+[; ;u8x8_byte.c: 127: else
+[; ;u8x8_byte.c: 128: u8x8_gpio_call(u8x8, (64+(1)), (0));
+"128
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 1 `i `uc -> -> 0 `i `uc ]
+[e :U 30 ]
+[; ;u8x8_byte.c: 129: b <<= 1;
+"129
+[e =<< _b -> 1 `i ]
+[; ;u8x8_byte.c: 131: u8x8_gpio_call(u8x8, (64+(0)), (not_takeover_edge));
+"131
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 0 `i `uc _not_takeover_edge ]
+[; ;u8x8_byte.c: 132: u8x8_gpio_call((u8x8), (44), (u8x8->display_info->sda_setup_time_ns));
+"132
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> -> 44 `i `uc . *U . *U _u8x8 0 6 ]
+[; ;u8x8_byte.c: 133: u8x8_gpio_call(u8x8, (64+(0)), (takeover_edge));
+"133
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 0 `i `uc _takeover_edge ]
+[; ;u8x8_byte.c: 134: u8x8_gpio_call((u8x8), (44), (u8x8->display_info->sck_pulse_width_ns));
+"134
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> -> 44 `i `uc . *U . *U _u8x8 0 7 ]
+"135
+}
+"123
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 8 `i 26  ]
+[e :U 27 ]
+"135
+}
+"136
+}
+[e :U 23 ]
+"118
+[e $ > -> _arg_int `i -> 0 `i 24  ]
+[e :U 25 ]
+[; ;u8x8_byte.c: 135: }
+[; ;u8x8_byte.c: 136: }
+[; ;u8x8_byte.c: 137: break;
+"137
+[e $U 20  ]
+[; ;u8x8_byte.c: 139: case 20:
+"139
+[e :U 31 ]
+[; ;u8x8_byte.c: 141: u8x8_gpio_call(u8x8, (64+(9)), (u8x8->display_info->chip_disable_level));
+"141
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 9 `i `uc . *U . *U _u8x8 0 1 ]
+[; ;u8x8_byte.c: 145: u8x8_gpio_call(u8x8, (64+(0)), (((u8x8)->display_info->spi_mode & 0x01)));
+"145
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 0 `i `uc -> & -> . *U . *U _u8x8 0 9 `i -> 1 `i `uc ]
+[; ;u8x8_byte.c: 146: break;
+"146
+[e $U 20  ]
+[; ;u8x8_byte.c: 147: case 32:
+"147
+[e :U 32 ]
+[; ;u8x8_byte.c: 148: u8x8_gpio_call(u8x8, (64+(10)), (arg_int));
+"148
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 10 `i `uc _arg_int ]
+[; ;u8x8_byte.c: 149: break;
+"149
+[e $U 20  ]
+[; ;u8x8_byte.c: 150: case 24:
+"150
+[e :U 33 ]
+[; ;u8x8_byte.c: 151: u8x8_gpio_call(u8x8, (64+(9)), (u8x8->display_info->chip_enable_level));
+"151
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 9 `i `uc . *U . *U _u8x8 0 0 ]
+[; ;u8x8_byte.c: 152: u8x8->gpio_and_delay_cb(u8x8, 44, u8x8->display_info->post_chip_enable_wait_ns, (0));
+"152
+[e ( *U . *U _u8x8 5 (4 , , , _u8x8 -> -> 44 `i `uc . *U . *U _u8x8 0 2 -> -> 0 `i `*v ]
+[; ;u8x8_byte.c: 153: break;
+"153
+[e $U 20  ]
+[; ;u8x8_byte.c: 154: case 25:
+"154
+[e :U 34 ]
+[; ;u8x8_byte.c: 155: u8x8->gpio_and_delay_cb(u8x8, 44, u8x8->display_info->pre_chip_disable_wait_ns, (0));
+"155
+[e ( *U . *U _u8x8 5 (4 , , , _u8x8 -> -> 44 `i `uc . *U . *U _u8x8 0 3 -> -> 0 `i `*v ]
+[; ;u8x8_byte.c: 156: u8x8_gpio_call(u8x8, (64+(9)), (u8x8->display_info->chip_disable_level));
+"156
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 9 `i `uc . *U . *U _u8x8 0 1 ]
+[; ;u8x8_byte.c: 157: break;
+"157
+[e $U 20  ]
+[; ;u8x8_byte.c: 158: default:
+"158
+[e :U 35 ]
+[; ;u8x8_byte.c: 159: return 0;
+"159
+[e ) -> -> 0 `i `uc ]
+[e $UE 19  ]
+"160
+}
+[; ;u8x8_byte.c: 160: }
+[e $U 20  ]
+"114
+[e :U 21 ]
+[e [\ _msg , $ -> -> 23 `i `uc 22
+ , $ -> -> 20 `i `uc 31
+ , $ -> -> 32 `i `uc 32
+ , $ -> -> 24 `i `uc 33
+ , $ -> -> 25 `i `uc 34
+ 35 ]
+"160
+[e :U 20 ]
+[; ;u8x8_byte.c: 161: return 1;
+"161
+[e ) -> -> 1 `i `uc ]
+[e $UE 19  ]
+[; ;u8x8_byte.c: 162: }
+"162
+[e :UE 19 ]
+}
+"166
+[v _u8x8_byte_8bit_6800mode `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"167
+{
+[; ;u8x8_byte.c: 166: uint8_t u8x8_byte_8bit_6800mode(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_byte.c: 167: {
+[e :U _u8x8_byte_8bit_6800mode ]
+"166
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"167
+[f ]
+"168
+[v _i `uc ~T0 @X0 1 a ]
+[v _b `uc ~T0 @X0 1 a ]
+"169
+[v _data `*uc ~T0 @X0 1 a ]
+[; ;u8x8_byte.c: 168: uint8_t i, b;
+[; ;u8x8_byte.c: 169: uint8_t *data;
+[; ;u8x8_byte.c: 171: switch(msg)
+"171
+[e $U 38  ]
+[; ;u8x8_byte.c: 172: {
+"172
+{
+[; ;u8x8_byte.c: 173: case 23:
+"173
+[e :U 39 ]
+[; ;u8x8_byte.c: 174: data = (uint8_t *)arg_ptr;
+"174
+[e = _data -> _arg_ptr `*uc ]
+[; ;u8x8_byte.c: 175: while( arg_int > 0 )
+"175
+[e $U 40  ]
+[e :U 41 ]
+[; ;u8x8_byte.c: 176: {
+"176
+{
+[; ;u8x8_byte.c: 177: b = *data;
+"177
+[e = _b *U _data ]
+[; ;u8x8_byte.c: 178: data++;
+"178
+[e ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
+[; ;u8x8_byte.c: 179: arg_int--;
+"179
+[e -- _arg_int -> -> 1 `i `uc ]
+[; ;u8x8_byte.c: 180: for( i = (64+(0)); i <= (64+(7)); i++ )
+"180
+{
+[e = _i -> + -> 64 `i -> 0 `i `uc ]
+[e $ <= -> _i `i + -> 64 `i -> 7 `i 43  ]
+[e $U 44  ]
+"181
+[e :U 43 ]
+[; ;u8x8_byte.c: 181: {
+{
+[; ;u8x8_byte.c: 182: u8x8_gpio_call(u8x8, i, b&1);
+"182
+[e ( _u8x8_gpio_call (3 , , _u8x8 _i -> & -> _b `i -> 1 `i `uc ]
+[; ;u8x8_byte.c: 183: b >>= 1;
+"183
+[e =>> _b -> 1 `i ]
+"184
+}
+"180
+[e ++ _i -> -> 1 `i `uc ]
+[e $ <= -> _i `i + -> 64 `i -> 7 `i 43  ]
+[e :U 44 ]
+"184
+}
+[; ;u8x8_byte.c: 184: }
+[; ;u8x8_byte.c: 186: u8x8_gpio_call((u8x8), (44), (u8x8->display_info->data_setup_time_ns));
+"186
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> -> 44 `i `uc . *U . *U _u8x8 0 11 ]
+[; ;u8x8_byte.c: 187: u8x8_gpio_call(u8x8, (64+(8)), 1);
+"187
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 8 `i `uc -> -> 1 `i `uc ]
+[; ;u8x8_byte.c: 188: u8x8_gpio_call((u8x8), (44), (u8x8->display_info->write_pulse_width_ns));
+"188
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> -> 44 `i `uc . *U . *U _u8x8 0 12 ]
+[; ;u8x8_byte.c: 189: u8x8_gpio_call(u8x8, (64+(8)), 0);
+"189
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 8 `i `uc -> -> 0 `i `uc ]
+"190
+}
+[e :U 40 ]
+"175
+[e $ > -> _arg_int `i -> 0 `i 41  ]
+[e :U 42 ]
+[; ;u8x8_byte.c: 190: }
+[; ;u8x8_byte.c: 191: break;
+"191
+[e $U 37  ]
+[; ;u8x8_byte.c: 193: case 20:
+"193
+[e :U 46 ]
+[; ;u8x8_byte.c: 195: u8x8_gpio_call(u8x8, (64+(9)), (u8x8->display_info->chip_disable_level));
+"195
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 9 `i `uc . *U . *U _u8x8 0 1 ]
+[; ;u8x8_byte.c: 197: u8x8_gpio_call(u8x8, (64+(8)), 0);
+"197
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 8 `i `uc -> -> 0 `i `uc ]
+[; ;u8x8_byte.c: 198: break;
+"198
+[e $U 37  ]
+[; ;u8x8_byte.c: 199: case 32:
+"199
+[e :U 47 ]
+[; ;u8x8_byte.c: 200: u8x8_gpio_call(u8x8, (64+(10)), (arg_int));
+"200
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 10 `i `uc _arg_int ]
+[; ;u8x8_byte.c: 201: break;
+"201
+[e $U 37  ]
+[; ;u8x8_byte.c: 202: case 24:
+"202
+[e :U 48 ]
+[; ;u8x8_byte.c: 203: u8x8_gpio_call(u8x8, (64+(9)), (u8x8->display_info->chip_enable_level));
+"203
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 9 `i `uc . *U . *U _u8x8 0 0 ]
+[; ;u8x8_byte.c: 204: u8x8->gpio_and_delay_cb(u8x8, 44, u8x8->display_info->post_chip_enable_wait_ns, (0));
+"204
+[e ( *U . *U _u8x8 5 (4 , , , _u8x8 -> -> 44 `i `uc . *U . *U _u8x8 0 2 -> -> 0 `i `*v ]
+[; ;u8x8_byte.c: 205: break;
+"205
+[e $U 37  ]
+[; ;u8x8_byte.c: 206: case 25:
+"206
+[e :U 49 ]
+[; ;u8x8_byte.c: 207: u8x8->gpio_and_delay_cb(u8x8, 44, u8x8->display_info->pre_chip_disable_wait_ns, (0));
+"207
+[e ( *U . *U _u8x8 5 (4 , , , _u8x8 -> -> 44 `i `uc . *U . *U _u8x8 0 3 -> -> 0 `i `*v ]
+[; ;u8x8_byte.c: 208: u8x8_gpio_call(u8x8, (64+(9)), (u8x8->display_info->chip_disable_level));
+"208
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 9 `i `uc . *U . *U _u8x8 0 1 ]
+[; ;u8x8_byte.c: 209: break;
+"209
+[e $U 37  ]
+[; ;u8x8_byte.c: 210: default:
+"210
+[e :U 50 ]
+[; ;u8x8_byte.c: 211: return 0;
+"211
+[e ) -> -> 0 `i `uc ]
+[e $UE 36  ]
+"212
+}
+[; ;u8x8_byte.c: 212: }
+[e $U 37  ]
+"171
+[e :U 38 ]
+[e [\ _msg , $ -> -> 23 `i `uc 39
+ , $ -> -> 20 `i `uc 46
+ , $ -> -> 32 `i `uc 47
+ , $ -> -> 24 `i `uc 48
+ , $ -> -> 25 `i `uc 49
+ 50 ]
+"212
+[e :U 37 ]
+[; ;u8x8_byte.c: 213: return 1;
+"213
+[e ) -> -> 1 `i `uc ]
+[e $UE 36  ]
+[; ;u8x8_byte.c: 214: }
+"214
+[e :UE 36 ]
+}
+"216
+[v _u8x8_byte_8bit_8080mode `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"217
+{
+[; ;u8x8_byte.c: 216: uint8_t u8x8_byte_8bit_8080mode(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_byte.c: 217: {
+[e :U _u8x8_byte_8bit_8080mode ]
+"216
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"217
+[f ]
+"218
+[v _i `uc ~T0 @X0 1 a ]
+[v _b `uc ~T0 @X0 1 a ]
+"219
+[v _data `*uc ~T0 @X0 1 a ]
+[; ;u8x8_byte.c: 218: uint8_t i, b;
+[; ;u8x8_byte.c: 219: uint8_t *data;
+[; ;u8x8_byte.c: 221: switch(msg)
+"221
+[e $U 53  ]
+[; ;u8x8_byte.c: 222: {
+"222
+{
+[; ;u8x8_byte.c: 223: case 23:
+"223
+[e :U 54 ]
+[; ;u8x8_byte.c: 224: data = (uint8_t *)arg_ptr;
+"224
+[e = _data -> _arg_ptr `*uc ]
+[; ;u8x8_byte.c: 225: while( arg_int > 0 )
+"225
+[e $U 55  ]
+[e :U 56 ]
+[; ;u8x8_byte.c: 226: {
+"226
+{
+[; ;u8x8_byte.c: 227: b = *data;
+"227
+[e = _b *U _data ]
+[; ;u8x8_byte.c: 228: data++;
+"228
+[e ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
+[; ;u8x8_byte.c: 229: arg_int--;
+"229
+[e -- _arg_int -> -> 1 `i `uc ]
+[; ;u8x8_byte.c: 230: for( i = (64+(0)); i <= (64+(7)); i++ )
+"230
+{
+[e = _i -> + -> 64 `i -> 0 `i `uc ]
+[e $ <= -> _i `i + -> 64 `i -> 7 `i 58  ]
+[e $U 59  ]
+"231
+[e :U 58 ]
+[; ;u8x8_byte.c: 231: {
+{
+[; ;u8x8_byte.c: 232: u8x8_gpio_call(u8x8, i, b&1);
+"232
+[e ( _u8x8_gpio_call (3 , , _u8x8 _i -> & -> _b `i -> 1 `i `uc ]
+[; ;u8x8_byte.c: 233: b >>= 1;
+"233
+[e =>> _b -> 1 `i ]
+"234
+}
+"230
+[e ++ _i -> -> 1 `i `uc ]
+[e $ <= -> _i `i + -> 64 `i -> 7 `i 58  ]
+[e :U 59 ]
+"234
+}
+[; ;u8x8_byte.c: 234: }
+[; ;u8x8_byte.c: 236: u8x8_gpio_call((u8x8), (44), (u8x8->display_info->data_setup_time_ns));
+"236
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> -> 44 `i `uc . *U . *U _u8x8 0 11 ]
+[; ;u8x8_byte.c: 237: u8x8_gpio_call(u8x8, (64+(8)), 0);
+"237
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 8 `i `uc -> -> 0 `i `uc ]
+[; ;u8x8_byte.c: 238: u8x8_gpio_call((u8x8), (44), (u8x8->display_info->write_pulse_width_ns));
+"238
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> -> 44 `i `uc . *U . *U _u8x8 0 12 ]
+[; ;u8x8_byte.c: 239: u8x8_gpio_call(u8x8, (64+(8)), 1);
+"239
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 8 `i `uc -> -> 1 `i `uc ]
+"240
+}
+[e :U 55 ]
+"225
+[e $ > -> _arg_int `i -> 0 `i 56  ]
+[e :U 57 ]
+[; ;u8x8_byte.c: 240: }
+[; ;u8x8_byte.c: 241: break;
+"241
+[e $U 52  ]
+[; ;u8x8_byte.c: 243: case 20:
+"243
+[e :U 61 ]
+[; ;u8x8_byte.c: 245: u8x8_gpio_call(u8x8, (64+(9)), (u8x8->display_info->chip_disable_level));
+"245
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 9 `i `uc . *U . *U _u8x8 0 1 ]
+[; ;u8x8_byte.c: 247: u8x8_gpio_call(u8x8, (64+(8)), 1);
+"247
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 8 `i `uc -> -> 1 `i `uc ]
+[; ;u8x8_byte.c: 248: break;
+"248
+[e $U 52  ]
+[; ;u8x8_byte.c: 249: case 32:
+"249
+[e :U 62 ]
+[; ;u8x8_byte.c: 250: u8x8_gpio_call(u8x8, (64+(10)), (arg_int));
+"250
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 10 `i `uc _arg_int ]
+[; ;u8x8_byte.c: 251: break;
+"251
+[e $U 52  ]
+[; ;u8x8_byte.c: 252: case 24:
+"252
+[e :U 63 ]
+[; ;u8x8_byte.c: 253: u8x8_gpio_call(u8x8, (64+(9)), (u8x8->display_info->chip_enable_level));
+"253
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 9 `i `uc . *U . *U _u8x8 0 0 ]
+[; ;u8x8_byte.c: 254: u8x8->gpio_and_delay_cb(u8x8, 44, u8x8->display_info->post_chip_enable_wait_ns, (0));
+"254
+[e ( *U . *U _u8x8 5 (4 , , , _u8x8 -> -> 44 `i `uc . *U . *U _u8x8 0 2 -> -> 0 `i `*v ]
+[; ;u8x8_byte.c: 255: break;
+"255
+[e $U 52  ]
+[; ;u8x8_byte.c: 256: case 25:
+"256
+[e :U 64 ]
+[; ;u8x8_byte.c: 257: u8x8->gpio_and_delay_cb(u8x8, 44, u8x8->display_info->pre_chip_disable_wait_ns, (0));
+"257
+[e ( *U . *U _u8x8 5 (4 , , , _u8x8 -> -> 44 `i `uc . *U . *U _u8x8 0 3 -> -> 0 `i `*v ]
+[; ;u8x8_byte.c: 258: u8x8_gpio_call(u8x8, (64+(9)), (u8x8->display_info->chip_disable_level));
+"258
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 9 `i `uc . *U . *U _u8x8 0 1 ]
+[; ;u8x8_byte.c: 259: break;
+"259
+[e $U 52  ]
+[; ;u8x8_byte.c: 260: default:
+"260
+[e :U 65 ]
+[; ;u8x8_byte.c: 261: return 0;
+"261
+[e ) -> -> 0 `i `uc ]
+[e $UE 51  ]
+"262
+}
+[; ;u8x8_byte.c: 262: }
+[e $U 52  ]
+"221
+[e :U 53 ]
+[e [\ _msg , $ -> -> 23 `i `uc 54
+ , $ -> -> 20 `i `uc 61
+ , $ -> -> 32 `i `uc 62
+ , $ -> -> 24 `i `uc 63
+ , $ -> -> 25 `i `uc 64
+ 65 ]
+"262
+[e :U 52 ]
+[; ;u8x8_byte.c: 263: return 1;
+"263
+[e ) -> -> 1 `i `uc ]
+[e $UE 51  ]
+[; ;u8x8_byte.c: 264: }
+"264
+[e :UE 51 ]
+}
+"268
+[v _u8x8_byte_3wire_sw_spi `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"269
+{
+[; ;u8x8_byte.c: 268: uint8_t u8x8_byte_3wire_sw_spi(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_byte.c: 269: {
+[e :U _u8x8_byte_3wire_sw_spi ]
+"268
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"269
+[f ]
+"270
+[v _i `uc ~T0 @X0 1 a ]
+"271
+[v _data `*uc ~T0 @X0 1 a ]
+"272
+[v _takeover_edge `uc ~T0 @X0 1 a ]
+[; ;u8x8_byte.c: 270: uint8_t i;
+[; ;u8x8_byte.c: 271: uint8_t *data;
+[; ;u8x8_byte.c: 272: uint8_t takeover_edge = ((u8x8)->display_info->spi_mode & 0x01);
+[e = _takeover_edge -> & -> . *U . *U _u8x8 0 9 `i -> 1 `i `uc ]
+"273
+[v _not_takeover_edge `uc ~T0 @X0 1 a ]
+[; ;u8x8_byte.c: 273: uint8_t not_takeover_edge = 1 - takeover_edge;
+[e = _not_takeover_edge -> - -> 1 `i -> _takeover_edge `i `uc ]
+"274
+[v _b `ui ~T0 @X0 1 a ]
+"275
+[v F1959 `uc ~T0 @X0 1 s last_dc ]
+[; ;u8x8_byte.c: 274: uint16_t b;
+[; ;u8x8_byte.c: 275: static uint8_t last_dc;
+[; ;u8x8_byte.c: 277: switch(msg)
+"277
+[e $U 68  ]
+[; ;u8x8_byte.c: 278: {
+"278
+{
+[; ;u8x8_byte.c: 279: case 23:
+"279
+[e :U 69 ]
+[; ;u8x8_byte.c: 280: data = (uint8_t *)arg_ptr;
+"280
+[e = _data -> _arg_ptr `*uc ]
+[; ;u8x8_byte.c: 281: while( arg_int > 0 )
+"281
+[e $U 70  ]
+[e :U 71 ]
+[; ;u8x8_byte.c: 282: {
+"282
+{
+[; ;u8x8_byte.c: 283: b = *data;
+"283
+[e = _b -> *U _data `ui ]
+[; ;u8x8_byte.c: 284: if ( last_dc != 0 )
+"284
+[e $ ! != -> F1959 `i -> 0 `i 73  ]
+[; ;u8x8_byte.c: 285: b |= 256;
+"285
+[e =| _b -> -> 256 `i `ui ]
+[e :U 73 ]
+[; ;u8x8_byte.c: 286: data++;
+"286
+[e ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
+[; ;u8x8_byte.c: 287: arg_int--;
+"287
+[e -- _arg_int -> -> 1 `i `uc ]
+[; ;u8x8_byte.c: 288: for( i = 0; i < 9; i++ )
+"288
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 9 `i 74  ]
+[e $U 75  ]
+"289
+[e :U 74 ]
+[; ;u8x8_byte.c: 289: {
+{
+[; ;u8x8_byte.c: 290: if ( b & 256 )
+"290
+[e $ ! != & _b -> -> 256 `i `ui -> -> 0 `i `ui 77  ]
+[; ;u8x8_byte.c: 291: u8x8_gpio_call(u8x8, (64+(1)), (1));
+"291
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 1 `i `uc -> -> 1 `i `uc ]
+[e $U 78  ]
+"292
+[e :U 77 ]
+[; ;u8x8_byte.c: 292: else
+[; ;u8x8_byte.c: 293: u8x8_gpio_call(u8x8, (64+(1)), (0));
+"293
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 1 `i `uc -> -> 0 `i `uc ]
+[e :U 78 ]
+[; ;u8x8_byte.c: 294: b <<= 1;
+"294
+[e =<< _b -> 1 `i ]
+[; ;u8x8_byte.c: 296: u8x8_gpio_call(u8x8, (64+(0)), (not_takeover_edge));
+"296
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 0 `i `uc _not_takeover_edge ]
+[; ;u8x8_byte.c: 297: u8x8_gpio_call((u8x8), (44), (u8x8->display_info->sda_setup_time_ns));
+"297
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> -> 44 `i `uc . *U . *U _u8x8 0 6 ]
+[; ;u8x8_byte.c: 298: u8x8_gpio_call(u8x8, (64+(0)), (takeover_edge));
+"298
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 0 `i `uc _takeover_edge ]
+[; ;u8x8_byte.c: 299: u8x8_gpio_call((u8x8), (44), (u8x8->display_info->sck_pulse_width_ns));
+"299
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> -> 44 `i `uc . *U . *U _u8x8 0 7 ]
+"300
+}
+"288
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 9 `i 74  ]
+[e :U 75 ]
+"300
+}
+"301
+}
+[e :U 70 ]
+"281
+[e $ > -> _arg_int `i -> 0 `i 71  ]
+[e :U 72 ]
+[; ;u8x8_byte.c: 300: }
+[; ;u8x8_byte.c: 301: }
+[; ;u8x8_byte.c: 302: break;
+"302
+[e $U 67  ]
+[; ;u8x8_byte.c: 304: case 20:
+"304
+[e :U 79 ]
+[; ;u8x8_byte.c: 306: u8x8_gpio_call(u8x8, (64+(9)), (u8x8->display_info->chip_disable_level));
+"306
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 9 `i `uc . *U . *U _u8x8 0 1 ]
+[; ;u8x8_byte.c: 310: u8x8_gpio_call(u8x8, (64+(0)), (((u8x8)->display_info->spi_mode & 0x01)));
+"310
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 0 `i `uc -> & -> . *U . *U _u8x8 0 9 `i -> 1 `i `uc ]
+[; ;u8x8_byte.c: 311: break;
+"311
+[e $U 67  ]
+[; ;u8x8_byte.c: 312: case 32:
+"312
+[e :U 80 ]
+[; ;u8x8_byte.c: 313: last_dc = arg_int;
+"313
+[e = F1959 _arg_int ]
+[; ;u8x8_byte.c: 314: break;
+"314
+[e $U 67  ]
+[; ;u8x8_byte.c: 315: case 24:
+"315
+[e :U 81 ]
+[; ;u8x8_byte.c: 316: u8x8_gpio_call(u8x8, (64+(9)), (u8x8->display_info->chip_enable_level));
+"316
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 9 `i `uc . *U . *U _u8x8 0 0 ]
+[; ;u8x8_byte.c: 317: u8x8->gpio_and_delay_cb(u8x8, 44, u8x8->display_info->post_chip_enable_wait_ns, (0));
+"317
+[e ( *U . *U _u8x8 5 (4 , , , _u8x8 -> -> 44 `i `uc . *U . *U _u8x8 0 2 -> -> 0 `i `*v ]
+[; ;u8x8_byte.c: 318: break;
+"318
+[e $U 67  ]
+[; ;u8x8_byte.c: 319: case 25:
+"319
+[e :U 82 ]
+[; ;u8x8_byte.c: 320: u8x8->gpio_and_delay_cb(u8x8, 44, u8x8->display_info->pre_chip_disable_wait_ns, (0));
+"320
+[e ( *U . *U _u8x8 5 (4 , , , _u8x8 -> -> 44 `i `uc . *U . *U _u8x8 0 3 -> -> 0 `i `*v ]
+[; ;u8x8_byte.c: 321: u8x8_gpio_call(u8x8, (64+(9)), (u8x8->display_info->chip_disable_level));
+"321
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 9 `i `uc . *U . *U _u8x8 0 1 ]
+[; ;u8x8_byte.c: 322: break;
+"322
+[e $U 67  ]
+[; ;u8x8_byte.c: 323: default:
+"323
+[e :U 83 ]
+[; ;u8x8_byte.c: 324: return 0;
+"324
+[e ) -> -> 0 `i `uc ]
+[e $UE 66  ]
+"325
+}
+[; ;u8x8_byte.c: 325: }
+[e $U 67  ]
+"277
+[e :U 68 ]
+[e [\ _msg , $ -> -> 23 `i `uc 69
+ , $ -> -> 20 `i `uc 79
+ , $ -> -> 32 `i `uc 80
+ , $ -> -> 24 `i `uc 81
+ , $ -> -> 25 `i `uc 82
+ 83 ]
+"325
+[e :U 67 ]
+[; ;u8x8_byte.c: 326: return 1;
+"326
+[e ) -> -> 1 `i `uc ]
+[e $UE 66  ]
+[; ;u8x8_byte.c: 327: }
+"327
+[e :UE 66 ]
+}
+"331
+[v _u8x8_byte_set_ks0108_cs `(v ~T0 @X0 1 ef2`*S1`uc ]
+"332
+{
+[; ;u8x8_byte.c: 331: void u8x8_byte_set_ks0108_cs(u8x8_t *u8x8, uint8_t arg)
+[; ;u8x8_byte.c: 332: {
+[e :U _u8x8_byte_set_ks0108_cs ]
+"331
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _arg `uc ~T0 @X0 1 r2 ]
+"332
+[f ]
+[; ;u8x8_byte.c: 333: u8x8_gpio_call(u8x8, (64+(9)), (arg&1));
+"333
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 9 `i `uc -> & -> _arg `i -> 1 `i `uc ]
+[; ;u8x8_byte.c: 334: arg = arg >> 1;
+"334
+[e = _arg -> >> -> _arg `i -> 1 `i `uc ]
+[; ;u8x8_byte.c: 335: u8x8_gpio_call(u8x8, (64+(14)), arg&1);
+"335
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 14 `i `uc -> & -> _arg `i -> 1 `i `uc ]
+[; ;u8x8_byte.c: 336: arg = arg >> 1;
+"336
+[e = _arg -> >> -> _arg `i -> 1 `i `uc ]
+[; ;u8x8_byte.c: 337: u8x8_gpio_call(u8x8, (64+(15)), arg&1);
+"337
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 15 `i `uc -> & -> _arg `i -> 1 `i `uc ]
+[; ;u8x8_byte.c: 338: }
+"338
+[e :UE 84 ]
+}
+"341
+[v _u8x8_byte_ks0108 `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"342
+{
+[; ;u8x8_byte.c: 341: uint8_t u8x8_byte_ks0108(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_byte.c: 342: {
+[e :U _u8x8_byte_ks0108 ]
+"341
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"342
+[f ]
+"343
+[v _i `uc ~T0 @X0 1 a ]
+[v _b `uc ~T0 @X0 1 a ]
+"344
+[v _data `*uc ~T0 @X0 1 a ]
+[; ;u8x8_byte.c: 343: uint8_t i, b;
+[; ;u8x8_byte.c: 344: uint8_t *data;
+[; ;u8x8_byte.c: 346: switch(msg)
+"346
+[e $U 87  ]
+[; ;u8x8_byte.c: 347: {
+"347
+{
+[; ;u8x8_byte.c: 348: case 23:
+"348
+[e :U 88 ]
+[; ;u8x8_byte.c: 349: data = (uint8_t *)arg_ptr;
+"349
+[e = _data -> _arg_ptr `*uc ]
+[; ;u8x8_byte.c: 350: while( arg_int > 0 )
+"350
+[e $U 89  ]
+[e :U 90 ]
+[; ;u8x8_byte.c: 351: {
+"351
+{
+[; ;u8x8_byte.c: 352: b = *data;
+"352
+[e = _b *U _data ]
+[; ;u8x8_byte.c: 353: data++;
+"353
+[e ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
+[; ;u8x8_byte.c: 354: arg_int--;
+"354
+[e -- _arg_int -> -> 1 `i `uc ]
+[; ;u8x8_byte.c: 355: for( i = (64+(0)); i <= (64+(7)); i++ )
+"355
+{
+[e = _i -> + -> 64 `i -> 0 `i `uc ]
+[e $ <= -> _i `i + -> 64 `i -> 7 `i 92  ]
+[e $U 93  ]
+"356
+[e :U 92 ]
+[; ;u8x8_byte.c: 356: {
+{
+[; ;u8x8_byte.c: 357: u8x8_gpio_call(u8x8, i, b&1);
+"357
+[e ( _u8x8_gpio_call (3 , , _u8x8 _i -> & -> _b `i -> 1 `i `uc ]
+[; ;u8x8_byte.c: 358: b >>= 1;
+"358
+[e =>> _b -> 1 `i ]
+"359
+}
+"355
+[e ++ _i -> -> 1 `i `uc ]
+[e $ <= -> _i `i + -> 64 `i -> 7 `i 92  ]
+[e :U 93 ]
+"359
+}
+[; ;u8x8_byte.c: 359: }
+[; ;u8x8_byte.c: 361: u8x8_gpio_call((u8x8), (44), (u8x8->display_info->data_setup_time_ns));
+"361
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> -> 44 `i `uc . *U . *U _u8x8 0 11 ]
+[; ;u8x8_byte.c: 362: u8x8_gpio_call(u8x8, (64+(8)), 1);
+"362
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 8 `i `uc -> -> 1 `i `uc ]
+[; ;u8x8_byte.c: 363: u8x8_gpio_call((u8x8), (44), (u8x8->display_info->write_pulse_width_ns));
+"363
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> -> 44 `i `uc . *U . *U _u8x8 0 12 ]
+[; ;u8x8_byte.c: 364: u8x8_gpio_call(u8x8, (64+(8)), 0);
+"364
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 8 `i `uc -> -> 0 `i `uc ]
+"365
+}
+[e :U 89 ]
+"350
+[e $ > -> _arg_int `i -> 0 `i 90  ]
+[e :U 91 ]
+[; ;u8x8_byte.c: 365: }
+[; ;u8x8_byte.c: 366: break;
+"366
+[e $U 86  ]
+[; ;u8x8_byte.c: 368: case 20:
+"368
+[e :U 95 ]
+[; ;u8x8_byte.c: 370: u8x8_gpio_call(u8x8, (64+(9)), (u8x8->display_info->chip_disable_level));
+"370
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 9 `i `uc . *U . *U _u8x8 0 1 ]
+[; ;u8x8_byte.c: 372: u8x8_gpio_call(u8x8, (64+(8)), 0);
+"372
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 8 `i `uc -> -> 0 `i `uc ]
+[; ;u8x8_byte.c: 373: break;
+"373
+[e $U 86  ]
+[; ;u8x8_byte.c: 374: case 32:
+"374
+[e :U 96 ]
+[; ;u8x8_byte.c: 375: u8x8_gpio_call(u8x8, (64+(10)), (arg_int));
+"375
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 10 `i `uc _arg_int ]
+[; ;u8x8_byte.c: 376: break;
+"376
+[e $U 86  ]
+[; ;u8x8_byte.c: 377: case 24:
+"377
+[e :U 97 ]
+[; ;u8x8_byte.c: 379: u8x8_byte_set_ks0108_cs(u8x8, arg_int);
+"379
+[e ( _u8x8_byte_set_ks0108_cs (2 , _u8x8 _arg_int ]
+[; ;u8x8_byte.c: 380: u8x8->gpio_and_delay_cb(u8x8, 44, u8x8->display_info->post_chip_enable_wait_ns, (0));
+"380
+[e ( *U . *U _u8x8 5 (4 , , , _u8x8 -> -> 44 `i `uc . *U . *U _u8x8 0 2 -> -> 0 `i `*v ]
+[; ;u8x8_byte.c: 381: break;
+"381
+[e $U 86  ]
+[; ;u8x8_byte.c: 382: case 25:
+"382
+[e :U 98 ]
+[; ;u8x8_byte.c: 383: u8x8->gpio_and_delay_cb(u8x8, 44, u8x8->display_info->pre_chip_disable_wait_ns, (0));
+"383
+[e ( *U . *U _u8x8 5 (4 , , , _u8x8 -> -> 44 `i `uc . *U . *U _u8x8 0 3 -> -> 0 `i `*v ]
+[; ;u8x8_byte.c: 384: u8x8_byte_set_ks0108_cs(u8x8, arg_int);
+"384
+[e ( _u8x8_byte_set_ks0108_cs (2 , _u8x8 _arg_int ]
+[; ;u8x8_byte.c: 385: break;
+"385
+[e $U 86  ]
+[; ;u8x8_byte.c: 386: default:
+"386
+[e :U 99 ]
+[; ;u8x8_byte.c: 387: return 0;
+"387
+[e ) -> -> 0 `i `uc ]
+[e $UE 85  ]
+"388
+}
+[; ;u8x8_byte.c: 388: }
+[e $U 86  ]
+"346
+[e :U 87 ]
+[e [\ _msg , $ -> -> 23 `i `uc 88
+ , $ -> -> 20 `i `uc 95
+ , $ -> -> 32 `i `uc 96
+ , $ -> -> 24 `i `uc 97
+ , $ -> -> 25 `i `uc 98
+ 99 ]
+"388
+[e :U 86 ]
+[; ;u8x8_byte.c: 389: return 1;
+"389
+[e ) -> -> 1 `i `uc ]
+[e $UE 85  ]
+[; ;u8x8_byte.c: 390: }
+"390
+[e :UE 85 ]
+}
+"397
+[v _u8x8_byte_sed1520 `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"398
+{
+[; ;u8x8_byte.c: 397: uint8_t u8x8_byte_sed1520(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_byte.c: 398: {
+[e :U _u8x8_byte_sed1520 ]
+"397
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"398
+[f ]
+"399
+[v _i `uc ~T0 @X0 1 a ]
+[v _b `uc ~T0 @X0 1 a ]
+"400
+[v _data `*uc ~T0 @X0 1 a ]
+"401
+[v F1978 `uc ~T0 @X0 1 s enable_pin ]
+[; ;u8x8_byte.c: 399: uint8_t i, b;
+[; ;u8x8_byte.c: 400: uint8_t *data;
+[; ;u8x8_byte.c: 401: static uint8_t enable_pin;
+[; ;u8x8_byte.c: 403: switch(msg)
+"403
+[e $U 102  ]
+[; ;u8x8_byte.c: 404: {
+"404
+{
+[; ;u8x8_byte.c: 405: case 23:
+"405
+[e :U 103 ]
+[; ;u8x8_byte.c: 406: data = (uint8_t *)arg_ptr;
+"406
+[e = _data -> _arg_ptr `*uc ]
+[; ;u8x8_byte.c: 407: while( arg_int > 0 )
+"407
+[e $U 104  ]
+[e :U 105 ]
+[; ;u8x8_byte.c: 408: {
+"408
+{
+[; ;u8x8_byte.c: 409: b = *data;
+"409
+[e = _b *U _data ]
+[; ;u8x8_byte.c: 410: data++;
+"410
+[e ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
+[; ;u8x8_byte.c: 411: arg_int--;
+"411
+[e -- _arg_int -> -> 1 `i `uc ]
+[; ;u8x8_byte.c: 412: for( i = (64+(0)); i <= (64+(7)); i++ )
+"412
+{
+[e = _i -> + -> 64 `i -> 0 `i `uc ]
+[e $ <= -> _i `i + -> 64 `i -> 7 `i 107  ]
+[e $U 108  ]
+"413
+[e :U 107 ]
+[; ;u8x8_byte.c: 413: {
+{
+[; ;u8x8_byte.c: 414: u8x8_gpio_call(u8x8, i, b&1);
+"414
+[e ( _u8x8_gpio_call (3 , , _u8x8 _i -> & -> _b `i -> 1 `i `uc ]
+[; ;u8x8_byte.c: 415: b >>= 1;
+"415
+[e =>> _b -> 1 `i ]
+"416
+}
+"412
+[e ++ _i -> -> 1 `i `uc ]
+[e $ <= -> _i `i + -> 64 `i -> 7 `i 107  ]
+[e :U 108 ]
+"416
+}
+[; ;u8x8_byte.c: 416: }
+[; ;u8x8_byte.c: 418: u8x8_gpio_call((u8x8), (44), (u8x8->display_info->data_setup_time_ns));
+"418
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> -> 44 `i `uc . *U . *U _u8x8 0 11 ]
+[; ;u8x8_byte.c: 419: u8x8_gpio_call(u8x8, enable_pin, 1);
+"419
+[e ( _u8x8_gpio_call (3 , , _u8x8 F1978 -> -> 1 `i `uc ]
+[; ;u8x8_byte.c: 420: u8x8_gpio_call((u8x8), (44), (200));
+"420
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> -> 44 `i `uc -> -> 200 `i `uc ]
+[; ;u8x8_byte.c: 421: u8x8_gpio_call((u8x8), (44), (u8x8->display_info->write_pulse_width_ns));
+"421
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> -> 44 `i `uc . *U . *U _u8x8 0 12 ]
+[; ;u8x8_byte.c: 422: u8x8_gpio_call(u8x8, enable_pin, 0);
+"422
+[e ( _u8x8_gpio_call (3 , , _u8x8 F1978 -> -> 0 `i `uc ]
+"423
+}
+[e :U 104 ]
+"407
+[e $ > -> _arg_int `i -> 0 `i 105  ]
+[e :U 106 ]
+[; ;u8x8_byte.c: 423: }
+[; ;u8x8_byte.c: 424: break;
+"424
+[e $U 101  ]
+[; ;u8x8_byte.c: 426: case 20:
+"426
+[e :U 110 ]
+[; ;u8x8_byte.c: 428: u8x8_gpio_call(u8x8, (64+(9)), (u8x8->display_info->chip_disable_level));
+"428
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 9 `i `uc . *U . *U _u8x8 0 1 ]
+[; ;u8x8_byte.c: 430: u8x8_gpio_call(u8x8, (64+(8)), 0);
+"430
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 8 `i `uc -> -> 0 `i `uc ]
+[; ;u8x8_byte.c: 431: u8x8_gpio_call(u8x8, (64+(9)), 0);
+"431
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 9 `i `uc -> -> 0 `i `uc ]
+[; ;u8x8_byte.c: 432: enable_pin = (64+(8));
+"432
+[e = F1978 -> + -> 64 `i -> 8 `i `uc ]
+[; ;u8x8_byte.c: 433: break;
+"433
+[e $U 101  ]
+[; ;u8x8_byte.c: 434: case 32:
+"434
+[e :U 111 ]
+[; ;u8x8_byte.c: 435: u8x8_gpio_call(u8x8, (64+(10)), (arg_int));
+"435
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 10 `i `uc _arg_int ]
+[; ;u8x8_byte.c: 436: break;
+"436
+[e $U 101  ]
+[; ;u8x8_byte.c: 437: case 24:
+"437
+[e :U 112 ]
+[; ;u8x8_byte.c: 441: enable_pin = (64+(8));
+"441
+[e = F1978 -> + -> 64 `i -> 8 `i `uc ]
+[; ;u8x8_byte.c: 442: if ( arg_int != 0 )
+"442
+[e $ ! != -> _arg_int `i -> 0 `i 113  ]
+[; ;u8x8_byte.c: 443: enable_pin = (64+(9));
+"443
+[e = F1978 -> + -> 64 `i -> 9 `i `uc ]
+[e :U 113 ]
+[; ;u8x8_byte.c: 444: break;
+"444
+[e $U 101  ]
+[; ;u8x8_byte.c: 445: case 25:
+"445
+[e :U 114 ]
+[; ;u8x8_byte.c: 446: break;
+"446
+[e $U 101  ]
+[; ;u8x8_byte.c: 447: default:
+"447
+[e :U 115 ]
+[; ;u8x8_byte.c: 448: return 0;
+"448
+[e ) -> -> 0 `i `uc ]
+[e $UE 100  ]
+"449
+}
+[; ;u8x8_byte.c: 449: }
+[e $U 101  ]
+"403
+[e :U 102 ]
+[e [\ _msg , $ -> -> 23 `i `uc 103
+ , $ -> -> 20 `i `uc 110
+ , $ -> -> 32 `i `uc 111
+ , $ -> -> 24 `i `uc 112
+ , $ -> -> 25 `i `uc 114
+ 115 ]
+"449
+[e :U 101 ]
+[; ;u8x8_byte.c: 450: return 1;
+"450
+[e ) -> -> 1 `i `uc ]
+[e $UE 100  ]
+[; ;u8x8_byte.c: 451: }
+"451
+[e :UE 100 ]
+}
+[; ;u8x8_byte.c: 461: static void i2c_delay(u8x8_t *u8x8) ;
+"462
+[v _i2c_delay `(v ~T0 @X0 1 sf1`*S1 ]
+"463
+{
+[; ;u8x8_byte.c: 462: static void i2c_delay(u8x8_t *u8x8)
+[; ;u8x8_byte.c: 463: {
+[e :U _i2c_delay ]
+"462
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+"463
+[f ]
+[; ;u8x8_byte.c: 465: u8x8_gpio_call((u8x8), (45), (u8x8->display_info->i2c_bus_clock_100kHz));
+"465
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> -> 45 `i `uc . *U . *U _u8x8 0 10 ]
+[; ;u8x8_byte.c: 466: }
+"466
+[e :UE 116 ]
+}
+"468
+[v _i2c_init `(v ~T0 @X0 1 sf1`*S1 ]
+"469
+{
+[; ;u8x8_byte.c: 468: static void i2c_init(u8x8_t *u8x8)
+[; ;u8x8_byte.c: 469: {
+[e :U _i2c_init ]
+"468
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+"469
+[f ]
+[; ;u8x8_byte.c: 470: u8x8_gpio_call(u8x8, (64+(12)), (1));
+"470
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 12 `i `uc -> -> 1 `i `uc ]
+[; ;u8x8_byte.c: 471: u8x8_gpio_call(u8x8, (64+(13)), (1));
+"471
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 13 `i `uc -> -> 1 `i `uc ]
+[; ;u8x8_byte.c: 473: i2c_delay(u8x8);
+"473
+[e ( _i2c_delay (1 _u8x8 ]
+[; ;u8x8_byte.c: 474: }
+"474
+[e :UE 117 ]
+}
+"478
+[v _i2c_read_scl_and_delay `(v ~T0 @X0 1 sf1`*S1 ]
+"479
+{
+[; ;u8x8_byte.c: 478: static void i2c_read_scl_and_delay(u8x8_t *u8x8)
+[; ;u8x8_byte.c: 479: {
+[e :U _i2c_read_scl_and_delay ]
+"478
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+"479
+[f ]
+[; ;u8x8_byte.c: 481: u8x8_gpio_call(u8x8, (64+(12)), (1));
+"481
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 12 `i `uc -> -> 1 `i `uc ]
+[; ;u8x8_byte.c: 483: i2c_delay(u8x8);
+"483
+[e ( _i2c_delay (1 _u8x8 ]
+[; ;u8x8_byte.c: 484: }
+"484
+[e :UE 118 ]
+}
+"486
+[v _i2c_clear_scl `(v ~T0 @X0 1 sf1`*S1 ]
+"487
+{
+[; ;u8x8_byte.c: 486: static void i2c_clear_scl(u8x8_t *u8x8)
+[; ;u8x8_byte.c: 487: {
+[e :U _i2c_clear_scl ]
+"486
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+"487
+[f ]
+[; ;u8x8_byte.c: 488: u8x8_gpio_call(u8x8, (64+(12)), (0));
+"488
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 12 `i `uc -> -> 0 `i `uc ]
+[; ;u8x8_byte.c: 489: }
+"489
+[e :UE 119 ]
+}
+"491
+[v _i2c_read_sda `(v ~T0 @X0 1 sf1`*S1 ]
+"492
+{
+[; ;u8x8_byte.c: 491: static void i2c_read_sda(u8x8_t *u8x8)
+[; ;u8x8_byte.c: 492: {
+[e :U _i2c_read_sda ]
+"491
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+"492
+[f ]
+[; ;u8x8_byte.c: 494: u8x8_gpio_call(u8x8, (64+(13)), (1));
+"494
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 13 `i `uc -> -> 1 `i `uc ]
+[; ;u8x8_byte.c: 495: }
+"495
+[e :UE 120 ]
+}
+"497
+[v _i2c_clear_sda `(v ~T0 @X0 1 sf1`*S1 ]
+"498
+{
+[; ;u8x8_byte.c: 497: static void i2c_clear_sda(u8x8_t *u8x8)
+[; ;u8x8_byte.c: 498: {
+[e :U _i2c_clear_sda ]
+"497
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+"498
+[f ]
+[; ;u8x8_byte.c: 500: u8x8_gpio_call(u8x8, (64+(13)), (0));
+"500
+[e ( _u8x8_gpio_call (3 , , _u8x8 -> + -> 64 `i -> 13 `i `uc -> -> 0 `i `uc ]
+[; ;u8x8_byte.c: 501: }
+"501
+[e :UE 121 ]
+}
+"503
+[v _i2c_start `(v ~T0 @X0 1 sf1`*S1 ]
+"504
+{
+[; ;u8x8_byte.c: 503: static void i2c_start(u8x8_t *u8x8)
+[; ;u8x8_byte.c: 504: {
+[e :U _i2c_start ]
+"503
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+"504
+[f ]
+[; ;u8x8_byte.c: 505: if ( u8x8->i2c_started != 0 )
+"505
+[e $ ! != -> . *U _u8x8 12 `i -> 0 `i 123  ]
+[; ;u8x8_byte.c: 506: {
+"506
+{
+[; ;u8x8_byte.c: 508: i2c_read_sda(u8x8);
+"508
+[e ( _i2c_read_sda (1 _u8x8 ]
+[; ;u8x8_byte.c: 509: i2c_delay(u8x8);
+"509
+[e ( _i2c_delay (1 _u8x8 ]
+[; ;u8x8_byte.c: 510: i2c_read_scl_and_delay(u8x8);
+"510
+[e ( _i2c_read_scl_and_delay (1 _u8x8 ]
+"511
+}
+[e :U 123 ]
+[; ;u8x8_byte.c: 511: }
+[; ;u8x8_byte.c: 512: i2c_read_sda(u8x8);
+"512
+[e ( _i2c_read_sda (1 _u8x8 ]
+[; ;u8x8_byte.c: 514: i2c_clear_sda(u8x8);
+"514
+[e ( _i2c_clear_sda (1 _u8x8 ]
+[; ;u8x8_byte.c: 515: i2c_delay(u8x8);
+"515
+[e ( _i2c_delay (1 _u8x8 ]
+[; ;u8x8_byte.c: 516: i2c_clear_scl(u8x8);
+"516
+[e ( _i2c_clear_scl (1 _u8x8 ]
+[; ;u8x8_byte.c: 517: u8x8->i2c_started = 1;
+"517
+[e = . *U _u8x8 12 -> -> 1 `i `uc ]
+[; ;u8x8_byte.c: 518: }
+"518
+[e :UE 122 ]
+}
+"521
+[v _i2c_stop `(v ~T0 @X0 1 sf1`*S1 ]
+"522
+{
+[; ;u8x8_byte.c: 521: static void i2c_stop(u8x8_t *u8x8)
+[; ;u8x8_byte.c: 522: {
+[e :U _i2c_stop ]
+"521
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+"522
+[f ]
+[; ;u8x8_byte.c: 524: i2c_clear_sda(u8x8);
+"524
+[e ( _i2c_clear_sda (1 _u8x8 ]
+[; ;u8x8_byte.c: 525: i2c_delay(u8x8);
+"525
+[e ( _i2c_delay (1 _u8x8 ]
+[; ;u8x8_byte.c: 528: i2c_read_scl_and_delay(u8x8);
+"528
+[e ( _i2c_read_scl_and_delay (1 _u8x8 ]
+[; ;u8x8_byte.c: 531: i2c_read_sda(u8x8);
+"531
+[e ( _i2c_read_sda (1 _u8x8 ]
+[; ;u8x8_byte.c: 532: i2c_delay(u8x8);
+"532
+[e ( _i2c_delay (1 _u8x8 ]
+[; ;u8x8_byte.c: 533: u8x8->i2c_started = 0;
+"533
+[e = . *U _u8x8 12 -> -> 0 `i `uc ]
+[; ;u8x8_byte.c: 534: }
+"534
+[e :UE 124 ]
+}
+"536
+[v _i2c_write_bit `(v ~T0 @X0 1 sf2`*S1`uc ]
+"537
+{
+[; ;u8x8_byte.c: 536: static void i2c_write_bit(u8x8_t *u8x8, uint8_t val)
+[; ;u8x8_byte.c: 537: {
+[e :U _i2c_write_bit ]
+"536
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _val `uc ~T0 @X0 1 r2 ]
+"537
+[f ]
+[; ;u8x8_byte.c: 538: if (val)
+"538
+[e $ ! != -> _val `i -> -> -> 0 `i `uc `i 126  ]
+[; ;u8x8_byte.c: 539: i2c_read_sda(u8x8);
+"539
+[e ( _i2c_read_sda (1 _u8x8 ]
+[e $U 127  ]
+"540
+[e :U 126 ]
+[; ;u8x8_byte.c: 540: else
+[; ;u8x8_byte.c: 541: i2c_clear_sda(u8x8);
+"541
+[e ( _i2c_clear_sda (1 _u8x8 ]
+[e :U 127 ]
+[; ;u8x8_byte.c: 543: i2c_delay(u8x8);
+"543
+[e ( _i2c_delay (1 _u8x8 ]
+[; ;u8x8_byte.c: 544: i2c_read_scl_and_delay(u8x8);
+"544
+[e ( _i2c_read_scl_and_delay (1 _u8x8 ]
+[; ;u8x8_byte.c: 545: i2c_clear_scl(u8x8);
+"545
+[e ( _i2c_clear_scl (1 _u8x8 ]
+[; ;u8x8_byte.c: 546: }
+"546
+[e :UE 125 ]
+}
+"548
+[v _i2c_read_bit `(v ~T0 @X0 1 sf1`*S1 ]
+"549
+{
+[; ;u8x8_byte.c: 548: static void i2c_read_bit(u8x8_t *u8x8)
+[; ;u8x8_byte.c: 549: {
+[e :U _i2c_read_bit ]
+"548
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+"549
+[f ]
+[; ;u8x8_byte.c: 552: i2c_read_sda(u8x8);
+"552
+[e ( _i2c_read_sda (1 _u8x8 ]
+[; ;u8x8_byte.c: 553: i2c_delay(u8x8);
+"553
+[e ( _i2c_delay (1 _u8x8 ]
+[; ;u8x8_byte.c: 554: i2c_read_scl_and_delay(u8x8);
+"554
+[e ( _i2c_read_scl_and_delay (1 _u8x8 ]
+[; ;u8x8_byte.c: 555: i2c_read_sda(u8x8);
+"555
+[e ( _i2c_read_sda (1 _u8x8 ]
+[; ;u8x8_byte.c: 556: i2c_delay(u8x8);
+"556
+[e ( _i2c_delay (1 _u8x8 ]
+[; ;u8x8_byte.c: 557: i2c_clear_scl(u8x8);
+"557
+[e ( _i2c_clear_scl (1 _u8x8 ]
+[; ;u8x8_byte.c: 559: }
+"559
+[e :UE 128 ]
+}
+"561
+[v _i2c_write_byte `(v ~T0 @X0 1 sf2`*S1`uc ]
+"562
+{
+[; ;u8x8_byte.c: 561: static void i2c_write_byte(u8x8_t *u8x8, uint8_t b)
+[; ;u8x8_byte.c: 562: {
+[e :U _i2c_write_byte ]
+"561
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _b `uc ~T0 @X0 1 r2 ]
+"562
+[f ]
+[; ;u8x8_byte.c: 563: i2c_write_bit(u8x8, b & 128);
+"563
+[e ( _i2c_write_bit (2 , _u8x8 -> & -> _b `i -> 128 `i `uc ]
+[; ;u8x8_byte.c: 564: i2c_write_bit(u8x8, b & 64);
+"564
+[e ( _i2c_write_bit (2 , _u8x8 -> & -> _b `i -> 64 `i `uc ]
+[; ;u8x8_byte.c: 565: i2c_write_bit(u8x8, b & 32);
+"565
+[e ( _i2c_write_bit (2 , _u8x8 -> & -> _b `i -> 32 `i `uc ]
+[; ;u8x8_byte.c: 566: i2c_write_bit(u8x8, b & 16);
+"566
+[e ( _i2c_write_bit (2 , _u8x8 -> & -> _b `i -> 16 `i `uc ]
+[; ;u8x8_byte.c: 567: i2c_write_bit(u8x8, b & 8);
+"567
+[e ( _i2c_write_bit (2 , _u8x8 -> & -> _b `i -> 8 `i `uc ]
+[; ;u8x8_byte.c: 568: i2c_write_bit(u8x8, b & 4);
+"568
+[e ( _i2c_write_bit (2 , _u8x8 -> & -> _b `i -> 4 `i `uc ]
+[; ;u8x8_byte.c: 569: i2c_write_bit(u8x8, b & 2);
+"569
+[e ( _i2c_write_bit (2 , _u8x8 -> & -> _b `i -> 2 `i `uc ]
+[; ;u8x8_byte.c: 570: i2c_write_bit(u8x8, b & 1);
+"570
+[e ( _i2c_write_bit (2 , _u8x8 -> & -> _b `i -> 1 `i `uc ]
+[; ;u8x8_byte.c: 575: i2c_read_bit(u8x8);
+"575
+[e ( _i2c_read_bit (1 _u8x8 ]
+[; ;u8x8_byte.c: 576: }
+"576
+[e :UE 129 ]
+}
+"578
+[v _u8x8_byte_sw_i2c `(uc ~T0 @X0 1 ef4`*S1`uc`uc`*v ]
+"579
+{
+[; ;u8x8_byte.c: 578: uint8_t u8x8_byte_sw_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+[; ;u8x8_byte.c: 579: {
+[e :U _u8x8_byte_sw_i2c ]
+"578
+[v _u8x8 `*S1 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+[v _arg_int `uc ~T0 @X0 1 r3 ]
+[v _arg_ptr `*v ~T0 @X0 1 r4 ]
+"579
+[f ]
+"580
+[v _data `*uc ~T0 @X0 1 a ]
+[; ;u8x8_byte.c: 580: uint8_t *data;
+[; ;u8x8_byte.c: 582: switch(msg)
+"582
+[e $U 132  ]
+[; ;u8x8_byte.c: 583: {
+"583
+{
+[; ;u8x8_byte.c: 584: case 23:
+"584
+[e :U 133 ]
+[; ;u8x8_byte.c: 585: data = (uint8_t *)arg_ptr;
+"585
+[e = _data -> _arg_ptr `*uc ]
+[; ;u8x8_byte.c: 587: while( arg_int > 0 )
+"587
+[e $U 134  ]
+[e :U 135 ]
+[; ;u8x8_byte.c: 588: {
+"588
+{
+[; ;u8x8_byte.c: 589: i2c_write_byte(u8x8, *data);
+"589
+[e ( _i2c_write_byte (2 , _u8x8 *U _data ]
+[; ;u8x8_byte.c: 590: data++;
+"590
+[e ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
+[; ;u8x8_byte.c: 591: arg_int--;
+"591
+[e -- _arg_int -> -> 1 `i `uc ]
+"592
+}
+[e :U 134 ]
+"587
+[e $ > -> _arg_int `i -> 0 `i 135  ]
+[e :U 136 ]
+[; ;u8x8_byte.c: 592: }
+[; ;u8x8_byte.c: 594: break;
+"594
+[e $U 131  ]
+[; ;u8x8_byte.c: 596: case 20:
+"596
+[e :U 137 ]
+[; ;u8x8_byte.c: 597: i2c_init(u8x8);
+"597
+[e ( _i2c_init (1 _u8x8 ]
+[; ;u8x8_byte.c: 598: break;
+"598
+[e $U 131  ]
+[; ;u8x8_byte.c: 599: case 32:
+"599
+[e :U 138 ]
+[; ;u8x8_byte.c: 600: break;
+"600
+[e $U 131  ]
+[; ;u8x8_byte.c: 601: case 24:
+"601
+[e :U 139 ]
+[; ;u8x8_byte.c: 602: i2c_start(u8x8);
+"602
+[e ( _i2c_start (1 _u8x8 ]
+[; ;u8x8_byte.c: 603: i2c_write_byte(u8x8, ((u8x8)->i2c_address));
+"603
+[e ( _i2c_write_byte (2 , _u8x8 . *U _u8x8 11 ]
+[; ;u8x8_byte.c: 605: break;
+"605
+[e $U 131  ]
+[; ;u8x8_byte.c: 606: case 25:
+"606
+[e :U 140 ]
+[; ;u8x8_byte.c: 607: i2c_stop(u8x8);
+"607
+[e ( _i2c_stop (1 _u8x8 ]
+[; ;u8x8_byte.c: 608: break;
+"608
+[e $U 131  ]
+[; ;u8x8_byte.c: 609: default:
+"609
+[e :U 141 ]
+[; ;u8x8_byte.c: 610: return 0;
+"610
+[e ) -> -> 0 `i `uc ]
+[e $UE 130  ]
+"611
+}
+[; ;u8x8_byte.c: 611: }
+[e $U 131  ]
+"582
+[e :U 132 ]
+[e [\ _msg , $ -> -> 23 `i `uc 133
+ , $ -> -> 20 `i `uc 137
+ , $ -> -> 32 `i `uc 138
+ , $ -> -> 24 `i `uc 139
+ , $ -> -> 25 `i `uc 140
+ 141 ]
+"611
+[e :U 131 ]
+[; ;u8x8_byte.c: 612: return 1;
+"612
+[e ) -> -> 1 `i `uc ]
+[e $UE 130  ]
+[; ;u8x8_byte.c: 613: }
+"613
+[e :UE 130 ]
+}
